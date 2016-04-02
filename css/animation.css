@@ -1,0 +1,20 @@
+.actionOut {
+    animation: actionOut 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+.actionIn {
+    animation: actionIn 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+@keyframes actionOut {
+    0% {left: 0;}
+    100% {left: -250px;}
+}
+@keyframes actionIn {
+    0% {left: -250px;}
+    100% {left: 0;}
+}
+
+
+
+

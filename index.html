@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html ng-app="neomanApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>牛男</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/app.public.css"/>
+    <link rel="stylesheet" href="css/animation.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ui-router/angular-ui-router.js"></script>
+    <script src="bower_components/angular/angular-animate.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/directive.js"></script>
+
+</head>
+<body ng-controller="globalCtrl" app-directive>
+    <header>
+        <div class="toCenter header">
+            <div class="float-left menu-logo">
+                <div id="menu" class="menu"><img src="./images/menu.png" alt="menu"></div>
+                <div class="logo"><img src="./images/logo.png" alt="牛男网"></div>
+            </div>
+            <div class="float-left choose-wrap">
+                <div id="choose-type" class="choose-type"></div>
+            </div>
+            <div class="float-right login-reg">
+                <a href="" class="login">登录</a>
+                <a href="" class="reg">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-content" id="menu-content">
+        <div class="menu-search">
+            <div class="search-content">
+                <div class="float-left search-input">
+                    <input type="text" class="search-input-text" placeholder='search'>
+                </div>
+                <div class="search-btn"></div>
+            </div>
+        </div>
+        <div class="kinds">CHANNELS 频道</div>
+        <ul class="menu-list">
+            <li class="menu-list-item car">
+                <a ng-href="#/phones" data-color='#b9b9b9' data-value="CAR | 汽车">汽车 CAR</a>
+            </li>
+            <li class="menu-list-item fitness">
+                <a ng-href="#/members" data-color='#d93347' data-value="FITNESS | 健身">健身 FITNESS</a>
+            </li>
+            <li class="menu-list-item style">
+                <a ng-href="#/phones" data-color='#7e2dc2' data-value="STYLE | 形象">形象 STYLE</a>
+            </li>
+            <li class="menu-list-item entertanment">
+                <a ng-href="#/phones" data-color='#cb07ad' data-value="entertainment | 娱乐">娱乐 entertainment</a>
+            </li>
+            <li class="menu-list-item deit">
+                <a ng-href="#/phones" data-color='#00b451' data-value="diet | 饮食">饮食 diet</a>
+            </li>
+            <li class="menu-list-item fun">
+                <a ng-href="#/phones"data-color='#eb9318' data-value="FUN | 好玩">好玩 FUN</a>
+            </li>
+            <li class="menu-list-item love">
+                <a ng-href="#/phones" data-color='#ee246e' data-value="love | 情感">情感 love</a>
+            </li>
+            <li class="menu-list-item successful">
+                <a ng-href="#/phones" data-color='#29658a' data-value="successful | 成长">成长 successful</a>
+            </li>
+            <li class="menu-list-item health">
+                <a ng-href="#/phones" data-color='#76c422' data-value="health | 健康">健康 health</a>
+            </li>
+            <li class="menu-list-item motivation">
+                <a ng-href="#/phones"data-color='#ff6600' data-value="motivational | 约会">约会 motivational</a>
+            </li>
+        </ul>
+        <div class="kinds">ALBUMS 专辑</div>
+        <ul class="menu-list">
+            <li class="menu-list-item day30">
+                <a ng-href="" data-color='#9cc422' data-value="三十天健身计划">三十天健身计划</a>
+            </li>
+            <li class="menu-list-item neoman-music">
+                <a ng-href="" data-color='#267ad8' data-value="每天一首牛男音乐">每天一首牛男音乐</a>
+            </li>
+            <li class="menu-list-item find-girl">
+                <a ng-href="" data-color='#22b6db' data-value="牛男泡妞秘籍">牛男泡妞秘籍</a>
+            </li>
+        </ul>
+    </div>
+
+    <div ui-view="main"></div>
+
+    <footer>
+        <div class="footer-content toCenter">
+            <div class="float-left some-links">
+                <div class="footer-logo">
+                    <img src="./images/footer-neoman.png" alt="">
+                </div>
+                <div class="links">
+                    <a href="http://www.baidu.com" target="_blank" class="link">关于我们</a>
+                    <a href="" class="link">广告服务</a>
+                    <a href="" class="link">友情链接</a>
+                    <a href="" class="link">牛男商城</a>
+                    <a href="" class="link">加入牛男</a>
+                    <a href="" class="link">相关声明</a>
+                    <a href="" class="link">牛男APP</a>
+                    <a href="" class="link">欢迎投稿</a>
+                </div>
+            </div>
+            <div class="float-right enter">
+                <div class="betterman">立即加入成为更好的男人</div>
+                <form action="">
+                    <div class="input-wrap clear">
+                        <div class="float-left input-text">
+                            <input type="text" placeholder='请输入您的邮箱'>
+                        </div>
+                        <div class="float-left enter-btn">立即加入</div>
+                    </div>
+                </form>
+
+                <div class="shares">
+                    <a href="" class="share"><img src="./images/single.png" alt=""></a>
+                    <a href="" class="share"><img src="./images/weibo.png" alt=""></a>
+                    <a href="" class="share"><img src="./images/weixin.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
