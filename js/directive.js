@@ -3,7 +3,7 @@
  */
 var app = angular.module("app.directive", []);
 
-//  body元素上的指令
+//  body元素上的指令   控制menu菜单的指令
 var count = 0;
 app.directive("appDirective", function(){
     return {
@@ -34,4 +34,22 @@ app.directive("appDirective", function(){
             })
         }
     }
-})
+});
+
+app.directive('swiper', function(){
+    return {
+        restrict : 'EA',
+        link : function(scope, ele, attr){
+            var $swiper = $(ele);
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                autoplay:4000,
+                loop : true
+            });
+        }
+    }
+});
+

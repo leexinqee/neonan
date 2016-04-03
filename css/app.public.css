@@ -184,6 +184,8 @@ footer {
     width: 250px;
     background-color: #3f3f3f;
     z-index: 10000;
+    bottom: 0;
+    overflow-y: auto;
     /*-webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;

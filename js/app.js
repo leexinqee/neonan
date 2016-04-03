@@ -16,6 +16,18 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             'main': {
                 templateUrl: 'template/main.html',
                 controller : "mainCtrl"
+            },
+            'top@index' : {
+                templateUrl: 'template/top.html',
+                controller : "topCtrl"
+            },
+            'asideLeft@index' : {
+                templateUrl: 'template/aside-left.html',
+                controller : "asideLeftCtrl"
+            },
+            'asideRight@index' : {
+                templateUrl: 'template/aside-right.html',
+                controller : "asideRightCtrl"
             }
         }
     })
