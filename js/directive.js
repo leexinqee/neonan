@@ -60,7 +60,7 @@ app.directive('menuContainer', function(){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
-            //menu  scroll bar 
+            //menu  scroll bar
             $(ele).niceScroll({
                 cursorcolor: "rgba(0,0,0,0)", // 光标颜色
                 cursoropacitymax: 1, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0

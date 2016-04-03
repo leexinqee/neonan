@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/app.public.css"/>
     <link rel="stylesheet" href="css/animation.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/loginup.css"/>
 
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -27,21 +28,93 @@
 
 </head>
 <body ng-controller="globalCtrl" app-directive>
-    <header>
-        <div class="toCenter header">
-            <div class="float-left menu-logo">
-                <div id="menu" class="menu"><img src="./images/menu.png" alt="menu"></div>
-                <div class="logo"><img src="./images/logo.png" alt="牛男网"></div>
+    <div loginup-directive>
+        <header>
+            <div class="toCenter header">
+                <div class="float-left menu-logo">
+                    <div id="menu" class="menu"><img src="./images/menu.png" alt="menu"></div>
+                    <div class="logo"><img src="./images/logo.png" alt="牛男网"></div>
+                </div>
+                <div class="float-left choose-wrap">
+                    <div id="choose-type" class="choose-type"></div>
+                </div>
+                <div class="float-right login-reg">
+                    <a href="" class="login">登录</a>
+                    <a href="" class="reg">注册</a>
+                </div>
             </div>
-            <div class="float-left choose-wrap">
-                <div id="choose-type" class="choose-type"></div>
+        </header>
+        <div class="mask"></div>
+        <div class="account">
+            <!-- logup 用户注册-->
+            <div class="dialog-reg" style="display: none">
+                <div class="account-title">
+                    <img src="./images/res.png" alt=""/>
+                </div>
+                <div class="user-input">
+                    <div class="input-list">
+                        <input type="text" placeholder="请输入手机号码"/>
+                    </div>
+                    <div class="input-list">
+                        <input id="enter-code" type="text" placeholder="请输入验证码"/>
+                        <div class="get-code">获取验证码</div>
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="请输入密码"/>
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="确认密码"/>
+                    </div>
+                    <div class="dialog-submit-wrap">
+                        <button type="button" class="btn btn-default dialog-submit">立即注册</button>
+                        <button type="button" class="btn btn-link return-login">返回登录</button>
+                    </div>
+                </div>
+                <div class="close-dialog"></div>
             </div>
-            <div class="float-right login-reg">
-                <a href="" class="login">登录</a>
-                <a href="" class="reg">注册</a>
+
+            <!-- login 用户登录-->
+            <div class="dialog-login">
+                <div class="account-title">
+                    <img src="./images/betterman.png" alt=""/>
+                </div>
+                <div class="user-input">
+                    <div class="input-list">
+                        <input type="text" placeholder="请输入牛男账号"/>
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="请输入密码"/>
+                    </div>
+                    <div class="rememberMe">
+                        <input type="checkbox" name="pwd" id="pwd"/>
+                        <label for="pwd">记住我</label>
+                    </div>
+                    <div class="dialog-submit-wrap">
+                        <button type="button" class="btn btn-default dialog-submit">立即登录</button>
+                        <button type="button" class="btn btn-link return-login">忘记密码？</button>
+                    </div>
+                    <div class="other-login">
+                        <div class="other-login-text">第三方登录</div>
+                        <div class="other-login-list">
+                            <div class="weixin-ligin"></div>
+                            <div class="weibo-login"></div>
+                            <div class="qq-login"></div>
+                        </div>
+                    </div>
+                    <div class="no-account">
+                        <div class="float-left no-account-left">还没有牛男账号？ 立即加入！</div>
+                        <button type="button" class="btn btn-default dialog-submit float-right no-account-right">立即注册</button>
+                    </div>
+                </div>
+                <div class="close-dialog"></div>
             </div>
+
+
+
+
         </div>
-    </header>
+    </div>
+
 
     <div menu-container class="menu-content" id="menu-content">
         <div class="menu-search">
