@@ -13,6 +13,7 @@ app.directive("appDirective", function(){
             var $menu = $body.find("#menu-content");        // menu-content
             var $choosetype = $("#choose-type");            // choose-type
 
+            //  header 头部菜单按钮控制
             $body.find("#menu").on("click", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 if(count % 2){
@@ -21,8 +22,9 @@ app.directive("appDirective", function(){
                     $menu.addClass('actionIn');
                 }
                 count++;
-            })
+            });
 
+            //  菜单点击之后的控制
             $menu.find(".menu-list").on('click', ".menu-list-item", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 var $a = $(this).find("a");
@@ -36,11 +38,11 @@ app.directive("appDirective", function(){
     }
 });
 
+//  轮播控制器插件执行
 app.directive('swiper', function(){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
-            var $swiper = $(ele);
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 paginationClickable: true,
@@ -53,3 +55,21 @@ app.directive('swiper', function(){
     }
 });
 
+//  菜单滚动执行
+app.directive('menuContainer', function(){
+    return {
+        restrict : 'EA',
+        link : function(scope, ele, attr){
+            //menu  scroll bar 
+            $(ele).niceScroll({
+                cursorcolor: "rgba(0,0,0,0)", // 光标颜色
+                cursoropacitymax: 1, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+                touchbehavior: false, //使光标拖动滚动像在台式电脑触摸设备
+                cursorwidth: "5px", //像素光标的宽度
+                cursorborder: "0", //   游标边框css定义
+                cursorborderradius: "5px", //以像素为光标边界半径
+                autohidemode: false //是否隐藏滚动条
+            });
+        }
+    }
+});
