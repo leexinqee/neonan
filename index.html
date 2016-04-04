@@ -26,6 +26,7 @@
 
 </head>
 <body ng-controller="globalCtrl" app-directive>
+<!--公共头部-->
     <header>
         <div class="toCenter header">
             <div class="float-left menu-logo">
@@ -41,7 +42,7 @@
             </div>
         </div>
     </header>
-
+    <!--公共菜单部分-->
     <div class="menu-content" id="menu-content">
         <div class="menu-search">
             <div class="search-content">
@@ -97,9 +98,9 @@
             </li>
         </ul>
     </div>
-
+    <!--内容区-->
     <div ui-view="main"></div>
-
+    <!--公共尾部-->
     <footer>
         <div class="footer-content toCenter">
             <div class="float-left some-links">
