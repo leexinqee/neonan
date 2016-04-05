@@ -73,3 +73,17 @@ app.directive('menuContainer', function(){
         }
     }
 });
+
+
+//  µÇÂ½¿ò
+app.directive('loginupDirective', function(){
+    return {
+        restrict : 'EA',
+        link : function(scope, ele, attr){
+            var $account = $(ele).find("#account");
+            $account.on("click", ".close-dialog", function(){
+               $(this).parents(".modal").modal('hide');         // Òþ²Øµ¯³ö¿ò
+            });
+        }
+    }
+});
