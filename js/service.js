@@ -3,19 +3,8 @@
  */
 var app = angular.module('app.service',['ngResource']);
 app.factory('getData',[$resource,function($resource){
-    return function(url,params,methods){
-        var BASEURL = "http://v2.api.neonan.com/v4/";
-        url+=BASEURL;
-        var defaults = {
-            get:{
-                method:'get',
-                isArray:false
-            },
-            post:{
-                method:'post'
-            }
-        };
-        methods = angular.extend(defaults,methods);
-        return resourse = $resource(url,params,methods);
-    };
+    return $resource('/recipe/:id',{id:'@id'});
 }]);
+app.factory('getDetaildata',['getData'],function(){
+
+});
