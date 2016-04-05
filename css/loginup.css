@@ -83,17 +83,17 @@
 }
 .other-login{
     border-top:1px solid #eaeaea;
-    margin-left: -16px;
-    margin-right: -16px;
+    margin-bottom: 30px;
 }
 .other-login-list{
     font-size: 33px;
     text-align: center;
+    overflow: hidden;
 }
 .other-login-text{
     background-color: #ffffff;
     width: 100px;
-    margin: -15px auto 0;
+    margin: 10px auto;
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -101,11 +101,16 @@
     color: #b2b2b2;
 }
 .weixin-ligin,.weibo-login,.qq-login{
-    margin-top: 20px;
+    float: left;
     width: 115px;
     height: 36px;
-    cursor: pointer;
+    border-radius: 0;
     display: inline-block;
+    border: none;
+    margin-left: 19px;
+}
+.weixin-ligin {
+    margin: 0;
 }
 .no-account{
     margin-left: -16px;
@@ -161,3 +166,13 @@
     background-color: rgba(0,0,0,0.5);
     z-index: 100000;
 }
+/*.modal.in .modal-dialog {
+    width: 416px;
+}
+.modal.out .modal-dialog {
+    width: 416px;
+}*/
+.modal-dialog.modal-lg {
+    width: 416px;
+}
+
