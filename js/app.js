@@ -1,7 +1,7 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
-var routerApp = angular.module('neomanApp', ['ui.router', 'app.controller', 'app.directive']);
+var routerApp = angular.module('neomanApp', ['ui.router', 'app.controller', 'app.directive','app.service']);
 
 routerApp.run(function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;

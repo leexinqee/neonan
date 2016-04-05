@@ -18,7 +18,7 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/ui-router/angular-ui-router.js"></script>
     <script src="bower_components/angular/angular-animate.js"></script>
-
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="bower_components/swiper/swiper.min.js"></script>
     <script src="bower_components/jquery.nicescroll/jquery.nicescroll.js"></script>
 
@@ -29,6 +29,7 @@
 
 </head>
 <body ng-controller="globalCtrl" app-directive>
+<!--公共头部-->
     <div loginup-directive>
         <header>
             <div class="toCenter header">
@@ -186,9 +187,9 @@
             </div>
 
         </div>
+    </header>
+    <!--公共菜单部分-->
     </div>
-
-
     <div menu-container class="menu-content" id="menu-content">
         <div class="menu-search">
             <div class="search-content">
@@ -244,9 +245,9 @@
             </li>
         </ul>
     </div>
-
+    <!--内容区-->
     <div ui-view="main"></div>
-
+    <!--公共尾部-->
     <footer>
         <div class="footer-content toCenter">
             <div class="float-left some-links">
