@@ -30,5 +30,13 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 controller : "asideRightCtrl"
             }
         }
+    }).state('index.selfInfo', {
+        url : '/userinfo',
+        views : {
+            'top' : {
+                templateUrl: 'template/top-selfinfo.html',
+                controller : "topInfoCtrl"
+            }
+        }
     })
 });
