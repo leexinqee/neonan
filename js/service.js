@@ -11,12 +11,21 @@ app.factory('serviceRouter',['$resource',function($resource){
 }]);
 app.factory('getData',[serviceRouter,function(serviceRouter){
     return {
-        login:function(){},
+        login:function(){
+            var defer = $q.defer();
+            serviceRouter.get({id:cardID},function(data,headers){
+                defer.resolve(data);
+            },function(data,headers){
+                defer.reject(data);
+            });
+            return defer.promise
+        },
         regist:function(){},
+        findPwd:function(){},
         getArticle:function(){},
-        
+        getArticleDetail:function(){},
+        getMyCollectionArticle:function(){},
+        getAlbum:function(){},
+        getCategory:function(){}
     }
 }]);
-app.factory('getDetaildata',['getData','$q'],function(getData,$q){
-
-});
