@@ -31,11 +31,23 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             }
         }
     }).state('index.selfInfo', {
-        url : '/userinfo',
+        url : '/selfinfo',
         views : {
             'top' : {
                 templateUrl: 'template/top-selfinfo.html',
                 controller : "topInfoCtrl"
+            }
+        }
+    }).state('index.contentDetail', {
+        url : '/contentdetail',
+        views : {
+            'top' : {
+                templateUrl: 'template/top-content-detail.html',
+                controller : "topContentCtrl"
+            },
+            'asideRight' : {
+                template: '',
+                controller: ""
             }
         }
     })
