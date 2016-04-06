@@ -1,0 +1,63 @@
+/* ³åÍ»ÑùÊ½ */
+.right-content .aside {
+    margin-top: 0px;
+}
+.right-content .for-adds {
+    margin-top: 0px;
+}
+
+.content-wrap {
+
+}
+.ad-wrap {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    margin: 50px 0;
+}
+.ad-wrap .ad-bar {
+    height: 100%;
+    width: 900px;
+    background: #ccc;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 90px;
+    font-size: 24px;
+    color: #fff;
+}
+.ad-wrap .close-btn {
+    position: absolute;
+    right: 0;
+    top: 27px;
+    font-size: 30px;
+}
+.content-box {
+
+}
+.left-content-box {
+    margin-right: 350px;
+}
+.left-content-box .content-title {
+
+}
+.left-content-box .content-title .person-box {
+
+ }
+.left-content-box .content-title .name-box {
+
+}
+.left-content-box .content-title .time-box {
+
+}
+.left-content-box .share-box {
+
+}
+
+.right-content {
+    width: 350px;
+    float: right;
+}
+
+
+
+
