@@ -29,3 +29,15 @@ app.controller("asideRightCtrl", function($scope){
 app.controller("topInfoCtrl", function($scope){
     console.log('topInfoCtrl')
 });
+
+app.controller("topContentCtrl", function($scope){
+    console.log('topContentCtrl')
+});
+
+
+
+
+
+
+
+
