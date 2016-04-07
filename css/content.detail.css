@@ -164,8 +164,9 @@
     height: 100%;
 }
 .left-content-box .con-center .new-content-box .link-box {
-    padding: 15px 0 0 0;
+    padding: 10px 0;
     font-size: 16px;
+    border-bottom: 1px solid #eaeaea;
 }
 .left-content-box .con-center .new-content-box .link-box a {
     color: #333333;

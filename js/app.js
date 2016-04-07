@@ -47,6 +47,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 templateUrl: 'template/top-content-detail.html',
                 controller : "topContentCtrl"
             },
+            'contentTopAd@index.contentDetail' : {
+                templateUrl : 'template/content-top-view.html',
+                controller : "contentTopViewCtrl"
+            },
+            'contentRightAd@index.contentDetail' : {
+                templateUrl : 'template/content-right-view.html',
+                controller : "contentRightViewCtrl"
+            },
             'asideRight' : {
                 template: '',
                 controller: ""
