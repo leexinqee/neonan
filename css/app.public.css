@@ -5,6 +5,10 @@ body {
     background-color: #fbfbfb;
     position: relative;
 }
+dl, dt, dd {
+    margin: 0;
+}
+
 
 .clear {
     zoom: 1;
