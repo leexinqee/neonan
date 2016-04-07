@@ -5,6 +5,9 @@
 	header{
 		height: 100px;
 	}
+	.menu-content{
+		top: 100px;	
+	}
 	.header{
 		height: 100px;
 	}
@@ -127,6 +130,9 @@
 		margin-top: 20px;
 		padding: 20px 0;
 		border-top:1px solid #3a3a3a; 
+	}
+	footer{
+		min-width:auto;
 	}
 	footer,.footer-content{
 		height: auto;

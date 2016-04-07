@@ -100,6 +100,7 @@ header {
 
 /*  footer  */
 footer {
+    min-width: 1040px;
     height: 255px;
     background-color: #202020
 }
