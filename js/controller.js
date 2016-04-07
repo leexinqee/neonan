@@ -4,13 +4,13 @@
 var app = angular.module('app.controller', []);
 
 // 总控制器
-app.controller("globalCtrl", function($scope){
-
+app.controller("globalCtrl",function(){
+    console.log('globalCtrl')
 });
 
 // 总体分块的控制器
-app.controller("mainCtrl", function($scope){
-    console.log('mainCtrl')
+app.controller("mainCtrl",function(){
+
 });
 
 // 首页顶部部分的控制器
@@ -24,8 +24,8 @@ app.controller("asideLeftCtrl", function($scope){
 });
 
 // 右边导航控制器
-app.controller("asideRightCtrl", function($scope){
-    console.log('asideRightCtrl')
+app.controller("asideRightCtrl",function($scope){
+    console.log('asideRightCtrl');
 });
 
 // 个人信息的上方信息显示模块儿
