@@ -1,7 +1,7 @@
 /////**
 //// * Created by lenovo on 2016/4/2.
 //// */
-angular.module('app.service',['restangular']);
+var app = angular.module('app.service',['restangular']);
 //app.factory("MessagesService",["Restanguar",function(Restangular){
 //    var restAngular = Restangular.withConfig(function(Configurer){
 //        Configurer.setBaseUrl('http://phptest.neonan.com/');
