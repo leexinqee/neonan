@@ -1,0 +1,84 @@
+/* public css */
+.mts{margin-top: 5px;}
+.mtm{margin-top: 10px;}
+.mtl{margin-top: 20px;}
+
+.mbs{margin-bottom: 5px;}
+.mbm{margin-bottom: 10px;}
+.mbl{margin-bottom: 20px;}
+
+.mls{margin-left: 5px;}
+.mlm{margin-left: 10px;}
+.mll{margin-left: 20px;}
+
+.mrs{margin-right: 5px;}
+.mrm{margin-right: 10px;}
+.mrl{margin-right: 20px;}
+
+.pts{padding-top: 5px;}
+.ptm{padding-top: 10px;}
+.ptl{padding-top: 20px;}
+
+.pbs{padding-bottom: 5px;}
+.pbm{padding-bottom: 10px;}
+.pbl{padding-bottom: 20px;}
+
+.pls{padding-left: 5px;}
+.plm{padding-left: 10px;}
+.pll{padding-left: 20px;}
+
+.prs{padding-right: 5px;}
+.prm{padding-right: 10px;}
+.prl{padding-right: 20px;}
+
+
+/* tv show css */
+.tv-page-container {
+    margin-top: 60px;
+}
+.tv-page-container.container {
+    padding: 0;
+}
+.tv-page-container .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.tv-layout {
+
+}
+.tv-layout a.img-link {
+    display: block;
+    position: relative;
+}
+.tv-layout a.first-bar {
+    height: 190px;width: 100%;
+    overflow: hidden;
+}
+.tv-layout a.first-bar .inner-link {
+    width: 177px;
+    height: 62px;
+    right: 30px;
+    bottom: 30px;
+    left: auto;
+}
+.tv-layout .img-link .inner-link {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+}
+.tv-layout .three-bar div.inner-link {
+     left: 25px;
+     bottom: 15px;
+}
+.tv-layout .img-link .inner-link .link-title {
+    color: #fff;
+}
+.tv-layout .img-link .play-style-two {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+
+

@@ -45,11 +45,11 @@ app.controller("contentTopViewCtrl", function($scope){
     console.log('contentTopViewCtrl')
 });
 
-// 内容模块右边侧栏的广告栏和导航栏
-app.controller("contentRightViewCtrl", function($scope){
-    console.log('contentRightViewCtrl')
+
+
+// 视频TV 控制器
+app.controller("tvPageCtrl", function($scope){
+    console.log('tvPageCtrl')
 });
-
-
 
 

@@ -60,5 +60,17 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller: ""
             }
         }
+    }).state('tvPage', {
+        url : '/tvpage',
+        views : {
+            'main' : {
+                templateUrl : "template/tv-page.html",
+                controller : 'tvPageCtrl'
+            },
+            'contentTopAd@tvPage' : {
+                templateUrl : 'template/content-top-view.html',
+                controller : "contentTopViewCtrl"
+            }
+        }
     })
 });
