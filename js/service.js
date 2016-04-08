@@ -2,70 +2,74 @@
 //// * Created by lenovo on 2016/4/2.
 //// */
 var app = angular.module('app.service',['restangular']);
-//app.factory("MessagesService",["Restanguar",function(Restangular){
-//    var restAngular = Restangular.withConfig(function(Configurer){
-//        Configurer.setBaseUrl('http://phptest.neonan.com/');
-//    });
-//    var articleApi = restAngular.oneUrl('article');
-//    var registerApi = restAngular.all('register');
-//    var loginOutApi  = restAngular.all('logiout');
-//    var loginApi = restAngular.all('login');
-//    var authEmailApi = restAngular.all('auth-email');
-//    var articleDetailApi = restAngular.all('article:id');
-//    var articleShareApi = restAngular.one('article','share');
-//    var articleLikeApi = restAngular.one('article','like');
-//    var articleCommentApi = restAngular.one('article','new_comment');
-//    var videoApi = restAngular.all('video');
-//    var videoDetailApi = restAngular.all('video');
-//    var videoShareApi = restAngular.one('video','share');
-//    var videoLikeApi = restAngular.one('video','like');
-//    var videoCommentApi = restAngular.one('video','new_comment');
-//    var linksApi = restAngular.all('links');
-//    return {
-//        getArticle:function(){
-//            return articleApi.getList();
-//        },
-//        register:function(){
-//            return registerApi.getList();
-//        },
-//        loginOut:function(){
-//            return loginoutApi.getList();
-//        },
-//        login:function(){
-//            return loginApi.getList();
-//        },
-//        authEmail:function(){
-//            return authEmailApi.getList();
-//        },
-//        articleDetail:function(){
-//            return articleDetailApi.getList();
-//        },
-//        articleShare:function(){
-//            return articleShareApi.getList();
-//        },
-//        articleLike:function(){
-//            return articleLikeApiApi.getList();
-//        },
-//        articleComment:function(){
-//            return articleCommentApi.getList();
-//        },
-//        video:function(){
-//            return videoApi.getList();
-//        },
-//        videoDetail:function(){
-//        return videoDetailApi.getList();
-//        },
-//        videoShare:function(){
-//            return videoShareApi.getList();
-//        },
-//        videoLike:function(){
-//            return videoLikeApi.getList();
-//        },
-//        videoComment:function(){
-//            return videoCommentApi.getList();
-//        },
-//        links:function(){
-//            return linksApi.getList();
-//        }
-//    }
-//}]);
+app.config(function(RestangularProvider){
+    RestangularProvider.setBaseUrl('http://phptest.neonan.com/');
+});
+app.factory("MessagesService",["Restanguar",function(Restangular){
+    var articleApi = Restangular.one('article');
+    var registerApi = Restangular.one('register');
+    var loginOutApi  = Restangular.one('loginout');
+    var loginApi = Restangular.one('login');
+    var authEmailApi = Restangular.one('auth-email');
+    var articleDetailApi = Restangular.all('article');
+    var articleShareApi = Restangular.one('article');
+    var articleLikeApi = Restangular.one('article');
+    var articleCommentApi = Restangular.one('article');
+    var videoApi = Restangular.one('video');
+    var videoDetailApi = Restangular.one('video');
+    var videoShareApi = Restangular.one('video');
+    var videoLikeApi = Restangular.one('video');
+    var videoCommentApi = Restangular.one('video');
+    var linksApi = Restangular.one('links');
+    //var adsApi = Restangular.one('article_ads');
+    //var allAdsApi = Restangular.one('ads');
+    //var adsShowApi = Restangular.one('ads/show');
+
+    return {
+        getArticle:function(){
+            return articleApi.get();
+        },
+        register:function(param){
+            return registerApi.post(param);
+        },
+        loginOut:function(){
+            return loginOutApi.get();
+        },
+        login:function(param){
+            return loginApi.post(param);
+        },
+        authEmail:function(){
+            return authEmailApi.post();
+        },
+        articleDetail:function(param){
+            return articleDetailApi.get(param);
+        },
+        articleShare:function(param){
+            return articleShareApi.put('shared',param);
+        },
+        articleLike:function(param){
+            return articleLikeApi.put('like',param);
+        },
+        articleComment:function(param){
+            return articleCommentApi.get('new_comment',param);
+        },
+        video:function(){
+            return videoApi.get();
+        },
+        videoDetail:function(param){
+        return videoDetailApi.get(param);
+        },
+        videoShare:function(param){
+            return videoShareApi.put('shared',param);
+        },
+        videoLike:function(param){
+            return videoLikeApi.put('like',param);
+        },
+        videoComment:function(param){
+            return videoCommentApi.put('new_comment',param);
+        },
+        links:function(){
+            return linksApi.get();
+        }
+    }
+}]);

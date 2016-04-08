@@ -9,6 +9,7 @@ routerApp.run(function($rootScope, $state, $stateParams) {
 });
 
 routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
+    //øÁ”Ú¥¶¿Ì
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Request-with'];
     $urlRouterProvider.otherwise('/index');
