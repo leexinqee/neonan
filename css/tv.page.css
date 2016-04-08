@@ -79,6 +79,10 @@
     right: 20px;
     top: 20px;
 }
-
-
+.tv-layout .load-more-bar {
+    margin: 30px 0;
+}
+.tv-layout .load-more-bar .load-more {
+    margin: 0 auto;
+}
 
