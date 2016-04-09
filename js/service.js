@@ -1,6 +1,3 @@
-/////**
-//// * Created by lenovo on 2016/4/2.
-//// */
 var app = angular.module('app.service',['restangular']);
 app.config(function(RestangularProvider){
     RestangularProvider.setBaseUrl('http://phptest.neonan.com/');
