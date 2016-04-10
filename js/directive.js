@@ -3,7 +3,7 @@
  */
 var app = angular.module("app.directive", []);
 
-//  bodyÔªËØÉÏµÄÖ¸Áî   ¿ØÖÆmenu²Ëµ¥µÄÖ¸Áî
+//  bodyå…ƒç´ ä¸Šçš„æŒ‡ä»¤   æ§åˆ¶menuèœå•çš„æŒ‡ä»¤
 var count = 0;
 app.directive("appDirective", function(){
     return {
@@ -13,7 +13,7 @@ app.directive("appDirective", function(){
             var $menu = $body.find("#menu-content");        // menu-content
             var $choosetype = $("#choose-type");            // choose-type
 
-            //  header Í·²¿²Ëµ¥°´Å¥¿ØÖÆ
+            //  header å¤´éƒ¨èœå•æŒ‰é’®æ§åˆ¶
             $body.find("#menu").on("click", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 if(count % 2){
@@ -24,7 +24,7 @@ app.directive("appDirective", function(){
                 count++;
             });
 
-            //  ²Ëµ¥µã»÷Ö®ºóµÄ¿ØÖÆ
+            //  èœå•ç‚¹å‡»ä¹‹åçš„æ§åˆ¶
             $menu.find(".menu-list").on('click', ".menu-list-item", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 var $a = $(this).find("a");
@@ -38,7 +38,7 @@ app.directive("appDirective", function(){
     }
 });
 
-//  ÂÖ²¥¿ØÖÆÆ÷²å¼şÖ´ĞĞ
+//  è½®æ’­æ§åˆ¶å™¨æ’ä»¶æ‰§è¡Œ
 app.directive('swiper', function(){
     return {
         restrict : 'EA',
@@ -55,34 +55,34 @@ app.directive('swiper', function(){
     }
 });
 
-//  ²Ëµ¥¹ö¶¯Ö´ĞĞ
+//  èœå•æ»šåŠ¨æ‰§è¡Œ
 app.directive('menuContainer', function(){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
             //menu  scroll bar
             $(ele).niceScroll({
-                cursorcolor: "rgba(0,0,0,0)", // ¹â±êÑÕÉ«
-                cursoropacitymax: 1, //¸Ä±ä²»Í¸Ã÷¶È·Ç³£¹â±ê´¦ÓÚ»î¶¯×´Ì¬£¨scrollabar¡°¿É¼û¡±×´Ì¬£©£¬·¶Î§´Ó1µ½0
-                touchbehavior: false, //Ê¹¹â±êÍÏ¶¯¹ö¶¯ÏñÔÚÌ¨Ê½µçÄÔ´¥ÃşÉè±¸
-                cursorwidth: "5px", //ÏñËØ¹â±êµÄ¿í¶È
-                cursorborder: "0", //   ÓÎ±ê±ß¿òcss¶¨Òå
-                cursorborderradius: "5px", //ÒÔÏñËØÎª¹â±ê±ß½ç°ë¾¶
-                autohidemode: false //ÊÇ·ñÒş²Ø¹ö¶¯Ìõ
+                cursorcolor: "rgba(0,0,0,0)", // å…‰æ ‡é¢œè‰²
+                cursoropacitymax: 1, //æ”¹å˜ä¸é€æ˜åº¦éå¸¸å…‰æ ‡å¤„äºæ´»åŠ¨çŠ¶æ€ï¼ˆscrollabarâ€œå¯è§â€çŠ¶æ€ï¼‰ï¼ŒèŒƒå›´ä»1åˆ°0
+                touchbehavior: false, //ä½¿å…‰æ ‡æ‹–åŠ¨æ»šåŠ¨åƒåœ¨å°å¼ç”µè„‘è§¦æ‘¸è®¾å¤‡
+                cursorwidth: "5px", //åƒç´ å…‰æ ‡çš„å®½åº¦
+                cursorborder: "0", //   æ¸¸æ ‡è¾¹æ¡†csså®šä¹‰
+                cursorborderradius: "5px", //ä»¥åƒç´ ä¸ºå…‰æ ‡è¾¹ç•ŒåŠå¾„
+                autohidemode: false //æ˜¯å¦éšè—æ»šåŠ¨æ¡
             });
         }
     }
 });
 
 
-//  µÇÂ½¿ò
+//  ç™»é™†æ¡†
 app.directive('loginupDirective', function(){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
             var $account = $(ele).find("#account");
             $account.on("click", ".close-dialog", function(){
-               $(this).parents(".modal").modal('hide');         // Òş²Øµ¯³ö¿ò
+               $(this).parents(".modal").modal('hide');         // éšè—å¼¹å‡ºæ¡†
             });
         }
     }

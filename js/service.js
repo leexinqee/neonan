@@ -1,7 +1,7 @@
 var app = angular.module('app.service',['restangular']);
 app.config(function(RestangularProvider){
     RestangularProvider.setBaseUrl('http://phptest.neonan.com/');
-    //ÇëÇóÀ¹½Ø
+    //è¯·æ±‚æ‹¦æˆª
     RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
 
     });

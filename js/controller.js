@@ -3,51 +3,51 @@
  */
 var app = angular.module('app.controller', []);
 
-// ×Ü¿ØÖÆÆ÷
+// æ€»æ§åˆ¶å™¨
 app.controller("globalCtrl",function(){
     console.log('globalCtrl')
 });
 
-// ×ÜÌå·Ö¿éµÄ¿ØÖÆÆ÷
+// æ€»ä½“åˆ†å—çš„æ§åˆ¶å™¨
 app.controller("mainCtrl",function(){
 
 });
 
-// Ê×Ò³¶¥²¿²¿·ÖµÄ¿ØÖÆÆ÷
+// é¦–é¡µé¡¶éƒ¨éƒ¨åˆ†çš„æ§åˆ¶å™¨
 app.controller("topCtrl", function($scope){
     console.log('topCtrl')
 });
 
-//  ×ó²àµ¼º½À¸¿ØÖÆÆ÷
+//  å·¦ä¾§å¯¼èˆªæ æ§åˆ¶å™¨
 app.controller("asideLeftCtrl", function($scope){
     console.log('asideLeftCtrl')
 });
 
-// ÓÒ±ßµ¼º½¿ØÖÆÆ÷
+// å³è¾¹å¯¼èˆªæ§åˆ¶å™¨
 app.controller("asideRightCtrl",function($scope){
     console.log('asideRightCtrl');
 });
 
-// ¸öÈËĞÅÏ¢µÄÉÏ·½ĞÅÏ¢ÏÔÊ¾Ä£¿é¶ù
+// ä¸ªäººä¿¡æ¯çš„ä¸Šæ–¹ä¿¡æ¯æ˜¾ç¤ºæ¨¡å—å„¿
 app.controller("topInfoCtrl", function($scope){
     console.log('topInfoCtrl')
 });
 
 
-// Õû¸öÄÚÈİÄ£¿éµÄ¿ØÖÆÆ÷
+// æ•´ä¸ªå†…å®¹æ¨¡å—çš„æ§åˆ¶å™¨
 app.controller("topContentCtrl", function($scope){
     console.log('topContentCtrl')
 });
 
 
-// ÄÚÈİÄ£¿éÉÏ·½µÄ¹ã¸æÀ¸
+// å†…å®¹æ¨¡å—ä¸Šæ–¹çš„å¹¿å‘Šæ 
 app.controller("contentTopViewCtrl", function($scope){
     console.log('contentTopViewCtrl')
 });
 
 
 
-// ÊÓÆµTV ¿ØÖÆÆ÷
+// è§†é¢‘TV æ§åˆ¶å™¨
 app.controller("tvPageCtrl", function($scope){
     console.log('tvPageCtrl')
 });
