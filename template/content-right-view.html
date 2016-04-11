@@ -1,71 +1,25 @@
 <div class="right-content">
     <div class="aside">
         <div class="for-adds">
-            AD 300*250px
+            {{message}}
         </div>
         <div class="aside-title"><img src="images/neomantv.png" alt=""></div>
         <div class="aside-content">
-            <div class="aside-list">
+
+            <div class="aside-list" ng-repeat="item in video">
                 <div class="float-left aside-pic">
-                    <img src="images/aside-pic1.png" alt="">
+                    <img src="{{item.image_filename}}" alt="">
                 </div>
                 <div class="aside-pic-content">
-                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
+                    <div class="aside-pic-content-title"><a href="">{{item.title}}</a></div>
                     <div class="aside-pic-content-time">
                         <span class='time-pic'><img src="images/timepic.png" alt=""></span>
-                        <span class='aside-pic-content-time-text'>15分钟前</span>
+                        <span class='aside-pic-content-time-text'>{{item.publish_time}}</span>
                     </div>
                 </div>
             </div>
-            <div class="aside-list">
-                <div class="float-left aside-pic">
-                    <img src="images/aside-pic1.png" alt="">
-                </div>
-                <div class="aside-pic-content">
-                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
-                    <div class="aside-pic-content-time">
-                        <span class='time-pic'><img src="images/timepic.png" alt=""></span>
-                        <span class='aside-pic-content-time-text'>15分钟前</span>
-                    </div>
-                </div>
-            </div>
-            <div class="aside-list">
-                <div class="float-left aside-pic">
-                    <img src="images/aside-pic1.png" alt="">
-                </div>
-                <div class="aside-pic-content">
-                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
-                    <div class="aside-pic-content-time">
-                        <span class='time-pic'><img src="images/timepic.png" alt=""></span>
-                        <span class='aside-pic-content-time-text'>15分钟前</span>
-                    </div>
-                </div>
-            </div>
-            <div class="aside-list">
-                <div class="float-left aside-pic">
-                    <img src="images/aside-pic1.png" alt="">
-                </div>
-                <div class="aside-pic-content">
-                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
-                    <div class="aside-pic-content-time">
-                        <span class='time-pic'><img src="images/timepic.png" alt=""></span>
-                        <span class='aside-pic-content-time-text'>15分钟前</span>
-                    </div>
-                </div>
-            </div>
-            <div class="aside-list">
-                <div class="float-left aside-pic">
-                    <img src="images/aside-pic1.png" alt="">
-                </div>
-                <div class="aside-pic-content">
-                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
-                    <div class="aside-pic-content-time">
-                        <span class='time-pic'><img src="images/timepic.png" alt=""></span>
-                        <span class='aside-pic-content-time-text'>15分钟前</span>
-                    </div>
-                </div>
-            </div>
+
+            <div class="aside-load-more">LOAD VIDEOS</div>
         </div>
-        <div class="aside-load-more">LOAD VIDEOS</div>
     </div>
 </div>

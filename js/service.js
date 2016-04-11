@@ -9,10 +9,6 @@ app.config(function(RestangularProvider){
 
 app.service("MessagesService",["Restangular",function(Restangular){
     return {
-        testReturn : function(){
-            alert('hhhhhh');
-            return 'test project';
-        },
         getArticle:function(param){
             return Restangular.one('article').get(param);
         },
