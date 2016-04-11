@@ -1,11 +1,11 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
-var app = angular.module('app.controller', []);
+var app = angular.module('app.controller', ['app.service']);
 
 // 总控制器
-app.controller("globalCtrl",function(){
-    console.log('globalCtrl')
+app.controller("globalCtrl", function($scope, testService){
+    console.log("globalCtrl");
 });
 
 // 总体分块的控制器

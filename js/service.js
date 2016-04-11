@@ -6,8 +6,13 @@ app.config(function(RestangularProvider){
 
     });
 });
+
 app.factory("MessagesService",["Restanguar",function(Restangular){
     return {
+        testReturn : function(){
+            alert('hhhhhh');
+            return 'test project';
+        },
         getArticle:function(param){
             return Restangular.one('article').get(param);
         },
@@ -56,6 +61,7 @@ app.factory("MessagesService",["Restanguar",function(Restangular){
         articleAds:function(){
             return Restangular.one('article_ads').get();
         },
+        // ads hello test
         ads:function(){
             return Restangular.one('ads').get();
         },
