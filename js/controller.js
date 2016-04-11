@@ -24,6 +24,7 @@ app.controller("topCtrl", function($scope,MessagesService){
     console.log('topCtrl');
     MessagesService.handlPick().then(function (data) {
         $scope.handPick = data.body;
+        console.log('asa'+JSON.stringify(data))
     });
     MessagesService.banner().then(function(data){
         $scope.banner = data.body;
