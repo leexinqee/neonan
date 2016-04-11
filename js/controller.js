@@ -6,7 +6,8 @@ var app = angular.module('app.controller', ['app.service']);
 // 总控制器
 app.controller("globalCtrl",function($scope,MessagesService){
     //得到banner相关数据
-
+    MessagesService.links().then(function(data){
+    });
     console.log('globalCtrl')
 });
 
@@ -31,12 +32,18 @@ app.controller("topCtrl", function($scope,MessagesService){
 });
 
 //  左侧导航栏控制器
-app.controller("asideLeftCtrl", function($scope){
+app.controller("asideLeftCtrl", function($scope,MessagesService){
+    MessagesService.getArticle().then(function(data){
+        $scope.article = data.body.list;
+    });
     console.log('asideLeftCtrl')
 });
 
 // 右边导航控制器
-app.controller("asideRightCtrl",function($scope){
+app.controller("asideRightCtrl",function($scope,MessagesService){
+    MessagesService.video().then(function(data){
+        $scope.video = data.body.list;
+    });
     console.log('asideRightCtrl');
 });
 

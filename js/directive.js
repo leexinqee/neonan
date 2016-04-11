@@ -104,3 +104,18 @@ app.directive('articles',function(){
         }
     }
 });
+
+//底部
+app.directive('appfooter',function(){
+    return {
+        restrict:"EA",
+        replace:true,
+        templateUrl:'./template/appFooter.html',
+        link: function (scope, ele, attr) {
+            var changBtn = $(ele).find('.change-btn');
+            changBtn.on('click',function(){
+                $(this).addClass('active').siblings('').removeClass('active');
+            })
+        }
+    }
+});

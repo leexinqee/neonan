@@ -231,6 +231,7 @@
 
 .aside-pic-content-title {
     height: 56px;
+    overflow: hidden;
 }
 
 .aside-pic-content-title a {
@@ -243,9 +244,10 @@
 }
 
 .aside-pic-content-time-text {
-    line-height: 20px;
+    /*line-height: 20px;*/
     font-size: 12px;
     color: #999999;
+    vertical-align: middle;
 }
 
 .aside-load-more {
