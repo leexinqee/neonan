@@ -1,75 +1,75 @@
-<div class="new-hot float-left">
+<div class="new-hot float-left" articles>
     <div class="new-hot-title">
         <div class="new-logo">
             <img src="./images/latest.png" alt="">
         </div>
         <div class="new-hot-btn">
-            <div class="new-btn active">最新</div>
-            <div class="hot-btn">最热</div>
+            <div class="new-btn active change-btn">最新</div>
+            <div class="hot-btn change-btn">最热</div>
         </div>
     </div>
     <div class="new-hot-content">
-        <div class="new-hot-content-item">
+        <div class="new-hot-content-item" ng-repeat="item in article">
             <div class="float-left c-item-pic">
-                <img src="./images/latest-item.png" alt="">
-                <div class="msg-type body-building">健身</div>
+                <img src="{{item.cover_image}}" alt="">
+                <div class="msg-type body-building">{{item.category_name}}</div>
             </div>
             <div class="c-item-msg">
-                <h3 class="c-item-pic-title"><a href="">C罗用过来经历告诉你，身体在球场上有多重要！！</a></h3>
+                <h3 class="c-item-pic-title"><a href="">{{item.title}}</a></h3>
                 <div class="power-by">BY <span>TONY小编</span></div>
-                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>15分钟前</span></div>
+                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>{{item.publish_time}}</span></div>
             </div>
         </div>
-        <div class="new-hot-content-item">
-            <div class="float-left c-item-pic">
-                <img src="./images/latest-item1.png" alt="">
-                <div class="msg-type growth">成长</div>
-            </div>
-            <div class="c-item-msg">
-                <h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>
-                <div class="power-by">BY <span>TONY小编</span></div>
-                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>
-            </div>
-        </div>
-        <div class="new-hot-content-added">
-            <div class="float-left added-pic">
-                <img src="./images/added.png" alt="">
-            </div>
-            <div class="add-msg">
-                <div class="add-msg-title"><a href="">震耳欲聋的清脆感，海底巨兽利维坦科技评测！</a></div>
-                <div class="persend-by">PERSENDED BY <span class='persend-who'>TONY</span></div>
-            </div>
-            <div class="awrro">
-                <div class="awrro-left">
-                    <img src="./images/awrro-left.png" alt="">
-                </div>
-                <div class="awrro-right">
-                    <img src="./images/awrro-right.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="new-hot-content-item">
-            <div class="float-left c-item-pic">
-                <img src="./images/latest-item.png" alt="">
-                <div class="msg-type figure">形象</div>
-            </div>
-            <div class="c-item-msg">
-                <h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>
-                <div class="power-by">BY <span>TONY小编</span></div>
-                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>
-            </div>
-        </div>
-        <div class="new-hot-content-item">
-            <div class="float-left c-item-pic">
-                <img src="./images/latest-item1.png" alt="">
-                <div class="msg-type good-play">成长</div>
-            </div>
-            <div class="c-item-msg">
-                <h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>
-                <div class="power-by">BY <span>TONY小编</span></div>
-                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>
-            </div>
-        </div>
+        <!--<div class="new-hot-content-item">-->
+            <!--<div class="float-left c-item-pic">-->
+                <!--<img src="./images/latest-item1.png" alt="">-->
+                <!--<div class="msg-type growth">成长</div>-->
+            <!--</div>-->
+            <!--<div class="c-item-msg">-->
+                <!--<h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>-->
+                <!--<div class="power-by">BY <span>TONY小编</span></div>-->
+                <!--<div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-hot-content-added">-->
+            <!--<div class="float-left added-pic">-->
+                <!--<img src="./images/added.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="add-msg">-->
+                <!--<div class="add-msg-title"><a href="">震耳欲聋的清脆感，海底巨兽利维坦科技评测！</a></div>-->
+                <!--<div class="persend-by">PERSENDED BY <span class='persend-who'>TONY</span></div>-->
+            <!--</div>-->
+            <!--<div class="awrro">-->
+                <!--<div class="awrro-left">-->
+                    <!--<img src="./images/awrro-left.png" alt="">-->
+                <!--</div>-->
+                <!--<div class="awrro-right">-->
+                    <!--<img src="./images/awrro-right.png" alt="">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-hot-content-item">-->
+            <!--<div class="float-left c-item-pic">-->
+                <!--<img src="./images/latest-item.png" alt="">-->
+                <!--<div class="msg-type figure">形象</div>-->
+            <!--</div>-->
+            <!--<div class="c-item-msg">-->
+                <!--<h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>-->
+                <!--<div class="power-by">BY <span>TONY小编</span></div>-->
+                <!--<div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-hot-content-item">-->
+            <!--<div class="float-left c-item-pic">-->
+                <!--<img src="./images/latest-item1.png" alt="">-->
+                <!--<div class="msg-type good-play">成长</div>-->
+            <!--</div>-->
+            <!--<div class="c-item-msg">-->
+                <!--<h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>-->
+                <!--<div class="power-by">BY <span>TONY小编</span></div>-->
+                <!--<div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <div class="load-more">LOAD MORE</div>
 </div>

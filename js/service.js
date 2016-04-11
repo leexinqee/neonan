@@ -7,7 +7,7 @@ app.config(function(RestangularProvider){
     });
 });
 
-app.factory("MessagesService",["Restanguar",function(Restangular){
+app.service("MessagesService",["Restangular",function(Restangular){
     return {
         testReturn : function(){
             alert('hhhhhh');
@@ -88,6 +88,12 @@ app.factory("MessagesService",["Restanguar",function(Restangular){
         },
         handlPick:function(){
             return Restangular.one('hand-pick').get();
+        },
+        category:function(){
+            return Restangular.one('category').get();
+        },
+        album:function () {
+            return Restangular.one('album').get();
         }
     }
 }]);

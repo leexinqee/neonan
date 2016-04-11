@@ -1,0 +1,19 @@
+<div class="swiper">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="item in handPick">
+                <img src="{{item.image}}" alt="">
+                <div class="slider-msg">
+                    <div class="msg-title">{{item.title}}
+                    </div>
+                    <div class="by">BY <span class='by-who'>{{item.recommendable_author}}</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- 下方原点 -->
+        <div class="swiper-pagination"></div>
+        <!-- 左右切换 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</div>

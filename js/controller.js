@@ -1,11 +1,26 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
-var app = angular.module('app.controller', ['app.service']);
+
+var app = angular.module('app.controller', ['app.service','ui.router']);
 
 // 总控制器
-app.controller("globalCtrl", function($scope, testService){
-    console.log("globalCtrl");
+app.controller("globalCtrl",function($scope,MessagesService){
+    //得到banner相关数据
+    MessagesService.links().then(function(data){
+        $scope.link = data.body[0].friendly_links;
+
+    });
+    //侧边栏
+    MessagesService.category().then(function(data){
+        $scope.category = data.body.list;
+    });
+    //专辑
+    //MessagesService.album().then(function(data){
+    //    alert(JSON.stringify(data));
+    //    $scope.album = data.body.list;
+    //});
+    console.log('globalCtrl')
 });
 
 // 总体分块的控制器
@@ -14,17 +29,35 @@ app.controller("mainCtrl",function(){
 });
 
 // 首页顶部部分的控制器
-app.controller("topCtrl", function($scope){
-    console.log('topCtrl')
+app.controller("topCtrl", function($scope,MessagesService,$location){
+    console.log('topCtrl');
+    MessagesService.handlPick().then(function (data) {
+        $scope.handPick = data.body;
+    });
+    MessagesService.banner().then(function(data){
+        $scope.banner = data.body;
+    });
+    MessagesService.small().then(function (data) {
+        $scope.small = data.body;
+        $scope.getDetail = function(id){
+            $location.path('index/contentdetail')
+        };
+    })
 });
 
 //  左侧导航栏控制器
-app.controller("asideLeftCtrl", function($scope){
+app.controller("asideLeftCtrl", function($scope,MessagesService){
+    MessagesService.getArticle().then(function(data){
+        $scope.article = data.body.list;
+    });
     console.log('asideLeftCtrl')
 });
 
 // 右边导航控制器
-app.controller("asideRightCtrl",function($scope){
+app.controller("asideRightCtrl",function($scope,MessagesService){
+    MessagesService.video().then(function(data){
+        $scope.video = data.body.list;
+    });
     console.log('asideRightCtrl');
 });
 
@@ -51,5 +84,6 @@ app.controller("contentTopViewCtrl", function($scope){
 app.controller("tvPageCtrl", function($scope){
     console.log('tvPageCtrl')
 });
+
 
 

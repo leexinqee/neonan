@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>牛男</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="qc:admins" content="1020137320453466576166375762764564" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/swiper.min.css"/>
@@ -197,11 +198,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
-    </header>
-    <!--公共菜单部分-->
     </div>
+<!--公共菜单部分-->
     <div menu-container class="menu-content" id="menu-content">
         <div class="menu-search">
             <div class="search-content">
@@ -246,55 +245,20 @@
         </ul>
         <div class="kinds">ALBUMS 专辑</div>
         <ul class="menu-list">
-            <li class="menu-list-item day30">
-                <a ng-href="" data-color='#9cc422' data-value="三十天健身计划">三十天健身计划</a>
+            <li class="menu-list-item day30" ng-repeat="item in album">
+                <a ng-href="" data-color='#9cc422' data-value="{{item.title}}">{{item.title}}</a>
             </li>
-            <li class="menu-list-item neoman-music">
-                <a ng-href="" data-color='#267ad8' data-value="每天一首牛男音乐">每天一首牛男音乐</a>
-            </li>
-            <li class="menu-list-item find-girl">
-                <a ng-href="" data-color='#22b6db' data-value="牛男泡妞秘籍">牛男泡妞秘籍</a>
-            </li>
+            <!--<li class="menu-list-item neoman-music">-->
+                <!--<a ng-href="" data-color='#267ad8' data-value="每天一首牛男音乐">每天一首牛男音乐</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item find-girl">-->
+                <!--<a ng-href="" data-color='#22b6db' data-value="牛男泡妞秘籍">牛男泡妞秘籍</a>-->
+            <!--</li>-->
         </ul>
     </div>
     <!--内容区-->
     <div ui-view="main"></div>
     <!--公共尾部-->
-    <footer>
-        <div class="footer-content toCenter">
-            <div class="float-left some-links">
-                <div class="footer-logo">
-                    <img src="./images/footer-neoman.png" alt="">
-                </div>
-                <div class="links">
-                    <a href="http://www.baidu.com" target="_blank" class="link">关于我们</a>
-                    <a href="" class="link">广告服务</a>
-                    <a href="" class="link">友情链接</a>
-                    <a href="" class="link">牛男商城</a>
-                    <a href="" class="link">加入牛男</a>
-                    <a href="" class="link">相关声明</a>
-                    <a href="" class="link">牛男APP</a>
-                    <a href="" class="link">欢迎投稿</a>
-                </div>
-            </div>
-            <div class="float-right enter">
-                <div class="betterman">立即加入成为更好的男人</div>
-                <form action="">
-                    <div class="input-wrap clear">
-                        <div class="float-left input-text">
-                            <input type="text" placeholder='请输入您的邮箱'>
-                        </div>
-                        <div class="float-left enter-btn">立即加入</div>
-                    </div>
-                </form>
-
-                <div class="shares">
-                    <a href="" class="share"><img src="./images/single.png" alt=""></a>
-                    <a href="" class="share"><img src="./images/weibo.png" alt=""></a>
-                    <a href="" class="share"><img src="./images/weixin.png" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <appfooter></appfooter>
 </body>
 </html>

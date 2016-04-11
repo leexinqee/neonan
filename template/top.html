@@ -1,84 +1,44 @@
-<div swiper class="swiper">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="./images/swiper1.png" alt="">
-                <div class="slider-msg">
-                    <div class="msg-title">避开这些，分分钟让你吸引力爆棚！避开这些，分分钟让你吸引力爆棚！
-                    </div>
-                    <div class="by">BY <span class='by-who'>TONY小编</span></div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/swiper1.png" alt="">
-                <div class="slider-msg">
-                    <div class="msg-title">避开这些，分分钟让你吸引力爆棚！避开这些，分分钟让你吸引力爆棚！
-                    </div>
-                    <div class="by">BY <span class='by-who'>TONY小编</span></div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img src="./images/swiper1.png" alt="">
-                <div class="slider-msg">
-                    <div class="msg-title">避开这些，分分钟让你吸引力爆棚！避开这些，分分钟让你吸引力爆棚！
-                    </div>
-                    <div class="by">BY <span class='by-who'>TONY小编</span></div>
-                </div>
-            </div>
-        </div>
-        <!-- 下方原点 -->
-        <div class="swiper-pagination"></div>
-        <!-- 左右切换 -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-</div>
+<!--首页轮播-->
+<!--<div swiper class="swiper">-->
+    <!--<div class="swiper-container">-->
+        <!--<div class="swiper-wrapper">-->
+            <!--<div class="swiper-slide" ng-repeat="item in handPick">-->
+                <!--<img src="{{item.image}}" alt="">-->
+                <!--<div class="slider-msg">-->
+                    <!--<div class="msg-title">{{item.title}}-->
+                    <!--</div>-->
+                    <!--<div class="by">BY <span class='by-who'>{{item.recommendable_author}}</span></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; 下方原点 &ndash;&gt;-->
+        <!--<div class="swiper-pagination"></div>-->
+        <!--&lt;!&ndash; 左右切换 &ndash;&gt;-->
+        <!--<div class="swiper-button-prev"></div>-->
+        <!--<div class="swiper-button-next"></div>-->
+    <!--</div>-->
+<!--</div>-->
+<swiper></swiper>
+<!--精选-->
 <div class="wonderful">
-    <div class="won-list border-b-77c322">
+    <div class="won-list border-b-77c322" ng-repeat="item in banner">
         <div class="won-list-picwrap">
-            <img src="./images/wonder1.png" alt="">
+            <img src="{{item.image}}" alt="">
         </div>
         <div class="won-pic-msg">
             <div class="pic-msg-title">
-                <a href="">避开这些，分分钟让你吸引力爆棚！</a>
+                <a href="">{{item.title}}</a>
             </div>
-            <div class="lunch-by">BY <span class='by-who'>TONY小编</span></div>
-        </div>
-    </div>
-    <div class="won-list border-b-ed236c">
-        <div class="won-list-picwrap">
-            <img src="./images/wonder2.png" alt="">
-        </div>
-        <div class="won-pic-msg">
-            <div class="pic-msg-title">
-                <a href="">超有病！如果科学家变成了格斗游戏的主角</a>
-            </div>
-            <div class="lunch-by">BY <span class='by-who'>TONY小编</span></div>
-        </div>
-    </div>
-    <div class="won-list border-b-3b3863">
-        <div class="won-list-picwrap">
-            <img src="./images/wonder3.png" alt="">
-        </div>
-        <div class="won-pic-msg">
-            <div class="pic-msg-title">
-                <a href="">别再 Yeezy 了，来看看这双火了一整年的 Tubular</a>
-            </div>
-            <div class="lunch-by">BY <span class='by-who'>TONY小编</span></div>
+            <div class="lunch-by">BY <span class='by-who'>{{item.recommendable_author}}</span></div>
         </div>
     </div>
 </div>
+<!--小精选-->
 <div class="selected">
     <div class="select-logo float-left selected-list">
         <img src="./images/editor.png" alt="">
     </div>
-    <div class="float-left selected-list">
-        <a href="">巨石强森为什么能够干翻所有罪犯，这就是答案！</a>
-    </div>
-    <div class="float-left selected-list">
-        <a href="">震耳欲聋的清脆感，海底巨兽利维坦科技评测！</a>
-    </div>
-    <div class="float-left selected-list none-gap">
-        <a href="">这妹子设计的成人玩具每一个我都好想要!</a>
+    <div class="float-left selected-list" ng-repeat="item in small" ng-click="getDetail(item.id)">
+        <a href="">{{item.title}}</a>
     </div>
 </div>
