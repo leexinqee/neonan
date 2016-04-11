@@ -7,6 +7,9 @@ var app = angular.module('app.controller', ['app.service']);
 app.controller("globalCtrl",function($scope,MessagesService){
     //得到banner相关数据
     MessagesService.links().then(function(data){
+        console.log(JSON.stringify(data))
+        $scope.link = data.body[0].friendly_links;
+
     });
     console.log('globalCtrl')
 });
