@@ -57,8 +57,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "contentRightViewCtrl"
             },
             'asideRight' : {
-                template: '',
-                controller: ""
+                template: ''
             }
         }
     }).state('tvPage', {
