@@ -6,7 +6,7 @@ app.config(function(RestangularProvider){
 
     });
 });
-app.factory("MessagesService",["Restanguar",function(Restangular){
+app.service("MessagesService",["Restangular",function(Restangular){
     return {
         getArticle:function(param){
             return Restangular.one('article').get(param);
@@ -56,6 +56,7 @@ app.factory("MessagesService",["Restanguar",function(Restangular){
         articleAds:function(){
             return Restangular.one('article_ads').get();
         },
+        // ads hello test
         ads:function(){
             return Restangular.one('ads').get();
         },

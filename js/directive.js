@@ -1,7 +1,7 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
-var app = angular.module("app.directive", []);
+var app = angular.module("app.directive", ['app.service']);
 
 //  body元素上的指令   控制menu菜单的指令
 var count = 0;
@@ -42,6 +42,8 @@ app.directive("appDirective", function(){
 app.directive('swiper', function(){
     return {
         restrict : 'EA',
+        templateUrl:'./template/swiper.html',
+        replace:true,
         link : function(scope, ele, attr){
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
@@ -84,6 +86,21 @@ app.directive('loginupDirective', function(){
             $account.on("click", ".close-dialog", function(){
                $(this).parents(".modal").modal('hide');         // 隐藏弹出框
             });
+        }
+    }
+});
+
+
+
+//文章部分
+app.directive('articles',function(){
+    return {
+        restrict:"EA",
+        link: function (scope, ele, attr) {
+            var changBtn = $(ele).find('.change-btn');
+            changBtn.on('click',function(){
+                $(this).addClass('active').siblings('').removeClass('active');
+            })
         }
     }
 });

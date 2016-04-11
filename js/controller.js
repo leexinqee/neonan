@@ -1,10 +1,12 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
-var app = angular.module('app.controller', []);
+var app = angular.module('app.controller', ['app.service']);
 
 // 总控制器
-app.controller("globalCtrl",function(){
+app.controller("globalCtrl",function($scope,MessagesService){
+    //得到banner相关数据
+
     console.log('globalCtrl')
 });
 
@@ -14,8 +16,18 @@ app.controller("mainCtrl",function(){
 });
 
 // 首页顶部部分的控制器
-app.controller("topCtrl", function($scope){
-    console.log('topCtrl')
+app.controller("topCtrl", function($scope,MessagesService){
+    console.log('topCtrl');
+    MessagesService.handlPick().then(function (data) {
+        $scope.handPick = data.body;
+    });
+    MessagesService.banner().then(function(data){
+        $scope.banner = data.body;
+        console.log(JSON.stringify(data));
+    });
+    MessagesService.small().then(function (data) {
+        $scope.small = data.body;
+    })
 });
 
 //  左侧导航栏控制器
@@ -51,5 +63,5 @@ app.controller("contentTopViewCtrl", function($scope){
 app.controller("tvPageCtrl", function($scope){
     console.log('tvPageCtrl')
 });
-
+app.$inject = ['app.service'];
 
