@@ -1,16 +1,24 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
-var app = angular.module('app.controller', ['app.service']);
+var app = angular.module('app.controller', ['app.service','ui.router']);
 
 // 总控制器
 app.controller("globalCtrl",function($scope,MessagesService){
     //得到banner相关数据
     MessagesService.links().then(function(data){
-        console.log(JSON.stringify(data))
         $scope.link = data.body[0].friendly_links;
 
     });
+    //侧边栏
+    MessagesService.category().then(function(data){
+        $scope.category = data.body.list;
+    });
+    //专辑
+    //MessagesService.album().then(function(data){
+    //    alert(JSON.stringify(data));
+    //    $scope.album = data.body.list;
+    //});
     console.log('globalCtrl')
 });
 
@@ -20,18 +28,19 @@ app.controller("mainCtrl",function(){
 });
 
 // 首页顶部部分的控制器
-app.controller("topCtrl", function($scope,MessagesService){
+app.controller("topCtrl", function($scope,MessagesService,$location){
     console.log('topCtrl');
     MessagesService.handlPick().then(function (data) {
         $scope.handPick = data.body;
-        console.log('asa'+JSON.stringify(data))
     });
     MessagesService.banner().then(function(data){
         $scope.banner = data.body;
-        console.log(JSON.stringify(data));
     });
     MessagesService.small().then(function (data) {
         $scope.small = data.body;
+        $scope.getDetail = function(id){
+            $location.path('index/contentdetail')
+        };
     })
 });
 
@@ -74,5 +83,6 @@ app.controller("contentTopViewCtrl", function($scope){
 app.controller("tvPageCtrl", function($scope){
     console.log('tvPageCtrl')
 });
-app.$inject = ['app.service'];
+
+
 

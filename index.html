@@ -198,10 +198,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
-    <!--公共菜单部分-->
     </div>
+<!--公共菜单部分-->
     <div menu-container class="menu-content" id="menu-content">
         <div class="menu-search">
             <div class="search-content">
@@ -246,15 +245,15 @@
         </ul>
         <div class="kinds">ALBUMS 专辑</div>
         <ul class="menu-list">
-            <li class="menu-list-item day30">
-                <a ng-href="" data-color='#9cc422' data-value="三十天健身计划">三十天健身计划</a>
+            <li class="menu-list-item day30" ng-repeat="item in album">
+                <a ng-href="" data-color='#9cc422' data-value="{{item.title}}">{{item.title}}</a>
             </li>
-            <li class="menu-list-item neoman-music">
-                <a ng-href="" data-color='#267ad8' data-value="每天一首牛男音乐">每天一首牛男音乐</a>
-            </li>
-            <li class="menu-list-item find-girl">
-                <a ng-href="" data-color='#22b6db' data-value="牛男泡妞秘籍">牛男泡妞秘籍</a>
-            </li>
+            <!--<li class="menu-list-item neoman-music">-->
+                <!--<a ng-href="" data-color='#267ad8' data-value="每天一首牛男音乐">每天一首牛男音乐</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item find-girl">-->
+                <!--<a ng-href="" data-color='#22b6db' data-value="牛男泡妞秘籍">牛男泡妞秘籍</a>-->
+            <!--</li>-->
         </ul>
     </div>
     <!--内容区-->

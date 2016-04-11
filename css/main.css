@@ -156,7 +156,9 @@
     text-align: left;
     position: relative;
     width: 25%;
-    height: 36px;
+    height: 44px;
+    overflow: hidden;
+    /*test*/
 }
 
 .selected-list a {

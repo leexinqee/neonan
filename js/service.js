@@ -83,6 +83,12 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         handlPick:function(){
             return Restangular.one('hand-pick').get();
+        },
+        category:function(){
+            return Restangular.one('category').get();
+        },
+        album:function () {
+            return Restangular.one('album').get();
         }
     }
 }]);
