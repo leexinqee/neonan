@@ -1,12 +1,29 @@
 <div class="swiper">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" ng-repeat="item in handPick">
-                <img src="{{item.image}}" alt="">
+
+            <div class="swiper-slide">
+                <img src="{{handPick[0].image}}" alt="">
                 <div class="slider-msg">
-                    <div class="msg-title">{{item.title}}
+                    <div class="msg-title">{{handPick[0].title}}
                     </div>
-                    <div class="by">BY <span class='by-who'>{{item.recommendable_author}}</span></div>
+                    <div class="by">BY <span class='by-who'>{{handPick[0].recommendable_author}}</span></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="{{handPick[1].image}}" alt="">
+                <div class="slider-msg">
+                    <div class="msg-title">{{handPick[1].title}}
+                    </div>
+                    <div class="by">BY <span class='by-who'>{{handPick[1].recommendable_author}}</span></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="{{handPick[2].image}}" alt="">
+                <div class="slider-msg">
+                    <div class="msg-title">{{handPick[2].title}}
+                    </div>
+                    <div class="by">BY <span class='by-who'>{{handPick[2].recommendable_author}}</span></div>
                 </div>
             </div>
         </div>

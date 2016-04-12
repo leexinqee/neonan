@@ -30,9 +30,7 @@ app.controller("mainCtrl",function(){
 // 首页顶部部分的控制器
 app.controller("topCtrl", function($scope,MessagesService, $state, $location){
     console.log('topCtrl');
-    MessagesService.handlPick().then(function (data) {
-        $scope.handPick = data.body;
-    });
+
     MessagesService.banner().then(function(data){
         $scope.banner = data.body;
     });
