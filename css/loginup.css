@@ -176,3 +176,39 @@
     width: 416px;
 }
 
+@media screen and (max-width: 768px){
+    .input-list{
+        width: auto;
+    }
+    .modal-dialog.modal-lg {
+    width: 90vw;
+}
+.dialog-login, .dialog-reg, .dialog-find-pwd, .change-info {
+    width: 90vw;
+}
+.modal-dialog {
+    margin: 5vw;
+}
+.weixin-ligin, .weibo-login, .qq-login {
+    width: 30%;
+    margin-left: 10px;
+}
+.dialog-submit-wrap {
+    width: 75vw;
+}
+.no-account-left {
+    padding-left: 12px;
+}
+.btn.no-account-right {
+    width: 94px;
+    height: 30px;
+    border: 2px solid #fff;
+    margin-right: 10px;
+    margin-top: 23px;
+    line-height: 15px;
+}
+.input-wrap {
+    margin: 10px auto;
+    width: 280px;
+}
+}

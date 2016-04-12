@@ -2,18 +2,21 @@
 	html,body,header{
 		width: 100%
 	}
+ .toCenter{
+      width: 100%
+    } 
+   
 	header{
-		height: 100px;
-	}
+       padding-left: 5px;
+    padding-right: 5px;
+	} /*
 	.menu-content{
 		top: 100px;	
 	}
 	.header{
 		height: 100px;
 	}
-    .toCenter{
-    	width: 100%
-    }
+    
     .logo{
     	width: 45px;
     	margin:13px 0 13px 114px
@@ -21,7 +24,7 @@
     .login, .reg{
     	line-height: 100px;
     	height: 100px
-    }
+    }*/
     .swiper-pagination{
     	display: none;
     }
@@ -39,9 +42,9 @@
     .swiper-button-prev,.swiper-button-next{
     	display: none;
     }
-    .menu{
+    /*.menu{
     	margin-top: 37px
-    }
+    }*/
     .main{
 		padding-top: 0;
     }
@@ -108,8 +111,9 @@
 		margin: 30px auto 20px;
 	}
 	.some-links{
-		padding-top: 15px;
-		float: none;
+		    padding-top: 15px;
+    float: inherit;
+    margin: auto;
 	}
 	.links{
 		font-size: 0;
@@ -122,7 +126,7 @@
 		display: inline-block;
 	}
 	.enter{
-		float: none;
+		float: inherit;
 	}
 	.betterman{
 		height: 68px;
@@ -132,7 +136,8 @@
 		border-top:1px solid #3a3a3a; 
 	}
 	footer{
-		min-width:auto;
+    width: 100vw;
+    min-width: 0px;
 	}
 	footer,.footer-content{
 		height: auto;
