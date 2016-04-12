@@ -16,10 +16,9 @@ app.controller("globalCtrl",function($scope,MessagesService){
         $scope.category = data.body.list;
     });
     //专辑
-    //MessagesService.album().then(function(data){
-    //    alert(JSON.stringify(data));
-    //    $scope.album = data.body.list;
-    //});
+    MessagesService.album().then(function(data){
+        $scope.album = data.body.list;
+    });
     console.log('globalCtrl')
 });
 
@@ -31,9 +30,7 @@ app.controller("mainCtrl",function(){
 // 首页顶部部分的控制器
 app.controller("topCtrl", function($scope,MessagesService, $state, $location){
     console.log('topCtrl');
-    MessagesService.handlPick().then(function (data) {
-        $scope.handPick = data.body;
-    });
+
     MessagesService.banner().then(function(data){
         $scope.banner = data.body;
     });

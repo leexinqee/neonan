@@ -44,7 +44,7 @@ header {
     left: 0;
     background-color: #202020;
     border-bottom: 2px solid #0077ef;
-    box-shadow: 0 1px 37px #00772A;
+    box-shadow: 0 0px 15px #E8E8E8;
     height: 50px;
     z-index: 10000
 }

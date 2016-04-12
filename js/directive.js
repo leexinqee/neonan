@@ -39,19 +39,23 @@ app.directive("appDirective", function(){
 });
 
 //  轮播控制器插件执行
-app.directive('swiper', function(){
+app.directive('swiper', function(MessagesService){
     return {
         restrict : 'EA',
         templateUrl:'./template/swiper.html',
         replace:true,
         link : function(scope, ele, attr){
-            var swiper = new Swiper('.swiper-container', {
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                autoplay:4000,
-                loop : true
+            MessagesService.handlPick().then(function (data) {
+                scope.handPick = data.body;
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    //autoplay:4000,
+                    //loop : true
+                });
+                //$('.carousel').carousel()
             });
         }
     }
