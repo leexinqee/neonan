@@ -38,7 +38,7 @@
     <div class="select-logo float-left selected-list">
         <img src="./images/editor.png" alt="">
     </div>
-    <div class="float-left selected-list" ng-repeat="item in small" ng-click="getDetail(item.id)">
-        <a href="">{{item.title}}</a>
+    <div class="float-left selected-list" ng-repeat="item in small">
+        <a ui-sref="index.contentDetail({id : item.id})">{{item.title}}</a>
     </div>
 </div>

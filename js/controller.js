@@ -1,6 +1,7 @@
 /**
  * Created by lenovo on 2016/4/2.
  */
+
 var app = angular.module('app.controller', ['app.service','ui.router']);
 
 // 总控制器
@@ -28,7 +29,7 @@ app.controller("mainCtrl",function(){
 });
 
 // 首页顶部部分的控制器
-app.controller("topCtrl", function($scope,MessagesService,$location){
+app.controller("topCtrl", function($scope,MessagesService, $state, $location){
     console.log('topCtrl');
     MessagesService.handlPick().then(function (data) {
         $scope.handPick = data.body;
@@ -39,7 +40,8 @@ app.controller("topCtrl", function($scope,MessagesService,$location){
     MessagesService.small().then(function (data) {
         $scope.small = data.body;
         $scope.getDetail = function(id){
-            $location.path('index/contentdetail')
+            $state.go('index.contentDetail', {id : id});
+            //$location.path('index/contentdetail');
         };
     })
 });
@@ -67,16 +69,33 @@ app.controller("topInfoCtrl", function($scope){
 
 
 // 整个内容模块的控制器
-app.controller("topContentCtrl", function($scope){
-    console.log('topContentCtrl')
+app.controller("topContentCtrl", function($scope, MessagesService, $stateParams){
+    var id = $stateParams.id;       // 获取到文章id
+
+    MessagesService.articleDetail(id)           // 获取详情文章接口数据
+        .then(function(data){
+            console.log(JSON.stringify(data))
+        });
+
 });
 
 
 // 内容模块上方的广告栏
 app.controller("contentTopViewCtrl", function($scope){
+
     console.log('contentTopViewCtrl')
 });
 
+// 内容模块右方的广告栏
+app.controller("contentRightViewCtrl", function($scope, MessagesService){
+    $scope.video = [];
+    MessagesService.video().then(function(data){            // 获取牛男TV接口数据
+        $scope.video = data.body.list;
+        console.log($scope.video)
+    });
+
+    console.log('contentRightViewCtrl')
+});
 
 
 // 视频TV 控制器

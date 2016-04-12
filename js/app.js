@@ -9,7 +9,7 @@ routerApp.run(function($rootScope, $state, $stateParams) {
 });
 
 routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
-    //¿çÓò´¦Àí
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Request-with'];
     $urlRouterProvider.otherwise('/index');
@@ -42,7 +42,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
             }
         }
     }).state('index.contentDetail', {
-        url : '/contentdetail',
+        url : '/contentdetail/:id',
         views : {
             'top' : {
                 templateUrl: 'template/top-content-detail.html',
@@ -57,8 +57,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "contentRightViewCtrl"
             },
             'asideRight' : {
-                template: '',
-                controller: ""
+                template: ''
             }
         }
     }).state('tvPage', {

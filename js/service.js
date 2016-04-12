@@ -6,6 +6,7 @@ app.config(function(RestangularProvider){
 
     });
 });
+
 app.service("MessagesService",["Restangular",function(Restangular){
     return {
         getArticle:function(param){
