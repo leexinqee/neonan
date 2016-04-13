@@ -16,9 +16,7 @@ app.controller("globalCtrl",function($scope,MessagesService){
         $scope.category = data.body.list;
     });
     //专辑
-    MessagesService.album().then(function(data){
-        $scope.album = data.body.list;
-    });
+
     console.log('globalCtrl')
 });
 
