@@ -2,7 +2,7 @@
  * Created by lenovo on 2016/4/2.
  */
 
-var app = angular.module('app.controller', ['app.service','ui.router']);
+var app = angular.module('app.controller', ['app.service','ui.router', 'ngSanitize']);
 
 // 总控制器
 app.controller("globalCtrl",function($scope,MessagesService){
@@ -64,19 +64,22 @@ app.controller("topInfoCtrl", function($scope){
 
 
 // 整个内容模块的控制器
-app.controller("topContentCtrl", function($scope, MessagesService, $stateParams){
+app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce){
     var id = $stateParams.id;       // 获取到文章id
 
     // 获取广告接口
     MessagesService.articleAds().then(function(data){
-        console.log(JSON.stringify(data))
+        //console.log(JSON.stringify(data))
     })
 
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
             $scope.message = data.body;
-            console.log(JSON.stringify(data))
+            $scope.htmlText = function(){
+                return $sce.trustAsHtml(data.body.details);
+            };
+            //console.log(JSON.stringify(data))
         });
 
 });
