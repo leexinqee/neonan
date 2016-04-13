@@ -33,6 +33,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "asideRightCtrl"
             }
         }
+    }).state('index.category', {
+        url : '/category?slug',
+        views : {
+            'top' : {
+                templateUrl: 'template/top-category.html',
+                controller : "topCategoryCtrl"
+            }
+        }
     }).state('index.selfInfo', {
         url : '/selfinfo',
         views : {

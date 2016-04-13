@@ -16,7 +16,6 @@ app.controller("globalCtrl",function($scope,MessagesService){
         $scope.category = data.body.list;
     });
     //专辑
-
     console.log('globalCtrl')
 });
 
@@ -60,6 +59,19 @@ app.controller("asideRightCtrl",function($scope,MessagesService){
 // 个人信息的上方信息显示模块儿
 app.controller("topInfoCtrl", function($scope){
     console.log('topInfoCtrl')
+});
+
+
+// 分类信息的上方信息显示
+app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams){
+    $scope.slug = $stateParams.slug;
+    MessagesService.banner().then(function(data){
+        $scope.banner = data.body;
+    });
+    MessagesService.small().then(function (data) {
+        $scope.small = data.body;
+    });
+    console.log('topCategoryCtrl')
 });
 
 
