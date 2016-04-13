@@ -7,6 +7,16 @@ app.config(function(RestangularProvider){
     });
 });
 
+app.factory("toolService", function(){
+    return {
+        // 根据文章详情上下页的路径解析出文章的id
+        parserArticleId : function(url){
+            var tempArr = url.split("/");
+            return tempArr[tempArr.length-1];
+        }
+    }
+});
+
 app.service("MessagesService",["Restangular",function(Restangular){
     return {
         getArticle:function(param){

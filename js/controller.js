@@ -64,7 +64,7 @@ app.controller("topInfoCtrl", function($scope){
 
 
 // 整个内容模块的控制器
-app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce){
+app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService){
     var id = $stateParams.id;       // 获取到文章id
 
     // 获取广告接口
@@ -75,10 +75,37 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
+            // 是否显示分页按钮
+            $scope.pagesShow = {
+                prev : true,
+                next : true,
+                all : true
+            };
+
+            // 文章数据渲染
             $scope.message = data.body;
+            // 文章内容
             $scope.htmlText = function(){
                 return $sce.trustAsHtml(data.body.details);
             };
+
+            var prev = $scope.message.prev_url,
+                next = $scope.message.next_url;
+
+            // 文章分页
+            if(prev && prev == "没有了"){
+                $scope.pagesShow.prev = false;
+            } else {
+                $scope.prevArtId = toolService.parserArticleId($scope.message.prev_url);
+            }
+            if(next && next == "没有了"){
+                $scope.pagesShow.next = false;
+            } else {
+                $scope.nextArtId = toolService.parserArticleId($scope.message.next_url);
+            }
+            if(!$scope.pagesShow.prev && !$scope.pagesShow.next){
+                $scope.pagesShow.all = false;
+            }
             //console.log(JSON.stringify(data))
         });
 
