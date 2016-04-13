@@ -13,7 +13,7 @@
                         <img src="images/headinfo.png" width="100%" height="100%" alt=""/>
                     </div>
                     <dl class="name-box">
-                        <dt class="nickname">BY TONY小明</dt>
+                        <dt class="nickname">{{message.author}}</dt>
                         <dd class="plain">BY TONY小明BY TONY小明</dd>
                     </dl>
                 </div>
@@ -50,16 +50,17 @@
                         <!--沾边。怎么说呢，穿这样如果妹纸还愿意和你走在一起可能确实是真爱了吧，但是-->
                         <!--上楼喝个茶什么的是真真做不到啊</dd>-->
                 <!--</dl>-->
-                <!--<div class="row clearfix page-row">-->
-                    <!--<div class="col-md-4 text-center">-->
-                        <!--<button class="btn btn-info"> < 上一页 </button>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-4 text-center col-md-offset-4">-->
-                        <!--<button class="btn btn-info"> 下一页 > </button>-->
-                    <!--</div>-->
-                <!--</div>-->
+
                 <div class="message-body">
                     <div ng-bind-html="htmlText()"></div>
+                </div>
+                <div class="row clearfix page-row" ng-if="pagesShow.all">
+                    <div class="col-md-4 text-center">
+                        <a ng-if="pagesShow.prev" ui-sref="index.contentDetail({id : prevArtId})" class="btn btn-info"> < 上一页 </a>
+                    </div>
+                    <div class="col-md-4 text-center col-md-offset-4">
+                        <a ng-if="pagesShow.next" ui-sref="index.contentDetail({id : nextArtId})" class="btn btn-info"> 下一页 > </a>
+                    </div>
                 </div>
                 <div class="row clearfix tip-row">
                     <div class="col-md-12">
