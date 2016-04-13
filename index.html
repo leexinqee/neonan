@@ -71,21 +71,21 @@
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入手机号码"/>
+                                    <input type="text" placeholder="请输入手机号码" class="regmobile"/>
                                 </div>
                                 <div class="input-list">
                                     <input id="enter-code" type="text" placeholder="请输入验证码"/>
                                     <div class="get-code">获取验证码</div>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="请输入密码"/>
+                                    <input type="password" placeholder="请输入密码" class="regemail"/>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="确认密码"/>
+                                    <input type="password" placeholder="确认密码" class="regpwd"/>
                                 </div>
                                 <div class="dialog-submit-wrap">
-                                    <button type="button" class="btn btn-default dialog-submit">立即注册</button>
-                                    <button type="button" class="btn btn-link return-login">返回登录</button>
+                                    <button type="button" class="btn btn-default dialog-submit" id="reg">立即注册</button>
+                                    <button type="button" class="btn btn-link return-login" id="return">返回登录</button>
                                 </div>
                             </div>
                             <div class="close-dialog"></div>
@@ -212,36 +212,36 @@
         </div>
         <div class="kinds">CHANNELS 频道</div>
         <ul class="menu-list">
-            <li class="menu-list-item car">
-                <a ng-href="#/index/selfinfo" data-color='#b9b9b9' data-value="CAR | 汽车">汽车 CAR</a>
+            <li class="menu-list-item car" ng-repeat="item in category">
+                <a ng-href="#/index/selfinfo" data-color='#b9b9b9' data-value="CAR | {{item.title}}">{{item.title}} CAR</a>
             </li>
-            <li class="menu-list-item fitness">
-                <a ui-sref="index" data-color='#d93347' data-value="FITNESS | 健身">健身 FITNESS</a>
-            </li>
-            <li class="menu-list-item style">
-                <a ng-href="#/index/contentdetail/123" data-color='#7e2dc2' data-value="STYLE | 形象">形象 STYLE</a>
-            </li>
-            <li class="menu-list-item entertanment">
-                <a ng-href="#/tvpage" data-color='#cb07ad' data-value="entertainment | 娱乐">娱乐 entertainment</a>
-            </li>
-            <li class="menu-list-item deit">
-                <a data-color='#00b451' data-value="diet | 饮食">饮食 diet</a>
-            </li>
-            <li class="menu-list-item fun">
-                <a data-color='#eb9318' data-value="FUN | 好玩">好玩 FUN</a>
-            </li>
-            <li class="menu-list-item love">
-                <a data-color='#ee246e' data-value="love | 情感">情感 love</a>
-            </li>
-            <li class="menu-list-item successful">
-                <a data-color='#29658a' data-value="successful | 成长">成长 successful</a>
-            </li>
-            <li class="menu-list-item health">
-                <a data-color='#76c422' data-value="health | 健康">健康 health</a>
-            </li>
-            <li class="menu-list-item motivation">
-                <a data-color='#ff6600' data-value="motivational | 约会">约会 motivational</a>
-            </li>
+            <!--<li class="menu-list-item fitness">-->
+                <!--<a ui-sref="index" data-color='#d93347' data-value="FITNESS | 健身">健身 FITNESS</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item style">-->
+                <!--<a ng-href="#/index/contentdetail" data-color='#7e2dc2' data-value="STYLE | 形象">形象 STYLE</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item entertanment">-->
+                <!--<a ng-href="#/tvpage" data-color='#cb07ad' data-value="entertainment | 娱乐">娱乐 entertainment</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item deit">-->
+                <!--<a data-color='#00b451' data-value="diet | 饮食">饮食 diet</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item fun">-->
+                <!--<a data-color='#eb9318' data-value="FUN | 好玩">好玩 FUN</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item love">-->
+                <!--<a data-color='#ee246e' data-value="love | 情感">情感 love</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item successful">-->
+                <!--<a data-color='#29658a' data-value="successful | 成长">成长 successful</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item health">-->
+                <!--<a data-color='#76c422' data-value="health | 健康">健康 health</a>-->
+            <!--</li>-->
+            <!--<li class="menu-list-item motivation">-->
+                <!--<a data-color='#ff6600' data-value="motivational | 约会">约会 motivational</a>-->
+            <!--</li>-->
         </ul>
         <div class="kinds">ALBUMS 专辑</div>
         <ul class="menu-list">

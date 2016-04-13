@@ -64,10 +64,17 @@ app.directive('swiper', function(MessagesService){
 });
 
 //  菜单滚动执行
-app.directive('menuContainer', function(){
+app.directive('menuContainer', function(MessagesService){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
+            MessagesService.album().then(function(data){
+                scope.album = data.body;
+            });
+            MessagesService.category().then(function(data){
+                scope.category = data.body.list;
+
+            });
             //menu  scroll bar
             $(ele).niceScroll({
                 cursorcolor: "rgba(0,0,0,0)", // 光标颜色
@@ -84,14 +91,30 @@ app.directive('menuContainer', function(){
 
 
 //  登陆框
-app.directive('loginupDirective', function(){
+app.directive('loginupDirective', function(MessagesService,$timeout){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
             var $account = $(ele).find("#account");
+            var $loginBtn = $(ele).find('#reg');
             $account.on("click", ".close-dialog", function(){
                $(this).parents(".modal").modal('hide');         // 隐藏弹出框
             });
+            $loginBtn.on('click',function(){
+                var this_ = $(this);
+                $(this).html("注册中...");
+                regdata = {
+                    email:$(ele).find('.regmobile').val(),
+                    password:$(ele).find('.regpwd').val()
+                };
+                alert(JSON.stringify(regdata));
+                MessagesService.register(regdata).then(function(data){
+                    this_.parents(".modal").modal('hide');
+                    this_.html("立即注册");
+                },function(err){
+                    this_.html("立即注册");
+                });
+            })
         }
     }
 });
@@ -116,12 +139,7 @@ app.directive('appfooter',function(){
     return {
         restrict:"EA",
         replace:true,
-        templateUrl:'./template/appFooter.html',
-        link: function (scope, ele, attr) {
-            var changBtn = $(ele).find('.change-btn');
-            changBtn.on('click',function(){
-                $(this).addClass('active').siblings('').removeClass('active');
-            })
-        }
+        templateUrl:'./template/appFooter.html'
+
     }
 });

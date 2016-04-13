@@ -16,9 +16,7 @@ app.controller("globalCtrl",function($scope,MessagesService){
         $scope.category = data.body.list;
     });
     //专辑
-    MessagesService.album().then(function(data){
-        $scope.album = data.body.list;
-    });
+
     console.log('globalCtrl')
 });
 
@@ -69,8 +67,15 @@ app.controller("topInfoCtrl", function($scope){
 app.controller("topContentCtrl", function($scope, MessagesService, $stateParams){
     var id = $stateParams.id;       // 获取到文章id
 
-    MessagesService.articleDetail(id)           // 获取详情文章接口数据
+    // 获取广告接口
+    MessagesService.articleAds().then(function(data){
+        console.log(JSON.stringify(data))
+    })
+
+    // 获取详情文章接口数据
+    MessagesService.articleDetail(id)
         .then(function(data){
+            $scope.message = data.body;
             console.log(JSON.stringify(data))
         });
 
@@ -78,7 +83,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams)
 
 
 // 内容模块上方的广告栏
-app.controller("contentTopViewCtrl", function($scope){
+app.controller("contentTopViewCtrl", function($scope, MessagesService){
 
     console.log('contentTopViewCtrl')
 });
@@ -88,7 +93,6 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService){
     $scope.video = [];
     MessagesService.video().then(function(data){            // 获取牛男TV接口数据
         $scope.video = data.body.list;
-        console.log($scope.video)
     });
 
     console.log('contentRightViewCtrl')
