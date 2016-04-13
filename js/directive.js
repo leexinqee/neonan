@@ -47,15 +47,17 @@ app.directive('swiper', function(MessagesService){
         link : function(scope, ele, attr){
             MessagesService.handlPick().then(function (data) {
                 scope.handPick = data.body;
-                var swiper = new Swiper('.swiper-container', {
-                    pagination: '.swiper-pagination',
-                    paginationClickable: true,
-                    nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev',
-                    //autoplay:4000,
-                    //loop : true
+                $(ele).find("img").on("load", function(){
+                    var swiper = new Swiper('.swiper-container', {
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        autoplay:4000,
+                        loop : true
+                    });
                 });
-                //$('.carousel').carousel()
+
             });
         }
     }
