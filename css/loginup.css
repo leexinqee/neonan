@@ -175,7 +175,12 @@
 .modal-dialog.modal-lg {
     width: 416px;
 }
-
+.worn{
+    padding-left: 10px;
+    height: 20px;
+    line-height: 20px;
+    color: red;display: none;
+}
 @media screen and (max-width: 768px){
     .input-list{
         width: auto;

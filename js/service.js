@@ -100,6 +100,12 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         album:function () {
             return Restangular.one('album').get();
+        },
+        captcha:function(target){
+            return Restangular.one('captcha').get(target);
+        },
+        smsRegister:function(param){
+            return Restangular.one('sms-register').customPOST(param);
         }
     }
 }]);

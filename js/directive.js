@@ -97,23 +97,41 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
         link : function(scope, ele, attr){
             var $account = $(ele).find("#account");
             var $loginBtn = $(ele).find('#reg');
+            var $getCode = $(ele).find('.get-code');
             $account.on("click", ".close-dialog", function(){
                $(this).parents(".modal").modal('hide');         // 隐藏弹出框
             });
             $loginBtn.on('click',function(){
                 var this_ = $(this);
+                if(!($(ele).find('.regmobile').val()&&$(ele).find('#enter-code').val()&&$(ele).find('.regpwd').val())){
+                    $('.worn').fadeIn();
+                    return;
+                }
                 $(this).html("注册中...");
                 regdata = {
-                    email:$(ele).find('.regmobile').val(),
+                    target:$(ele).find('.regmobile').val(),
+                    captcha:$(ele).find('#enter-code').val(),
                     password:$(ele).find('.regpwd').val()
                 };
-                alert(JSON.stringify(regdata));
-                MessagesService.register(regdata).then(function(data){
+                //alert(JSON.stringify(regdata));
+                MessagesService.smsRegister(regdata).then(function(data){
+                    alert(JSON.stringify(data));
                     this_.parents(".modal").modal('hide');
                     this_.html("立即注册");
+                    $(ele).find('.regmobile').val('');
+                    $(ele).find('#enter-code').val('');
+                    $(ele).find('.regpwd').val('');
                 },function(err){
                     this_.html("立即注册");
                 });
+            });
+            $getCode.on('click',function(){
+                var param = {
+                    target:$('.regmobile').val()
+                };
+                MessagesService.captcha(param).then(function(data){
+                    alert(JSON.stringify(data));
+                })
             })
         }
     }
@@ -122,13 +140,14 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
 
 
 //文章部分
-app.directive('articles',function(){
+app.directive('articles',function(MessagesService){
     return {
         restrict:"EA",
         link: function (scope, ele, attr) {
             var changBtn = $(ele).find('.change-btn');
             changBtn.on('click',function(){
                 $(this).addClass('active').siblings('').removeClass('active');
+
             })
         }
     }
