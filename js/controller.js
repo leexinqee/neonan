@@ -69,17 +69,18 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
 
     // 获取广告接口
     MessagesService.articleAds().then(function(data){
-        //console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
     })
 
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
+            // 是否显示分页按钮
             $scope.pagesShow = {
                 prev : true,
                 next : true,
                 all : true
-            }
+            };
 
             // 文章数据渲染
             $scope.message = data.body;
@@ -90,7 +91,6 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
 
             var prev = $scope.message.prev_url,
                 next = $scope.message.next_url;
-            console.log($scope.message.prev_url, $scope.message.next_url);
 
             // 文章分页
             if(prev && prev == "没有了"){
