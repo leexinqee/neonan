@@ -261,5 +261,22 @@
     <!--公共尾部-->
     <appfooter></appfooter>
     <div id="heh"></div>
+<script>
+    window.onload = function(){
+        var href = window.location.href;
+        alert(href)
+        if(href.indexOf('code=')!=-1){
+            var code = href.indexOf('code=')+5;
+            var end = href.indexOf('#/index');
+            var authcode = href.slice(code,end);
+            $.getJSON("http:https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id=100297082&client_secret=c5df159fdcd3f2608b970e31847df63b&code="+authcode+"&redirect_uri=http://phptest.neonan.com/frontend",
+                    function(data){
+                        alert(data);
+//                        $("#showcontent").text("Result:"+data.result)
+                    });
+//            window.location.href = 'https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id=100297082&client_secret=c5df159fdcd3f2608b970e31847df63b&code='+authcode+'&redirect_uri=http://phptest.neonan.com/frontend';
+        }
+    }
+</script>
 </body>
 </html>
