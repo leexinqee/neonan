@@ -122,13 +122,14 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
 
 
 //文章部分
-app.directive('articles',function(){
+app.directive('articles',function(MessagesService){
     return {
         restrict:"EA",
         link: function (scope, ele, attr) {
             var changBtn = $(ele).find('.change-btn');
             changBtn.on('click',function(){
                 $(this).addClass('active').siblings('').removeClass('active');
+
             })
         }
     }

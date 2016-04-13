@@ -69,7 +69,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
 
     // 获取广告接口
     MessagesService.articleAds().then(function(data){
-        //console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
     })
 
     // 获取详情文章接口数据
