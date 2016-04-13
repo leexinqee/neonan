@@ -14,6 +14,9 @@
     margin-top: 32px;
     margin-left: 24px;
 }
+.account-title img{
+height: 50px;    
+}
 .user-input{
     margin-top: 36px;
 }
@@ -83,12 +86,35 @@
 }
 .other-login{
     border-top:1px solid #eaeaea;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .other-login-list{
     font-size: 33px;
     text-align: center;
     overflow: hidden;
+    margin-top: 20px;
+}
+.other-login-list button{
+    float: left;
+    width: 29%;
+    height: 36px;
+    border-radius: 0;
+    display: inline-block;
+    border: none;
+    margin-left: 3%;
+}
+.other-login-list .weixin{
+
+    background-color: #06c011;
+}
+.other-login-list .qq{
+
+    background-color: #2ea9e9;
+}
+.other-login-list .weibo{
+
+    background-color: #e22d2d;
+}
 }
 .other-login-text{
     background-color: #ffffff;
@@ -100,7 +126,7 @@
     font-size: 14px;
     color: #b2b2b2;
 }
-.weixin-ligin,.weibo-login,.qq-login{
+/*.weixin-ligin,.weibo-login,.qq-login{
     float: left;
     width: 115px;
     height: 36px;
@@ -108,7 +134,7 @@
     display: inline-block;
     border: none;
     margin-left: 19px;
-}
+}*/
 .weixin-ligin {
     margin: 0;
 }
@@ -132,14 +158,20 @@
     margin-right: 40px;
     margin-top: 17px;
 }
+.media-login{
+    background-size: 92px;
+    padding: 3px 17px;
+    background-image: url("../images/login-icon.png");
+}
 .weixin-ligin{
-    background: url("../images/weixinlogin.png") no-repeat center center #06c011;
+    background-position: 35px;
 }
 .weibo-login{
-    background: url("../images/weibologin.png") no-repeat center center #e22d2d;
+    background-position: 66px;
 }
 .qq-login{
-    background: url("../images/qqlogin.png") no-repeat center center #2ea9e9;
+    background-position: 4px;
+    background-color: #2ea9e9;
 }
 .rememberMe input,.rememberMe label{
     font-size: 14px;
@@ -193,10 +225,6 @@
 }
 .modal-dialog {
     margin: 5vw;
-}
-.weixin-ligin, .weibo-login, .qq-login {
-    width: 30%;
-    margin-left: 10px;
 }
 .dialog-submit-wrap {
     width: 75vw;

@@ -9,7 +9,11 @@ dl, dt, dd {
     margin: 0;
 }
 
-
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
 .clear {
     zoom: 1;
 }
@@ -62,6 +66,10 @@ header {
 .logo {
     cursor: pointer;
     display: inline-block;
+    width: 45px;
+}
+.logo img{
+    width: 45px;
 }
 .choose-type{
     height: 32px;
@@ -79,11 +87,6 @@ header {
 .menu {
     margin: 14px 0 14px 1px;
 }
-
-.logo {
-    margin: 13px 0 13px 20px;
-}
-
 .login,
 .reg {
     font-size: 16px;
