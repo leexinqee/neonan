@@ -91,3 +91,13 @@
     margin: 0 auto;
 }
 
+.tv-layout .img-link.four-bar {
+    height: 353px;
+}
+.tv-layout .img-link.second-bar {
+    height: 295px;
+}
+.tv-layout .img-link.three-bar {
+    height: 166px;
+}
+

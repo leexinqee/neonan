@@ -154,7 +154,7 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService){
 app.controller("tvPageCtrl", function($scope, MessagesService){
 
     MessagesService.video().then(function(data){            // 获取牛男TV接口数据
-        //console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
         $scope.video = data.body.list;
     });
     //MessagesService.videoDetail(14431).then(function(data){
