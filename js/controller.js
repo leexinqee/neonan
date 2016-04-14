@@ -9,7 +9,6 @@ app.controller("globalCtrl",function($scope,MessagesService){
     //得到banner相关数据
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
-
     });
     //侧边栏
     MessagesService.category().then(function(data){
@@ -43,6 +42,7 @@ app.controller("topCtrl", function($scope,MessagesService, $state, $location){
 //  左侧导航栏控制器
 app.controller("asideLeftCtrl", function($scope,MessagesService){
     MessagesService.getArticle().then(function(data){
+        console.log(JSON.stringify(data))
         $scope.article = data.body.list;
     });
     console.log('asideLeftCtrl')
@@ -78,7 +78,7 @@ app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams
 // 整个内容模块的控制器
 app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService){
     var id = $stateParams.id;       // 获取到文章id
-
+    console.log("==== ======= == = "+id)
     // 获取广告接口
     MessagesService.articleAds().then(function(data){
         console.log(JSON.stringify(data))

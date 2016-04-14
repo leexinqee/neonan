@@ -15,7 +15,9 @@
                 <div class="msg-type body-building">{{item.category_name}}</div>
             </div>
             <div class="c-item-msg">
-                <h3 class="c-item-pic-title"><a href="">{{item.title}}</a></h3>
+                <h3 class="c-item-pic-title">
+                    <a  ui-sref="index.contentDetail({id : item.id})">{{item.title}}</a>
+                </h3>
                 <div class="power-by">BY <span>TONY小编</span></div>
                 <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>{{item.publish_time}}</span></div>
             </div>
