@@ -94,7 +94,18 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 next : true,
                 all : true
             };
-
+            $scope.like = function(id){
+                alert(id);
+                MessagesService.token().then(function(data){
+                    var param = {};
+                    param._token = data.body;
+                    param.article_id = id;
+                    alert(JSON.stringify(param))
+                    MessagesService.articleLike(param).then(function(data){
+                        alert(JSON.stringify(data))
+                    });
+                })
+            };
             // 文章数据渲染
             $scope.message = data.body;
             // 文章内容
