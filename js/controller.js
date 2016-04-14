@@ -13,6 +13,7 @@ app.controller("globalCtrl",function($scope,MessagesService){
     //侧边栏
     MessagesService.category().then(function(data){
         $scope.category = data.body.list;
+        console.log("category"+JSON.stringify(data))
     });
     //专辑
     console.log('globalCtrl')
@@ -42,7 +43,6 @@ app.controller("topCtrl", function($scope,MessagesService, $state, $location){
 //  左侧导航栏控制器
 app.controller("asideLeftCtrl", function($scope,MessagesService){
     MessagesService.getArticle().then(function(data){
-        console.log(JSON.stringify(data))
         $scope.article = data.body.list;
     });
     console.log('asideLeftCtrl')
@@ -78,11 +78,10 @@ app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams
 // 整个内容模块的控制器
 app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService){
     var id = $stateParams.id;       // 获取到文章id
-    console.log("==== ======= == = "+id)
     // 获取广告接口
     MessagesService.articleAds().then(function(data){
         console.log(JSON.stringify(data))
-    })
+    });
 
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
@@ -93,7 +92,18 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 next : true,
                 all : true
             };
-
+            $scope.like = function(id){
+                alert(id);
+                MessagesService.token().then(function(data){
+                    var param = {};
+                    param._token = data.body;
+                    param.article_id = id;
+                    alert(JSON.stringify(param))
+                    MessagesService.articleLike(param).then(function(data){
+                        alert(JSON.stringify(data))
+                    });
+                })
+            };
             // 文章数据渲染
             $scope.message = data.body;
             // 文章内容

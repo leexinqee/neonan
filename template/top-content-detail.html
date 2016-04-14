@@ -13,8 +13,8 @@
                         <img src="images/headinfo.png" width="100%" height="100%" alt=""/>
                     </div>
                     <dl class="name-box">
-                        <dt class="nickname">{{message.author}}</dt>
-                        <dd class="plain">BY TONY小明BY TONY小明</dd>
+                        <dt class="nickname">BY {{message.author}}</dt>
+                        <dd class="plain">收藏数：{{message.share_total}}</dd>
                     </dl>
                 </div>
                 <div class="float-right time-box">
@@ -27,7 +27,7 @@
             <div class="share-box clearfix">
                 <button class="btn btn-default btn-share-qzone float-left">qzone</button>
                 <button class="btn btn-default btn-share-sea float-left">sea</button>
-                <button class="btn btn-default btn-collet float-right">collet</button>
+                <button class="btn btn-default btn-collet float-right" ng-click="like(message.id)">collet</button>
             </div>
             <div class="con-center">
                 <!--<div class="img-content-box">-->
@@ -64,7 +64,7 @@
                 </div>
                 <div class="row clearfix tip-row">
                     <div class="col-md-12">
-                        <strong>标签：</strong>穿搭、男士、时尚
+                        <strong>标签：</strong>{{message.category.name}}
                     </div>
                 </div>
                 <div class="row clearfix share-wrap">

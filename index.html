@@ -123,9 +123,9 @@
                                 <div class="other-login">
                                     <div class="other-login-text">第三方登录</div>
                                     <div class="other-login-list">
-                                        <button type="button" class="btn btn-default weixin-ligin"></button>
-                                        <button type="button" class="btn btn-default weibo-login"></button>
-                                        <button type="button" class="btn btn-default qq-login"></button>
+                                        <button type="button" class="btn btn-default weixin"><span class="media-login weixin-ligin"></span></button>
+                                        <button type="button" class="btn btn-default weibo"><span class="media-login weibo-login"></span></button>
+                                        <button type="button" class="btn btn-default qq"><span class="media-login qq-login"></span></button>
                                     </div>
                                 </div>
                                 <div class="no-account">
@@ -213,39 +213,15 @@
                 <div class="search-btn"></div>
             </div>
         </div>
-        <div class="kinds">CHANNELS 频道</div>
-        <ul class="menu-list">
-            <li class="menu-list-item car" ng-repeat="item in category">
-                <a ui-sref="index.category({slug: item.slug})" data-color='#b9b9b9' data-value="CAR | {{item.title}}">{{item.title}} CAR</a>
-            </li>
-            <!--<li class="menu-list-item fitness">-->
-                <!--<a ui-sref="index" data-color='#d93347' data-value="FITNESS | 健身">健身 FITNESS</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item style">-->
-                <!--<a ng-href="#/index/contentdetail" data-color='#7e2dc2' data-value="STYLE | 形象">形象 STYLE</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item entertanment">-->
-                <!--<a ng-href="#/tvpage" data-color='#cb07ad' data-value="entertainment | 娱乐">娱乐 entertainment</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item deit">-->
-                <!--<a data-color='#00b451' data-value="diet | 饮食">饮食 diet</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item fun">-->
-                <!--<a data-color='#eb9318' data-value="FUN | 好玩">好玩 FUN</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item love">-->
-                <!--<a data-color='#ee246e' data-value="love | 情感">情感 love</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item successful">-->
-                <!--<a data-color='#29658a' data-value="successful | 成长">成长 successful</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item health">-->
-                <!--<a data-color='#76c422' data-value="health | 健康">健康 health</a>-->
-            <!--</li>-->
-            <!--<li class="menu-list-item motivation">-->
-                <!--<a data-color='#ff6600' data-value="motivational | 约会">约会 motivational</a>-->
-            <!--</li>-->
-        </ul>
+
+        <div ng-repeat="item in category">
+            <div class="kinds">{{item.title}}</div>
+            <ul class="menu-list" ng-if="item.children">
+                <li class="menu-list-item car" ng-repeat="items in item.children">
+                    <a ui-sref="index.category({slug: items.slug})" data-color='#b9b9b9' data-value="{{items.title}}">{{items.title}}</a>
+                </li>
+            </ul>
+        </div>
         <div class="kinds">ALBUMS 专辑</div>
         <ul class="menu-list">
             <li class="menu-list-item day30" ng-repeat="item in album">
