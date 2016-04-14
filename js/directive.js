@@ -111,32 +111,45 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 regdata = {
                     target:$(ele).find('.regmobile').val(),
                     captcha:$(ele).find('#enter-code').val(),
-                    password:$(ele).find('.regpwd').val()
+                    password:$(ele).find('.regemail').val(),
+                    confirm_password:$(ele).find('.regpwd').val()
                 };
-                //alert(JSON.stringify(regdata));
-                MessagesService.smsRegister(regdata).then(function(data){
-                    alert(JSON.stringify(data));
-                    this_.parents(".modal").modal('hide');
-                    this_.html("立即注册");
-                    $(ele).find('.regmobile').val('');
-                    $(ele).find('#enter-code').val('');
-                    $(ele).find('.regpwd').val('');
-                },function(err){
-                    this_.html("立即注册");
+                MessagesService.token().then(function(data){
+                    regdata._token = data.body;
+                    alert(JSON.stringify(regdata))
+                    MessagesService.smsRegister(regdata).then(function(data){
+                        alert(JSON.stringify(data));
+                        this_.parents(".modal").modal('hide');
+                        this_.html("立即注册");
+                        $(ele).find('.regmobile').val('');
+                        $(ele).find('#enter-code').val('');
+                        $(ele).find('.regpwd').val('');
+                    },function(err){
+                        this_.html("立即注册");
+                    });
                 });
+                //MessagesService.smsRegister(regdata).then(function(data){
+                //    alert(JSON.stringify(data));
+                //    this_.parents(".modal").modal('hide');
+                //    this_.html("立即注册");
+                //    $(ele).find('.regmobile').val('');
+                //    $(ele).find('#enter-code').val('');
+                //    $(ele).find('.regpwd').val('');
+                //},function(err){
+                //    this_.html("立即注册");
+                //});
             });
             $getCode.on('click',function(){
                 var param = {
                     target:$('.regmobile').val()
                 };
                 MessagesService.captcha(param).then(function(data){
-                    alert(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
                 })
             })
         }
     }
 });
-
 
 
 //文章部分

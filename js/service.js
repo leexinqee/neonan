@@ -104,8 +104,11 @@ app.service("MessagesService",["Restangular",function(Restangular){
         captcha:function(target){
             return Restangular.one('captcha').get(target);
         },
+        token:function(){
+          return Restangular.one('token').get();
+        },
         smsRegister:function(param){
-            return Restangular.one('sms-register').customPOST(param);
+             return Restangular.one('sms-register').customPOST(param);
         }
     }
 }]);

@@ -14,6 +14,7 @@ app.controller("globalCtrl",function($scope,MessagesService){
     //侧边栏
     MessagesService.category().then(function(data){
         $scope.category = data.body.list;
+        console.log("category"+JSON.stringify(data))
     });
     //专辑
     console.log('globalCtrl')
@@ -82,7 +83,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     // 获取广告接口
     MessagesService.articleAds().then(function(data){
         console.log(JSON.stringify(data))
-    })
+    });
 
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
