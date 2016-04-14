@@ -50,7 +50,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('video').get();
         },
         videoDetail:function(param){
-        return Restangular.one('video',param).get();
+            return Restangular.one('video',param).get();
         },
         videoShare:function(param){
             return Restangular.one('video','shared').customPUT(param);

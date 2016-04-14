@@ -69,7 +69,6 @@ app.directive('menuContainer', function(MessagesService){
         restrict : 'EA',
         link : function(scope, ele, attr){
             MessagesService.album().then(function(data){
-                console.log(JSON.stringify(data));
                 scope.album = data.body;
             });
             MessagesService.category().then(function(data){

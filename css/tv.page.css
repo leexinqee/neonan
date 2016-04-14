@@ -34,7 +34,7 @@
 
 /* tv show css */
 .tv-page-container {
-    margin-top: 60px;
+
 }
 .tv-page-container.container {
     padding: 0;
@@ -47,15 +47,18 @@
 .tv-layout {
 
 }
-.tv-layout a.img-link {
+.tv-layout .img-link {
     display: block;
     position: relative;
 }
-.tv-layout a.first-bar {
+.tv-layout .img-link:hover h4 {
+    text-decoration: underline;
+}
+.tv-layout .first-bar {
     height: 190px;width: 100%;
     overflow: hidden;
 }
-.tv-layout a.first-bar .inner-link {
+.tv-page-container .tv-layout .first-bar .inner-link {
     width: 177px;
     height: 62px;
     right: 30px;
@@ -73,6 +76,8 @@
 }
 .tv-layout .img-link .inner-link .link-title {
     color: #fff;
+    width: 190px;
+    line-height: 25px;
 }
 .tv-layout .img-link .play-style-two {
     position: absolute;

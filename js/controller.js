@@ -13,7 +13,6 @@ app.controller("globalCtrl",function($scope,MessagesService){
     //侧边栏
     MessagesService.category().then(function(data){
         $scope.category = data.body.list;
-        console.log("category"+JSON.stringify(data))
     });
     //专辑
     console.log('globalCtrl')
@@ -152,7 +151,13 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService){
 
 
 // 视频TV 控制器
-app.controller("tvPageCtrl", function($scope){
+app.controller("tvPageCtrl", function($scope, MessagesService){
+
+    MessagesService.video().then(function(data){            // 获取牛男TV接口数据
+        console.log(JSON.stringify(data))
+        $scope.video = data.body.list;
+    });
+
     console.log('tvPageCtrl')
 });
 
