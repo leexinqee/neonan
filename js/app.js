@@ -80,5 +80,25 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "contentTopViewCtrl"
             }
         }
+    }).state('tvdetail', {
+        url : '/tvdetail/:id',
+        views : {
+            'main': {
+                templateUrl: 'template/main.html',
+                controller : "mainCtrl"
+            },
+            'top@tvdetail' : {
+                templateUrl: 'template/tv-detail.html',
+                controller : "tvDetailCtrl"
+            },
+            'asideLeft@tvdetail' : {
+                templateUrl: 'template/aside-left.html',
+                controller : "asideLeftCtrl"
+            },
+            'asideRight@tvdetail' : {
+                templateUrl: 'template/aside-right.html',
+                controller : "asideRightCtrl"
+            }
+        }
     })
 });
