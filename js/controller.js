@@ -78,13 +78,14 @@ app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams
 app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService){
     var id = $stateParams.id;       // 获取到文章id
     // 获取广告接口
-    MessagesService.articleAds().then(function(data){
-        console.log(JSON.stringify(data))
-    });
+    //MessagesService.articleAds().then(function(data){
+    //    console.log(JSON.stringify(data))
+    //});
 
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
+            $('.main').scrollTop(0);
             // 是否显示分页按钮
             $scope.pagesShow = {
                 prev : true,
@@ -92,14 +93,16 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 all : true
             };
             $scope.like = function(id){
-                alert(id);
                 MessagesService.token().then(function(data){
                     var param = {};
                     param._token = data.body;
                     param.article_id = id;
-                    alert(JSON.stringify(param))
+                    param._method = 'put';
+                    console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
                         alert(JSON.stringify(data))
+                    },function(err){
+                        alert(err.statusText)
                     });
                 })
             };
@@ -135,7 +138,9 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
 
 // 内容模块上方的广告栏
 app.controller("contentTopViewCtrl", function($scope, MessagesService){
-
+    MessagesService.ads().then(function(data){
+        //console.log(JSON.stringify(data))
+    });
     console.log('contentTopViewCtrl')
 });
 
