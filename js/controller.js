@@ -159,7 +159,7 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService){
 app.controller("tvPageCtrl", function($scope, MessagesService){
 
     MessagesService.video().then(function(data){            // 获取牛男TV接口数据
-        console.log(JSON.stringify(data))
+        //console.log(JSON.stringify(data))
         $scope.video = data.body.list;
     });
     //MessagesService.videoDetail(14431).then(function(data){
@@ -168,5 +168,13 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
     console.log('tvPageCtrl')
 });
 
-
+// 视频TV详情控制器
+app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams){
+    var id = $stateParams.id;
+    MessagesService.videoDetail(id).then(function(data){
+        var html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
+        $("#movie").html(html);
+    });
+    console.log('tvDetailCtrl')
+});
 
