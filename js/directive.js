@@ -108,6 +108,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $account = $(ele).find("#account");
             var $loginBtn = $(ele).find('#reg');
             var $getCode = $(ele).find('.get-code');
+            var $login = $(ele).find('.dialog-submit');
             $account.on("click", ".close-dialog", function(){
                $(this).parents(".modal").modal('hide');         // 隐藏弹出框
             });
@@ -145,6 +146,24 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 };
                 MessagesService.captcha(param).then(function(data){
                     //alert(JSON.stringify(data));
+                })
+            })
+            $login.on('click',function(){
+                var param = {
+                    sms:'1',
+                    screen_name:$('.smslogin').val(),
+                    password:$('.smspwd').val()
+                };
+
+                MessagesService.token().then(function(data){
+                    param._token = data.body;
+                    console.log("登录数据"+JSON.stringify(param));
+                    MessagesService.login(param).then(function(logindata){
+                        console.log(JSON.stringify(logindata));
+                        if(logindata.code=='000000'){
+                            $('.login-reg').html('欢迎你，'+18996471007)
+                        }
+                    })
                 })
             })
         }

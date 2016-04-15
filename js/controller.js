@@ -10,22 +10,6 @@ app.controller("globalCtrl",function($scope,MessagesService){
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
     });
-    //侧边栏
-    //MessagesService.category().then(function(data){
-    //
-    //    for(var i = 0;i<data.body.list.length;i++){
-    //        if(!data.body.list[i].hasOwnProperty('children')){
-    //            var temp = {
-    //                title:data.body.list[i].title,
-    //                slug:data.body.list[i].slug,
-    //                id:data.body.list[i].id
-    //            };
-    //            data.body.list[i].children = [temp];
-    //        }
-    //    }
-    //    console.log(JSON.stringify(data.body.list));
-    //    $scope.category = data.body.list;
-    //});
     //专辑
     console.log('globalCtrl')
 });
