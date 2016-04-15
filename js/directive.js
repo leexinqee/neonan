@@ -127,16 +127,6 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         this_.html("立即注册");
                     });
                 });
-                //MessagesService.smsRegister(regdata).then(function(data){
-                //    alert(JSON.stringify(data));
-                //    this_.parents(".modal").modal('hide');
-                //    this_.html("立即注册");
-                //    $(ele).find('.regmobile').val('');
-                //    $(ele).find('#enter-code').val('');
-                //    $(ele).find('.regpwd').val('');
-                //},function(err){
-                //    this_.html("立即注册");
-                //});
             });
             $getCode.on('click',function(){
                 var param = {

@@ -2,9 +2,9 @@ var app = angular.module('app.service',['restangular']);
 app.config(function(RestangularProvider){
     RestangularProvider.setBaseUrl('http://phptest.neonan.com/');
     //请求拦截
-    RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
-
-    });
+    //RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
+    //
+    //});
 });
 
 app.factory("toolService", function(){
@@ -41,7 +41,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('article','shared').customPUT(param);
         },
         articleLike:function(param){
-            return Restangular.one('article','like').customPUT(param);
+            return Restangular.one('article','like').customPOST(param);
         },
         articleComment:function(param){
             return Restangular.one('article','new_comment').customPUT(param);
@@ -56,7 +56,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('video','shared').customPUT(param);
         },
         videoLike:function(param){
-            return Restangular.one('video','like').customPUT(param);
+            return Restangular.one('video','like').customPOST(param);
         },
         videoComment:function(param){
             return Restangular.one('video','new_comment').customPUT(param);
