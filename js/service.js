@@ -46,8 +46,8 @@ app.service("MessagesService",["Restangular",function(Restangular){
         articleComment:function(param){
             return Restangular.one('article','new_comment').customPUT(param);
         },
-        video:function(){
-            return Restangular.one('video').get();
+        video:function(param){
+            return Restangular.one('video').get(param);
         },
         videoDetail:function(param){
             return Restangular.one('video',param).get();

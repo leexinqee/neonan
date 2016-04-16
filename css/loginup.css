@@ -213,6 +213,12 @@ height: 50px;
     line-height: 20px;
     color: red;display: none;
 }
+.welcome{
+    height: 50px;
+    font-size: 14px!important;
+    line-height: 50px;
+    display: none;
+}
 @media screen and (max-width: 768px){
     .input-list{
         width: auto;

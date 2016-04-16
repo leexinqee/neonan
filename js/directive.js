@@ -110,11 +110,18 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $account = $(ele).find("#account");
             var $loginBtn = $(ele).find('#reg');
             var $getCode = $(ele).find('.get-code');
-            var $login = $(ele).find('.dialog-submit');
+            var $login = $(ele).find('.loginnow');
             var $returnLogin = $(ele).find('#return');
+            var $returnReg = $(ele).find('.no-account-right');
+            var $forgetpwd = $(ele).find('.forgetpwd');
             var end;
+            $forgetpwd.on('click',function(){
+                $('.loginDailog').modal('hide');
+                $('.findpassword').modal('show');
+            });
             $returnLogin.on('click',function(){
                 $(this).parents(".modal").modal('hide');
+                $('.loginDailog').modal('show');
                 initDailog();
             });
             $account.on("click", ".close-dialog", function(){
@@ -189,6 +196,8 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 })
             })
             $login.on('click',function(){
+                var $this = $(this);
+                $this.html('登录中...');
                 var param = {
                     sms:'1',
                     screen_name:$('.smslogin').val(),
@@ -199,12 +208,19 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                     param._token = data.body;
                     console.log("登录数据"+JSON.stringify(param));
                     MessagesService.login(param).then(function(logindata){
+                        $('.loginDailog').modal('hide');
                         console.log(JSON.stringify(logindata));
                         if(logindata.code=='000000'){
-                            $('.login-reg').html('欢迎你，'+18996471007)
+                            $('.login').fadeOut();
+                            $('.reg').fadeOut();
+                            $('.welcome').fadeIn().find('span').html(logindata.body.screen_name)
                         }
                     })
                 })
+            })
+            $returnReg.on('click',function(){
+                $('.loginDailog').modal('hide');
+                $('.regdailog').modal('show');
             })
         }
     }
