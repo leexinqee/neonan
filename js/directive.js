@@ -25,7 +25,7 @@ app.directive("appDirective", function(){
             });
 
             //  菜单点击之后的控制
-            $menu.find(".menu-list").on('click', ".menu-list-item", function(){
+            $menu.on('click', ".menu-list-item", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 var $a = $(this).find("a");
                 var color = $a.attr("data-color");
@@ -72,7 +72,6 @@ app.directive('menuContainer', function(MessagesService){
                 scope.album = data.body;
             });
             MessagesService.category().then(function(data){
-
                     for(var i = 0;i<data.body.list.length;i++){
                         if(!data.body.list[i].hasOwnProperty('children')){
                             var temp = {
@@ -108,6 +107,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $account = $(ele).find("#account");
             var $loginBtn = $(ele).find('#reg');
             var $getCode = $(ele).find('.get-code');
+            var $login = $(ele).find('.dialog-submit');
             $account.on("click", ".close-dialog", function(){
                $(this).parents(".modal").modal('hide');         // 隐藏弹出框
             });
@@ -140,11 +140,35 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 });
             });
             $getCode.on('click',function(){
+                //$(this).html('');
+                $('.worn').html('验证码已发送到你的手机').fadeIn();
+                setTimeout(function(){
+                    $('.worn').html('注册参数错误').fadeOut();
+                },1000);
+
                 var param = {
                     target:$('.regmobile').val()
                 };
                 MessagesService.captcha(param).then(function(data){
                     //alert(JSON.stringify(data));
+                })
+            })
+            $login.on('click',function(){
+                var param = {
+                    sms:'1',
+                    screen_name:$('.smslogin').val(),
+                    password:$('.smspwd').val()
+                };
+
+                MessagesService.token().then(function(data){
+                    param._token = data.body;
+                    console.log("登录数据"+JSON.stringify(param));
+                    MessagesService.login(param).then(function(logindata){
+                        console.log(JSON.stringify(logindata));
+                        if(logindata.code=='000000'){
+                            $('.login-reg').html('欢迎你，'+18996471007)
+                        }
+                    })
                 })
             })
         }
@@ -158,9 +182,27 @@ app.directive('articles',function(MessagesService){
         restrict:"EA",
         link: function (scope, ele, attr) {
             var changBtn = $(ele).find('.change-btn');
+            var more = $(ele).find('.load-more');
             changBtn.on('click',function(){
                 $(this).addClass('active').siblings('').removeClass('active');
-
+                var ifHot = $(this).attr('data-type');
+                var param = {
+                    hot:ifHot
+                };
+                MessagesService.getArticle(param).then(function(data){
+                    scope.article = data.body.list;
+                })
+            });
+            more.on('click',function(){
+                $(this).text('LOADING...');
+                var $this = $(this);
+                scope.articleParam.per_page+=1;
+                MessagesService.getArticle(scope.articleParam).then(function(data){
+                    scope.article = data.body.list;
+                    $this.text('LOADING MORE');
+                },function(){
+                    $this.text('LOADING MORE');
+                })
             })
         }
     }
