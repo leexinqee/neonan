@@ -140,6 +140,12 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 });
             });
             $getCode.on('click',function(){
+                //$(this).html('');
+                $('.worn').html('验证码已发送到你的手机').fadeIn();
+                setTimeout(function(){
+                    $('.worn').html('注册参数错误').fadeOut();
+                },1000);
+
                 var param = {
                     target:$('.regmobile').val()
                 };
