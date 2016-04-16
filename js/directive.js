@@ -25,7 +25,7 @@ app.directive("appDirective", function(){
             });
 
             //  菜单点击之后的控制
-            $menu.find(".menu-list").on('click', ".menu-list-item", function(){
+            $menu.on('click', ".menu-list-item", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 var $a = $(this).find("a");
                 var color = $a.attr("data-color");
@@ -72,7 +72,6 @@ app.directive('menuContainer', function(MessagesService){
                 scope.album = data.body;
             });
             MessagesService.category().then(function(data){
-
                     for(var i = 0;i<data.body.list.length;i++){
                         if(!data.body.list[i].hasOwnProperty('children')){
                             var temp = {
@@ -177,9 +176,27 @@ app.directive('articles',function(MessagesService){
         restrict:"EA",
         link: function (scope, ele, attr) {
             var changBtn = $(ele).find('.change-btn');
+            var more = $(ele).find('.load-more');
             changBtn.on('click',function(){
                 $(this).addClass('active').siblings('').removeClass('active');
-
+                var ifHot = $(this).attr('data-type');
+                var param = {
+                    hot:ifHot
+                };
+                MessagesService.getArticle(param).then(function(data){
+                    scope.article = data.body.list;
+                })
+            });
+            more.on('click',function(){
+                $(this).text('LOADING...');
+                var $this = $(this);
+                scope.articleParam.per_page+=1;
+                MessagesService.getArticle(scope.articleParam).then(function(data){
+                    scope.article = data.body.list;
+                    $this.text('LOADING MORE');
+                },function(){
+                    $this.text('LOADING MORE');
+                })
             })
         }
     }

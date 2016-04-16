@@ -37,7 +37,13 @@ app.controller("topCtrl", function($scope,MessagesService, $state, $location){
 
 //  左侧导航栏控制器
 app.controller("asideLeftCtrl", function($scope,MessagesService){
-    MessagesService.getArticle().then(function(data){
+    $scope.articleParam = {
+        hot:'0',
+        page:'0',
+        per_page:'5',
+        from:'10'
+    };
+    MessagesService.getArticle($scope.articleParam).then(function(data){
         $scope.article = data.body.list;
     });
     console.log('asideLeftCtrl')
@@ -45,7 +51,10 @@ app.controller("asideLeftCtrl", function($scope,MessagesService){
 
 // 右边导航控制器
 app.controller("asideRightCtrl",function($scope,MessagesService){
-    MessagesService.video().then(function(data){
+    $scope.videoParam = {
+        per_page:'4'
+    };
+    MessagesService.video($scope.videoParam).then(function(data){
         $scope.video = data.body.list;
     });
     console.log('asideRightCtrl');
@@ -81,7 +90,6 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
-            $('.main').scrollTop(0);
             // 是否显示分页按钮
             $scope.pagesShow = {
                 prev : true,
@@ -126,7 +134,6 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
             if(!$scope.pagesShow.prev && !$scope.pagesShow.next){
                 $scope.pagesShow.all = false;
             }
-            //console.log(JSON.stringify(data))
         });
 
 });
