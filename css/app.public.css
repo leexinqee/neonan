@@ -4,6 +4,9 @@ body {
     -webkit-font-smoothing: antialiased;
     background-color: #fbfbfb;
     position: relative;
+    height:100%;
+    overflow:auto;
+    margin: 0;
 }
 dl, dt, dd {
     margin: 0;
@@ -50,7 +53,8 @@ header {
     border-bottom: 2px solid #0077ef;
     box-shadow: 0 0px 15px #E8E8E8;
     height: 50px;
-    z-index: 10000
+    z-index: 10000;
+    -webkit-transform: translateZ(0);
 }
 
 .header {
