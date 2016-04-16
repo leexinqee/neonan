@@ -4,8 +4,8 @@
             <img src="./images/latest.png" alt="">
         </div>
         <div class="new-hot-btn">
-            <div class="new-btn active change-btn" data-type="0">最新</div>
-            <div class="hot-btn change-btn" data-type = "1">最热</div>
+            <div class="new-btn change-btn" ng-class="{'active':className}" data-type="0" ng-click="clickToggleHandler('0')">最新</div>
+            <div class="hot-btn change-btn" ng-class="{'active':!className}" data-type="1" ng-click="clickToggleHandler('1')">最热</div>
         </div>
     </div>
     <div class="new-hot-content">

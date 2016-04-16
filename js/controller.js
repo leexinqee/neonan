@@ -47,6 +47,18 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
     if(slug){
         $scope.articleParam.slug = slug;
     }
+    $scope.className = true;
+    $scope.clickToggleHandler = function(args){
+        $scope.articleParam.hot = args;
+        if(args == "0"){
+            $scope.className = true;
+        } else if(args == "1"){
+            $scope.className = false;
+        }
+        MessagesService.getArticle($scope.articleParam).then(function(data){
+            $scope.article = data.body.list;
+        });
+    };
     MessagesService.getArticle($scope.articleParam).then(function(data){
         $scope.article = data.body.list;
     });

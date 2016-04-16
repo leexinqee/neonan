@@ -213,18 +213,7 @@ app.directive('articles',function(MessagesService){
     return {
         restrict:"EA",
         link: function (scope, ele, attr) {
-            var changBtn = $(ele).find('.change-btn');
             var more = $(ele).find('.load-more');
-            changBtn.on('click',function(){
-                $(this).addClass('active').siblings('').removeClass('active');
-                var ifHot = $(this).attr('data-type');
-                var param = {
-                    hot:ifHot
-                };
-                MessagesService.getArticle(param).then(function(data){
-                    scope.article = data.body.list;
-                })
-            });
             more.on('click',function(){
                 $(this).text('LOADING...');
                 var $this = $(this);
