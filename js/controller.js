@@ -8,6 +8,8 @@ var app = angular.module('app.controller', ['app.service','ui.router', 'ngSaniti
 app.controller("globalCtrl",function($scope,MessagesService){
     //得到banner相关数据
     MessagesService.links().then(function(data){
+
+
         $scope.link = data.body[0].friendly_links;
     });
     //专辑
@@ -68,13 +70,17 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
 // 右边导航控制器
 app.controller("asideRightCtrl",function($scope,MessagesService){
     $scope.videoParam = {
-        per_page:'4'
+        per_page:'4',
+        from:4
     };
     MessagesService.video($scope.videoParam).then(function(data){
         $scope.video = data.body.list;
     });
     $scope.getMore = function(){
-      alert(1)
+        $scope.videoParam.from+=4;
+        MessagesService.video($scope.videoParam).then(function(data){
+            $scope.video = data.body.list;
+        });
     };
     console.log('asideRightCtrl');
 });

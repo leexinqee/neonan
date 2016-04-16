@@ -61,13 +61,14 @@
                 <div class="float-right login-reg">
                     <a href="" class="login" data-toggle="modal" data-target=".modal-login">登录</a>
                     <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
+                    <a href="" class="welcome">欢迎你，<span></span></a>
                 </div>
             </div>
         </header>
         <!--<div class="mask" style="display: none"></div>-->
         <div class="account" id="account">
             <!-- logup 用户注册-->
-            <div class="modal fade bs-example-modal-lg modal-logup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal fade bs-example-modal-lg modal-logup regdailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
 
@@ -102,7 +103,7 @@
             </div>
 
             <!-- login 用户登录-->
-            <div class="modal fade bs-example-modal-lg modal-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal fade bs-example-modal-lg modal-login loginDailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="dialog-login">
@@ -121,8 +122,8 @@
                                     <label for="pwd">记住我</label>
                                 </div>
                                 <div class="dialog-submit-wrap">
-                                    <button type="button" class="btn btn-default dialog-submit">立即登录</button>
-                                    <button type="button" class="btn btn-link return-login">忘记密码？</button>
+                                    <button type="button" class="btn btn-default dialog-submit loginnow">立即登录</button>
+                                    <button type="button" class="btn btn-link return-login forgetpwd">忘记密码？</button>
                                 </div>
                                 <div class="other-login">
                                     <div class="other-login-text">第三方登录</div>
@@ -144,7 +145,7 @@
             </div>
 
             <!-- find password 查找密码-->
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal fade bs-example-modal-lg findpassword" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="dialog-find-pwd">
