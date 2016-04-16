@@ -73,6 +73,9 @@ app.controller("asideRightCtrl",function($scope,MessagesService){
     MessagesService.video($scope.videoParam).then(function(data){
         $scope.video = data.body.list;
     });
+    $scope.getMore = function(){
+      alert(1)
+    };
     console.log('asideRightCtrl');
 });
 

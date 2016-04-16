@@ -198,7 +198,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                     MessagesService.login(param).then(function(logindata){
                         console.log(JSON.stringify(logindata));
                         if(logindata.code=='000000'){
-                            $('.login-reg').html('欢迎你，'+18996471007)
+                            $('.login-reg').html('欢迎你，'+logindata.body.screen_name).height('50px').css({'line-height':'50px'})
                         }
                     })
                 })
