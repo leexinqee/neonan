@@ -108,9 +108,25 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $loginBtn = $(ele).find('#reg');
             var $getCode = $(ele).find('.get-code');
             var $login = $(ele).find('.dialog-submit');
+            var $returnLogin = $(ele).find('#return');
+            var end;
+            $returnLogin.on('click',function(){
+                $(this).parents(".modal").modal('hide');
+                initDailog();
+            });
             $account.on("click", ".close-dialog", function(){
                $(this).parents(".modal").modal('hide');         // 隐藏弹出框
+                initDailog();
             });
+            function initDailog(){
+                $('.regmobile').val('');
+                $('#enter-code').val('');
+                $('.regemail').val('');
+                $('.regpwd').val('');
+                $('.get-code').html('获取验证码');
+                $('.worn').html('注册参数错误').fadeOut();
+                clearInterval(end);
+            }
             $loginBtn.on('click',function(){
                 var this_ = $(this);
                 if(!($(ele).find('.regmobile').val()&&$(ele).find('#enter-code').val()&&$(ele).find('.regpwd').val())){
@@ -126,10 +142,9 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 };
                 MessagesService.token().then(function(data){
                     regdata._token = data.body;
-                    alert(JSON.stringify(regdata))
                     MessagesService.smsRegister(regdata).then(function(data){
-                        alert(JSON.stringify(data));
                         this_.parents(".modal").modal('hide');
+                        initDailog();
                         this_.html("立即注册");
                         $(ele).find('.regmobile').val('');
                         $(ele).find('#enter-code').val('');
@@ -140,10 +155,21 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 });
             });
             $getCode.on('click',function(){
-                //$(this).html('');
+                var $this = $(this);
+                $(this).html(60);
+                end = setInterval(function(){
+                    var time = parseInt($this.html());
+                    if(time==1){
+                        clearInterval(end);
+                    }
+                    $this.html(--time);
+                },1000);
                 $('.worn').html('验证码已发送到你的手机').fadeIn();
                 setTimeout(function(){
-                    $('.worn').html('注册参数错误').fadeOut();
+                    $('.worn').fadeOut();
+                    setTimeout(function(){
+                        $('.worn').html('注册参数错误');
+                    },400)
                 },1000);
 
                 var param = {
@@ -151,6 +177,12 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 };
                 MessagesService.captcha(param).then(function(data){
                     //alert(JSON.stringify(data));
+                },function(err){
+                    if(err.status==401){
+                        $('.worn').html('您已经注册，请登录').fadeIn();
+                    }
+                    clearInterval(end);
+                    $this.html('获取验证码')
                 })
             })
             $login.on('click',function(){
