@@ -36,13 +36,17 @@ app.controller("topCtrl", function($scope,MessagesService, $state, $location){
 });
 
 //  左侧导航栏控制器
-app.controller("asideLeftCtrl", function($scope,MessagesService){
+app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
+    var slug = $stateParams.slug;
     $scope.articleParam = {
         hot:'0',
         page:'0',
         per_page:'5',
         from:'10'
     };
+    if(slug){
+        $scope.articleParam.slug = slug;
+    }
     MessagesService.getArticle($scope.articleParam).then(function(data){
         $scope.article = data.body.list;
     });
@@ -140,20 +144,39 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
 
 
 // 内容模块上方的广告栏
-app.controller("contentTopViewCtrl", function($scope, MessagesService){
-    MessagesService.ads().then(function(data){
-        //console.log(JSON.stringify(data))
+app.controller("contentTopViewCtrl", function($scope, MessagesService, $sce){
+    //MessagesService.ads().then(function(data){
+    //    console.log(JSON.stringify(data))
+    //});
+    $scope.bigBar = [];
+    MessagesService.articleAds().then(function(data){
+        var bars = data.body;
+        for(var i = 0; i < bars.length; i++){
+            if(bars[i].width && bars[i].width >= 700){
+                bars[i].code = $sce.trustAsHtml(bars[i].code);
+                $scope.bigBar.push(bars[i]);
+            }
+        }
     });
     console.log('contentTopViewCtrl')
 });
 
 // 内容模块右方的广告栏
-app.controller("contentRightViewCtrl", function($scope, MessagesService){
+app.controller("contentRightViewCtrl", function($scope, MessagesService, $sce){
     $scope.video = [];
+    $scope.smallBar = [];
     MessagesService.video().then(function(data){            // 获取牛男TV接口数据
         $scope.video = data.body.list;
     });
-
+    MessagesService.articleAds().then(function(data){
+        var bars = data.body;
+        for(var i = 0; i < bars.length; i++){
+            if(bars[i].width && bars[i].width <= 300){
+                bars[i].code = $sce.trustAsHtml(bars[i].code);
+                $scope.smallBar.push(bars[i]);
+            }
+        }
+    });
     console.log('contentRightViewCtrl')
 });
 

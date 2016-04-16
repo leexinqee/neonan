@@ -217,8 +217,9 @@
         <div ng-repeat="item in category">
             <div class="kinds">{{item.title}}</div>
             <ul class="menu-list" ng-if="item.children">
-                <li class="menu-list-item car" ng-repeat="items in item.children">
-                    <a ui-sref="index.category({slug: items.slug})" data-color='#b9b9b9' data-value="{{items.title}}">{{items.title}}</a>
+                <li class="menu-list-item car" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <a ui-sref="tvPage" ng-switch-when="tv" data-color='#b9b9b9' data-value="{{items.title}}">{{items.title}}</a>
+                    <a ui-sref="index.category({slug: items.slug})" ng-switch-default data-color='#b9b9b9' data-value="{{items.title}}">{{items.title}}</a>
                 </li>
             </ul>
         </div>

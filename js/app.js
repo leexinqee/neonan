@@ -14,7 +14,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Request-with'];
     $urlRouterProvider.otherwise('/index');
     $stateProvider.state('index', {
-        url: '/index',
+        url: '/index?slug',
         views: {
             'main': {
                 templateUrl: 'template/main.html',
@@ -34,7 +34,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
             }
         }
     }).state('index.category', {
-        url : '/category?slug',
+        url : '/category',
         views : {
             'top' : {
                 templateUrl: 'template/top-category.html',

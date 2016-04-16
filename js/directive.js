@@ -72,17 +72,17 @@ app.directive('menuContainer', function(MessagesService){
                 scope.album = data.body;
             });
             MessagesService.category().then(function(data){
-                    for(var i = 0;i<data.body.list.length;i++){
-                        if(!data.body.list[i].hasOwnProperty('children')){
-                            var temp = {
-                                title:data.body.list[i].title,
-                                slug:data.body.list[i].slug,
-                                id:data.body.list[i].id
-                            };
-                            data.body.list[i].children = [temp];
-                        }
+                for(var i = 0;i<data.body.list.length;i++){
+                    if(!data.body.list[i].hasOwnProperty('children')){
+                        var temp = {
+                            title:data.body.list[i].title,
+                            slug:data.body.list[i].slug,
+                            id:data.body.list[i].id
+                        };
+                        data.body.list[i].children = [temp];
                     }
-                    scope.category = data.body.list;
+                }
+                scope.category = data.body.list;
             });
             //menu  scroll bar
             $(ele).niceScroll({
