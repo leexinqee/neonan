@@ -270,43 +270,43 @@ footer {
     text-decoration: none;
     background-color: #141414
 }
-.car:after{
+.style1:after{
     background-color: #b9b9b9;
 }
-.fitness:after{
+.style2:after{
     background-color: #d93347;
 }
-.style:after{
+.style3:after{
     background-color: #7e2dc2;
 }
-.entertanment:after{
+.style4:after{
     background-color: #cb07ad;
 }
-.deit:after{
+.style5:after{
     background-color: #00b451;
 }
-.fun:after{
+.style6:after{
     background-color: #eb9318;
 }
-.love:after{
+.style7:after{
     background-color: #ee246e;
 }
-.successful:after{
+.style8:after{
     background-color: #29658a;
 }
-.health:after{
+.style9:after{
     background-color: #76c422;
 }
-.motivation:after{
+.style10:after{
     background-color: #ff6600;
 }
-.day30:after{
+.style12:after{
     background-color: #9cc422;
 }
-.neoman-music:after{
+.style13:after{
     background-color: #267ad8;
 }
-.find-girl:after{
+.style14:after{
     background-color: #22b6db;
 }
 /*menu end*/

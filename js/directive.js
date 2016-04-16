@@ -68,6 +68,9 @@ app.directive('menuContainer', function(MessagesService){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
+            scope.styles = ['#b9b9b9', '#d93347', '#7e2dc2',
+                '#cb07ad', '#00b451', '#eb9318', '#ee246e',
+                '#29658a', '#76c422', '#ff6600', '#9cc422', '#9cc422'];
             MessagesService.album().then(function(data){
                 scope.album = data.body;
             });

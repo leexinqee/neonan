@@ -49,7 +49,11 @@
             <div class="toCenter header">
                 <div class="float-left menu-logo">
                     <div id="menu" class="menu"><img src="./images/menu.png" alt="menu"></div>
-                    <div class="logo"><img src="./images/logo.png" alt="牛男网"></div>
+                    <div class="logo">
+                        <a ui-sref="index">
+                            <img src="./images/logo.png" alt="牛男网">
+                        </a>
+                    </div>
                 </div>
                 <div class="float-left choose-wrap">
                     <div id="choose-type" class="choose-type"></div>
@@ -217,16 +221,16 @@
         <div ng-repeat="item in category">
             <div class="kinds">{{item.title}}</div>
             <ul class="menu-list" ng-if="item.children">
-                <li class="menu-list-item car" ng-repeat="items in item.children" ng-switch="items.slug">
-                    <a ui-sref="tvPage" ng-switch-when="tv" data-color='#b9b9b9' data-value="{{items.title}}">{{items.title}}</a>
-                    <a ui-sref="index.category({slug: items.slug})" ng-switch-default data-color='#b9b9b9' data-value="{{items.title}}">{{items.title}}</a>
+                <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <a ui-sref="tvPage" ng-switch-when="tv" data-color='{{styles[0]}}' data-value="{{items.title}}">{{items.title}}</a>
+                    <a ui-sref="index.category({slug: items.slug})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
                 </li>
             </ul>
         </div>
         <div class="kinds">ALBUMS 专辑</div>
         <ul class="menu-list">
-            <li class="menu-list-item day30" ng-repeat="item in album">
-                <a data-color='#9cc422' data-value="{{item.title}}">{{item.title}}</a>
+            <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">
+                <a data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>
             </li>
         </ul>
     </div>
