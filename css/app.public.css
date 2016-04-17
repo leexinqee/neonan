@@ -319,3 +319,7 @@ footer {
 .time-text{
     vertical-align: middle;
 }
+.message-body b{
+    display: block;
+    text-align: left;
+}
