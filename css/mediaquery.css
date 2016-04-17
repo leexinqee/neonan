@@ -151,8 +151,9 @@
 		overflow: hidden;
 	}
 	.shares{
-		padding-bottom: 30px;
-		text-align: center;
+    padding-bottom: 10px;
+    text-align: center;
+    height: 48px;
 	}
 	/*文章详情响应式*/
 	.contentRightAds{
