@@ -8,8 +8,6 @@ var app = angular.module('app.controller', ['app.service','ui.router', 'ngSaniti
 app.controller("globalCtrl",function($scope,MessagesService){
     //得到banner相关数据
     MessagesService.links().then(function(data){
-
-
         $scope.link = data.body[0].friendly_links;
     });
     //专辑
@@ -111,7 +109,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     //MessagesService.articleAds().then(function(data){
     //    console.log(JSON.stringify(data))
     //});
-
+    $("body").scrollTop(0);
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
