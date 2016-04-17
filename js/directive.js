@@ -72,6 +72,7 @@ app.directive('menuContainer', function(MessagesService){
                 '#cb07ad', '#00b451', '#eb9318', '#ee246e',
                 '#29658a', '#76c422', '#ff6600', '#9cc422', '#9cc422'];
             MessagesService.album().then(function(data){
+                console.log(JSON.stringify(data))
                 scope.album = data.body;
             });
             MessagesService.category().then(function(data){

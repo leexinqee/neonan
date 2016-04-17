@@ -231,7 +231,7 @@
         <div class="kinds">ALBUMS 专辑</div>
         <ul class="menu-list">
             <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">
-                <a data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>
+                <a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>
             </li>
         </ul>
     </div>
