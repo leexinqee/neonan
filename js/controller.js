@@ -125,7 +125,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 MessagesService.token().then(function(data){
                     var param = {};
                     param._token = data.body;
-                    param.article_id = id;
+                    param.id = id;
                     param._method = 'put';
                     console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
