@@ -42,7 +42,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
             }
         }
     }).state('index.selfInfo', {
-        url : '/selfinfo',
+        url : '/selfinfo?uid',
         views : {
             'top' : {
                 templateUrl: 'template/top-selfinfo.html',

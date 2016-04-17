@@ -214,11 +214,12 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         if(logindata.code=='000000'){
                             $('.login').fadeOut();
                             $('.reg').fadeOut();
-                            $('.welcome').fadeIn().find('span').html(logindata.body.screen_name)
+                            $('.welcome').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
+                            scope.user = logindata.body;
                         }
                     })
                 })
-            })
+            });
             $returnReg.on('click',function(){
                 $('.loginDailog').modal('hide');
                 $('.regdailog').modal('show');

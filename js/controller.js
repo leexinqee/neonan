@@ -78,7 +78,9 @@ app.controller("asideRightCtrl",function($scope,MessagesService){
 });
 
 // 个人信息的上方信息显示模块儿
-app.controller("topInfoCtrl", function($scope){
+app.controller("topInfoCtrl", function($scope, $stateParams){
+    var uid = $stateParams.uid;
+    alert(uid);
     console.log('topInfoCtrl')
 });
 
