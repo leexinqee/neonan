@@ -10,8 +10,6 @@ app.controller("globalCtrl",function($scope,MessagesService){
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
     });
-    //专辑
-    console.log('globalCtrl')
 });
 
 // 总体分块的控制器
@@ -21,8 +19,6 @@ app.controller("mainCtrl",function(){
 
 // 首页顶部部分的控制器
 app.controller("topCtrl", function($scope,MessagesService, $state, $location){
-    console.log('topCtrl');
-
     MessagesService.banner().then(function(data){
         $scope.banner = data.body;
     });
@@ -62,7 +58,6 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
     MessagesService.getArticle($scope.articleParam).then(function(data){
         $scope.article = data.body.list;
     });
-    console.log('asideLeftCtrl')
 });
 
 // 右边导航控制器
@@ -80,7 +75,6 @@ app.controller("asideRightCtrl",function($scope,MessagesService){
             $scope.video = data.body.list;
         });
     };
-    console.log('asideRightCtrl');
 });
 
 // 个人信息的上方信息显示模块儿
@@ -91,6 +85,7 @@ app.controller("topInfoCtrl", function($scope){
 
 // 分类信息的上方信息显示
 app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams){
+    $("body").scrollTop(0);    // 页面详情滚动到顶端
     $scope.slug = $stateParams.slug;
     MessagesService.banner().then(function(data){
         $scope.banner = data.body;
@@ -98,18 +93,14 @@ app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams
     MessagesService.small().then(function (data) {
         $scope.small = data.body;
     });
-    console.log('topCategoryCtrl')
 });
 
 
 // 整个内容模块的控制器
 app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService){
     var id = $stateParams.id;       // 获取到文章id
-    // 获取广告接口
-    //MessagesService.articleAds().then(function(data){
-    //    console.log(JSON.stringify(data))
-    //});
-    $("body").scrollTop(0);
+
+    $("body").scrollTop(0);    // 页面详情滚动到顶端
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
@@ -177,11 +168,11 @@ app.controller("contentTopViewCtrl", function($scope, MessagesService, $sce){
             }
         }
     });
-    console.log('contentTopViewCtrl')
 });
 
 // 内容模块右方的广告栏
 app.controller("contentRightViewCtrl", function($scope, MessagesService, $sce){
+    $("body").scrollTop(0);    // 页面详情滚动到顶端
     $scope.video = [];
     $scope.smallBar = [];
     MessagesService.video().then(function(data){            // 获取牛男TV接口数据
@@ -196,13 +187,12 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService, $sce){
             }
         }
     });
-    console.log('contentRightViewCtrl')
 });
 
 
 // 视频TV 控制器
 app.controller("tvPageCtrl", function($scope, MessagesService){
-
+    $("body").scrollTop(0);    // 页面详情滚动到顶端
     MessagesService.video().then(function(data){            // 获取牛男TV接口数据
         //console.log(JSON.stringify(data))
         $scope.video = data.body.list;
@@ -210,16 +200,15 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
     //MessagesService.videoDetail(14431).then(function(data){
     //    console.log(JSON.stringify(data))
     //});
-    console.log('tvPageCtrl')
 });
 
 // 视频TV详情控制器
 app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams){
+    $("body").scrollTop(0);    // 页面详情滚动到顶端
     var id = $stateParams.id;
     MessagesService.videoDetail(id).then(function(data){
         var html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
         $("#movie").html(html);
     });
-    console.log('tvDetailCtrl')
 });
 
