@@ -103,6 +103,17 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     var id = $stateParams.id;       // 获取到文章id
 
     $("body").scrollTop(0);    // 页面详情滚动到顶端
+
+    $scope.comment = "";        // 评论信息
+    $scope.submitComment = function(){
+        if($.trim($scope.comment)){
+            alert($scope.comment);
+            $scope.comment = "";
+        } else {
+            alert("输入无效")
+        }
+    };
+
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
@@ -195,7 +206,6 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService, $sce){
 // 视频TV 控制器
 app.controller("tvPageCtrl", function($scope, MessagesService){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
-
     // 发送请求的传递参数
     var param = {
         page : 0,
@@ -208,6 +218,7 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
         console.log(JSON.stringify(data));
         $scope.video = data.body.list;
     });
+
     //MessagesService.videoDetail(14431).then(function(data){
     //    console.log(JSON.stringify(data))
     //});
