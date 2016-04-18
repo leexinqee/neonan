@@ -50,7 +50,7 @@
     }
     .swiper{
     	height: 336px;
-    	margin-top: 102px
+    	margin-top: 50px
     }
     .wonderful,.new-hot-aside{
     	padding: 0 10px;
@@ -151,7 +151,45 @@
 		overflow: hidden;
 	}
 	.shares{
-		padding-bottom: 30px;
-		text-align: center;
+    padding-bottom: 10px;
+    text-align: center;
+    height: 48px;
+	}
+	/*文章详情响应式*/
+	.contentRightAds{
+		display: none;
+	}
+	.left-content-box{
+		margin-right: 0!important;
+		padding: 0 10px;
+	}
+	.content-wrap{
+		overflow-x:hidden;
+	}
+	.time-box{
+		overflow: hidden;
+	}
+	.col-md-4{
+
+		display: inline;
+	}
+	.new-content-box{
+		display: none;
+	}
+	.msg-type{
+		overflow: hidden;
+	}
+	.c-item-pic-title{
+		margin-top: 10px;
+	}
+	/*tv*/
+	.tv-page-container.container{
+		padding: 0!important;
+	}
+	.tv-page-container{
+		overflow-x: hidden;
+	}
+	.tv-layout .img-link .inner-link{
+		bottom: 90px!important;
 	}
 }

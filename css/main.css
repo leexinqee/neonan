@@ -421,8 +421,12 @@
 
 .msg-type {
     position: absolute;
-    width: 48px;
+    max-width: 200px;
+    padding: 0 10px;
     height: 26px;
+    word-wrap: break-word;
+    overflow: hidden;
+    white-space: nowrap;
     line-height: 26px;
     text-align: center;
     bottom: 15px;
@@ -472,6 +476,7 @@
 }
 .time-pic img {
     margin-top: -2px;
+    height: 14px;
 }
 .power-time {
     color: #999;
@@ -491,20 +496,4 @@
     font-size: 14px;
     cursor: pointer;
 }
-
-
 /*aside end*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-

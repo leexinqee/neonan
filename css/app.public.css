@@ -185,6 +185,7 @@ footer {
 .shares {
     margin-top: 12px;
     text-align: right;
+    height: 38px;
 }
 /*  footer end */
 
@@ -275,7 +276,7 @@ footer {
     background-color: #141414
 }
 .style1:after{
-    background-color: #b9b9b9;
+    background-color: #00C4FF;
 }
 .style2:after{
     background-color: #d93347;
@@ -318,4 +319,8 @@ footer {
 
 .time-text{
     vertical-align: middle;
+}
+.message-body b{
+    display: block;
+    text-align: left;
 }
