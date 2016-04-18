@@ -80,7 +80,7 @@
     padding: 0;
     text-indent: -1254px;
     overflow: hidden;
-    width: 90px;
+    width: 100px;
     border: 0;
 }
 .left-content-box .share-box .btn-share-qzone {
@@ -203,6 +203,24 @@
     float: right;
 }
 
+
+/*  评论   */
+.comment-wrap {
+    margin: 20px 0;
+}
+.comment-wrap .control-label {
+    font-size: 20px;
+}
+#comment {
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    resize: none;
+}
+#submit-comment {
+    margin-top: 25px;
+    width: 150px;
+}
 
 
 
