@@ -93,8 +93,11 @@
     width: 340px;
     height: 343px;
     background-color: #fff;
-    box-shadow: 3px 3px 3px #ccc, -3px 0px 3px #ccc;
+    box-shadow: 0 0 10px #666;
     cursor: pointer;
+}
+.won-list:nth-child(1), .won-list:nth-child(2) {
+    margin-right: 10px;
 }
 
 .won-list-picwrap {
@@ -147,7 +150,7 @@
 /*selected*/
 .selected {
     background-color: #fff;
-    box-shadow: 3px 3px 3px #ccc, -3px 0px 3px #ccc;
+    box-shadow: 0 0 20px #666;
     height: 36px;
     margin-top: 35px;
     padding: 34px 27px 34px 33px;
@@ -159,7 +162,6 @@
     width: 25%;
     height: 44px;
     overflow: hidden;
-    /*test*/
 }
 
 .selected-list a {
@@ -179,7 +181,9 @@
     top: 0;
     right: 0;
 }
-
+.selected-list:last-child:after {
+    width: 0;background-color: transparent;
+}
 .selected .none-gap:after {
     width: 0px;
 }

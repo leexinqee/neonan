@@ -195,8 +195,17 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService, $sce){
 // 视频TV 控制器
 app.controller("tvPageCtrl", function($scope, MessagesService){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
-    MessagesService.video().then(function(data){            // 获取牛男TV接口数据
-        //console.log(JSON.stringify(data))
+
+    // 发送请求的传递参数
+    var param = {
+        page : 0,
+        per_page : 10,
+        start_offset : 0,
+        from : 8
+    };
+
+    MessagesService.video(param).then(function(data){            // 获取牛男TV接口数据
+        console.log(JSON.stringify(data));
         $scope.video = data.body.list;
     });
     //MessagesService.videoDetail(14431).then(function(data){
