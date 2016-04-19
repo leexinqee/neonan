@@ -227,7 +227,7 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
                 for(var i = 0; i < item.length; i++){
                     $scope.videos.push(item[i]);
                 }
-                //console.log(JSON.stringify(data));
+                console.log(JSON.stringify(data));
             }
             index++;
             param.per_page = 9;
@@ -243,10 +243,18 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
 app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var id = $stateParams.id;
-    console.log(id);
     MessagesService.videoDetail(id).then(function(data){
-        console.log(data);
-        var html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
+        console.log(data.body.url)
+        var larr = data.body.url.split('.');
+        var pre = larr[larr.length-1];
+        var html = '';
+        if(pre == 'swf'){
+            html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
+        } else if(pre == 'mp4' || pre == 'MP4'){
+            html = '<video width="100%" height="400" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
+        } else {
+            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+        }
         $("#movie").html(html);
     });
 });
