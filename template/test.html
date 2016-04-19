@@ -1,1 +1,87 @@
-<h1 style="margin-top: 100px">test</h1>
+<div class="container toCenter tv-page-container">
+    <div ui-view="contentTopAd"></div>
+
+    <div class="tv-layout">
+        <div class="row mbl">
+            <div class="col-md-12">
+                <div class="img-link first-bar">
+                    <img src="images/vedio/neonan-vedio_01.png" width="100%" height="100%" alt=""/>
+                    <div class="inner-link first-link-img">
+                        <img src="images/vedio/neonan-img-2.png" width="100%" height="100%" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mbl">
+            <div class="col-md-6">
+                <a ui-sref="tvdetail({id : video[0].id})" class="img-link second-bar">
+                    <img src="{{video[0].image_filename}}" width="100%" alt=""/>
+                    <div class="inner-link">
+                        <h4 class="link-title">{{video[0].title}}</h4>
+                        <img src="images/vedio/play-01.png" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a ui-sref="tvdetail({id : video[1].id})" class="img-link second-bar">
+                    <img src="{{video[1].image_filename}}" width="100%" alt=""/>
+                    <div class="inner-link">
+                        <h4 class="link-title">{{video[1].title}}</h4>
+                        <img src="images/vedio/play-01.png" alt=""/>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row mbl">
+            <div class="col-md-8">
+                <a ui-sref="tvdetail({id : video[2].id})" class="img-link four-bar">
+                    <img src="{{video[2].image_filename}}" width="100%" alt=""/>
+                    <div class="inner-link">
+                        <h4 class="link-title">{{video[2].title}}</h4>
+                        <img src="images/vedio/play-01.png" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="row mbl">
+                    <a ui-sref="tvdetail({id : video[3].id})" class="img-link three-bar">
+                        <img src="{{video[3].image_filename}}" width="100%" alt=""/>
+                        <div class="inner-link">
+                            <h4 class="link-title">{{video[3].title}}</h4>
+                        </div>
+                        <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
+                    </a>
+                </div>
+                <div class="row">
+                    <a ui-sref="tvdetail({id : video[4].id})" class="img-link three-bar">
+                        <img src="{{video[4].image_filename}}" width="100%" alt=""/>
+                        <div class="inner-link">
+                            <h4 class="link-title">{{video[4].title}}</h4>
+                        </div>
+                        <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mbl">
+            <div class="col-md-4" ng-repeat="item in videos">
+                <a ui-sref="tvdetail({id : item.id})" class="img-link three-bar">
+                    <img src="{{item.image_filename}}" width="100%" alt=""/>
+                    <div class="inner-link">
+                        <h4 class="link-title">{{item.title}}</h4>
+                    </div>
+                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row load-more-bar">
+            <div class="col-md-12">
+                <div class="load-more">LOAD MORE</div>
+            </div>
+        </div>
+    </div>
+</div>

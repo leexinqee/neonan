@@ -206,19 +206,34 @@ app.controller("contentRightViewCtrl", function($scope, MessagesService, $sce){
 // 视频TV 控制器
 app.controller("tvPageCtrl", function($scope, MessagesService){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
+    var index = 1;      // 判断是否是第一次获取数据。
     // 发送请求的传递参数
     var param = {
         page : 0,
-        per_page : 10,
+        per_page : 14,
         start_offset : 0,
         from : 8
     };
-
-    MessagesService.video(param).then(function(data){            // 获取牛男TV接口数据
-        console.log(JSON.stringify(data));
-        $scope.video = data.body.list;
-    });
-
+    $scope.videos = [];
+    $scope.loadingMore = function(){
+        param.page += 1;
+        console.log(JSON.stringify(param));
+        MessagesService.video(param).then(function(data){            // 获取牛男TV接口数据
+            if(index == 1){
+                $scope.video = data.body.list.slice(0,5);
+                $scope.videos = data.body.list.slice(5);
+            } else {
+                var item = data.body.list;
+                for(var i = 0; i < item.length; i++){
+                    $scope.videos.push(item[i]);
+                }
+                //console.log(JSON.stringify(data));
+            }
+            index++;
+            param.per_page = 9;
+        });
+    };
+    $scope.loadingMore();
     //MessagesService.videoDetail(14431).then(function(data){
     //    console.log(JSON.stringify(data))
     //});
@@ -228,7 +243,9 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
 app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var id = $stateParams.id;
+    console.log(id);
     MessagesService.videoDetail(id).then(function(data){
+        console.log(data);
         var html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
         $("#movie").html(html);
     });

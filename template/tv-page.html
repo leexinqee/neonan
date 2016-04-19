@@ -54,10 +54,10 @@
                     </a>
                 </div>
                 <div class="row">
-                    <a href="" class="img-link three-bar">
-                        <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
+                    <a ui-sref="tvdetail({id : video[4].id})" class="img-link three-bar">
+                        <img src="{{video[4].image_filename}}" width="100%" alt=""/>
                         <div class="inner-link">
-                            <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
+                            <h4 class="link-title">{{video[4].title}}</h4>
                         </div>
                         <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
                     </a>
@@ -66,98 +66,23 @@
         </div>
 
         <div class="row mbl">
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
+            <div class="col-md-4 mbl" ng-repeat="item in videos">
+                <a ui-sref="tvdetail({id : item.id})" class="img-link three-bar">
+                    <img src="{{item.image_filename}}" width="100%" alt=""/>
                     <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
+                        <h4 class="link-title">{{item.title}}</h4>
                     </div>
                     <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
                 </a>
             </div>
         </div>
 
-        <div class="row mbl">
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-        </div>
-
-        <div class="row mbl">
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="" class="img-link three-bar">
-                    <img src="images/vedio/neonan-vedio_05.png" width="100%" alt=""/>
-                    <div class="inner-link">
-                        <h4 class="link-title">轰炸腹肌五招练出迷人马甲线</h4>
-                    </div>
-                    <img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>
-                </a>
-            </div>
-        </div>
 
         <div class="row load-more-bar">
-            <div class="col-md-12">
-                <div class="load-more">LOAD MORE</div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outlined load-more"
+                        style="width:680px;height: 40px;padding: 0;"
+                        ng-click="loadingMore()">LOAD MORE</button>
             </div>
         </div>
     </div>

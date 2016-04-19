@@ -19,7 +19,7 @@
                     <a ui-sref="index.contentDetail({id : item.id})">{{item.title}}</a>
                 </h3>
                 <div class="power-by">BY <span>TONY小编</span></div>
-                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>{{item.publish_time}}</span></div>
+                <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>{{item.publish_time.substring(0,10)}}</span></div>
             </div>
         </div>
         <!--<div class="new-hot-content-item">-->
