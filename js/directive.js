@@ -121,6 +121,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 $('.findpassword').modal('show');
             });
             $returnLogin.on('click',function(){
+
                 $(this).parents(".modal").modal('hide');
                 $('.loginDailog').modal('show');
                 initDailog();
@@ -136,6 +137,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 $('.regpwd').val('');
                 $('.get-code').html('获取验证码');
                 $('.worn').html('注册参数错误').fadeOut();
+                $('.loginnow').html('立即登陆');
                 clearInterval(end);
             }
             $loginBtn.on('click',function(){
@@ -198,6 +200,12 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             })
             $login.on('click',function(){
                 var $this = $(this);
+                var m = $('.smslogin').val();
+                var p = $('.smspwd').val();
+                if(!(m&&p)){
+                    $('.worn').fadeIn();
+                    return;
+                }
                 $this.html('登录中...');
                 var param = {
                     sms:'1',
