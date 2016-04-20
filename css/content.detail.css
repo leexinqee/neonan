@@ -84,7 +84,7 @@
     border: 0;
 }
 .left-content-box .share-box .btn-share-qzone {
-    background: url("../images/icon_qzone.png") no-repeat center center;
+    background:#EFBA00 url("../images/icon_qzone.png") no-repeat center center;
     background-size: 92px;
 }
 .left-content-box .share-box .btn-share-sea {
@@ -93,7 +93,7 @@
     background-size: 38px;
 }
 .left-content-box .share-box .btn-collet {
-    background: url("../images/icon_collect.png") no-repeat center center;
+    background:#333333 url("../images/icon_collect.png") no-repeat center center;
     background-size: 92px;
 }
 .left-content-box .con-center {

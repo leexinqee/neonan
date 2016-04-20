@@ -253,8 +253,7 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var id = $stateParams.id;
     MessagesService.videoDetail(id).then(function(data){
-        console.log(JSON.stringify(data))
-
+        //console.log(JSON.stringify(data))
         // 内容信息渲染
         $scope.message = data.body;
 
@@ -280,8 +279,26 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         $scope.comment = "";
         $scope.submitComment = function(){
             if($.trim($scope.comment)){
-                alert($scope.comment);
-                $scope.comment = "";
+                var reqData = {
+                    video_id : id,
+                    comment : $scope.comment
+                };
+                $.ajax({
+                    method : "GET",
+                    url : "http://phptest.neonan.com/video/new_comment",
+                    dataType: 'JSONP',
+                    data : reqData,
+                    jsonpCallback: "jsonpcallback",
+                    success : function(response){
+                        console.log(JSON.stringify(response));
+                    },
+                    error : function(xhr, status, err){
+                        console.log(JSON.stringify(xhr), status);
+                    }
+                });
+                //MessagesService.videoComment(reqData).then(function(data){
+                //    $scope.comment = "";
+                //});
             } else {
                 alert("输入无效")
             }
