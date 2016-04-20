@@ -144,10 +144,10 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 return $sce.trustAsHtml(data.body.details);
             };
 
+            // 文章分页
             var prev = $scope.message.prev_url,
                 next = $scope.message.next_url;
-
-            // 文章分页
+            
             if(prev && prev == "没有了"){
                 $scope.pagesShow.prev = false;
             } else {
@@ -240,11 +240,16 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
 });
 
 // 视频TV详情控制器
-app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams){
+app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $sce){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var id = $stateParams.id;
     MessagesService.videoDetail(id).then(function(data){
-        console.log(data.body.url)
+        console.log(JSON.stringify(data))
+
+        // 内容信息渲染
+        $scope.message = data.body;
+
+        // 视频信息渲染
         var larr = data.body.url.split('.');
         var pre = larr[larr.length-1];
         var html = '';
@@ -256,6 +261,22 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams){
             html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
         }
         $("#movie").html(html);
+
+        // 文章内容
+        $scope.htmlTemplate = function(){
+            return $sce.trustAsHtml($scope.message.details);
+        };
+
+        // 评论信息
+        $scope.comment = "";
+        $scope.submitComment = function(){
+            if($.trim($scope.comment)){
+                alert($scope.comment);
+                $scope.comment = "";
+            } else {
+                alert("输入无效")
+            }
+        };
     });
 });
 

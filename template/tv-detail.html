@@ -2,7 +2,106 @@
     .movie-container {margin-top: 50px;}
 </style>
 <div class="movie-container">
-    <div class="movie-box">
+    <div class="movie-box mbl">
         <div id="movie"></div>
+    </div>
+    <div class="content-box">
+        <div ui-view="contentRightAd" class="contentRightAds"></div>
+
+        <div class="left-content-box">
+            <h2 class="content-title">{{message.title}}</h2>
+            <div class="person-box clearfix">
+                <div class="left-msg float-left">
+                    <div class="img-box">
+                        <img src="images/headinfo.png" width="100%" height="100%" alt=""/>
+                    </div>
+                    <dl class="name-box">
+                        <dt class="nickname">BY {{message.author}}</dt>
+                        <dd class="plain">收藏数：{{message.share_total}}</dd>
+                    </dl>
+                </div>
+                <div class="float-right time-box">
+                    <span class="time-pic">
+                        <img src="images/timepic.png" alt="">
+                    </span>
+                    <span class="time-text">{{message.publish_time.substring(0,10)}}</span>
+                </div>
+            </div>
+            <div class="share-box clearfix">
+                <button class="btn btn-default btn-share-qzone float-left">qzone</button>
+                <button class="btn btn-default btn-share-sea float-left">sea</button>
+                <button class="btn btn-default btn-collet float-right">collet</button>
+            </div>
+            <div class="con-center">
+                <!--<div class="img-content-box">-->
+                <!--<img src="images/content-img.png" width="100%" alt=""/>-->
+                <!--</div>-->
+                <!--<dl class="first-conten">-->
+                <!--<dd class="item-content">有这样一种说法，</dd>-->
+                <!--<dd class="item-content">中国人能把所有的节日包括清明节都过成买买买，</dd>-->
+                <!--<dd class="item-content">中国的情侣们能把说有的节日包括重阳节过成啪啪啪。</dd>-->
+                <!--<dd class="item-content"> 然而，女生节过去了，女王节也过去了，</dd>-->
+                <!--<dd class="item-content">心仪的妹子是不是仍然不愿意和你上楼喝杯茶，坐下吃个面？？</dd>-->
+                <!--<dd class="item-content">是时候好好反省一下了！是不是你平时的穿着碰到了妹子的雷区？！</dd>-->
+                <!--<dd class="item-content">今天牛哥就来说说女生眼中最受不了的穿搭风格！</dd>-->
+                <!--</dl>-->
+                <!--<dl class="content-block">-->
+                <!--<dt class="title">1.格子衬衫</dt>-->
+                <!--<dd class="txt">看到第一条可能会有人大喊不服！凭什么！格子衬衫难道不是百搭的吗？！ 是的没错，你说的格子衬衫应该是这样的粗线条，色彩简洁明</dd>-->
+                <!--<dt class="title">2.运动套装</dt>-->
+                <!--<dd class="txt">运动外套+运动裤，一条宽松无比还超长的运动裤，看上去既没精神又和时尚毫不-->
+                <!--沾边。怎么说呢，穿这样如果妹纸还愿意和你走在一起可能确实是真爱了吧，但是-->
+                <!--上楼喝个茶什么的是真真做不到啊</dd>-->
+                <!--</dl>-->
+
+                <div class="message-body">
+                    <div ng-bind-html="htmlTemplate()"></div>
+                </div>
+                <div class="row clearfix page-row" ng-if="pagesShow.all">
+                    <div class="col-md-4 text-center">
+                        <a ng-if="pagesShow.prev" ui-sref="index.contentDetail({id : prevArtId})" class="btn btn-info"> < 上一页 </a>
+                    </div>
+                    <div class="col-md-4 text-center col-md-offset-4">
+                        <a ng-if="pagesShow.next" ui-sref="index.contentDetail({id : nextArtId})" class="btn btn-info"> 下一页 > </a>
+                    </div>
+                </div>
+                <div class="row clearfix tip-row">
+                    <div class="col-md-12">
+                        <strong>标签：</strong>{{message.category.name}}
+                    </div>
+                </div>
+                <div class="row clearfix share-wrap">
+                    <div class="col-md-4 text-center">
+                        <button class="btn btn-default btn-share-weichat">微信分享</button>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button class="btn btn-default btn-share-sea">微博分享</button>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button class="btn btn-default btn-share-qzone">QQ空间</button>
+                    </div>
+                </div>
+                <div class="row comment-wrap">
+                    <label class="col-md-12 control-label text-left">评论：</label>
+                    <div class="col-md-12">
+                        <textarea id="comment" ng-model="comment" class="form-control" placeholder="请输入你想评论的内容..."></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" id="submit-comment" ng-click="submitComment()" class="btn btn-primary">提交评论</button>
+                    </div>
+                </div>
+                <!--<div class="row new-content-box">-->
+                <!--<div class="title-box">-->
+                <!--<img src="images/new-content.png" alt=""/>-->
+                <!--</div>-->
+                <!--<div class="link-box">-->
+                <!--<a href="">他凭一记漂亮的回旋踢，完胜撩妹达人宋仲基！</a>-->
+                <!--</div>-->
+                <!--<div class="link-box">-->
+                <!--<a href="">这个黑科技玩具，每个男人都想拥有 ！！</a>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
     </div>
 </div>
