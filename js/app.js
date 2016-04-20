@@ -96,8 +96,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "asideLeftCtrl"
             },
             'asideRight@tvdetail' : {
-                templateUrl: 'template/aside-right.html',
-                controller : "asideRightCtrl"
+                template: ''
+            },
+            'contentRightAd@tvdetail' : {
+                templateUrl : 'template/content-right-view.html',
+                controller : "contentRightViewCtrl"
             }
         }
     })
