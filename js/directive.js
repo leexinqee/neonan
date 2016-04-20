@@ -115,7 +115,30 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $returnLogin = $(ele).find('#return');
             var $returnReg = $(ele).find('.no-account-right');
             var $forgetpwd = $(ele).find('.forgetpwd');
+            var $findsure = $('.findsure');
+            var $findmobile = $('.findmobile').val();
+            var $findcode = $('.findcode').val();
+            var $findpwd = $('.findpwd').val();
+            var $refindpwd = $('.refindpwd').val();
             var end;
+            //找回密码部分
+            $findsure.on('click',function(){
+               if(!($findmobile&&$findcode&&$findpwd&&$refindpwd)){
+                   $('.worn').fadeIn();
+                   return;
+               }
+                var param = {};
+                param.target = $findmobile;
+                param.captcha = $findcode;
+                param.password = $findpwd;
+                param.confirm_password = $refindpwd;
+                MessagesService.token().then(function(data){
+                    param._token = data.body;
+                    MessagesService.smsResetPassword(param).then(function(data){
+                        alert(data)
+                    })
+                })
+            });
             $forgetpwd.on('click',function(){
                 $('.loginDailog').modal('hide');
                 $('.findpassword').modal('show');
