@@ -13,8 +13,10 @@ app.controller("globalCtrl",function($scope,MessagesService){
 });
 
 // 总体分块的控制器
-app.controller("mainCtrl",function(){
+app.controller("mainCtrl",function($scope){
+    $scope.clearTips = function(){
 
+    }
 });
 
 // 首页顶部部分的控制器
