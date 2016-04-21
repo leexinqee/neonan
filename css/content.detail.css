@@ -179,6 +179,7 @@
 }
 .left-content-box .con-center .btn-share-qzone {
     background: #EFBA00 url("../images/icon_qzone.png") no-repeat -17px center;
+    background-size: 30px;
 }
 }
 .left-content-box .con-center .new-content-box .title-box {
@@ -221,6 +222,9 @@
     margin-top: 25px;
     width: 150px;
 }
-
+/*视频图片*/
+.message-body img{
+    display: block;
+}
 
 

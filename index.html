@@ -61,7 +61,12 @@
                 <div class="float-right login-reg">
                     <a href="" class="login" data-toggle="modal" data-target=".modal-login">登录</a>
                     <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
-                    <a href="" class="welcome" ui-sref="index.selfInfo({id: user.id})">欢迎你，<span>{{user.screen_name}}</span></a>
+                    <!--<a href="" class="welcome" ui-sref="index.selfInfo({id: user.id})">欢迎你，<span>{{user.screen_name}}</span></a>-->
+                    <img src="{{user.avatar}}" alt="" class="userHead"/>
+                </div>
+                <div class="user-info-enter">
+                    <p><a href="" ui-sref="index.selfInfo({id: user.id})">个人中心</a></p>
+                    <p><a href="">退出登录</a></p>
                 </div>
             </div>
         </header>

@@ -115,12 +115,20 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $returnLogin = $(ele).find('#return');
             var $returnReg = $(ele).find('.no-account-right');
             var $forgetpwd = $(ele).find('.forgetpwd');
+            var $userHead = $('.userHead');
             var $findsure = $('.findsure');
             var $findmobile = $('.findmobile').val();
             var $findcode = $('.findcode').val();
             var $findpwd = $('.findpwd').val();
             var $refindpwd = $('.refindpwd').val();
             var end;
+            //点击头像进入个人中心部分
+            $userHead.on('click',function(){
+                $('.user-info-enter').fadeIn();
+                setTimeout(function(){
+                    $('.user-info-enter').fadeOut();
+                },2000)
+            });
             //找回密码部分
             $findsure.on('click',function(){
                if(!($findmobile&&$findcode&&$findpwd&&$refindpwd)){
@@ -245,8 +253,9 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         if(logindata.code=='000000'){
                             $('.login').fadeOut();
                             $('.reg').fadeOut();
-                            $('.welcome').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
+                            $('.userHead').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
                             scope.user = logindata.body;
+                            console.log(JSON.stringify(scope.user))
                         }
                     })
                 })
