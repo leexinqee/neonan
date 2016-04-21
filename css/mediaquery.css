@@ -150,13 +150,6 @@
 		float: none;
 		overflow: hidden;
 	}
-	.btn-share-weichat,.btn-share-sea{
-		background-size: 30px!important;
-	}
-	.btn-share-qzone{
-		/*background-size: 30px !important;*/
-		/*background-position: 20px center;*/
-	}
 	.shares{
     padding-bottom: 10px;
     text-align: center;
