@@ -124,10 +124,10 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var end;
             //点击头像进入个人中心部分
             $userHead.on('click',function(){
-                $('.user-info-enter').fadeIn();
-                setTimeout(function(){
-                    $('.user-info-enter').fadeOut();
-                },2000)
+                $('.user-info-enter').fadeToggle()
+                //setTimeout(function(){
+                //    $('.user-info-enter').fadeOut();
+                //},2000)
             });
             //找回密码部分
             $findsure.on('click',function(){
@@ -193,6 +193,10 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $(ele).find('.regmobile').val('');
                         $(ele).find('#enter-code').val('');
                         $(ele).find('.regpwd').val('');
+                        $('.login').fadeOut();
+                        $('.reg').fadeOut();
+                        $('.userHead').fadeIn();
+                        scope.user = data.body;
                     },function(err){
                         this_.html("立即注册");
                     });
@@ -217,7 +221,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 },1000);
 
                 var param = {
-                    target:$('.regmobile').val()
+                    target:$('.regmobile').val()||$('.findmobile').val()
                 };
                 MessagesService.captcha(param).then(function(data){
                     //alert(JSON.stringify(data));
