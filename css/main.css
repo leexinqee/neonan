@@ -497,3 +497,10 @@
     cursor: pointer;
 }
 /*aside end*/
+.userHead{
+    display: none;
+    height: 30px;
+    width: 30px;
+    margin: 9px 0;
+    cursor: pointer;
+}

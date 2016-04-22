@@ -115,7 +115,38 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $returnLogin = $(ele).find('#return');
             var $returnReg = $(ele).find('.no-account-right');
             var $forgetpwd = $(ele).find('.forgetpwd');
+            var $userHead = $('.userHead');
+            var $findsure = $('.findsure');
+            var $findmobile = $('.findmobile').val();
+            var $findcode = $('.findcode').val();
+            var $findpwd = $('.findpwd').val();
+            var $refindpwd = $('.refindpwd').val();
             var end;
+            //点击头像进入个人中心部分
+            $userHead.on('click',function(){
+                $('.user-info-enter').fadeToggle()
+                //setTimeout(function(){
+                //    $('.user-info-enter').fadeOut();
+                //},2000)
+            });
+            //找回密码部分
+            $findsure.on('click',function(){
+               if(!($findmobile&&$findcode&&$findpwd&&$refindpwd)){
+                   $('.worn').fadeIn();
+                   return;
+               }
+                var param = {};
+                param.target = $findmobile;
+                param.captcha = $findcode;
+                param.password = $findpwd;
+                param.confirm_password = $refindpwd;
+                MessagesService.token().then(function(data){
+                    param._token = data.body;
+                    MessagesService.smsResetPassword(param).then(function(data){
+                        alert(data)
+                    })
+                })
+            });
             $forgetpwd.on('click',function(){
                 $('.loginDailog').modal('hide');
                 $('.findpassword').modal('show');
@@ -162,6 +193,10 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $(ele).find('.regmobile').val('');
                         $(ele).find('#enter-code').val('');
                         $(ele).find('.regpwd').val('');
+                        $('.login').fadeOut();
+                        $('.reg').fadeOut();
+                        $('.userHead').fadeIn();
+                        scope.user = data.body;
                     },function(err){
                         this_.html("立即注册");
                     });
@@ -186,7 +221,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 },1000);
 
                 var param = {
-                    target:$('.regmobile').val()
+                    target:$('.regmobile').val()||$('.findmobile').val()
                 };
                 MessagesService.captcha(param).then(function(data){
                     //alert(JSON.stringify(data));
@@ -222,8 +257,9 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         if(logindata.code=='000000'){
                             $('.login').fadeOut();
                             $('.reg').fadeOut();
-                            $('.welcome').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
+                            $('.userHead').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
                             scope.user = logindata.body;
+                            console.log(JSON.stringify(scope.user))
                         }
                     })
                 })

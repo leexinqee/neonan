@@ -59,8 +59,32 @@ header {
 
 .header {
     height: 50px;
+    position: relative;
 }
-
+.user-info-enter{
+    display: none;
+    padding: 0 12px;
+    position: absolute;
+    right: 0;
+    top: 54px;
+    background-color: #202020;
+    z-index: 100;
+}
+.user-info-enter p{
+    margin: 0;
+    cursor: pointer;
+    width: 134px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    color: #fff;
+}
+.user-info-enter p a{
+    color: #fff;
+}
+.user-info-enter p:first-child{
+    border-bottom: 1px solid #fff;
+}
 .menu-logo,
 .login-reg {
     font-size: 0px;

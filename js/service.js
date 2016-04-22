@@ -109,6 +109,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         smsRegister:function(param){
              return Restangular.one('sms-register').customPOST(param);
+        },
+        smsResetPassword:function(param){
+            return Restangular.one('sms-reset-password').customPUT(param)
         }
     }
 }]);

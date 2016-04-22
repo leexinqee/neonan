@@ -61,7 +61,12 @@
                 <div class="float-right login-reg">
                     <a href="" class="login" data-toggle="modal" data-target=".modal-login">登录</a>
                     <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
-                    <a href="" class="welcome" ui-sref="index.selfInfo({id: user.id})">欢迎你，<span>{{user.screen_name}}</span></a>
+                    <!--<a href="" class="welcome" ui-sref="index.selfInfo({id: user.id})">欢迎你，<span>{{user.screen_name}}</span></a>-->
+                    <img src="{{user.avatar}}" alt="" class="userHead"/>
+                </div>
+                <div class="user-info-enter">
+                    <p><a href="" ui-sref="index.selfInfo({id: user.id})">个人中心</a></p>
+                    <p><a href="">退出登录</a></p>
                 </div>
             </div>
         </header>
@@ -155,20 +160,21 @@
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入手机号码"/>
+                                    <input type="text" placeholder="请输入手机号码" class="findmobile"/>
                                 </div>
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入验证码"/>
+                                    <input type="text" placeholder="请输入验证码" class="findcode"/>
                                     <div class="get-code">获取验证码</div>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="请输入新密码"/>
+                                    <input type="password" placeholder="请输入新密码" class="findpdw"/>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="确认密码"/>
+                                    <input type="password" placeholder="确认密码" class="refindpwd"/>
                                 </div>
+                                <div class="worn">请完善找回密码相关资料</div>
                                 <div class="dialog-submit-wrap">
-                                    <button type="button" class="btn btn-default dialog-submit">确定</button>
+                                    <button type="button" class="btn btn-default dialog-submit findsure">确定</button>
                                     <button type="button" class="btn btn-link return-login">返回登录</button>
                                 </div>
                             </div>
