@@ -51,6 +51,7 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
     $scope.className = true;
     $scope.clickToggleHandler = function(args){
         $scope.articleParam.hot = args;
+        $scope.articleParam.per_page = '5';
         if(args == "0"){
             $scope.className = true;
         } else if(args == "1"){
@@ -60,9 +61,10 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
             $scope.article = data.body.list;
         });
     };
-    MessagesService.getArticle($scope.articleParam).then(function(data){
+    $scope.clickToggleHandler('0');
+    /*MessagesService.getArticle($scope.articleParam).then(function(data){
         $scope.article = data.body.list;
-    });
+    });*/
 });
 
 // 右边导航控制器
