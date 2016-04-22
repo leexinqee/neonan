@@ -284,7 +284,7 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                     comment : $scope.comment
                 };
                 $.ajax({
-                    method : "GET",
+                    method : "PUT",
                     url : "http://phptest.neonan.com/video/new_comment",
                     dataType: 'JSONP',
                     data : reqData,
