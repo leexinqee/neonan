@@ -105,7 +105,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('captcha').get(target);
         },
         token:function(){
-          return Restangular.one('token').get();
+            return Restangular.one('token').get();
         },
         smsRegister:function(param){
              return Restangular.one('sms-register').customPOST(param);
