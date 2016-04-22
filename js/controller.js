@@ -96,6 +96,16 @@ app.controller("topInfoCtrl", function($scope, $stateParams){
     console.log('topInfoCtrl')
 });
 
+// 个人信息的下方左边模块儿收集控制器
+app.controller("selfCollectCtrl", function($scope){
+    console.log('selfCollectCtrl')
+});
+
+// 个人信息的下方右边模块儿喜欢控制器
+app.controller("selfLikeCtrl", function($scope){
+    console.log('selfLikeCtrl')
+});
+
 
 // 分类信息的上方信息显示
 app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams){

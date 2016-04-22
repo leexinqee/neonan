@@ -302,6 +302,5 @@ app.directive('appfooter',function(){
         restrict:"EA",
         replace:true,
         templateUrl:'./template/appFooter.html'
-
     }
 });

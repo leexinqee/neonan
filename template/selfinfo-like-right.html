@@ -1,0 +1,23 @@
+<div class="aside">
+    <div class="aside-title"><img src="./images/self-like.png" alt=""></div>
+    <div class="aside-content">
+        <div class="aside-list" ng-repeat="item in video">
+            <div class="float-left aside-pic">
+                <img src="{{item.image_filename}}" alt="">
+            </div>
+            <div class="aside-pic-content">
+                <div class="aside-pic-content-title">
+                    <a ui-sref="tvdetail({id : item.id})">{{item.title}}</a>
+                </div>
+                <div class="aside-pic-content-time">
+                    <span class='time-pic'><img src="./images/timepic.png" alt=""></span>
+                    <span class='aside-pic-content-time-text'>{{item.publish_time.substring(0, 10)}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a ui-sref="tvPage" class="aside-load-more btn btn-outlined btn-block">LOAD VIDEOS</a>
+    <div class="for-adds" style="width:{{bigBar[0].width}}px;">
+        <div ng-bind-html="smallBar[0].code"></div>
+    </div>
+</div>
