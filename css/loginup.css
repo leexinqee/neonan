@@ -39,6 +39,9 @@ height: 50px;
 #enter-code {
     width: 230px;
 }
+.headPic-wrap{
+    position: relative;
+}
 .get-code,.get-codes{
     position: absolute;
     right: 0px;

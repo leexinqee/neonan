@@ -160,6 +160,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 })
             };
             $scope.share = function(type,id){
+                alert(type)
                 var param = {};
                 param.target = type;
                 param.article_id = id;

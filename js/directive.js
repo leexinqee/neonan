@@ -124,11 +124,11 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $findGetCode = $('.find-get-code');
             var end;
             //点击头像进入个人中心部分
-            $userHead.on('click',function(){
-                $('.user-info-enter').fadeToggle();
-                //setTimeout(function(){
-                //    $('.user-info-enter').fadeOut();
-                //},2000)
+            $('.userHead, .user-info-enter').on("mouseover", function(){
+                $('.user-info-enter').fadeIn();
+            });
+            $('.userHead, .user-info-enter').on("mouseout", function(){
+                $('.user-info-enter').fadeOut();
             });
             //找回密码验证码
             $findGetCode.on('click',function(){
@@ -210,6 +210,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $('.reg').fadeOut();
                         $('.userHead').fadeIn();
                         scope.user = data.body;
+                        console.log(JSON.stringify(scope.user))
                     },function(err){
                         this_.html("立即注册");
                     });
