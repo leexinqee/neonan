@@ -5,7 +5,7 @@
 var app = angular.module('app.controller', ['app.service','ui.router', 'ngSanitize']);
 
 // 总控制器
-app.controller("globalCtrl",function($scope,MessagesService){
+app.controller("globalCtrl",function($scope, MessagesService, $location){
     //得到banner相关数据
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
@@ -293,15 +293,14 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         $scope.submitComment = function(){
             if($.trim($scope.comment)){
                 var reqData = {
+                    _method : "PUT",
                     video_id : id,
                     comment : $scope.comment
                 };
                 $.ajax({
-                    method : "PUT",
+                    method : "POST",
                     url : "http://phptest.neonan.com/video/new_comment",
-                    dataType: 'JSONP',
                     data : reqData,
-                    jsonpCallback: "jsonpcallback",
                     success : function(response){
                         console.log(JSON.stringify(response));
                     },
