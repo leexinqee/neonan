@@ -160,6 +160,17 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     });
                 })
             };
+            $scope.share = function(type,id){
+                var param = {};
+                param.target = type;
+                param.article_id = id;
+                MessagesService.token().then(function(data){
+                    param._token = data.body;
+                    MessagesService.articleShare(param).then(function (data) {
+                        alert('分享成功')
+                    })
+                })
+            };
             // 文章数据渲染
             $scope.message = data.body;
             // 文章内容

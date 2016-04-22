@@ -69,13 +69,13 @@
                 </div>
                 <div class="row clearfix share-wrap">
                     <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-share-weichat">微信分享</button>
+                        <button class="btn btn-default btn-share-weichat" ng-click="share('wechat',message.id)">微信分享</button>
                     </div>
                     <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-share-sea">微博分享</button>
+                        <button class="btn btn-default btn-share-sea" ng-click="share('weibo',message.id)">微博分享</button>
                     </div>
                     <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-share-qzone">QQ空间</button>
+                        <button class="btn btn-default btn-share-qzone" ng-click="share('qzone',message.id)">QQ空间</button>
                     </div>
                 </div>
                 <div class="row comment-wrap">
