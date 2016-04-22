@@ -292,7 +292,9 @@ app.directive('articles',function(MessagesService){
             more.on('click',function(){
                 $(this).text('LOADING...');
                 var $this = $(this);
-                scope.articleParam.per_page+=1;
+                // 意思是 每次都是请求的第一页，但是请求的数据不同
+                scope.articleParam.per_page = parseInt(scope.articleParam.per_page) + 5;
+                //console.log(JSON.stringify(scope.articleParam));
                 MessagesService.getArticle(scope.articleParam).then(function(data){
                     scope.article = data.body.list;
                     $this.text('LOADING MORE');

@@ -258,16 +258,10 @@
 }
 
 .aside-load-more {
-    height: 39px;
     width: 296px;
-    text-align: center;
-    line-height: 39px;
-    background-color: #fafafa;
-    color: #8e8e8e;
-    font-size: 14px;
     border: 1px solid #8e8e8e;
-    cursor: pointer;
     margin-top: 10px;
+    padding: 10px 0;
 }
 
 .for-adds {
@@ -487,14 +481,10 @@
 }
 
 .load-more {
-    height: 39px;
-    width: 686px;
     border: 1px solid #8e8e8e;
-    line-height: 39px;
-    text-align: center;
     color: #8e8e8e;
-    font-size: 14px;
-    cursor: pointer;
+    background-color: #FBFBFB;
+    padding: 10px 0;
 }
 /*aside end*/
 .userHead{
