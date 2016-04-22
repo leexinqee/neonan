@@ -121,6 +121,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $findcode = $('.findcode').val();
             var $findpwd = $('.findpwd').val();
             var $refindpwd = $('.refindpwd').val();
+            var $findGetCode = $('.find-get-code');
             var end;
             //点击头像进入个人中心部分
             $userHead.on('click',function(){
@@ -129,6 +130,15 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 //    $('.user-info-enter').fadeOut();
                 //},2000)
             });
+            //找回密码验证码
+            $findGetCode.on('click',function(){
+                var phone = $('.findmobile').val();
+                if(!phone){
+                    alert('请输入电话号码');
+                    return;
+                }
+                MessagesService.smsPasswordCaptcha()
+            })
             //找回密码部分
             $findsure.on('click',function(){
                if(!($findmobile&&$findcode&&$findpwd&&$refindpwd)){

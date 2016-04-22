@@ -112,6 +112,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         smsResetPassword:function(param){
             return Restangular.one('sms-reset-password').customPUT(param)
+        },
+        smsPasswordCaptcha:function(phone){
+            return Restangular.one('sms-password-captcha').get(phone);
         }
     }
 }]);
