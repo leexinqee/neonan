@@ -66,30 +66,31 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
 });
 
 // 右边导航控制器
-app.controller("asideRightCtrl",function($scope,MessagesService){
+app.controller("asideRightCtrl",function($scope,MessagesService, $sce){
     $scope.videoParam = {
         per_page:'4',
         from:4
     };
+    $scope.smallBar = [];       // 主页小广告栏信息
     MessagesService.video($scope.videoParam).then(function(data){
         $scope.video = data.body.list;
     });
-    $scope.getMore = function(){
-        $scope.videoParam.from+=4;
-        MessagesService.video($scope.videoParam).then(function(data){
-            $scope.video = data.body.list;
-        });
-    };
+    // 广告信息获取
+    MessagesService.articleAds().then(function(data){
+        var bars = data.body;
+        for(var i = 0; i < bars.length; i++){
+            if(bars[i].width && bars[i].width <= 300){
+                bars[i].code = $sce.trustAsHtml(bars[i].code);
+                $scope.smallBar.push(bars[i]);
+            }
+        }
+    });
 });
 
 // 个人信息的上方信息显示模块儿
-app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
+app.controller("topInfoCtrl", function($scope, $stateParams){
     var uid = $stateParams.uid;
-    //alert(uid);
-    MessagesService.users().then(function(data){
-        //alert(JSON.stringify(data));
-
-    });
+    alert(uid);
     console.log('topInfoCtrl')
 });
 

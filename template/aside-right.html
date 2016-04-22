@@ -64,8 +64,8 @@
             <!--</div>-->
         <!--</div>-->
     </div>
-    <div class="aside-load-more" ng-click="getMore()">LOAD VIDEOS</div>
-    <div class="for-adds">
-        AD 300*250px
+    <a ui-sref="tvPage" class="aside-load-more btn btn-outlined btn-block">LOAD VIDEOS</a>
+    <div class="for-adds" style="width:{{bigBar[0].width}}px;">
+        <div ng-bind-html="smallBar[0].code"></div>
     </div>
 </div>
