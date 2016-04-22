@@ -91,6 +91,7 @@ app.controller("asideRightCtrl",function($scope,MessagesService, $sce){
 
 // 个人信息的上方信息显示模块儿
 app.controller("topInfoCtrl", function($scope, $stateParams){
+    $("body").scrollTop(0);    // 页面详情滚动到顶端
     var uid = $stateParams.uid;
     alert(uid);
     console.log('topInfoCtrl')

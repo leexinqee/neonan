@@ -207,6 +207,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $('.reg').fadeOut();
                         $('.userHead').fadeIn();
                         scope.user = data.body;
+                        console.log(JSON.stringify(scope.user))
                     },function(err){
                         this_.html("立即注册");
                     });

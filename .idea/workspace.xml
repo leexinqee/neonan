@@ -24,9 +24,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.103448">
-              <caret line="231" column="94" selection-start-line="231" selection-start-column="94" selection-end-line="231" selection-end-column="94" />
-              <caret line="239" column="16" selection-start-line="239" selection-start-column="16" selection-end-line="239" selection-end-column="16" />
+            <state vertical-scroll-proportion="-15.172414">
+              <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -44,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="directive.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="directive.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/directive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.633333">
-              <caret line="314" column="5" selection-start-line="314" selection-start-column="5" selection-end-line="314" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.60923624">
+              <caret line="209" column="63" selection-start-line="209" selection-start-column="63" selection-end-line="209" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -66,33 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selfinfo-like-right.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/selfinfo-like-right.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.931034">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tv-page.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tv-page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/tv-page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31205675">
-              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selfinfo-collect-left.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/selfinfo-collect-left.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7586207">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+            <state vertical-scroll-proportion="-25.793104">
+              <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -111,8 +88,8 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.414634">
-              <caret line="309" column="19" selection-start-line="309" selection-start-column="19" selection-end-line="309" selection-end-column="19" />
+            <state vertical-scroll-proportion="-9.268292">
+              <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -147,7 +124,6 @@
         <option value="$PROJECT_DIR$/css/self.info.css" />
         <option value="$PROJECT_DIR$/template/top-category.html" />
         <option value="$PROJECT_DIR$/template/content-top-view.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/template/top.html" />
         <option value="$PROJECT_DIR$/template/top-content-detail.html" />
         <option value="$PROJECT_DIR$/js/service.js" />
@@ -158,14 +134,15 @@
         <option value="$PROJECT_DIR$/template/content-right-view.html" />
         <option value="$PROJECT_DIR$/template/aside-left.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/js/directive.js" />
         <option value="$PROJECT_DIR$/template/selfinfo-like-right.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/template/selfinfo-collect-left.html" />
-        <option value="$PROJECT_DIR$/js/controller.js" />
         <option value="$PROJECT_DIR$/css/app.public.css" />
         <option value="$PROJECT_DIR$/css/tv.page.css" />
         <option value="$PROJECT_DIR$/template/tv-page.html" />
+        <option value="$PROJECT_DIR$/js/controller.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/directive.js" />
       </list>
     </option>
   </component>
@@ -571,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/top-selfinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.137931">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/aside-pic1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -729,40 +699,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.414634">
-          <caret line="309" column="19" selection-start-line="309" selection-start-column="19" selection-end-line="309" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/selfinfo-collect-left.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7586207">
           <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.633333">
-          <caret line="314" column="5" selection-start-line="314" selection-start-column="5" selection-end-line="314" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.103448">
-          <caret line="231" column="94" selection-start-line="231" selection-start-column="94" selection-end-line="231" selection-end-column="94" />
-          <caret line="239" column="16" selection-start-line="239" selection-start-column="16" selection-end-line="239" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,8 +735,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/template/tv-page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31205675">
-          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+        <state vertical-scroll-proportion="-25.793104">
+          <caret line="67" column="33" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/top-selfinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6241135">
+          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.268292">
+          <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.172414">
+          <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60923624">
+          <caret line="209" column="63" selection-start-line="209" selection-start-column="63" selection-end-line="209" selection-end-column="63" />
           <folding />
         </state>
       </provider>

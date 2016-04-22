@@ -65,7 +65,7 @@
                     <img src="{{user.avatar}}" alt="" class="userHead"/>
                 </div>
                 <div class="user-info-enter">
-                    <p><a href="" ui-sref="index.selfInfo({id: user.id})">个人中心</a></p>
+                    <p><a data-id="{{user.id}}" ui-sref="index.selfInfo({id: user.id})">个人中心</a></p>
                     <p><a href="">退出登录</a></p>
                 </div>
             </div>
