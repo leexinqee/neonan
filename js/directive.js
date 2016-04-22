@@ -125,7 +125,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var end;
             //点击头像进入个人中心部分
             $userHead.on('click',function(){
-                $('.user-info-enter').fadeToggle()
+                $('.user-info-enter').fadeToggle();
                 //setTimeout(function(){
                 //    $('.user-info-enter').fadeOut();
                 //},2000)
@@ -137,23 +137,26 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                     alert('请输入电话号码');
                     return;
                 }
-                MessagesService.smsPasswordCaptcha()
-            })
+                var param = {
+                    target:phone
+                }
+                MessagesService.smsPasswordCaptcha(param).then(function(data){
+                    console.log('发送成功'+JSON.stringify(data))
+                })
+            });
             //找回密码部分
             $findsure.on('click',function(){
-               if(!($findmobile&&$findcode&&$findpwd&&$refindpwd)){
-                   $('.worn').fadeIn();
-                   return;
-               }
                 var param = {};
-                param.target = $findmobile;
-                param.captcha = $findcode;
-                param.password = $findpwd;
-                param.confirm_password = $refindpwd;
+                param._method = 'PUT';
+                param.target = $('.findmobile').val();;
+                param.captcha = $('.findcode').val();
+                param.password = $('.findpwd').val();
+                param.confirm_password = $('.refindpwd').val();
                 MessagesService.token().then(function(data){
                     param._token = data.body;
                     MessagesService.smsResetPassword(param).then(function(data){
-                        alert(data)
+                        $('.findpassword').modal('hide');
+                        $('.loginDailog').modal('show');
                     })
                 })
             });

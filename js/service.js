@@ -38,7 +38,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('article',param).get();
         },
         articleShare:function(param){
-            return Restangular.one('article','shared').customPUT(param);
+            return Restangular.one('article','shared').customPOST(param);
         },
         articleLike:function(param){
             return Restangular.one('article','like').customPOST(param);
@@ -111,10 +111,10 @@ app.service("MessagesService",["Restangular",function(Restangular){
              return Restangular.one('sms-register').customPOST(param);
         },
         smsResetPassword:function(param){
-            return Restangular.one('sms-reset-password').customPUT(param)
+            return Restangular.one('sms-reset-password').customPOST(param)
         },
         smsPasswordCaptcha:function(phone){
-            return Restangular.one('sms-password-captcha').get(phone);
+            return Restangular.one('sms-password-captcha').customPOST(phone);
         }
     }
 }]);
