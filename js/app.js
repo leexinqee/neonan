@@ -47,6 +47,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
             'top' : {
                 templateUrl: 'template/top-selfinfo.html',
                 controller : "topInfoCtrl"
+            },
+            'asideLeft' : {
+                templateUrl: 'template/selfinfo-collect-left.html',
+                controller : "selfCollectCtrl"
+            },
+            'asideRight' : {
+                templateUrl: 'template/selfinfo-like-right.html',
+                controller : "selfLikeCtrl"
             }
         }
     }).state('index.contentDetail', {

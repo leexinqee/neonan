@@ -1,0 +1,28 @@
+<div class="new-hot float-left">
+    <div class="new-hot-title">
+        <div class="new-logo">
+            <img src="./images/collect.png" alt="">
+        </div>
+    </div>
+    <div class="new-hot-content">
+        <div class="new-hot-content-item" ng-repeat="item in article">
+            <div class="float-left c-item-pic">
+                <img src="{{item.cover_image}}" alt="">
+                <div class="msg-type body-building">{{item.category_name}}</div>
+            </div>
+            <div class="c-item-msg">
+                <h3 class="c-item-pic-title">
+                    <a ui-sref="index.contentDetail({id : item.id})">{{item.title}}</a>
+                </h3>
+                <div class="power-by">BY <span>TONY小编</span></div>
+                <div class="power-time">
+                    <span class='time-pic'>
+                        <img src="./images/timepic.png" alt="">
+                    </span>
+                    <span class='time-text'>{{item.publish_time.substring(0,10)}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="load-more btn btn-outlined btn-block">LOAD MORE</button>
+</div>

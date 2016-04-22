@@ -76,8 +76,10 @@
 }
 .tv-layout .img-link .inner-link .link-title {
     color: #fff;
-    width: 190px;
+    max-width: 190px;
     line-height: 25px;
+    max-height: 50px;
+    overflow: hidden;
 }
 .tv-layout .img-link .play-style-two {
     position: absolute;
@@ -101,3 +103,29 @@
     height: 166px;
 }
 
+.style-play {
+    display: block;
+    width: 146px;
+    padding: 0px 10px;
+    height: 40px;
+    border: 1px solid #fff;
+    line-height: 40px;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+.style-play:hover {
+    background-color: rgba(255,255,255, .5);
+
+}
+.style-play:hover .watch-now {
+    text-decoration: underline;
+    color: rgba(0,0,0, .5);
+}
+.style-play .triangle-right {
+    display: inline-block;
+}
+.style-play .watch-now {
+    color: #fff;
+    vertical-align: 7%;
+    padding: 0 0 0 5px;
+}
