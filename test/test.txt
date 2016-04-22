@@ -1,37 +1,23 @@
 <!--首页轮播-->
-<div swiper class="swiper">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../images/category-img.jpg" alt="">
-                <div class="slider-msg">
-                    <div class="msg-title">title</div>
-                    <div class="by">BY <span class='by-who'>leexinqee</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--精选-->
-<div class="wonderful">
-    <div class="won-list border-b-77c322" ng-repeat="item in banner">
-        <div class="won-list-picwrap">
-            <img src="{{item.image}}" alt="">
-        </div>
-        <div class="won-pic-msg">
-            <div class="pic-msg-title">
-                <a ui-sref="index.contentDetail({id : item.recommendable_id})">{{item.title}}</a>
-            </div>
-            <div class="lunch-by">BY <span class='by-who'>{{item.recommendable_author}}</span></div>
-        </div>
-    </div>
-</div>
-<!--小精选-->
-<div class="selected">
-    <div class="select-logo float-left selected-list">
-        <img src="./images/editor.png" alt="">
-    </div>
-    <div class="float-left selected-list" ng-repeat="item in small">
-        <a ui-sref="index.contentDetail({id : item.recommendable_id})">{{item.title}}</a>
-    </div>
-</div>
+这里是何星辰改的~ 呵呵大
+           eeefljeljflajlf;jj;flasjl;fjalkfjas;l
+fas
+df
+asd
+fasdf
+asfsdafasdf
+sad
+f
+sad
+f
+asd
+f
+asdf
+as
+df
+as
+dfsadfasdfasd
+s
+adfasdf
+
+阿森纳拉山口那啦阿拉山口

@@ -123,13 +123,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $refindpwd = $('.refindpwd').val();
             var $findGetCode = $('.find-get-code');
             var end;
-            //点击头像进入个人中心部分
-            $userHead.on('click',function(){
-                $('.user-info-enter').fadeToggle();
-                //setTimeout(function(){
-                //    $('.user-info-enter').fadeOut();
-                //},2000)
-            });
+
             //找回密码验证码
             $findGetCode.on('click',function(){
                 var phone = $('.findmobile').val();
@@ -271,7 +265,8 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         if(logindata.code=='000000'){
                             $('.login').fadeOut();
                             $('.reg').fadeOut();
-                            $('.userHead').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
+                            //$('.userHead').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
+                            $('#info-wrap').css("display", "block");
                             scope.user = logindata.body;
                             console.log(JSON.stringify(scope.user))
                         }
