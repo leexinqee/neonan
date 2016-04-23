@@ -10,9 +10,10 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
     });
+    $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
-    }
+    };
     //MessagesService.favorites().then(function(data){
     //    alert(JSON.stringify(data))
     //})
