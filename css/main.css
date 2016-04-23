@@ -323,7 +323,7 @@
 }
 
 .new-hot-content-item {
-    height: 168px;
+    min-height: 168px;
     padding: 24px 0;
     border-bottom: 1px solid #eaeaea;
 }
@@ -398,7 +398,7 @@
 }
 
 .c-item-pic {
-    height: 168px;
+    min-height: 168px;
     width: 260px;
     position: relative;
 }
