@@ -2,6 +2,12 @@
 	html,body,header{
 		width: 100%
 	}
+.con-center .message-body img{
+	width: 100%;
+}
+.con-center .message-body p{
+	font-size: 18px;
+}
  .toCenter{
       width: 100%
     } 
@@ -29,7 +35,7 @@
     	display: none;
     }
     .c-item-pic{
-    	height: 200px;
+    	min-height: 200px;
     }
     .slider-msg{
     	width: 90%;
@@ -104,16 +110,16 @@
 		display: none;
 	}
 	.load-more{
-		width: auto;
+		width: 100%;
 	}
 	.footer-logo{
 		width: 130px;
 		margin: 30px auto 20px;
 	}
 	.some-links{
-		    padding-top: 15px;
-    float: inherit;
-    margin: auto;
+		padding-top: 15px;
+	    float: inherit;
+	    margin: auto;
 	}
 	.links{
 		font-size: 0;
