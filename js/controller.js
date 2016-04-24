@@ -305,11 +305,12 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         var pre = larr[larr.length-1];
         var html = '';
         if(pre == 'swf'){
-            html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
+            html = '<EMBED src="' + data.body.url + '" width="100%" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
         } else if(pre == 'mp4' || pre == 'MP4'){
-            html = '<video width="100%" height="400" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
+            html = '<video width="100%" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
         } else {
-            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+            html = '<iframe class="video_area" src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+
         }
         $("#movie").html(html);
 

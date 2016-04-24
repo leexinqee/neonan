@@ -76,15 +76,19 @@
 }
 .tv-layout .img-link .inner-link .link-title {
     color: #fff;
-    max-width: 190px;
-    line-height: 25px;
-    max-height: 50px;
+    max-width: 80%;
+    line-height: 32px;
+    text-shadow: 2px 3px 2px black;
+    max-height: 64px;
+    font-size: 32px;
     overflow: hidden;
 }
 .tv-layout .img-link .play-style-two {
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 20px !important;
+    top: 20px !important;
+    width: 46px !important;
+    height: 46px !important;
 }
 .tv-layout .load-more-bar {
     margin: 30px 0;
@@ -94,13 +98,13 @@
 }
 
 .tv-layout .img-link.four-bar {
-    height: 353px;
+    max-height: 100%;
 }
 .tv-layout .img-link.second-bar {
     height: 295px;
 }
 .tv-layout .img-link.three-bar {
-    height: 166px;
+    float: left;
 }
 
 .style-play {
@@ -111,7 +115,7 @@
     border: 1px solid #fff;
     line-height: 40px;
     transition: all 0.2s;
-    background-color: transparent;
+    background-color: rgba(25, 20, 20, 0.44);
 }
 .style-play:hover {
     background-color: rgba(255,255,255, .5);
@@ -128,4 +132,57 @@
     color: #fff;
     vertical-align: 7%;
     padding: 0 0 0 5px;
+}
+.col-md-4{
+    min-height: 200px;
+}
+
+@media (max-width: 1000px){
+   .col-md-6 {
+    height: 100%;
+}
+.col-md-4{
+    width: 33.33%;
+    float: left;
+}
+.tv-layout .img-link.four-bar {
+    width: 66%;
+    float: left;
+}
+.tv-layout .img-link .inner-link .link-title {
+    line-height: 20px;
+    text-shadow: 1px 1.5px 1px black;
+    max-height: 50px;
+    font-size: 16px;
+}
+}
+@media (max-width: 1040px){
+    .toCenter {
+    width: 100%;
+}
+}
+@media (max-width: 640px){
+    .video_area{
+        height: 20vh;
+    }
+    .col-md-4{
+    width: 100%;
+}
+.col-md-4 img{
+    width: 100vw;
+    max-width: 100%;
+}
+.tv-layout .img-link .inner-link .link-title {
+    line-height: 36px;
+    text-shadow: 2px 2.5px 1px black;
+    max-height: 72px;
+    font-size: 30px;
+}
+.tv-layout .img-link.four-bar {
+    width: 100%;
+    float: left;
+}
+.tv-layout .img-link.second-bar {
+    height: 100%;
+}
 }
