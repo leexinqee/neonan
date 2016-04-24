@@ -129,3 +129,7 @@
     vertical-align: 7%;
     padding: 0 0 0 5px;
 }
+
+#movie embed, #movie video, #movie iframe {
+    min-height: 400px;
+}

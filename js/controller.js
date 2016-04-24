@@ -10,9 +10,21 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
     });
+    $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
-    }
+    };
+    //检测登录状态
+    MessagesService.isCheck().then(function(data){
+        //alert(JSON.stringify(data))
+        if(data.body){
+            $('.login').fadeOut();
+            $('.reg').fadeOut();
+            $('.info-wrap').fadeIn()
+        }else{
+            return false;
+        }
+    })
 });
 
 // 总体分块的控制器
@@ -154,22 +166,27 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     param._method = 'put';
                     console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
-                        alert(JSON.stringify(data))
+                        //alert(JSON.stringify(data))
+                        alert('收藏成功')
                     },function(err){
-                        alert(err.statusText)
+                        $('.loginDailog').modal('show');
+                        //alert(err.statusText)
                     });
                 })
             };
             $scope.share = function(type,id){
-                alert(type)
+                //alert(type);
                 var param = {};
                 param.target = type;
                 param.article_id = id;
+                param._method = 'PUT';
                 MessagesService.token().then(function(data){
                     param._token = data.body;
                     MessagesService.articleShare(param).then(function (data) {
                         alert('分享成功')
                     })
+                },function(){
+                    $('.loginDailog').modal('show');
                 })
             };
             // 文章数据渲染
@@ -288,11 +305,11 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         var pre = larr[larr.length-1];
         var html = '';
         if(pre == 'swf'){
-            html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
+            html = '<EMBED src="' + data.body.url + '" width="100%" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
         } else if(pre == 'mp4' || pre == 'MP4'){
-            html = '<video width="100%" height="400" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
+            html = '<video width="100%" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
         } else {
-            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%"></iframe>'
         }
         $("#movie").html(html);
 

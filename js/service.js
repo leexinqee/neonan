@@ -115,6 +115,12 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         smsPasswordCaptcha:function(phone){
             return Restangular.one('sms-password-captcha').customPOST(phone);
+        },
+        favorites:function(){
+            return Restangular.one('/users/favorites').get();//判断登录状态
+        },
+        isCheck:function(){
+            return Restangular.one('is-check').get()
         }
     }
 }]);
