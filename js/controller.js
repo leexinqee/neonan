@@ -271,7 +271,7 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
     $scope.videos = [];
     $scope.loadingMore = function(){
         param.page += 1;
-        console.log(JSON.stringify(param));
+        //console.log(JSON.stringify(param));
         MessagesService.video(param).then(function(data){            // 获取牛男TV接口数据
             if(index == 1){
                 $scope.video = data.body.list.slice(0,5);
@@ -281,7 +281,7 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
                 for(var i = 0; i < item.length; i++){
                     $scope.videos.push(item[i]);
                 }
-                console.log(JSON.stringify(data));
+                //console.log(JSON.stringify(data));
             }
             index++;
             param.per_page = 9;
