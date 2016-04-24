@@ -279,5 +279,26 @@
         var cnzz_protocol=(("https:"==document.location.protocol)?" https://":" http://");
         document.write(unescape("%3Cspan id='cnzz_stat_icon_1000484157'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s11.cnzz.com/z_stat.php%3Fid%3D1000484157%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
     </script>
+    <script>
+        $(function () {
+            var asideNow = 0;
+            var ifup = 0;
+            $(window).scroll(function(){
+                var scrollTop = $(this).scrollTop();
+                var asideTop = $('.aside').offset().top;
+                if(scrollTop>ifup){
+                    if(scrollTop>asideTop){
+                        asideNow = scrollTop;
+                        $('.aside').addClass('aside-fixed');
+                    }
+                }else{
+                    if(scrollTop<asideNow){
+                        $('.aside').removeClass('aside-fixed');
+                    }
+                }
+                ifup = scrollTop;
+            })
+        })
+    </script>
 </body>
 </html>
