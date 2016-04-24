@@ -206,9 +206,10 @@
 
 .aside {
     background-color: #fbfbfb;
-    margin-top: 10px;
+    margin-top: 15px;
     overflow: hidden;
     padding-left: 50px;
+    transition: 1s all;
 }
 
 .aside-title {
@@ -493,4 +494,12 @@
     width: 30px;
     margin: 9px 0;
     cursor: pointer;
+}
+/*aside fixed*/
+.aside-fixed{
+    position: fixed;
+    top: 10px;
+    right: 0;
+    width: 300px;
+    transition: 1s all;
 }

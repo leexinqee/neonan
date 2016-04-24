@@ -16,7 +16,7 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     };
     //检测登录状态
     MessagesService.isCheck().then(function(data){
-        //alert(JSON.stringify(data))
+        console.log(JSON.stringify(data));
         if(data.body){
             $('.login').fadeOut();
             $('.reg').fadeOut();
@@ -25,7 +25,6 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
             return false;
         }
     })
-
 });
 
 // 总体分块的控制器
@@ -38,6 +37,7 @@ app.controller("mainCtrl",function($scope){
 // 首页顶部部分的控制器
 app.controller("topCtrl", function($scope,MessagesService, $state, $location){
     MessagesService.banner().then(function(data){
+        $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
         $scope.banner = data.body;
     });
     MessagesService.small().then(function (data) {
@@ -126,6 +126,7 @@ app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     $scope.slug = $stateParams.slug;
     MessagesService.banner().then(function(data){
+        $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
         $scope.banner = data.body;
     });
     MessagesService.small().then(function (data) {
@@ -310,7 +311,8 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         } else if(pre == 'mp4' || pre == 'MP4'){
             html = '<video width="100%" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
         } else {
-            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%"></iframe>'
+            html = '<iframe class="video_area" src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+
         }
         $("#movie").html(html);
 

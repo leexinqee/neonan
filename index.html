@@ -62,7 +62,7 @@
                     <a href="" class="login" data-toggle="modal" data-target=".modal-login">登录</a>
                     <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
                     <!--<img src="{{user.avatar}}" alt="" class="userHead"/>-->
-                    <div class="info-wrap" id="info-wrap">
+                    <div class="info-wrap" id="info-wrap" style="display: none;float: left">
                         <div class="head-img-wrap">
                             <img class="head-img" src="{{user.avatar}}" alt=""/>
                         </div>
@@ -83,7 +83,7 @@
                  aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <img src="images/day30.png" alt=""/>
+                        <img src="images/barcode.jpg" alt=""/>
                     </div>
                 </div>
             </div>
@@ -278,6 +278,27 @@
     <script>
         var cnzz_protocol=(("https:"==document.location.protocol)?" https://":" http://");
         document.write(unescape("%3Cspan id='cnzz_stat_icon_1000484157'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s11.cnzz.com/z_stat.php%3Fid%3D1000484157%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+        $(function () {
+            var asideNow = 0;
+            var ifup = 0;
+            $(window).scroll(function(){
+                var scrollTop = $(this).scrollTop();
+                var asideTop = $('.aside').offset().top;
+                if(scrollTop>ifup){
+                    if(scrollTop>asideTop){
+                        asideNow = scrollTop;
+                        $('.aside').addClass('aside-fixed');
+                    }
+                }else{
+                    if(scrollTop<asideNow){
+                        $('.aside').removeClass('aside-fixed');
+                    }
+                }
+                ifup = scrollTop;
+            })
+        })
     </script>
 </body>
 </html>
