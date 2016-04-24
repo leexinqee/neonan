@@ -291,14 +291,23 @@
                 var asideRight = $('.main').css('margin-left');
                 var scrollTop = $(this).scrollTop();
                 var asideTop = $('.aside').offset().top;
+                var footerOffset = $('.footer-content').offset().top;
+                var gap = $(window).height();
+                var fheight = scrollTop+gap;
+                console.log(fheight);
                 if(scrollTop>ifup){
                     if(scrollTop>asideTop){
                         asideNow = scrollTop;
                         $('.aside').addClass('aside-fixed').css('right',asideRight);
                     }
+                    if(fheight>footerOffset){
+                        $('.aside').removeClass('aside-fixed');
+                    }
                 }else{
                     if(scrollTop<asideNow){
-                        $('.aside').removeClass('aside-fixed');
+                        if($('.aside').hasClass('aside-fixed')){
+                            $('.aside').removeClass('aside-fixed');
+                        }
                     }
                 }
                 ifup = scrollTop;
