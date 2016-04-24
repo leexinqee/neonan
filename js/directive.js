@@ -310,6 +310,16 @@ app.directive('appfooter',function(){
     return {
         restrict:"EA",
         replace:true,
-        templateUrl:'./template/appFooter.html'
+        templateUrl:'./template/appFooter.html',
+        link:function(scope,ele,attr){
+            var weixin = $('.footerweixin');
+            weixin.on('click',function(){
+                $('#Weixin').modal('show').css({
+                    "margin-top": function () {
+                        return - ($(this).height() / 2);
+                    }
+                });
+            })
+        }
     }
 });

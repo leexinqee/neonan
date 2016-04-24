@@ -25,6 +25,7 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
             return false;
         }
     })
+
 });
 
 // 总体分块的控制器

@@ -1,27 +1,8 @@
 <!--首页轮播-->
-<!--<div swiper class="swiper">-->
-    <!--<div class="swiper-container">-->
-        <!--<div class="swiper-wrapper">-->
-            <!--<div class="swiper-slide" ng-repeat="item in handPick">-->
-                <!--<img src="{{item.image}}" alt="">-->
-                <!--<div class="slider-msg">-->
-                    <!--<div class="msg-title">{{item.title}}-->
-                    <!--</div>-->
-                    <!--<div class="by">BY <span class='by-who'>{{item.recommendable_author}}</span></div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--&lt;!&ndash; 下方原点 &ndash;&gt;-->
-        <!--<div class="swiper-pagination"></div>-->
-        <!--&lt;!&ndash; 左右切换 &ndash;&gt;-->
-        <!--<div class="swiper-button-prev"></div>-->
-        <!--<div class="swiper-button-next"></div>-->
-    <!--</div>-->
-<!--</div>-->
 <swiper></swiper>
 <!--精选-->
 <div class="wonderful">
-    <div class="won-list border-b-77c322" ng-repeat="item in banner">
+    <div class="won-list {{bannerBorColor[$index]}}" ng-repeat="item in banner">
         <div class="won-list-picwrap">
             <img src="{{item.image}}" alt="">
         </div>

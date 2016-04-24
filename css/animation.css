@@ -1,9 +1,9 @@
 .actionOut {
-    animation: actionOut 0.5s ease-out;
+    animation: actionOut 0.3s ease-out;
     animation-fill-mode: forwards;
 }
 .actionIn {
-    animation: actionIn 0.5s ease-out;
+    animation: actionIn 0.3s ease-out;
     animation-fill-mode: forwards;
 }
 @keyframes actionOut {
