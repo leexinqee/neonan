@@ -14,9 +14,17 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
     };
-    //MessagesService.favorites().then(function(data){
-    //    alert(JSON.stringify(data))
-    //})
+    //检测登录状态
+    MessagesService.isCheck().then(function(data){
+        //alert(JSON.stringify(data))
+        if(data.body){
+            $('.login').fadeOut();
+            $('.reg').fadeOut();
+            $('.info-wrap').fadeIn()
+        }else{
+            return false;
+        }
+    })
 });
 
 // 总体分块的控制器

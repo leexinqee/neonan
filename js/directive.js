@@ -266,7 +266,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                             $('.login').fadeOut();
                             $('.reg').fadeOut();
                             //$('.userHead').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
-                            $('#info-wrap').css("display", "block");
+                            $('#info-wrap').fadeIn();
                             scope.user = logindata.body;
                             console.log(JSON.stringify(scope.user))
                         }
@@ -315,9 +315,8 @@ app.directive('appfooter',function(){
             var weixin = $('.footerweixin');
             weixin.on('click',function(){
                 $('#Weixin').modal('show').css({
-                    "margin-top": function () {
-                        return - ($(this).height() / 2);
-                    }
+                    "width":"121px",
+                    "margin":"200px auto 0"
                 });
             })
         }
