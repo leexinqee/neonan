@@ -301,7 +301,7 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         } else if(pre == 'mp4' || pre == 'MP4'){
             html = '<video width="100%" height="400" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
         } else {
-            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+            html = '<iframe class="video_area" src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
         }
         $("#movie").html(html);
 
