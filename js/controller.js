@@ -14,9 +14,18 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
     };
-    //MessagesService.favorites().then(function(data){
-    //    alert(JSON.stringify(data))
-    //})
+    //检测登录状态
+    MessagesService.isCheck().then(function(data){
+        //alert(JSON.stringify(data))
+        if(data.body){
+            $('.login').fadeOut();
+            $('.reg').fadeOut();
+            $('.info-wrap').fadeIn()
+        }else{
+            return false;
+        }
+    })
+
 });
 
 // 总体分块的控制器
@@ -297,11 +306,15 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
         var pre = larr[larr.length-1];
         var html = '';
         if(pre == 'swf'){
-            html = '<EMBED src="' + data.body.url + '" width="100%" height="400" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
+            html = '<EMBED src="' + data.body.url + '" width="100%" play="true" loop="false" menu="true" quality="high" type="application/x-shockwave-flash" name="myFlash" swLiveConnect="true" allowfullscreen="true"></EMBED>';
         } else if(pre == 'mp4' || pre == 'MP4'){
-            html = '<video width="100%" height="400" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
+            html = '<video width="100%" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
         } else {
+<<<<<<< HEAD
             html = '<iframe class="video_area" src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
+=======
+            html = '<iframe src="'+ data.body.url +'" frameborder="0" width="100%"></iframe>'
+>>>>>>> origin/master
         }
         $("#movie").html(html);
 

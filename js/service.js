@@ -118,6 +118,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         favorites:function(){
             return Restangular.one('/users/favorites').get();//判断登录状态
+        },
+        isCheck:function(){
+            return Restangular.one('is-check').get()
         }
     }
 }]);
