@@ -7,12 +7,17 @@ app.config(function(RestangularProvider){
     //});
 });
 
-app.factory("toolService", function(){
+app.factory("toolService", function(MessagesService){
     return {
         // 根据文章详情上下页的路径解析出文章的id
         parserArticleId : function(url){
             var tempArr = url.split("/");
             return tempArr[tempArr.length-1];
+        },
+        tokenCallback : function(cb){
+            MessagesService.token().then(function(data){
+                cb && cb(data);
+            })
         }
     }
 });
