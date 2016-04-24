@@ -31,7 +31,9 @@
 .prm{padding-right: 10px;}
 .prl{padding-right: 20px;}
 
-
+.list_video .col-md-4{
+    height: 200px;
+}
 /* tv show css */
 .tv-page-container {
 
@@ -138,9 +140,6 @@
     color: #fff;
     vertical-align: 7%;
     padding: 0 0 0 5px;
-}
-.col-md-4{
-    min-height: 200px;
 }
 
 @media (max-width: 1000px){

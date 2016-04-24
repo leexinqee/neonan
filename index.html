@@ -268,7 +268,7 @@
 <script src="//pagead2.googlesyndication.com/pagead/expansion_embed.js?source=safeframe"></script>
 <script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
 <script async="" src="//www.google-analytics.com/analytics.js"></script>
-
+<div style="display: none">
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -281,18 +281,21 @@
     <script>
         var cnzz_protocol=(("https:"==document.location.protocol)?" https://":" http://");
         document.write(unescape("%3Cspan id='cnzz_stat_icon_1000484157'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s11.cnzz.com/z_stat.php%3Fid%3D1000484157%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+    </script></div>
     <script>
         $(function () {
             var asideNow = 0;
             var ifup = 0;
+
             $(window).scroll(function(){
+                var asideRight = $('.main').css('margin-left');
                 var scrollTop = $(this).scrollTop();
                 var asideTop = $('.aside').offset().top;
                 if(scrollTop>ifup){
                     if(scrollTop>asideTop){
                         asideNow = scrollTop;
-                        $('.aside').addClass('aside-fixed');
+                        $('.aside').addClass('aside-fixed').css('right',asideRight);
+
                     }
                 }else{
                     if(scrollTop<asideNow){
