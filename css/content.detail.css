@@ -1,4 +1,9 @@
 /* 文章详情 */
+body ::selection {
+    background-color: #38485a;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);
+}
 .right-content .aside {
     margin-top: 0px;
 }
@@ -8,9 +13,6 @@
 .row * {
     box-sizing: border-box;
 }
-
-
-
 
 .content-wrap {
 
@@ -45,9 +47,17 @@
 }
 
 .left-content-box .content-title {
-    border-bottom: 1px solid #ccc;
-    margin: 0;
-    padding: 0 0 20px 0;
+    font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 15px 0 15px 0;
+    text-align: left;
+    line-height: 30px;
+}
+.message-body{
+    font-size: 15px;
+    color: #333;
 }
 .left-content-box .person-box {
     height: 40px;
@@ -238,6 +248,10 @@
 /*视频图片*/
 .message-body img{
     display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
 }
 
 
