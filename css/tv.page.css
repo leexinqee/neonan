@@ -51,8 +51,9 @@
     display: block;
     position: relative;
 }
-.tv-layout .img-link:hover h4 {
-    text-decoration: underline;
+.tv-layout .img-link:hover .inner-link .link-title {
+    /*text-decoration: underline;*/
+    color: #999;
 }
 .tv-layout .first-bar {
     height: 190px;width: 100%;
@@ -78,10 +79,15 @@
     color: #fff;
     max-width: 80%;
     line-height: 32px;
-    text-shadow: 2px 3px 2px black;
+    text-shadow: 0px 0px 7px #000;
     max-height: 64px;
-    font-size: 32px;
+    font-size: 24px;
     overflow: hidden;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
 }
 .tv-layout .img-link .play-style-two {
     position: absolute;

@@ -321,6 +321,14 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
             return $sce.trustAsHtml($scope.message.details);
         };
 
+
+        var token = "";
+        MessagesService.token().then(function(data){
+            console.log("token:  "+JSON.stringify(data));
+            token = data.body;
+        });
+
+
         // 评论信息
         $scope.comment = "";
         $scope.submitComment = function(){
@@ -328,7 +336,8 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                 var reqData = {
                     _method : "PUT",
                     video_id : id,
-                    comment : $scope.comment
+                    comment : $scope.comment,
+                    _token : token
                 };
                 $.ajax({
                     method : "POST",
