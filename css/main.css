@@ -322,7 +322,9 @@
     color: #333333;
     border-color: #b2b2b2;
 }
-
+.new-hot-content{
+    min-height: 1000px;
+}
 .new-hot-content-item {
     min-height: 168px;
     padding: 24px 0;

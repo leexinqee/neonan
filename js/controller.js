@@ -20,7 +20,8 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
         if(data.body){
             $('.login').fadeOut();
             $('.reg').fadeOut();
-            $('.info-wrap').fadeIn()
+            $('.info-wrap').fadeIn();
+            //alert(JSON.stringify(data))
         }else{
             return false;
         }
