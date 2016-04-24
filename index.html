@@ -283,13 +283,16 @@
         $(function () {
             var asideNow = 0;
             var ifup = 0;
+
             $(window).scroll(function(){
+                var asideRight = $('.main').css('margin-left');
                 var scrollTop = $(this).scrollTop();
                 var asideTop = $('.aside').offset().top;
                 if(scrollTop>ifup){
                     if(scrollTop>asideTop){
                         asideNow = scrollTop;
-                        $('.aside').addClass('aside-fixed');
+                        $('.aside').addClass('aside-fixed').css('right',asideRight);
+
                     }
                 }else{
                     if(scrollTop<asideNow){
