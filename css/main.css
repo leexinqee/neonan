@@ -504,5 +504,5 @@
     /*right: 154px;*/
     width: 300px;
     transition: 1s all;
-    z-index: -1;
+    /*z-index: 1;*/
 }

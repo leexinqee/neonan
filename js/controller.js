@@ -22,6 +22,11 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
             $('.reg').fadeOut();
             $('.info-wrap').fadeIn();
             //alert(JSON.stringify(data))
+            console.log(window.location.host+data.body.avatar)
+            var headPic = window.location.host+data.body.avatar;
+            $('.head-img').attr('src',"http://"+headPic);
+            $('.userCenter').attr('data-id',data.body.id);
+            $('.userCenter').attr('ng-href','#/index/selfinfo?uid='+data.body.id);
         }else{
             return false;
         }
@@ -145,8 +150,19 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     $scope.comment = "";        // 评论信息
     $scope.submitComment = function(){
         if($.trim($scope.comment)){
-            alert($scope.comment);
-            $scope.comment = "";
+            //alert($scope.comment);
+            //$scope.comment = "";
+            var reqData = {
+                _method : "PUT",
+                article_id : id,
+                comment : $scope.comment
+            };
+            MessagesService.token().then(function(data){
+                reqData._token = data.body;
+                MessagesService.articleComment(reqData).then(function(data){
+                    alert(JSON.stringify(data))
+                })
+            })
         } else {
             alert("输入无效")
         }
@@ -337,20 +353,25 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                 var reqData = {
                     _method : "PUT",
                     video_id : id,
-                    comment : $scope.comment,
-                    _token : token
+                    comment : $scope.comment
                 };
-                $.ajax({
-                    method : "POST",
-                    url : "http://phptest.neonan.com/video/new_comment",
-                    data : reqData,
-                    success : function(response){
-                        console.log(JSON.stringify(response));
-                    },
-                    error : function(xhr, status, err){
-                        console.log(JSON.stringify(xhr), status);
-                    }
+                MessagesService.token().then(function(data){
+                    reqData._token = data.body;
+                    MessagesService.videoComment(reqData).then(function(data){
+                        alert(JSON.stringify(data))
+                    })
                 });
+                //$.ajax({
+                //    method : "POST",
+                //    url : "http://phptest.neonan.com/video/new_comment",
+                //    data : reqData,
+                //    success : function(response){
+                //        console.log(JSON.stringify(response));
+                //    },
+                //    error : function(xhr, status, err){
+                //        console.log(JSON.stringify(xhr), status);
+                //    }
+                //});
                 //MessagesService.videoComment(reqData).then(function(data){
                 //    $scope.comment = "";
                 //});
