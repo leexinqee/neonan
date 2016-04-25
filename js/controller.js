@@ -388,7 +388,7 @@ app.controller("searchCtrl", function($scope, $state){
     $scope.searchHandler = function(){
         $state.go('search', {keyword: $scope.content});
         $scope.content = "";
-    }
+    };
 });
 
 // 搜索页面控制器
@@ -396,7 +396,7 @@ app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParam
     $scope.keyword = $stateParams.keyword;
     MessagesService.search({q: $scope.keyword}).then(function(data){
         $scope.lists = data.body.list;
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
     })
 
 });

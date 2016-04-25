@@ -5,7 +5,7 @@ var app = angular.module("app.directive", ['app.service']);
 
 //  body元素上的指令   控制menu菜单的指令
 var count = 0;
-app.directive("appDirective", function(){
+app.directive("appDirective", function($state){
     return {
         restrict : 'EA',
         link : function(scope, ele, attr){
@@ -24,9 +24,22 @@ app.directive("appDirective", function(){
                 count++;
             });
 
+            // 回车按钮的回车事件的添加
+            $(document).keypress(function(e) {
+                if(e.which == 13) {
+                    $menu.removeClass('actionIn').removeClass('actionOut');
+                    $menu.addClass('actionOut');
+                    $(".choose-wrap").remove();
+                    count++;
+                    $state.go('search', {keyword: $(".search-input-text").val()});
+                }
+            });
+
+            // 搜索键点击搜索
             $menu.on('click', ".search-btn", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');
                 $menu.addClass('actionOut');
+                $(".choose-wrap").remove();
                 count++;
             });
             //  菜单点击之后的控制
