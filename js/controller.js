@@ -13,6 +13,7 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
+        $('body').scrollTop(0);
     };
     //检测登录状态
     MessagesService.isCheck().then(function(data){
