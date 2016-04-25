@@ -504,3 +504,12 @@
     transition: 1s all;
     z-index: -1;
 }
+
+
+
+/* category */
+.category-container {
+    width: 100%;
+    max-height: 244px;
+    margin: 50px 0;
+}

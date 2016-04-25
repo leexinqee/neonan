@@ -236,11 +236,11 @@
 <!--公共菜单部分-->
     <div menu-container class="menu-content" id="menu-content">
         <div class="menu-search">
-            <div class="search-content">
+            <div class="search-content" ng-controller="searchCtrl">
                 <div class="float-left search-input">
-                    <input type="text" class="search-input-text" placeholder='search'>
+                    <input type="text" ng-model="content" class="search-input-text" placeholder='请输入关键词...'>
                 </div>
-                <div class="search-btn"></div>
+                <div class="search-btn" ng-click="searchHandler()"></div>
             </div>
         </div>
 

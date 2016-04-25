@@ -255,3 +255,27 @@ body ::selection {
 /*}*/
 
 
+/* 查询页面样式 */
+.search-container {
+    width: 1040px;
+    margin: 50px auto 0 auto;
+}
+.search-container .contentRightAds {
+    float: right;
+}
+.search-container .result-wrap {
+    width: auto;
+    margin-right: 350px;
+}
+.search-container .img-link {
+    display: block;
+    position: relative;
+}
+.search-container .inner-link {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+.search-container .load-more-bar {
+    margin: 30px 0;
+}
