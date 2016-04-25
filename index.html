@@ -70,7 +70,7 @@
                             <img class="head-img" src="{{user.avatar}}" alt=""/>
                         </div>
                         <div class="info-enter">
-                            <p><a data-id="{{user.id}}" ng-href="#/index/selfinfo?uid={{user.id}}">个人中心</a></p>
+                            <p><a data-id="{{user.id}}" ng-href="#/index/selfinfo?uid={{user.id}}" class="userCenter">个人中心</a></p>
 
                             <p><a href="">退出登录</a></p>
                         </div>
@@ -291,14 +291,22 @@
                 var asideRight = $('.main').css('margin-left');
                 var scrollTop = $(this).scrollTop();
                 var asideTop = $('.aside').offset().top;
+                var footerOffset = $('.footer-content').offset().top;
+                var gap = $(window).height();
+                var fheight = scrollTop+gap;
                 if(scrollTop>ifup){
                     if(scrollTop>asideTop){
                         asideNow = scrollTop;
                         $('.aside').addClass('aside-fixed').css('right',asideRight);
                     }
+                    if(fheight>footerOffset){
+                        $('.aside').removeClass('aside-fixed');
+                    }
                 }else{
                     if(scrollTop<asideNow){
-                        $('.aside').removeClass('aside-fixed');
+                        if($('.aside').hasClass('aside-fixed')){
+                            $('.aside').removeClass('aside-fixed');
+                        }
                     }
                 }
                 ifup = scrollTop;

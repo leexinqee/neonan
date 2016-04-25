@@ -64,7 +64,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('video','like').customPOST(param);
         },
         videoComment:function(param){
-            return Restangular.one('video','new_comment').customPUT(param);
+            return Restangular.one('video','new_comment').customPOST(param);
         },
         links:function(){
             return Restangular.one('links').get();
