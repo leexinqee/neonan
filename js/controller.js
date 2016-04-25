@@ -149,13 +149,14 @@ app.controller("selfLikeCtrl", function($scope){
 app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     $scope.slug = $stateParams.slug;
-    MessagesService.banner().then(function(data){
-        $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
-        $scope.banner = data.body;
-    });
-    MessagesService.small().then(function (data) {
-        $scope.small = data.body;
-    });
+    $scope.coverImg = $stateParams.cover;
+    //MessagesService.banner().then(function(data){
+    //    $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
+    //    $scope.banner = data.body;
+    //});
+    //MessagesService.small().then(function (data) {
+    //    $scope.small = data.body;
+    //});
 });
 
 

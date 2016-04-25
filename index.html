@@ -248,7 +248,7 @@
             <ul class="menu-list" ng-if="item.children">
                 <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="items in item.children" ng-switch="items.slug">
                     <a ui-sref="tvPage" ng-switch-when="tv" data-color='{{styles[0]}}' data-value="{{items.title}}">{{items.title}}</a>
-                    <a ui-sref="index.category({slug: items.slug})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
+                    <a ui-sref="index.category({slug: items.slug,cover:items.menu_image})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
                 </li>
             </ul>
         </div>
