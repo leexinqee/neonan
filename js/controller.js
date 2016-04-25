@@ -138,7 +138,7 @@ app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams
 
 
 // 整个内容模块的控制器
-app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService){
+app.controller("topContentCtrl", function($scope, MessagesService, $stateParams, $sce, toolService,$location){
     var id = $stateParams.id;       // 获取到文章id
 
     $("body").scrollTop(0);    // 页面详情滚动到顶端
@@ -173,6 +173,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 next : true,
                 all : true
             };
+
             $scope.like = function(id){
                 MessagesService.token().then(function(data){
                     var param = {};
@@ -189,23 +190,9 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     });
                 })
             };
-            $scope.share = function(type,id){
-                //alert(type);
-                var param = {};
-                param.target = type;
-                param.article_id = id;
-                param._method = 'PUT';
-                MessagesService.token().then(function(data){
-                    param._token = data.body;
-                    MessagesService.articleShare(param).then(function (data) {
-                        alert('分享成功')
-                    })
-                },function(){
-                    $('.loginDailog').modal('show');
-                })
-            };
             // 文章数据渲染
             $scope.message = data.body;
+            $scope.message.currentUrl = $location.$$absUrl;
             // 文章内容
             $scope.htmlText = function(){
                 return $sce.trustAsHtml(data.body.details);
@@ -282,25 +269,7 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
         from : 8
     };
     $scope.videos = [];
-    $scope.like = function(){
-        MessagesService.token().then(function(data){
-            var param = {};
-            param._token = data.body;
-            param.video_id = id;
-            param._method = 'put';
-            //console.log(JSON.stringify(param))
-            MessagesService.videoLike(param).then(function(data){
-                alert('收藏成功')
-            },function(err){
-                $('.loginDailog').modal('show');
-            });
-        })
-    };
-    $scope.share = function(to,title,summery,pic){
-        alert(0)
-        var location = window.location;
-        window.location = "http://www.jiathis.com/send/?webid="+to+"&url="+location+"&title="+title+"&summary="+summery+"";
-    };
+
     $scope.loadingMore = function(){
         param.page += 1;
         //console.log(JSON.stringify(param));
@@ -326,14 +295,27 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
 });
 
 // 视频TV详情控制器
-app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $sce){
+app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $sce,$location){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var id = $stateParams.id;
     MessagesService.videoDetail(id).then(function(data){
-        //console.log(JSON.stringify(data))
         // 内容信息渲染
         $scope.message = data.body;
-
+        $scope.message.currentUrl = $location.$$absUrl;
+        $scope.like = function(id){
+            MessagesService.token().then(function(data){
+                var param = {};
+                param._token = data.body;
+                param.video_id = id;
+                param._method = 'put';
+                //console.log(JSON.stringify(param))
+                MessagesService.videoLike(param).then(function(data){
+                    alert('收藏成功')
+                },function(err){
+                    $('.loginDailog').modal('show');
+                });
+            })
+        };
         // 视频信息渲染
         var larr = data.body.url.split('.');
         var pre = larr[larr.length-1];
