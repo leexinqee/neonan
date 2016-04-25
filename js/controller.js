@@ -379,3 +379,19 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
     });
 });
 
+
+
+
+// 搜索控制器
+app.controller("searchCtrl", function($scope, MessagesService){
+    $scope.content = "";
+    $scope.searchHandler = function(){
+        alert($scope.content);
+        $scope.content = "";
+    }
+});
+
+// 搜索页面控制器
+app.controller("searchDetailCtrl", function($scope, MessagesService){
+    console.log('searchDetailCtrl')
+});

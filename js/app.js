@@ -111,5 +111,17 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "contentRightViewCtrl"
             }
         }
+    }).state('search', {
+        url : '/search?keyword',
+        views : {
+            'main': {
+                templateUrl: 'template/search-page.html',
+                controller : "searchDetailCtrl"
+            },
+            'contentRightAd@search' : {
+                templateUrl : 'template/content-right-view.html',
+                controller : "contentRightViewCtrl"
+            }
+        }
     })
 });
