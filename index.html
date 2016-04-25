@@ -290,6 +290,9 @@
             $(window).scroll(function(){
                 var asideRight = $('.main').css('margin-left');
                 var scrollTop = $(this).scrollTop();
+                if(!$('.aside').length){
+                    return;
+                }
                 var asideTop = $('.aside').offset().top;
                 var footerOffset = $('.footer-content').offset().top;
                 var gap = $(window).height();

@@ -501,10 +501,9 @@
 .aside-fixed{
     position: fixed;
     top: 10px;
-    /*right: 154px;*/
     transition: all 1s;
     z-index: -1;
-    width: 350px;
+    width: 300px;
     overflow: hidden;
 }
 
@@ -515,8 +514,6 @@
     width: 100%;
     max-height: 244px;
     margin: 50px 0;
-    /*transition: 1s all;*/
-    /*z-index: 1;*/
 }
 .share-format{
 

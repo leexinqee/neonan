@@ -303,7 +303,9 @@ body ::selection {
 .search-container .row {
     margin-left: 0;margin-right: 0;
 }
-
+.search-container .aside-fixed {
+    width: 350px;
+}
 
 
 
