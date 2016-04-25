@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class="share-box clearfix jiathis_style_32x32">
-                <a class="jiathis_button_qzone"></a>
-                <a class="jiathis_button_tsina"></a>
+                <a href="http://www.jiathis.com/send/?webid=qzone&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-qzone float-left">qzone</button></a>
+                <a href="http://www.jiathis.com/send/?webid=tsina&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-sea float-left">sea</button></a>
                 <button class="btn btn-default btn-collet float-right" ng-click="like(message.id)">collet</button>
             </div>
             <div class="con-center">
@@ -67,18 +67,15 @@
                         <strong>标签：</strong>{{message.category.name}}
                     </div>
                 </div>
-                <div class="row clearfix share-wrap jiathis_style_32x32">
-                    <!-- <a class="jiathis_button_weixin"></a>
-                    <a class="jiathis_button_tsina"></a>
-                    <a class="jiathis_button_qzone"></a>  "-->
-                    <div class="col-md-4 text-center share-format" style="background-color: #06c011">
-                        <a class="jiathis_button_weixin" style="padding-left: 37%;display: block;height: 32px"></a>
+                <div class="row clearfix share-wrap">
+                    <div class="col-md-4 text-center">
+                        <a href="http://www.jiathis.com/send/?webid=weixin&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-weichat">微信分享</button></a>
                     </div>
-                    <div class="col-md-4 text-center share-format">
-                        <a class="jiathis_button_tsina"></a>
+                    <div class="col-md-4 text-center">
+                        <a href="http://www.jiathis.com/send/?webid=tsina&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-sea">微博分享</button></a>
                     </div>
-                    <div class="col-md-4 text-center share-format">
-                        <a class="jiathis_button_qzone"></a>
+                    <div class="col-md-4 text-center">
+                        <a href="http://www.jiathis.com/send/?webid=qzone&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-qzone">QQ空间</button></a>
                     </div>
                 </div>
                 <div class="row comment-wrap">

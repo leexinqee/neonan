@@ -30,9 +30,9 @@
             <div class="share-box clearfix">
                 <!--<a href="http://www.jiathis.com/share/" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank">分享到：</a>-->
                 <!--<a class="jiathis_button_qzone">QQ空间</a>-->
-                <a href="#" target="_blank" ng-click="share('tqq',message.title,message.summary,message.image_filename)"><button class="btn btn-default btn-share-qzone float-left">qzone</button></a>
-                <a href="#" target="_blank" ng-click="share('tsina',message.title,message.summary,message.image_filename)"><button class="btn btn-default btn-share-sea float-left">sea</button></a>
-                <button class="btn btn-default btn-collet float-right">collet</button>
+                <a href="http://www.jiathis.com/send/?webid=qzone&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-qzone float-left">qzone</button></a>
+                <a href="http://www.jiathis.com/send/?webid=tsina&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-sea float-left">sea</button></a>
+                <button class="btn btn-default btn-collet float-right" ng-click="like(message.id)">collet</button>
             </div>
             <div class="con-center">
                 <!--<div class="img-content-box">-->
@@ -74,13 +74,13 @@
                 </div>
                 <div class="row clearfix share-wrap">
                     <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-share-weichat">微信分享</button>
+                        <a href="http://www.jiathis.com/send/?webid=weixin&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-weichat">微信分享</button></a>
                     </div>
                     <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-share-sea">微博分享</button>
+                        <a href="http://www.jiathis.com/send/?webid=tsina&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-sea">微博分享</button></a>
                     </div>
                     <div class="col-md-4 text-center">
-                        <button class="btn btn-default btn-share-qzone">QQ空间</button>
+                        <a href="http://www.jiathis.com/send/?webid=qzone&title={{message.title}}&summary={{message.summary}}&url={{message.currentUrl}}&shortUrl=false" target="_blank"><button class="btn btn-default btn-share-qzone">QQ空间</button></a>
                     </div>
                 </div>
                 <div class="row comment-wrap">
@@ -107,19 +107,19 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<script>
-    var jiathis_config = {
-        url:window.location.href,
-        title:'牛男网',
-        summary:'好东西就是要分享~',
-        evt:{'share':'shareCallBack'}
-    };
-    function shareCallBack(data){
-        $(function(){
-            $('#jiathis_weixin_modal').css({
-                "margin-left":"-180px"
-            })
-        })
-    }
-</script>
+<!--<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>-->
+<!--<script>-->
+    <!--var jiathis_config = {-->
+        <!--url:window.location.href,-->
+        <!--title:'牛男网',-->
+        <!--summary:'好东西就是要分享~',-->
+        <!--evt:{'share':'shareCallBack'}-->
+    <!--};-->
+    <!--function shareCallBack(data){-->
+        <!--$(function(){-->
+            <!--$('#jiathis_weixin_modal').css({-->
+                <!--"margin-left":"-180px"-->
+            <!--})-->
+        <!--})-->
+    <!--}-->
+<!--</script>-->
