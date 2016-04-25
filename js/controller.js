@@ -16,13 +16,10 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     };
     //检测登录状态
     MessagesService.isCheck().then(function(data){
-        console.log(JSON.stringify(data));
         if(data.body){
             $('.login').fadeOut();
             $('.reg').fadeOut();
             $('.info-wrap').fadeIn();
-            //alert(JSON.stringify(data))
-            console.log(window.location.host+data.body.avatar)
             var headPic = window.location.host+data.body.avatar;
             $('.head-img').attr('src',"http://"+headPic);
             $('.userCenter').attr('data-id',data.body.id);
@@ -112,7 +109,6 @@ app.controller("asideRightCtrl",function($scope,MessagesService, $sce){
 app.controller("topInfoCtrl", function($scope, $stateParams){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var uid = $stateParams.uid;
-    alert(uid);
     console.log('topInfoCtrl')
 });
 
@@ -181,7 +177,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 MessagesService.token().then(function(data){
                     var param = {};
                     param._token = data.body;
-                    param.id = id;
+                    param.article_id = id;
                     param._method = 'put';
                     console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
@@ -286,6 +282,25 @@ app.controller("tvPageCtrl", function($scope, MessagesService){
         from : 8
     };
     $scope.videos = [];
+    $scope.like = function(){
+        MessagesService.token().then(function(data){
+            var param = {};
+            param._token = data.body;
+            param.video_id = id;
+            param._method = 'put';
+            //console.log(JSON.stringify(param))
+            MessagesService.videoLike(param).then(function(data){
+                alert('收藏成功')
+            },function(err){
+                $('.loginDailog').modal('show');
+            });
+        })
+    };
+    $scope.share = function(to,title,summery,pic){
+        alert(0)
+        var location = window.location;
+        window.location = "http://www.jiathis.com/send/?webid="+to+"&url="+location+"&title="+title+"&summary="+summery+"";
+    };
     $scope.loadingMore = function(){
         param.page += 1;
         //console.log(JSON.stringify(param));

@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        .content-txt{
-            text-indent: 2rem;
-        }
+
     </style>
 </head>
 <body>
+<!-- JiaThis Button BEGIN -->
+<div id="ckepop">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone" id="qzone">QQ空间</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<!-- JiaThis Button END -->
     <p class="content-txt"></p>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script>
+        var jiathis_config = {
+            boldNum:0,
+            siteNum:7,
+            showClose:false,
+            sm:"t163,kaixin001,renren,douban,tsina,tqq,tsohu",
+            imageUrl:"http://v2.jiathis.com/code/images/r5.gif",
+            imageWidth:26,
+            marginTop:150,
+            url:"http://www.jiathis.com",
+            title:"自定义TITLE #微博话题#",
+            summary:"分享的文本摘要",
+            pic:"自定义分享的图片连接地址",
+            data_track_clickback:true
+        }
+    </script>
+    <script>
+        $('#qzone').on('click',function(){
+            alert(1)
+        })
+        $('#qzone').trigger('click')
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 </body>
 </html>
