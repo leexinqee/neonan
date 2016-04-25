@@ -64,7 +64,10 @@
                 </div>
                 <div class="row clearfix tip-row">
                     <div class="col-md-12">
-                        <strong>标签：</strong>{{message.category.name}}
+                        <strong>标签：</strong>
+                        <span ng-repeat="item in message.tags">
+                            <a href="">{{item.name}}</a>
+                        </span>
                     </div>
                 </div>
                 <div class="row clearfix share-wrap">

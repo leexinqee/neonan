@@ -195,6 +195,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
             $scope.message = data.body;
             $scope.message.currentUrl = $location.$$absUrl;
             // 文章内容
+            console.log(JSON.stringify($scope.message))
             $scope.htmlText = function(){
                 return $sce.trustAsHtml(data.body.details);
             };
