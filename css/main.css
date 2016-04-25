@@ -502,9 +502,10 @@
     position: fixed;
     top: 10px;
     /*right: 154px;*/
-    width: 300px;
-    transition: 1s all;
+    transition: all 1s;
     z-index: -1;
+    width: 350px;
+    overflow: hidden;
 }
 
 

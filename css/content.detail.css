@@ -270,12 +270,54 @@ body ::selection {
 .search-container .img-link {
     display: block;
     position: relative;
+    min-height: 190px;
+}
+.search-container .img-link:hover .link-title {
+    color: #999;text-shadow: 0 0 10px #fff;
 }
 .search-container .inner-link {
     position: absolute;
     left: 20px;
     bottom: 20px;
+    height: 46px;
+    max-width: 60%;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
 }
+.search-container .inner-link .link-title {
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 0 0 10px #000;
+    transition: all 0.2s;
+}
+
+
 .search-container .load-more-bar {
     margin: 30px 0;
 }
+.search-container .result-show {
+    padding: 0 30px;
+}
+.search-container .row {
+    margin-left: 0;margin-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

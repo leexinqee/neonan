@@ -1,46 +1,23 @@
 <div class="search-container">
+    <div class="row result-show">
+        <h2><span style="color: red;">{{keyword}}</span> 相关的结果</h2>
+    </div>
     <div class="content-box">
         <div ui-view="contentRightAd" class="contentRightAds"></div>
 
         <div class="container result-wrap">
+
             <div class="row mbl">
-                <div class="col-md-6 mbl">
-                    <a href="" class="img-link">
-                        <img src="images/swiper1.png" width="100%" alt=""/>
+
+                <div class="col-md-6 mbl" ng-repeat="item in lists">
+                    <a ui-sref="index.contentDetail({id: item.id})" class="img-link">
+                        <img src="{{item.cover_image}}" width="100%" alt="" onerror="this.src='images/alt.png'" />
                         <div class="inner-link">
-                            <h4 class="link-title">12312312</h4>
+                            <h4 class="link-title">{{item.title}}</h4>
                         </div>
-                        <!--<img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>-->
-                    </a>
-                </div>
-                <div class="col-md-6 mbl">
-                    <a href="" class="img-link">
-                        <img src="images/swiper1.png" width="100%" alt=""/>
-                        <div class="inner-link">
-                            <h4 class="link-title">12312312</h4>
-                        </div>
-                        <!--<img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>-->
                     </a>
                 </div>
 
-                <div class="col-md-6 mbl">
-                    <a href="" class="img-link">
-                        <img src="images/swiper1.png" width="100%" alt=""/>
-                        <div class="inner-link">
-                            <h4 class="link-title">12312312</h4>
-                        </div>
-                        <!--<img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>-->
-                    </a>
-                </div>
-                <div class="col-md-6 mbl">
-                    <a href="" class="img-link">
-                        <img src="images/swiper1.png" width="100%" alt=""/>
-                        <div class="inner-link">
-                            <h4 class="link-title">12312312</h4>
-                        </div>
-                        <!--<img src="images/vedio/play-02.png" class="play-style-two" width="46" height="46" alt=""/>-->
-                    </a>
-                </div>
             </div>
 
             <div class="row load-more-bar" style="overflow: hidden">

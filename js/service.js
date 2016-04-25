@@ -126,6 +126,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         isCheck:function(){
             return Restangular.one('is-check').get()
+        },
+        search:function(param){
+            return Restangular.one('search').get(param)
         }
     }
 }]);

@@ -24,6 +24,11 @@ app.directive("appDirective", function(){
                 count++;
             });
 
+            $menu.on('click', ".search-btn", function(){
+                $menu.removeClass('actionIn').removeClass('actionOut');
+                $menu.addClass('actionOut');
+                count++;
+            });
             //  菜单点击之后的控制
             $menu.on('click', ".menu-list-item", function(){
                 $menu.removeClass('actionIn').removeClass('actionOut');

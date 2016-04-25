@@ -401,15 +401,20 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
 
 
 // 搜索控制器
-app.controller("searchCtrl", function($scope, MessagesService){
+app.controller("searchCtrl", function($scope, $state){
     $scope.content = "";
     $scope.searchHandler = function(){
-        alert($scope.content);
+        $state.go('search', {keyword: $scope.content});
         $scope.content = "";
     }
 });
 
 // 搜索页面控制器
-app.controller("searchDetailCtrl", function($scope, MessagesService){
-    console.log('searchDetailCtrl')
+app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParams){
+    $scope.keyword = $stateParams.keyword;
+    MessagesService.search({q: $scope.keyword}).then(function(data){
+        $scope.lists = data.body.list;
+        console.log(JSON.stringify(data));
+    })
+
 });
