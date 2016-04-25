@@ -160,7 +160,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                     target:phone
                 }
                 MessagesService.smsPasswordCaptcha(param).then(function(data){
-                    console.log('发送成功'+JSON.stringify(data))
+                    //console.log('发送成功'+JSON.stringify(data))
                 })
             });
             //找回密码部分
@@ -230,7 +230,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $('.reg').fadeOut();
                         $('#info-wrap').fadeIn();
                         scope.user = data.body;
-                        console.log(JSON.stringify(scope.user))
+                        //console.log(JSON.stringify(scope.user))
                         setTimeout(function(){
                             $('#info-wrap').css('opacity',1);
                         },1000)

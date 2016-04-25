@@ -518,3 +518,10 @@
 .share-format{
 
 }
+.category-img-box{
+    overflow: hidden;height: 260px;
+}
+.category-img-box img{
+    width: 100%;
+    height: 100%;
+}

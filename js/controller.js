@@ -125,7 +125,7 @@ app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var uid = $stateParams.uid;
     MessagesService.users().then(function(data){
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         $scope.userHeadPic = "http://"+window.location.host + data.body.avatar;
         $scope.userName = data.body.email||"匿名";
         $scope.userPhone = data.body.screen_name||"用户未使用手机注册";
@@ -149,7 +149,7 @@ app.controller("selfLikeCtrl", function($scope){
 app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     $scope.slug = $stateParams.slug;
-    $scope.coverImg = $stateParams.cover;
+    $scope.coverImg = decodeURIComponent($stateParams.cover);
     //MessagesService.banner().then(function(data){
     //    $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     //    $scope.banner = data.body;
@@ -203,7 +203,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     param._token = data.body;
                     param.article_id = id;
                     param._method = 'put';
-                    console.log(JSON.stringify(param))
+                    //console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
                         //alert(JSON.stringify(data))
                         alert('收藏成功')
@@ -217,7 +217,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
             $scope.message = data.body;
             $scope.message.currentUrl = $location.$$absUrl;
             // 文章内容
-            console.log(JSON.stringify($scope.message))
+            //console.log(JSON.stringify($scope.message))
             $scope.htmlText = function(){
                 return $sce.trustAsHtml(data.body.details);
             };
@@ -405,7 +405,7 @@ app.controller("searchCtrl", function($scope, $state){
 app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParams){
     $scope.keyword = $stateParams.keyword;
     MessagesService.search({q: $scope.keyword}).then(function(data){
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         $scope.lists = data.body.list;
     })
 
