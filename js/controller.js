@@ -13,6 +13,7 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
+        $('body').scrollTop(0);
     };
     //检测登录状态
     MessagesService.isCheck().then(function(data){
@@ -194,6 +195,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
             $scope.message = data.body;
             $scope.message.currentUrl = $location.$$absUrl;
             // 文章内容
+            console.log(JSON.stringify($scope.message))
             $scope.htmlText = function(){
                 return $sce.trustAsHtml(data.body.details);
             };
