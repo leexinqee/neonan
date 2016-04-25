@@ -103,6 +103,13 @@ app.directive('menuContainer', function(MessagesService){
                         };
                         data.body.list[i].children = [temp];
                     }
+                    if(data.body.list[i].title=='menus'){
+                        for(var j = 0;j<data.body.list[i].children.length;j++){
+                            if(data.body.list[i].children[j].title=='首页'){
+                               data.body.list[i].children.splice(j,1);
+                            }
+                        }
+                    }
                 }
                 scope.category = data.body.list;
             });
@@ -218,11 +225,15 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $(ele).find('.regmobile').val('');
                         $(ele).find('#enter-code').val('');
                         $(ele).find('.regpwd').val('');
+                        $('#info-wrap').css('opacity',0);
                         $('.login').fadeOut();
                         $('.reg').fadeOut();
-                        $('.userHead').fadeIn();
+                        $('#info-wrap').fadeIn();
                         scope.user = data.body;
                         console.log(JSON.stringify(scope.user))
+                        setTimeout(function(){
+                            $('#info-wrap').css('opacity',1);
+                        },1000)
                     },function(err){
                         this_.html("立即注册");
                     });
@@ -273,7 +284,11 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                     screen_name:$('.smslogin').val(),
                     password:$('.smspwd').val()
                 };
-
+                if(m.indexOf('@')!=-1){
+                    delete param.sms;
+                    delete param.screen_name;
+                    param.email = $('.smslogin').val();
+                }
                 MessagesService.token().then(function(data){
                     param._token = data.body;
                     console.log("登录数据"+JSON.stringify(param));
@@ -281,12 +296,15 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                         $('.loginDailog').modal('hide');
                         console.log(JSON.stringify(logindata));
                         if(logindata.code=='000000'){
+                            $('#info-wrap').css('opacity',0);
                             $('.login').fadeOut();
                             $('.reg').fadeOut();
-                            //$('.userHead').fadeIn()/*.find('span').html(logindata.body.screen_name)*/
                             $('#info-wrap').fadeIn();
                             scope.user = logindata.body;
                             console.log(JSON.stringify(scope.user))
+                            setTimeout(function(){
+                                $('#info-wrap').css('opacity',1);
+                            },1000)
                         }
                     })
                 })

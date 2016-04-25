@@ -13,11 +13,13 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
+        $('#menu-content').removeClass('actionIn').removeClass('actionOut');
         $('body').scrollTop(0);
     };
     //检测登录状态
     MessagesService.isCheck().then(function(data){
         if(data.body){
+            $('.info-wrap').css('opacity',0);
             $('.login').fadeOut();
             $('.reg').fadeOut();
             $('.info-wrap').fadeIn();
@@ -25,17 +27,32 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
             $('.head-img').attr('src',"http://"+headPic);
             $('.userCenter').attr('data-id',data.body.id);
             $('.userCenter').attr('ng-href','#/index/selfinfo?uid='+data.body.id);
+            $('.userCenter').attr('href','#/index/selfinfo?uid='+data.body.id)
+            setTimeout(function(){
+                $('.info-wrap').css('opacity',1);
+            },1000)
         }else{
             return false;
         }
-    })
+    });
+    $scope.logout = function(){
+        MessagesService.loginOut().then(function(data){
+            $('.info-wrap').css('opacity',0);
+            $('.info-wrap').fadeOut();
+            $('.login').fadeIn();
+            $('.reg').fadeIn();
+            setTimeout(function(){
+                $('.info-wrap').css('opacity',1);
+            },1000)
+        },function(err){
+            alert('退出异常');
+            return false;
+        })
+    }
 });
 
 // 总体分块的控制器
 app.controller("mainCtrl",function($scope){
-    $scope.clearTips = function(){
-
-    }
 });
 
 // 首页顶部部分的控制器
@@ -79,9 +96,6 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
         });
     };
     $scope.clickToggleHandler('0');
-    /*MessagesService.getArticle($scope.articleParam).then(function(data){
-        $scope.article = data.body.list;
-    });*/
 });
 
 // 右边导航控制器
@@ -107,9 +121,16 @@ app.controller("asideRightCtrl",function($scope,MessagesService, $sce){
 });
 
 // 个人信息的上方信息显示模块儿
-app.controller("topInfoCtrl", function($scope, $stateParams){
+app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var uid = $stateParams.uid;
+    MessagesService.users().then(function(data){
+        console.log(JSON.stringify(data));
+        $scope.userHeadPic = "http://"+window.location.host + data.body.avatar;
+        $scope.userName = data.body.email||"匿名";
+        $scope.userPhone = data.body.screen_name||"用户未使用手机注册";
+    });
+
     console.log('topInfoCtrl')
 });
 
@@ -360,20 +381,6 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                         alert(JSON.stringify(data))
                     })
                 });
-                //$.ajax({
-                //    method : "POST",
-                //    url : "http://phptest.neonan.com/video/new_comment",
-                //    data : reqData,
-                //    success : function(response){
-                //        console.log(JSON.stringify(response));
-                //    },
-                //    error : function(xhr, status, err){
-                //        console.log(JSON.stringify(xhr), status);
-                //    }
-                //});
-                //MessagesService.videoComment(reqData).then(function(data){
-                //    $scope.comment = "";
-                //});
             } else {
                 alert("输入无效")
             }
@@ -397,8 +404,8 @@ app.controller("searchCtrl", function($scope, $state){
 app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParams){
     $scope.keyword = $stateParams.keyword;
     MessagesService.search({q: $scope.keyword}).then(function(data){
+        console.log(JSON.stringify(data));
         $scope.lists = data.body.list;
-        //console.log(JSON.stringify(data));
     })
 
 });

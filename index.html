@@ -71,8 +71,7 @@
                         </div>
                         <div class="info-enter">
                             <p><a data-id="{{user.id}}" ng-href="#/index/selfinfo?uid={{user.id}}" class="userCenter">个人中心</a></p>
-
-                            <p><a href="">退出登录</a></p>
+                            <p ng-click="logout()"><a href="">退出登录</a></p>
                         </div>
                     </div>
                 </div>
@@ -135,7 +134,7 @@
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入牛男账号" class="smslogin"/>
+                                    <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin"/>
                                 </div>
                                 <div class="input-list">
                                     <input type="password" placeholder="请输入密码" class="smspwd"/>
@@ -253,12 +252,12 @@
                 </li>
             </ul>
         </div>
-        <div class="kinds">ALBUMS 专辑</div>
-        <ul class="menu-list">
-            <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">
-                <a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>
-            </li>
-        </ul>
+        <!--<div class="kinds">ALBUMS 专辑</div>-->
+        <!--<ul class="menu-list">-->
+            <!--<li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">-->
+                <!--<a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>-->
+            <!--</li>-->
+        <!--</ul>-->
     </div>
     <!--内容区-->
     <div ui-view="main"></div>
