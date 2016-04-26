@@ -53,7 +53,7 @@
     height: 107px;
     top: 346px;
     left: 64px;
-    background-color: #ffffff;
+    background-color: rgba(255,255,255,0.6);
     border-bottom: 2px solid #0077ef;
 }
 .slider-msg a {
