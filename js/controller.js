@@ -16,6 +16,7 @@ app.controller("globalCtrl",function($scope, MessagesService, $state,$location){
         $('#menu-content').removeClass('actionIn').removeClass('actionOut');
         $('body').scrollTop(0);
     };
+
     //检测登录状态
     MessagesService.isCheck().then(function(data){
         if(data.body){
