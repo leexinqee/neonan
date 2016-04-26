@@ -148,7 +148,10 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $refindpwd = $('.refindpwd').val();
             var $findGetCode = $('.find-get-code');
             var end;
-
+            var cName = scope.changeName
+            scope.update = function(scope){
+                alert(cName);
+            }
             //找回密码验证码
             $findGetCode.on('click',function(){
                 var phone = $('.findmobile').val();
