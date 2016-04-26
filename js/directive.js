@@ -150,10 +150,23 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $refindpwd = $('.refindpwd').val();
             var $findGetCode = $('.find-get-code');
             var end;
-            var cName = scope.changeName
-            scope.update = function(scope){
-                alert(cName);
-            }
+            scope.update = function(){
+                var param = {
+                    _method:'PUT'
+                };
+                MessagesService.token().then(function(data){
+                  param._token = data.body;
+                    param.screen_name = scope.changeName;
+                    param.email = scope.changeEmail;
+                    param.phone = scope.changePhone;
+                    MessagesService.update(param).then(function(data){
+                        $('.changeInfoPanel').modal('hide');
+                    },function(){
+                        alert('修改资料失败')
+                    })
+                })
+                //alert(scope.changeName);
+            };
             //找回密码验证码
             $findGetCode.on('click',function(){
                 var phone = $('.findmobile').val();
