@@ -381,9 +381,6 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
     });
 });
 
-
-
-
 // 搜索控制器
 app.controller("searchCtrl", function($scope, $state){
     $scope.content = "";
@@ -400,5 +397,4 @@ app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParam
         $scope.lists = data.body.list;
         //console.log(JSON.stringify(data));
     })
-
 });
