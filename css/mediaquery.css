@@ -200,4 +200,14 @@
 		width: 100%;
 		overflow-x: hidden;
 	}
+	.head-img-container{
+		height: 80px;
+		width: 80px;
+	}
+	.self-info{
+		margin: 2px 0px 20px 88px;
+	}
+	.page-row .col-md-4{
+		width: 50%;
+	}
 }

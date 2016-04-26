@@ -5,7 +5,7 @@
 var app = angular.module('app.controller', ['app.service','ui.router', 'ngSanitize']);
 
 // 总控制器
-app.controller("globalCtrl",function($scope, MessagesService, $location){
+app.controller("globalCtrl",function($scope, MessagesService, $state,$location){
     //得到banner相关数据
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
@@ -13,29 +13,51 @@ app.controller("globalCtrl",function($scope, MessagesService, $location){
     $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
     $scope.clearTips = function(){
         $('#choose-type').css('background-color', 'RGBA(0,0,0,0)').html('');
+        $('#menu-content').removeClass('actionIn').removeClass('actionOut');
         $('body').scrollTop(0);
     };
     //检测登录状态
     MessagesService.isCheck().then(function(data){
         if(data.body){
+            $('.info-wrap').css('opacity',0);
             $('.login').fadeOut();
             $('.reg').fadeOut();
             $('.info-wrap').fadeIn();
-            var headPic = window.location.host+data.body.avatar;
-            $('.head-img').attr('src',"http://"+headPic);
+            if(data.body.avatar.indexOf('default')!=-1){
+                var headPic = window.location.host+data.body.avatar;
+                $('.head-img').attr('src',"http://"+headPic);
+            }else{
+                $('.head-img').attr('src',data.body.avatar);
+            }
             $('.userCenter').attr('data-id',data.body.id);
             $('.userCenter').attr('ng-href','#/index/selfinfo?uid='+data.body.id);
+            $('.userCenter').attr('href','#/index/selfinfo?uid='+data.body.id)
+            setTimeout(function(){
+                $('.info-wrap').css('opacity',1);
+            },1000)
         }else{
             return false;
         }
-    })
+    });
+    $scope.logout = function(){
+        MessagesService.loginOut().then(function(data){
+            $('.info-wrap').css('opacity',0);
+            $('.info-wrap').fadeOut();
+            $('.login').fadeIn();
+            $('.reg').fadeIn();
+            $state.go('index');
+            setTimeout(function(){
+                $('.info-wrap').css('opacity',1);
+            },1000)
+        },function(err){
+            alert('退出异常');
+            return false;
+        })
+    }
 });
 
 // 总体分块的控制器
 app.controller("mainCtrl",function($scope){
-    $scope.clearTips = function(){
-
-    }
 });
 
 // 首页顶部部分的控制器
@@ -65,23 +87,23 @@ app.controller("asideLeftCtrl", function($scope, MessagesService, $stateParams){
     if(slug){
         $scope.articleParam.slug = slug;
     }
+    $scope.tabPic = './images/latest.png';
     $scope.className = true;
     $scope.clickToggleHandler = function(args){
         $scope.articleParam.hot = args;
         $scope.articleParam.per_page = '5';
         if(args == "0"){
             $scope.className = true;
+            $scope.tabPic = "./images/latest.png"
         } else if(args == "1"){
             $scope.className = false;
+            $scope.tabPic = "./images/Hottest.png"
         }
         MessagesService.getArticle($scope.articleParam).then(function(data){
             $scope.article = data.body.list;
         });
     };
     $scope.clickToggleHandler('0');
-    /*MessagesService.getArticle($scope.articleParam).then(function(data){
-        $scope.article = data.body.list;
-    });*/
 });
 
 // 右边导航控制器
@@ -107,9 +129,21 @@ app.controller("asideRightCtrl",function($scope,MessagesService, $sce){
 });
 
 // 个人信息的上方信息显示模块儿
-app.controller("topInfoCtrl", function($scope, $stateParams){
+app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     var uid = $stateParams.uid;
+    MessagesService.users().then(function(data){
+        if(data.body.avatar.indexOf('default')!=-1){
+            $scope.userHeadPic = "http://"+window.location.host + data.body.avatar;
+        }else{
+            $scope.userHeadPic = data.body.avatar;
+        }
+        $scope.userName = data.body.email||"匿名";
+        $scope.userPhone = data.body.screen_name||"用户未使用手机注册";
+    });
+    $scope.changePanel = function(){
+        $('.changeInfoPanel').modal('show');
+    };
     console.log('topInfoCtrl')
 });
 
@@ -128,13 +162,14 @@ app.controller("selfLikeCtrl", function($scope){
 app.controller("topCategoryCtrl", function($scope, MessagesService, $stateParams){
     $("body").scrollTop(0);    // 页面详情滚动到顶端
     $scope.slug = $stateParams.slug;
-    MessagesService.banner().then(function(data){
-        $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
-        $scope.banner = data.body;
-    });
-    MessagesService.small().then(function (data) {
-        $scope.small = data.body;
-    });
+    $scope.coverImg = decodeURIComponent($stateParams.cover);
+    //MessagesService.banner().then(function(data){
+    //    $scope.bannerBorColor = ['border-b-77c322','border-b-ed236c','border-b-3b3863'];
+    //    $scope.banner = data.body;
+    //});
+    //MessagesService.small().then(function (data) {
+    //    $scope.small = data.body;
+    //});
 });
 
 
@@ -174,14 +209,13 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                 next : true,
                 all : true
             };
-
             $scope.like = function(id){
                 MessagesService.token().then(function(data){
                     var param = {};
                     param._token = data.body;
                     param.article_id = id;
                     param._method = 'put';
-                    console.log(JSON.stringify(param))
+                    //console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
                         //alert(JSON.stringify(data))
                         alert('收藏成功')
@@ -193,9 +227,10 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
             };
             // 文章数据渲染
             $scope.message = data.body;
-            $scope.message.currentUrl = $location.$$absUrl;
+            $scope.message.currentUrl = encodeURIComponent($location.$$absUrl);
+            $scope.message.sharePic = data.body.cover_image;
             // 文章内容
-            console.log(JSON.stringify($scope.message))
+            //console.log(JSON.stringify($scope.message))
             $scope.htmlText = function(){
                 return $sce.trustAsHtml(data.body.details);
             };
@@ -303,7 +338,9 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
     MessagesService.videoDetail(id).then(function(data){
         // 内容信息渲染
         $scope.message = data.body;
-        $scope.message.currentUrl = $location.$$absUrl;
+        $scope.message.currentUrl = encodeURIComponent($location.$$absUrl);
+        $scope.message.sharePic = data.body.image_filename;
+        console.log(JSON.stringify(data));
         $scope.like = function(id){
             MessagesService.token().then(function(data){
                 var param = {};
@@ -360,20 +397,6 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                         alert(JSON.stringify(data))
                     })
                 });
-                //$.ajax({
-                //    method : "POST",
-                //    url : "http://phptest.neonan.com/video/new_comment",
-                //    data : reqData,
-                //    success : function(response){
-                //        console.log(JSON.stringify(response));
-                //    },
-                //    error : function(xhr, status, err){
-                //        console.log(JSON.stringify(xhr), status);
-                //    }
-                //});
-                //MessagesService.videoComment(reqData).then(function(data){
-                //    $scope.comment = "";
-                //});
             } else {
                 alert("输入无效")
             }
@@ -394,7 +417,7 @@ app.controller("searchCtrl", function($scope, $state){
 app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParams){
     $scope.keyword = $stateParams.keyword;
     MessagesService.search({q: $scope.keyword}).then(function(data){
-        $scope.lists = data.body.list;
         //console.log(JSON.stringify(data));
+        $scope.lists = data.body.list;
     })
 });

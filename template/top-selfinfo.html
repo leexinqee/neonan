@@ -1,7 +1,7 @@
 <div class="self-info-container">
     <div class="info-bar">
         <div class="head-img-container float-left">
-            <img src="images/headinfo.png" alt=""/>
+            <img src="{{userHeadPic}}" alt=""/>
         </div>
         <div class="self-info">
             <div class="nickname-row">
@@ -17,5 +17,7 @@
                 <h4 class="message">{{userPhone}}</h4>
             </div>
         </div>
+
     </div>
+    <button class="btn btn-primary" ng-click="changePanel()">修改个人资料</button>
 </div>

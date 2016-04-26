@@ -9,12 +9,12 @@ routerApp.run(function($rootScope, $state, $stateParams) {
 });
 
 routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
-    //������
+
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Request-with'];
     $urlRouterProvider.otherwise('/index');
     $stateProvider.state('index', {
-        url: '/index?slug',
+        url: '/index?slug&cover',
         views: {
             'main': {
                 templateUrl: 'template/main.html',

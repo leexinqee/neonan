@@ -33,6 +33,7 @@
 
 .list_video .col-md-4{
     height: 200px;
+    overflow: hidden;
 }
 /* tv show css */
 .tv-page-container {
@@ -173,6 +174,7 @@
     .col-md-4{
     width: 100%;
 }
+
 .col-md-4 img{
     width: 100vw;
     max-width: 100%;

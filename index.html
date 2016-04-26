@@ -64,29 +64,26 @@
                 <div class="float-right login-reg">
                     <a href="" class="login" data-toggle="modal" data-target=".modal-login">登录</a>
                     <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
-                    <!--<img src="{{user.avatar}}" alt="" class="userHead"/>-->
                     <div class="info-wrap" id="info-wrap" style="display: none;float: left">
                         <div class="head-img-wrap">
                             <img class="head-img" src="{{user.avatar}}" alt=""/>
                         </div>
                         <div class="info-enter">
                             <p><a data-id="{{user.id}}" ng-href="#/index/selfinfo?uid={{user.id}}" class="userCenter">个人中心</a></p>
-
-                            <p><a href="">退出登录</a></p>
+                            <p ng-click="logout()"><a href="">退出登录</a></p>
                         </div>
                     </div>
                 </div>
 
             </div>
         </header>
-        <!--<div class="mask" style="display: none"></div>-->
         <div class="account" id="account">
             <!-- 微信二维码-->
             <div class="modal fade" id="Weixin" tabindex="-1" role="dialog"
                  aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <img src="images/barcode.jpg" alt=""/>
+                        <img src="http://open.weixin.qq.com/qr/code/?username=neonan01" alt=""/>
                     </div>
                 </div>
             </div>
@@ -135,7 +132,7 @@
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入牛男账号" class="smslogin"/>
+                                    <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin"/>
                                 </div>
                                 <div class="input-list">
                                     <input type="password" placeholder="请输入密码" class="smspwd"/>
@@ -203,27 +200,30 @@
             </div>
 
             <!-- 用户修改信息-->
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal fade bs-example-modal-lg changeInfoPanel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="change-info" style="display: none">
+                        <div class="change-info">
                             <div class="account-title">
                                 <img src="./images/change-info.png" alt=""/>
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入手机号码"/>
+                                    <input type=" placeholder="请输入手机号码"/>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="姓名"/>
+                                    <input type="email" placeholder="请输入邮箱"/>
                                 </div>
-                                <div class="rememberMe">
-                                    <input type="checkbox" name="pwd" id="password"/>
-                                    <label for="password">记住我</label>
+                                <div class="input-list">
+                                    <input type="text" placeholder="姓名"/>
                                 </div>
+                                <!--<div class="rememberMe">-->
+                                    <!--<input type="checkbox" name="pwd" id="password"/>-->
+                                    <!--<label for="password">记住我</label>-->
+                                <!--</div>-->
                                 <div class="dialog-submit-wrap">
-                                    <button type="button" class="btn btn-default dialog-submit">保存修改</button>
-                                    <button type="button" class="btn btn-link return-login">返回登录</button>
+                                    <button type="button" class="btn btn-default dialog-submit" ng-click="update()">保存修改</button>
+                                    <!--<button type="button" class="btn btn-link return-login">返回登录</button>-->
                                 </div>
                             </div>
                             <div class="close-dialog"></div>
@@ -249,16 +249,16 @@
             <ul class="menu-list" ng-if="item.children">
                 <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="items in item.children" ng-switch="items.slug">
                     <a ui-sref="tvPage" ng-switch-when="tv" data-color='{{styles[0]}}' data-value="{{items.title}}">{{items.title}}</a>
-                    <a ui-sref="index.category({slug: items.slug})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
+                    <a ui-sref="index.category({slug: items.slug,cover:items.menu_image})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
                 </li>
             </ul>
         </div>
-        <div class="kinds">ALBUMS 专辑</div>
-        <ul class="menu-list">
-            <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">
-                <a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>
-            </li>
-        </ul>
+        <!--<div class="kinds">ALBUMS 专辑</div>-->
+        <!--<ul class="menu-list">-->
+            <!--<li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">-->
+                <!--<a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>-->
+            <!--</li>-->
+        <!--</ul>-->
     </div>
     <!--内容区-->
     <div ui-view="main"></div>
