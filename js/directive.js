@@ -25,13 +25,15 @@ app.directive("appDirective", function($state){
             });
 
             // 回车按钮的回车事件的添加
-            $(document).keypress(function(e) {
+            $("#menu-content").keypress(function(e) {
                 if(e.which == 13) {
                     $menu.removeClass('actionIn').removeClass('actionOut');
                     $menu.addClass('actionOut');
                     $(".choose-wrap").remove();
                     count++;
-                    $state.go('search', {keyword: $(".search-input-text").val()});
+                    var $searchInput = $(".search-input-text");
+                    $state.go('search', {keyword: $searchInput.val()});
+                    $searchInput.val("").blur();
                 }
             });
 
