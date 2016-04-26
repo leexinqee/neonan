@@ -1,7 +1,8 @@
 <div class="self-info-container">
-    <div class="info-bar">
+    <div class="info-bar" selfinfo-directive>
         <div class="head-img-container float-left">
-            <img src="{{userHeadPic}}" alt=""/>
+            <img src="{{userHeadPic}}" alt="" accept="image/png,image/jpeg" id="head-img"/>
+            <input type="file" id="upload-img"/>
         </div>
         <div class="self-info">
             <div class="nickname-row">
@@ -17,7 +18,6 @@
                 <h4 class="message">{{userPhone}}</h4>
             </div>
         </div>
-
     </div>
     <button class="btn btn-primary" ng-click="changePanel()">修改个人资料</button>
 </div>
