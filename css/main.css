@@ -501,8 +501,6 @@
 .aside-fixed{
     position: fixed;
     top: 10px;
-    transition: all 1s;
-    z-index: -1;
     width: 300px;
     overflow: hidden;
 }
