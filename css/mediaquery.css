@@ -210,4 +210,7 @@
 	.page-row .col-md-4{
 		width: 50%;
 	}
+	.message{
+		font-size: 14px;
+	}
 }

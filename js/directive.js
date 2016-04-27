@@ -158,6 +158,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                   param._token = data.body;
                     param.screen_name = scope.changeName;
                     param.email = scope.changeEmail;
+                    param.bio = scope.changeBio;
                     param.phone = scope.changePhone;
                     MessagesService.update(param).then(function(data){
                         $('.changeInfoPanel').modal('hide');
@@ -299,7 +300,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 $this.html('登录中...');
                 var param = {
                     sms:'1',
-                    screen_name:$('.smslogin').val(),
+                    phone:$('.smslogin').val(),
                     password:$('.smspwd').val()
                 };
                 if(m.indexOf('@')!=-1){

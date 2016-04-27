@@ -83,7 +83,7 @@ app.service("MessagesService",["Restangular",function(Restangular){
             return Restangular.one('users').get();
         },
         update:function(param){
-            return Restangular.one('update').customPOST(param);
+            return Restangular.one('users/update').customPOST(param);
         },
         resetPwd:function(param){
             return Restangular.one('reset_password').customPUT(param);
@@ -129,6 +129,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         search:function(param){
             return Restangular.one('search').get(param)
+        },
+        favarites:function(){
+            return Restangular.one('users/favorites').get();
         }
     }
 }]);

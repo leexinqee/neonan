@@ -139,8 +139,8 @@ app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
         }else{
             $scope.userHeadPic = data.body.avatar;
         }
-        $scope.userName = data.body.email||"匿名";
-        $scope.userPhone = data.body.screen_name||"用户未使用手机注册";
+        $scope.userName = data.body.screen_name||data.body.email||"匿名";
+        $scope.userPhone = data.body.phone||"用户未使用手机注册";
     });
     $scope.changePanel = function(){
         $('.changeInfoPanel').modal('show');
@@ -149,13 +149,21 @@ app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
 });
 
 // 个人信息的下方左边模块儿收集控制器
-app.controller("selfCollectCtrl", function($scope){
-    console.log('selfCollectCtrl')
+app.controller("selfCollectCtrl", function($scope,MessagesService){
+    //console.log('selfCollectCtrl')
+    MessagesService.favarites().then(function(data){
+        //console.log(JSON.stringify(data))
+        $scope.article = data.body.list.articles;
+    })
 });
 
 // 个人信息的下方右边模块儿喜欢控制器
-app.controller("selfLikeCtrl", function($scope){
-    console.log('selfLikeCtrl')
+app.controller("selfLikeCtrl", function($scope,MessagesService){
+    //console.log('selfLikeCtrl')
+    MessagesService.favarites().then(function(data){
+        //console.log(JSON.stringify(data))
+        $scope.video = data.body.list.video;
+    })
 });
 
 
