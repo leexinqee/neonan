@@ -8,7 +8,7 @@
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <link rel="shortcup icon" href="" type="image/x-iocn" href="http://www.neonan.com/favicon.icon"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/swiper.min.css"/>
 
@@ -153,9 +153,9 @@
                                 <div class="other-login">
                                     <div class="other-login-text">第三方登录</div>
                                     <div class="other-login-list">
-                                        <button type="button" class="btn btn-default weixin"><span class="media-login weixin-ligin"></span></button>
-                                        <button type="button" class="btn btn-default weibo"><span class="media-login weibo-login"></span></button>
-                                        <button type="button" class="btn btn-default qq"><span class="media-login qq-login"></span></button>
+                                        <button type="button" class="btn btn-default weixin" ng-click="loginUseWX()"><span class="media-login weixin-ligin"></span></button>
+                                        <button type="button" class="btn btn-default weibo" ng-click="loginUseWB()"><span class="media-login weibo-login"></span></button>
+                                        <button type="button" class="btn btn-default qq" ng-click="loginUseQQ()"><span class="media-login qq-login"></span></button>
                                     </div>
                                 </div>
                                 <div class="no-account">
@@ -327,5 +327,6 @@
     <!-- 微信sdk-->
     <!--<script src=""></script>-->
     <!--<script src="js/weixin/weixinShare.js"></script>-->
+    <script src="js/seo.js"></script>
 </body>
 </html>
