@@ -444,8 +444,20 @@ app.controller("searchCtrl", function($scope, $state){
 // 搜索页面控制器
 app.controller("searchDetailCtrl", function($scope, MessagesService, $stateParams){
     $scope.keyword = $stateParams.keyword;
-    MessagesService.search({q: $scope.keyword}).then(function(data){
+    MessagesService.search({q: $stateParams.keyword}).then(function(data){
         //console.log(JSON.stringify(data));
         $scope.lists = data.body.list;
+    })
+});
+
+
+
+// tag标签页面控制器
+app.controller("tagDetailCtrl", function($scope, MessagesService, $stateParams){
+    $scope.tagid = $stateParams.id;
+    $scope.keyword = $stateParams.tag;
+    MessagesService.getTags($scope.tagid).then(function(data){
+        console.log(JSON.stringify(data));
+        $scope.lists = data.body;
     })
 });
