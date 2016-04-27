@@ -61,8 +61,22 @@ app.controller("globalCtrl",function($scope, MessagesService, $state,$location){
         w.src = 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js';
         document.body.appendChild(w);
         w.onload = function(){
-            //alert(1)
-            var wx
+            wx.config(data);
+            wx.ready(function(){
+                wx.onMenuShareTimeline({
+                    title: '牛男网',
+                    link: window.location.href,
+                    imgUrl: '', // 分享图标
+                    success: function () {
+                        alert('分享成功')
+                    },
+                    cancel: function () {
+                    }
+                });
+            });
+            wx.error(function(res){
+//    验证失败
+            });
         }
     })
 });
@@ -162,17 +176,18 @@ app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
 app.controller("selfCollectCtrl", function($scope,MessagesService){
     //console.log('selfCollectCtrl')
     MessagesService.favarites().then(function(data){
-        //console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
         $scope.article = data.body.list.articles;
+
     })
 });
 
 // 个人信息的下方右边模块儿喜欢控制器
 app.controller("selfLikeCtrl", function($scope,MessagesService){
     //console.log('selfLikeCtrl')
-    MessagesService.favarites().then(function(data){
+    MessagesService.video().then(function(data){
         //console.log(JSON.stringify(data))
-        $scope.video = data.body.list.video;
+        $scope.video = data.body.list;
     })
 });
 
@@ -239,7 +254,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     MessagesService.articleLike(param).then(function(data){
                         alert('收藏成功')
                     },function(err){
-                        if(err.code = "100000"){
+                        if(err.code == "100000"){
                             alert('你已经收藏过了');
                         }else{
                             $('.loginDailog').modal('show');
