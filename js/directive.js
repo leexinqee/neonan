@@ -392,16 +392,42 @@ app.directive('selfinfoDirective',function(){
             });
             // 得到上传的文件
             $input.on("change", function(){
-                var fd = new FormData(document.getElementById("upload-img"));
-                fd.append("CustomField", "This is some extra data");
-                $.ajax({
-                    url: "",
-                    type: "POST",
-                    data: fd,
-                    processData: false,
-                    contentType: false
+                window.URL = window.URL || window.webkitURL;
+                var $image = $('.img-container > img');
+                var file = window.URL.createObjectURL(document.getElementById('upload-img').files[0]);
+                $image.attr("src", file);
+                $image.cropper({
+                    aspectRatio: 1 / 1,
+                    guides: false,
+                    dragCrop: false,
+                    cropBoxMovable: false,
+                    cropBoxResizable: false
                 });
+                $("#crop-box").modal("show");
+                $img.attr("src", file);
+
             })
         }
     }
 });
+
+
+
+
+
+//var fd = new FormData(document.getElementById("upload-img"));
+//fd.append("CustomField", "This is some extra data");
+//$.ajax({
+//    url: "",
+//    type: "POST",
+//    data: fd,
+//    processData: false,
+//    contentType: false
+//});
+
+
+
+
+
+
+
