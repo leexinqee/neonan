@@ -13,6 +13,7 @@
 .head-img-container img {
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 .self-info {
     margin: 0px 0 0px 150px;
@@ -31,6 +32,9 @@
     margin: 0 0 0 35px;
     height: 40px;
     line-height: 42px;
+}
+#upload-img {
+    display: none;
 }
 /*
     category 样式

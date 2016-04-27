@@ -377,3 +377,23 @@ app.directive('appfooter',function(){
         }
     }
 });
+
+
+
+//底部
+app.directive('selfinfoDirective',function(){
+    return {
+        restrict:"EA",
+        link:function(scope,ele,attr){
+            var $img = $("#head-img");
+            var $input = $("#upload-img");
+            $img.on("click", function(){        // 模拟input file类型点中
+                $input.trigger("click");
+            });
+            // 得到上传的文件
+            $input.on("change", function(){
+                console.log($input.val());
+            })
+        }
+    }
+});
