@@ -36,6 +36,16 @@
 #upload-img {
     display: none;
 }
+
+/* 裁剪框样式 */
+#crop-box .modal-dialog {
+    margin-top: 60px;
+    width: auto;
+    max-width: 500px;
+}
+#crop-box .img-container {
+    padding: 10px;
+}
 /*
     category 样式
 */

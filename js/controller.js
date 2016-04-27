@@ -447,7 +447,7 @@ app.controller("tagDetailCtrl", function($scope, MessagesService, $stateParams){
     $scope.tagid = $stateParams.id;
     $scope.keyword = $stateParams.tag;
     MessagesService.getTags($scope.tagid).then(function(data){
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         $scope.lists = data.body;
     })
 });

@@ -27,18 +27,28 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.137931">
-              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state vertical-scroll-proportion="-4.8474574">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="top-content-detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/top-content-detail.html">
+      <file leaf-file-name="cropper.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/cropper.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7931035">
-              <caret line="68" column="89" selection-start-line="68" selection-start-column="89" selection-end-line="68" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="254" column="1" selection-start-line="254" selection-start-column="1" selection-end-line="254" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cropper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower_components/dealimg/cropper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,21 +76,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="directive.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="directive.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/directive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="403" column="14" selection-start-line="403" selection-start-column="14" selection-end-line="403" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.687389">
+              <caret line="405" column="45" selection-start-line="405" selection-start-column="45" selection-end-line="405" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2951096">
-              <caret line="426" column="41" selection-start-line="426" selection-start-column="41" selection-end-line="426" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="451" column="6" selection-start-line="451" selection-start-column="6" selection-end-line="451" selection-end-column="6" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -88,14 +98,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search-page.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/search-page.html">
+      <file leaf-file-name="top-selfinfo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/top-selfinfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5172414">
-              <caret line="2" column="95" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="95" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="self.info.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/self.info.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,15 +157,15 @@
         <option value="$PROJECT_DIR$/template/top-category.html" />
         <option value="$PROJECT_DIR$/css/content.detail.css" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/self.info.css" />
-        <option value="$PROJECT_DIR$/template/top-selfinfo.html" />
-        <option value="$PROJECT_DIR$/js/directive.js" />
         <option value="$PROJECT_DIR$/js/service.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/template/top-content-detail.html" />
         <option value="$PROJECT_DIR$/template/search-page.html" />
         <option value="$PROJECT_DIR$/js/controller.js" />
+        <option value="$PROJECT_DIR$/css/self.info.css" />
+        <option value="$PROJECT_DIR$/template/top-selfinfo.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/directive.js" />
       </list>
     </option>
   </component>
@@ -263,6 +281,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neonans" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neonans" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -279,9 +311,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\waibao\neonan\neonans\css" />
+      <recent name="G:\waibao\neonan\neonans\bower_components\dealimg" />
       <recent name="G:\waibao\neonan\neonans\images" />
       <recent name="G:\waibao\neonan\neonans\bower_components\jquery.nicescroll" />
-      <recent name="G:\waibao\neonan\neonans\css" />
       <recent name="G:\waibao\neonan\neonans\bower_components\swiper" />
     </key>
   </component>
@@ -378,23 +411,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="181" column="1" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/directive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -687,33 +703,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/self.info.css">
+    <entry file="file://$PROJECT_DIR$/template/search-page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42608696">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        <state vertical-scroll-proportion="-1.5172414">
+          <caret line="2" column="95" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="95" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/template/top-content-detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.137931">
-          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/top-selfinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78014183">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="403" column="14" selection-start-line="403" selection-start-column="14" selection-end-line="403" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.19503546">
+          <caret line="68" column="89" selection-start-line="68" selection-start-column="89" selection-end-line="68" selection-end-column="89" />
           <folding />
         </state>
       </provider>
@@ -728,6 +731,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/dealimg/cropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.366667">
@@ -736,31 +747,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/top-content-detail.html">
+    <entry file="file://$PROJECT_DIR$/css/self.info.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7931035">
-          <caret line="68" column="89" selection-start-line="68" selection-start-column="89" selection-end-line="68" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/search-page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5172414">
-          <caret line="2" column="95" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="95" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2951096">
-          <caret line="426" column="41" selection-start-line="426" selection-start-column="41" selection-end-line="426" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="451" column="6" selection-start-line="451" selection-start-column="6" selection-end-line="451" selection-end-column="6" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/top-selfinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8474574">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/cropper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="254" column="1" selection-start-line="254" selection-start-column="1" selection-end-line="254" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.687389">
+          <caret line="405" column="45" selection-start-line="405" selection-start-column="45" selection-end-line="405" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
