@@ -392,7 +392,15 @@ app.directive('selfinfoDirective',function(){
             });
             // 得到上传的文件
             $input.on("change", function(){
-                console.log($input.val());
+                var fd = new FormData(document.getElementById("upload-img"));
+                fd.append("CustomField", "This is some extra data");
+                $.ajax({
+                    url: "",
+                    type: "POST",
+                    data: fd,
+                    processData: false,
+                    contentType: false
+                });
             })
         }
     }
