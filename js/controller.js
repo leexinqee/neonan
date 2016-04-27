@@ -55,6 +55,16 @@ app.controller("globalCtrl",function($scope, MessagesService, $state,$location){
             return false;
         })
     }
+    //获取微信js sdk配置文件
+    MessagesService.weixinConfig().then(function(data){
+        var w = document.createElement('script');
+        w.src = 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js';
+        document.body.appendChild(w);
+        w.onload = function(){
+            //alert(1)
+            var wx
+        }
+    })
 });
 
 // 总体分块的控制器
@@ -212,6 +222,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
     // 获取详情文章接口数据
     MessagesService.articleDetail(id)
         .then(function(data){
+            console.log(JSON.stringify(data));
             // 是否显示分页按钮
             $scope.pagesShow = {
                 prev : true,
@@ -364,7 +375,6 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                 MessagesService.videoLike(param).then(function(data){
                     alert('收藏成功')
                 },function(err){
-
                     if(err.code=="100000"){
                         alert('你已经收藏过了')
                     }else{

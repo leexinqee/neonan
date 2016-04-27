@@ -132,6 +132,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         favarites:function(){
             return Restangular.one('users/favorites').get();
+        },
+        weixinConfig:function(){
+            return Restangular.one('wechat-config').get();
         }
     }
 }]);
