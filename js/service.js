@@ -129,6 +129,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         search:function(param){
             return Restangular.one('search').get(param)
+        },
+        favarites:function(){
+            return Restangular.one('users/favorites').get();
         }
     }
 }]);

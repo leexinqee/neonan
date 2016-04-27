@@ -300,7 +300,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 $this.html('登录中...');
                 var param = {
                     sms:'1',
-                    screen_name:$('.smslogin').val(),
+                    phone:$('.smslogin').val(),
                     password:$('.smspwd').val()
                 };
                 if(m.indexOf('@')!=-1){
