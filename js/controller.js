@@ -226,10 +226,14 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     param._method = 'put';
                     //console.log(JSON.stringify(param))
                     MessagesService.articleLike(param).then(function(data){
-                        //alert(JSON.stringify(data))
                         alert('收藏成功')
                     },function(err){
-                        $('.loginDailog').modal('show');
+                        if(err.code = "100000"){
+                            alert('你已经收藏过了');
+                        }else{
+                            $('.loginDailog').modal('show');
+                        }
+
                         //alert(err.statusText)
                     });
                 })
@@ -360,7 +364,12 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                 MessagesService.videoLike(param).then(function(data){
                     alert('收藏成功')
                 },function(err){
-                    $('.loginDailog').modal('show');
+
+                    if(err.code=="100000"){
+                        alert('你已经收藏过了')
+                    }else{
+                        $('.loginDailog').modal('show');
+                    }
                 });
             })
         };
