@@ -217,6 +217,9 @@
                                 <div class="input-list">
                                     <input type="text" ng-model="changeName" placeholder="姓名"/>
                                 </div>
+                                <div class="input-list">
+                                    <input type="text" ng-model="changeBio" placeholder=""/>
+                                </div>
                                 <!--<div class="rememberMe">-->
                                     <!--<input type="checkbox" name="pwd" id="password"/>-->
                                     <!--<label for="password">记住我</label>-->
@@ -250,7 +253,7 @@
             <ul class="menu-list" ng-if="item.children">
                 <li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="items in item.children" ng-switch="items.slug">
                     <a ui-sref="tvPage" ng-switch-when="tv" data-color='{{styles[0]}}' data-value="{{items.title}}">{{items.title}}</a>
-                    <a ui-sref="index.category({slug: items.slug,cover:items.menu_image})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
+                    <a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default data-color='{{styles[$index]}}' data-value="{{items.title}}">{{items.title}}</a>
                 </li>
             </ul>
         </div>

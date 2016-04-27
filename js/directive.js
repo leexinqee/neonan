@@ -158,6 +158,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                   param._token = data.body;
                     param.screen_name = scope.changeName;
                     param.email = scope.changeEmail;
+                    param.bio = scope.changeBio;
                     param.phone = scope.changePhone;
                     MessagesService.update(param).then(function(data){
                         $('.changeInfoPanel').modal('hide');
