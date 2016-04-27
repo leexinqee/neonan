@@ -254,7 +254,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     MessagesService.articleLike(param).then(function(data){
                         alert('收藏成功')
                     },function(err){
-                        if(err.code == "100000"){
+                        if(err.data.code=="100000"){
                             alert('你已经收藏过了');
                         }else{
                             $('.loginDailog').modal('show');
@@ -390,7 +390,7 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                 MessagesService.videoLike(param).then(function(data){
                     alert('收藏成功')
                 },function(err){
-                    if(err.code=="100000"){
+                    if(err.data.code=="100000"){
                         alert('你已经收藏过了')
                     }else{
                         $('.loginDailog').modal('show');
