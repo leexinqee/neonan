@@ -1,6 +1,6 @@
 <div class="search-container">
     <div class="row result-show">
-        <h2><span style="color: red;">{{keyword}}</span> 相关的结果</h2>
+        <h2><span style="color: red;">{{keyword}}</span> <span ng-if="!tagid">相关的结果</span></h2>
     </div>
     <div class="content-box">
         <div ui-view="contentRightAd" class="contentRightAds"></div>

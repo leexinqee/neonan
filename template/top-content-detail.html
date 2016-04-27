@@ -66,7 +66,7 @@
                     <div class="col-md-12">
                         <strong>标签：</strong>
                         <span ng-repeat="item in message.tags">
-                            <a href="">{{item.name}}</a>
+                            <a ui-sref="tag({id: item.id, tag: item.name})">{{item.name}}</a>
                         </span>
                     </div>
                 </div>

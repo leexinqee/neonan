@@ -132,6 +132,9 @@ app.service("MessagesService",["Restangular",function(Restangular){
         },
         favarites:function(){
             return Restangular.one('users/favorites').get();
+        },
+        getTags:function(param){
+            return Restangular.one('/article/tag/', param).get();
         }
     }
 }]);

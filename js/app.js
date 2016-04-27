@@ -123,5 +123,17 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "contentRightViewCtrl"
             }
         }
+    }).state('tag', {
+        url : '/tag?id&tag',
+        views : {
+            'main': {
+                templateUrl: 'template/search-page.html',
+                controller : "tagDetailCtrl"
+            },
+            'contentRightAd@tag' : {
+                templateUrl : 'template/content-right-view.html',
+                controller : "contentRightViewCtrl"
+            }
+        }
     })
 });
