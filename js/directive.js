@@ -377,10 +377,7 @@ app.directive('appfooter',function(){
         link:function(scope,ele,attr){
             var weixin = $('.footerweixin');
             weixin.on('click',function(){
-                $('#Weixin').modal('show').css({
-                    "width":"121px",
-                    "margin":"200px auto 0"
-                });
+                $('#Weixin').modal('show')
             })
         }
     }
