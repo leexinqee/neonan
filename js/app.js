@@ -185,7 +185,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
         url : '/sitemap',
         views : {
             'aboutContent': {
-                templateUrl: 'template/about/sitemap.html'
+                templateUrl: 'template/about/sitemap.html',
+                controller : "sitemapCtrl"
             }
         }
     }).state('about.privacy', {

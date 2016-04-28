@@ -506,3 +506,31 @@ app.controller("aboutUsCtrl", function($scope){
 app.controller("contactCtrl", function($scope){
     console.log('contactCtrl')
 });
+// contactCtrl控制器
+app.controller("sitemapCtrl", function($scope){
+    console.log('sitemapCtrl')
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
