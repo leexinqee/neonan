@@ -10,7 +10,7 @@
 /*slider*/
 .swiper {
     text-align: left;
-    height: 500px;
+    height: 300px;
     margin-top: 65px;
 }
 
@@ -51,7 +51,8 @@
     width: 432px;
     padding: 0 19px;
     height: 107px;
-    top: 346px;
+    /*top: 346px;*/
+    bottom: 10px;
     left: 64px;
     background-color: rgba(255,255,255,0.6);
     border-bottom: 2px solid #0077ef;
@@ -330,7 +331,9 @@
     padding: 24px 0;
     border-bottom: 1px solid #eaeaea;
 }
-
+.new-hot-content-item:hover.added-pic img{
+    transform: scale(1.2);
+}
 .new-hot-content-added {
     position: relative;
     background-color: #efefef;

@@ -171,9 +171,12 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 window.location.href = "https://open.weixin.qq.com/connect/qrconnect?appid=wx97aeb0c6bb109a5c&redirect_uri=http://phptest.neonan.com/frontend&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect";
 
             };
-            scope.loginUseWB = function(){};
+            scope.loginUseWB = function(){
+                window.location.href = 'http://phptest.neonan.com/auth/weibo';
+            };
             scope.loginUseQQ = function(){
-                window.location.href = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=100297082&redirect_uri=http://phptest.neonan.com/frontend&callback=cb&scope=all";
+                window.location.href = 'http://phptest.neonan.com/auth/qq_connect'
+                //window.location.href = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=100297082&redirect_uri=http://phptest.neonan.com/frontend&callback=cb&scope=all";
             };
             scope.update = function(){
                 var param = {
