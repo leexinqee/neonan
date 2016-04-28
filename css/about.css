@@ -33,9 +33,15 @@
 .about-view {
     padding: 15px 0 30px 30px;
 }
-
-
-
+.links-container .link-item {
+    margin: 5px 0 10px 0;
+}
+.links-container .list a {
+    padding: 0 10px;
+}
+.links-container .span textarea {
+    width: 100%;resize: vertical;min-height: 50px;max-height: 100px;
+}
 
 
 
