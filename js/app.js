@@ -136,4 +136,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
             }
         }
     })
+    //  关于我们等路由
+    .state('about', {
+        url : '/about',
+        views : {
+            'main': {
+                templateUrl: 'template/about.html',
+                controller : "aboutDetailCtrl"
+            }
+        }
+    })
 });
