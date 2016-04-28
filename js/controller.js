@@ -520,7 +520,7 @@ app.controller("tagDetailCtrl", function($scope, MessagesService, $stateParams){
 
 
 // about 关于我们等控制器
-app.controller("aboutDetailCtrl", function($scope, MessagesService, $stateParams){
+app.controller("aboutDetailCtrl", function($scope, MessagesService, $location){
     console.log('aboutDetailCtrl')
 });
 
@@ -533,8 +533,28 @@ app.controller("contactCtrl", function($scope){
     console.log('contactCtrl')
 });
 // contactCtrl控制器
-app.controller("sitemapCtrl", function($scope){
-    console.log('sitemapCtrl')
+app.controller("sitemapCtrl", function($scope, MessagesService){
+    MessagesService.category().then(function(data){
+        for(var i = 0;i<data.body.list.length;i++){
+            if(!data.body.list[i].hasOwnProperty('children')){
+                var temp = {
+                    title:data.body.list[i].title,
+                    slug:data.body.list[i].slug,
+                    id:data.body.list[i].id
+                };
+                data.body.list[i].children = [temp];
+            }
+            if(data.body.list[i].title=='menus'){
+                for(var j = 0;j<data.body.list[i].children.length;j++){
+                    if(data.body.list[i].children[j].title=='首页'){
+                        data.body.list[i].children.splice(j,1);
+                    }
+                }
+            }
+        }
+        console.log(JSON.stringify(data.body.list));
+        $scope.category = data.body.list;
+    });
 });
 
 
