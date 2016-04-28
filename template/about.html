@@ -1,6 +1,6 @@
 <div class="container about-container">
     <div class="row">
-        <div>
+        <div about-nav>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist" id="tab-nav">
                 <li role="presentation" class="active"><a ui-sref="about.aboutus" aria-controls="about" role="tab" data-toggle="tab">关于我们</a></li>
@@ -24,11 +24,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $("#tab-nav").on("click", "a", function(){
-        var $this = $(this);
-        $("#tab-nav").find('li').removeClass("active");
-        $this.parents("li").addClass("active");
-    })
-</script>

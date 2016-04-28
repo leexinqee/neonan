@@ -437,7 +437,19 @@ app.directive('selfinfoDirective',function(){
     }
 });
 
-
+//  about 底部链接指令
+app.directive('aboutNav',function(){
+    return {
+        restrict:"EA",
+        link:function(scope,ele,attr){
+            $("#tab-nav").on("click", "a", function(){
+                var $this = $(this);
+                $("#tab-nav").find('li').removeClass("active");
+                $this.parents("li").addClass("active");
+            })
+        }
+    }
+});
 
 
 
