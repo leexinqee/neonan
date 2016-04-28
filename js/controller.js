@@ -495,9 +495,14 @@ app.controller("tagDetailCtrl", function($scope, MessagesService, $stateParams){
 
 // about 关于我们等控制器
 app.controller("aboutDetailCtrl", function($scope, MessagesService, $stateParams){
-
     console.log('aboutDetailCtrl')
 });
 
-
-
+// aboutus 关于我们控制器
+app.controller("aboutUsCtrl", function($scope){
+    console.log('aboutUsCtrl')
+});
+// contactCtrl控制器
+app.controller("contactCtrl", function($scope){
+    console.log('contactCtrl')
+});

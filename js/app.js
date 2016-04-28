@@ -12,7 +12,25 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Request-with'];
-    $urlRouterProvider.otherwise('/index');
+
+    $urlRouterProvider.otherwise(function($injector, $location){
+        /*var hasPath = ['contact', 'sitemap', 'privacy', 'disclaimer'];
+        var path = $location.path();
+        var flag = false;        // true代表在haspth中，false为没有。
+        for(var i = 0; i < hasPath.length; i++){
+            if(path.match(hasPath[i])){
+                flag = true;
+                break;
+            }
+        }
+        if(flag){
+            return path;
+        } else {
+        }*/
+        return '/index';
+    });
+
+
     $stateProvider.state('index', {
         url: '/index?slug&cover',
         views: {
@@ -138,6 +156,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
     })
     //  关于我们等路由
     .state('about', {
+        abstract: true,
         url : '/about',
         views : {
             'main': {
@@ -145,5 +164,87 @@ routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
                 controller : "aboutDetailCtrl"
             }
         }
+    }).state('about.aboutus', {
+        url : '/aboutus',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/about-us.html',
+                controller : "aboutUsCtrl"
+            }
+        }
+    }).state('about.contact', {
+        url : '/contact',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/contact.html',
+                controller : "contactCtrl"
+            }
+        }
+    }).state('about.sitemap', {
+        url : '/sitemap',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/sitemap.html'
+            }
+        }
+    }).state('about.privacy', {
+        url : '/privacy',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/privacy.html'
+            }
+        }
+    }).state('about.disclaimer', {
+        url : '/disclaimer',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/disclaimer.html'
+            }
+        }
+    }).state('about.copyright', {
+        url : '/copyright',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/copyright.html'
+            }
+        }
+    }).state('about.links', {
+        url : '/links',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/links.html'
+            }
+        }
+    }).state('about.ad', {
+        url : '/ad',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/ad.html'
+            }
+        }
+    }).state('about.careers', {
+        url : '/careers',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/careers.html'
+            }
+        }
+    }).state('about.contributors', {
+        url : '/contributors',
+        views : {
+            'aboutContent': {
+                templateUrl: 'template/about/contributors.html'
+            }
+        }
     })
 });
+
+
+
+
+
+
+
+
+
+
