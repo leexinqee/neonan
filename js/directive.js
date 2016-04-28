@@ -150,6 +150,14 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $refindpwd = $('.refindpwd').val();
             var $findGetCode = $('.find-get-code');
             var end;
+            //第三方登录
+            scope.loginUseWX = function(){
+
+            };
+            scope.loginUseWB = function(){};
+            scope.loginUseQQ = function(){
+                window.location.href = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=100297082&redirect_uri=http://phptest.neonan.com/frontend&callback=cb&scope=all";
+            };
             scope.update = function(){
                 var param = {
                     _method:'PUT'
@@ -369,10 +377,7 @@ app.directive('appfooter',function(){
         link:function(scope,ele,attr){
             var weixin = $('.footerweixin');
             weixin.on('click',function(){
-                $('#Weixin').modal('show').css({
-                    "width":"121px",
-                    "margin":"200px auto 0"
-                });
+                $('#Weixin').modal('show')
             })
         }
     }

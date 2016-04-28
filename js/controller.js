@@ -175,11 +175,26 @@ app.controller("topInfoCtrl", function($scope, $stateParams,MessagesService){
 // 个人信息的下方左边模块儿收集控制器
 app.controller("selfCollectCtrl", function($scope,MessagesService){
     //console.log('selfCollectCtrl')
-    MessagesService.favarites().then(function(data){
-        console.log(JSON.stringify(data))
+    var param = {
+        page : 0,
+        per_page : 14,
+        start_offset : 0,
+        from : 8
+    };
+    MessagesService.favarites(param).then(function(data){
+        console.log(JSON.stringify(data));
+        var temp = [];
         $scope.article = data.body.list.articles;
-
-    })
+        $scope.article.sort(function(a,b){
+            return 0.5-Math.random();
+        })
+    });
+    $scope.loadingMore = function (that) {
+        //param.page++;
+        //MessagesService.favarites(param).then(function(data){
+        //    $scope.article = data.body.list.articles;
+        //});
+    }
 });
 
 // 个人信息的下方右边模块儿喜欢控制器
@@ -254,7 +269,7 @@ app.controller("topContentCtrl", function($scope, MessagesService, $stateParams,
                     MessagesService.articleLike(param).then(function(data){
                         alert('收藏成功')
                     },function(err){
-                        if(err.code == "100000"){
+                        if(err.data.code=="100000"){
                             alert('你已经收藏过了');
                         }else{
                             $('.loginDailog').modal('show');
@@ -390,7 +405,7 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
                 MessagesService.videoLike(param).then(function(data){
                     alert('收藏成功')
                 },function(err){
-                    if(err.code=="100000"){
+                    if(err.data.code=="100000"){
                         alert('你已经收藏过了')
                     }else{
                         $('.loginDailog').modal('show');

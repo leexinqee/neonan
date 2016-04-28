@@ -1,0 +1,745 @@
+<!DOCTYPE html><html><head lang="en"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+    <meta charset="UTF-8">
+    <title>牛男</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="qc:admins" content="1020137320453466576166375762764564">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <link rel="stylesheet" href="css/app.public.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="css/loginup.css">
+    <link rel="stylesheet" href="css/self.info.css">
+    <link rel="stylesheet" href="css/mediaquery.css">
+    <link rel="stylesheet" href="css/content.detail.css">
+    <link rel="stylesheet" href="css/tv.page.css">
+
+    <link rel="stylesheet" href="css/cropper.css">
+
+    <script src="//hm.baidu.com/hm.js?0d5e0f28149c708e0342a0aed5ff6803"></script><script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ui-router/angular-ui-router.js"></script>
+    <script src="bower_components/angular/angular-animate.js"></script>
+    <script src="bower_components/restangular/dist/restangular.min.js"></script>
+    <script src="bower_components/angular/angular-sanitize.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+
+    <script src="bower_components/swiper/swiper.min.js"></script>
+    <script src="bower_components/jquery.nicescroll/jquery.nicescroll.js"></script>
+
+    <script src="bower_components/dealimg/cropper.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/directive.js"></script>
+
+<script src="http://partner.googleadservices.com/gpt/pubads_impl_85.js" async=""></script></head>
+<body ng-controller="globalCtrl" app-directive="" class="ng-scope">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!--公共头部-->
+    <div loginup-directive="">
+        <header>
+            <div class="toCenter header">
+                <div class="float-left menu-logo">
+                    <div id="menu" class="menu"><img src="./images/menu.png" alt="menu"></div>
+                    <div class="logo">
+                        <a ui-sref="index({slug: '', cover: ''})" ng-click="clearTips()" href="#/index">
+                            <img src="./images/logo.png" alt="牛男网">
+                        </a>
+                    </div>
+                </div>
+                <div class="float-left choose-wrap">
+                    <div id="choose-type" class="choose-type"></div>
+                </div>
+                <div class="float-right login-reg">
+                    <a href="" class="login" data-toggle="modal" data-target=".modal-login">登录</a>
+                    <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
+                    <div class="info-wrap" id="info-wrap" style="display: none;float: left">
+                        <div class="head-img-wrap">
+                            <img class="head-img" alt="">
+                        </div>
+                        <div class="info-enter">
+                            <p><a data-id="" ng-href="#/index/selfinfo?uid=" class="userCenter" href="#/index/selfinfo?uid=">个人中心</a></p>
+                            <p ng-click="logout()"><a href="">退出登录</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <div class="account" id="account">
+            <!-- 微信二维码-->
+            <div class="modal fade" id="Weixin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <img src="http://open.weixin.qq.com/qr/code/?username=neonan01" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- logup 用户注册-->
+            <div class="modal fade bs-example-modal-lg modal-logup regdailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <div class="dialog-reg">
+                            <div class="account-title">
+                                <img src="./images/res.png" alt="">
+                            </div>
+                            <div class="user-input">
+                                <div class="input-list">
+                                    <input type="text" placeholder="请输入手机号码" class="regmobile">
+                                </div>
+                                <div class="input-list">
+                                    <input id="enter-code" type="text" placeholder="请输入验证码">
+                                    <div class="get-code">获取验证码</div>
+                                </div>
+                                <div class="input-list">
+                                    <input type="password" placeholder="请输入密码" class="regemail">
+                                </div>
+                                <div class="input-list">
+                                    <input type="password" placeholder="确认密码" class="regpwd">
+                                </div>
+                                <div class="worn">注册请完善所有信息！</div>
+                                <div class="dialog-submit-wrap">
+                                    <button type="button" class="btn btn-default dialog-submit" id="reg">立即注册</button>
+                                    <button type="button" class="btn btn-link return-login" id="return">返回登录</button>
+                                </div>
+                            </div>
+                            <div class="close-dialog"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- login 用户登录-->
+            <div class="modal fade bs-example-modal-lg modal-login loginDailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="dialog-login">
+                            <div class="account-title">
+                                <img src="./images/betterman.png" alt="">
+                            </div>
+                            <div class="user-input">
+                                <div class="input-list">
+                                    <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin">
+                                </div>
+                                <div class="input-list">
+                                    <input type="password" placeholder="请输入密码" class="smspwd">
+                                </div>
+                                <div class="worn">请完善登录信息</div>
+                                <div class="rememberMe">
+                                    <input type="checkbox" name="pwd" id="pwd">
+                                    <label for="pwd">记住我</label>
+                                </div>
+                                <div class="dialog-submit-wrap">
+                                    <button type="button" class="btn btn-default dialog-submit loginnow">立即登录</button>
+                                    <button type="button" class="btn btn-link return-login forgetpwd">忘记密码？</button>
+                                </div>
+                                <div class="other-login">
+                                    <div class="other-login-text">第三方登录</div>
+                                    <div class="other-login-list">
+                                        <button type="button" class="btn btn-default weixin" ng-click="loginUseWX()"><span class="media-login weixin-ligin"></span></button>
+                                        <button type="button" class="btn btn-default weibo" ng-click="loginUseWB()"><span class="media-login weibo-login"></span></button>
+                                        <button type="button" class="btn btn-default qq" ng-click="loginUseQQ()"><span class="media-login qq-login"></span></button>
+                                    </div>
+                                </div>
+                                <div class="no-account">
+                                    <div class="float-left no-account-left">还没有牛男账号？ 立即加入！</div>
+                                    <button type="button" class="btn btn-default dialog-submit float-right no-account-right">立即注册</button>
+                                </div>
+                            </div>
+                            <div class="close-dialog"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- find password 查找密码-->
+            <div class="modal fade bs-example-modal-lg findpassword" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="dialog-find-pwd">
+                            <div class="account-title">
+                                <img src="./images/findpwd.png" alt="">
+                            </div>
+                            <div class="user-input">
+                                <div class="input-list">
+                                    <input type="text" placeholder="请输入手机号码" class="findmobile">
+                                </div>
+                                <div class="input-list">
+                                    <input type="text" placeholder="请输入验证码" class="findcode">
+                                    <div class="get-codes find-get-code">获取验证码</div>
+                                </div>
+                                <div class="input-list">
+                                    <input type="password" placeholder="请输入新密码" class="findpwd">
+                                </div>
+                                <div class="input-list">
+                                    <input type="password" placeholder="确认密码" class="refindpwd">
+                                </div>
+                                <div class="worn">请完善找回密码相关资料</div>
+                                <div class="dialog-submit-wrap">
+                                    <button type="button" class="btn btn-default dialog-submit findsure">确定</button>
+                                    <button type="button" class="btn btn-link return-login">返回登录</button>
+                                </div>
+                            </div>
+                            <div class="close-dialog"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 用户修改信息-->
+            <div class="modal fade bs-example-modal-lg changeInfoPanel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="change-info">
+                            <div class="account-title">
+                                <img src="./images/change-info.png" alt="">
+                            </div>
+                            <div class="user-input">
+                                <div class="input-list">
+                                    <input type="tel" ng-model="changePhone" placeholder="请输入手机号码" class="ng-pristine ng-untouched ng-valid">
+                                </div>
+                                <div class="input-list">
+                                    <input type="email" ng-model="changeEmail" placeholder="请输入邮箱" class="ng-pristine ng-untouched ng-valid ng-valid-email">
+                                </div>
+                                <div class="input-list">
+                                    <input type="text" ng-model="changeName" placeholder="姓名" class="ng-pristine ng-untouched ng-valid">
+                                </div>
+                                <div class="input-list">
+                                    <input type="text" ng-model="changeBio" placeholder="个人简介" class="ng-pristine ng-untouched ng-valid">
+                                </div>
+                                <!--<div class="rememberMe">-->
+                                    <!--<input type="checkbox" name="pwd" id="password"/>-->
+                                    <!--<label for="password">记住我</label>-->
+                                <!--</div>-->
+                                <div class="dialog-submit-wrap">
+                                    <button type="button" class="btn btn-default dialog-submit" ng-click="update()">保存修改</button>
+                                    <!--<button type="button" class="btn btn-link return-login">返回登录</button>-->
+                                </div>
+                            </div>
+                            <div class="close-dialog"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--公共菜单部分-->
+    <div menu-container="" class="menu-content" id="menu-content" style="overflow: hidden; outline: none; cursor: -webkit-grab;">
+        <div class="menu-search">
+            <div class="search-content ng-scope" ng-controller="searchCtrl">
+                <div class="float-left search-input">
+                    <input type="text" ng-model="content" class="search-input-text ng-pristine ng-untouched ng-valid" placeholder="请输入关键词...">
+                </div>
+                <div class="search-btn" ng-click="searchHandler()"></div>
+            </div>
+        </div>
+
+        <!-- ngRepeat: item in category --><div ng-repeat="item in category" class="ng-scope">
+            <div class="kinds ng-binding">牛男TV</div>
+            <!-- ngIf: item.children --><ul class="menu-list ng-scope" ng-if="item.children">
+                <!-- ngRepeat: items in item.children --><li class="menu-list-item style1" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv --><a ui-sref="tvPage" ng-switch-when="tv" data-color="#b9b9b9" data-value="牛男TV" class="ng-binding ng-scope" href="#/tvpage">牛男TV</a>
+                    <!-- ngSwitchDefault:  -->
+                </li><!-- end ngRepeat: items in item.children -->
+            </ul><!-- end ngIf: item.children -->
+        </div><!-- end ngRepeat: item in category --><div ng-repeat="item in category" class="ng-scope">
+            <div class="kinds ng-binding">menus</div>
+            <!-- ngIf: item.children --><ul class="menu-list ng-scope" ng-if="item.children">
+                <!-- ngRepeat: items in item.children --><li class="menu-list-item style1" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#b9b9b9" data-value="饮食" class="ng-binding ng-scope" href="#/index/category?slug=food&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F0577dfa85bb54b9b8a3d8f954113499b.jpg">饮食</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style2" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#d93347" data-value="健康" class="ng-binding ng-scope" href="#/index/category?slug=health&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252Fde1230de7aa44b09aed99a7870e20a73.jpg">健康</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style3" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#7e2dc2" data-value="情感" class="ng-binding ng-scope" href="#/index/category?slug=love&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252Fd31af7cc40cc4654bda5c13c686bf375.jpg">情感</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style4" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#cb07ad" data-value="娱乐" class="ng-binding ng-scope" href="#/index/category?slug=entertainment&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F2b1af231aacf480ab64844c389bdc0c0.jpg">娱乐</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style5" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#00b451" data-value="健身" class="ng-binding ng-scope" href="#/index/category?slug=fitness&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252Ff5eaf9c487a34a80981cc3edbc0e27d6.jpg">健身</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style6" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#eb9318" data-value="成长" class="ng-binding ng-scope" href="#/index/category?slug=success&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F6f6e2da49d484dad905271a5922dade5.jpg">成长</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style7" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#ee246e" data-value="形象" class="ng-binding ng-scope" href="#/index/category?slug=look&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252Fec979c19822641f5968c5dd518940659.jpg">形象</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style8" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#29658a" data-value="好玩" class="ng-binding ng-scope" href="#/index/category?slug=fun&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F1d31179defd04549835951019cc39046.jpg">好玩</a>
+                </li><!-- end ngRepeat: items in item.children -->
+            </ul><!-- end ngIf: item.children -->
+        </div><!-- end ngRepeat: item in category --><div ng-repeat="item in category" class="ng-scope">
+            <div class="kinds ng-binding">more</div>
+            <!-- ngIf: item.children --><ul class="menu-list ng-scope" ng-if="item.children">
+                <!-- ngRepeat: items in item.children --><li class="menu-list-item style1" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#b9b9b9" data-value="劲报" class="ng-binding ng-scope" href="#/index/category?slug=jinbao&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F30c08315095c4c5582bc9e2ad7058438.jpg">劲报</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style2" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#d93347" data-value="影音" class="ng-binding ng-scope" href="#/index/category?slug=movie&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F7f01d6bdc2324753b321f0d3cb37a9af.jpg">影音</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style3" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#7e2dc2" data-value="约会" class="ng-binding ng-scope" href="#/index/category?slug=dating&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252Fd447d51ec5e14d3eb8473b883c994541.jpg">约会</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style4" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#cb07ad" data-value="锻炼" class="ng-binding ng-scope" href="#/index/category?slug=training&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F27af966e9a344cc6bc14c5e084cf166b.png">锻炼</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style5" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#00b451" data-value="性爱" class="ng-binding ng-scope" href="#/index/category?slug=sex&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F1116a0b7849744968c1f567a1a1643f4.jpg">性爱</a>
+                </li><!-- end ngRepeat: items in item.children -->
+            </ul><!-- end ngIf: item.children -->
+        </div><!-- end ngRepeat: item in category --><div ng-repeat="item in category" class="ng-scope">
+            <div class="kinds ng-binding">30天系列</div>
+            <!-- ngIf: item.children --><ul class="menu-list ng-scope" ng-if="item.children">
+                <!-- ngRepeat: items in item.children --><li class="menu-list-item style1" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#b9b9b9" data-value="30天教你泡妞" class="ng-binding ng-scope" href="#/index/category?slug=paoniu&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F412ce05b461546aa9ca2b6de55234585.jpg">30天教你泡妞</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style2" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#d93347" data-value="30天教你穿衣" class="ng-binding ng-scope" href="#/index/category?slug=chuanyi&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F7814514dae7249ca88d092073654bb04.jpg">30天教你穿衣</a>
+                </li><!-- end ngRepeat: items in item.children --><li class="menu-list-item style3" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <!-- ngSwitchWhen: tv -->
+                    <!-- ngSwitchDefault:  --><a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default="" data-color="#7e2dc2" data-value="30天教你健身" class="ng-binding ng-scope" href="#/index/category?slug=bettermen&amp;cover=http%3A%252F%252Fcdn.neonan.com%252Fcategory%252Fimages%252F484093129d83436096a49f39529ed2ee.jpg">30天教你健身</a>
+                </li><!-- end ngRepeat: items in item.children -->
+            </ul><!-- end ngIf: item.children -->
+        </div><!-- end ngRepeat: item in category -->
+        <!--<div class="kinds">ALBUMS 专辑</div>-->
+        <!--<ul class="menu-list">-->
+            <!--<li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">-->
+                <!--<a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+    <!--内容区-->
+    <!-- uiView: main --><div ui-view="main" class="ng-scope"><div class="main toCenter ng-scope">
+    <!-- uiView: top --><div ui-view="top" class="ng-scope"><div class="content-wrap ng-scope">
+
+    <!-- uiView: contentTopAd --><div ui-view="contentTopAd" class="ng-scope"><div class="ad-wrap ng-scope">
+    <div class="ad-bar center-block" style="width:960px;">
+        <div ng-bind-html="bigBar[0].code" class="ng-binding"><!-- /21695388/ad-top -->
+<div id="div-gpt-ad-1445571323521-0" style="height:90px; width:970px; text-align: center; margin: 10px auto 5px;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1445571323521-0'); });
+</script>
+</div></div>
+    </div>
+    <button type="button" class="close close-btn" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div></div>
+
+    <div class="content-box">
+        <!-- uiView: contentRightAd --><div ui-view="contentRightAd" class="contentRightAds ng-scope"><div class="right-content ng-scope">
+    <div class="aside">
+        <div class="for-adds" style="width:px;">
+            <div ng-bind-html="smallBar[0].code" class="ng-binding"><!-- /21695388/ad-home -->
+<div id="div-gpt-ad-1445571323521-2" style="height:250px; width:300px; text-align: center; margin: 0 auto;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1445571323521-2'); });
+</script>
+</div></div>
+        </div>
+        <div class="aside-title"><img src="images/neomantv.png" alt=""></div>
+        <div class="aside-content">
+
+            <!-- ngRepeat: item in video --><div class="aside-list ng-scope" ng-repeat="item in video">
+                <div class="float-left aside-pic">
+                    <img src="http://cdn.neonan.com/nil_class/4fb0c9f9-099b-40b8-b5b2-69522598d761.jpg" alt="">
+                </div>
+                <div class="aside-pic-content">
+                    <div class="aside-pic-content-title">
+                        <a ui-sref="tvdetail({id : item.id})" class="ng-binding" href="#/tvdetail/20263">怎样才能轻松练出结实性感的完美背部？</a>
+                    </div>
+                    <div class="aside-pic-content-time">
+                        <span class="time-pic"><img src="images/timepic.png" alt=""></span>
+                        <span class="aside-pic-content-time-text ng-binding">2016-01-21 08:47:00</span>
+                    </div>
+                </div>
+            </div><!-- end ngRepeat: item in video --><div class="aside-list ng-scope" ng-repeat="item in video">
+                <div class="float-left aside-pic">
+                    <img src="http://cdn.neonan.com/nil_class/bbbfe0a7-5e3f-4828-9ed4-d3a12bc1f5c0.jpg" alt="">
+                </div>
+                <div class="aside-pic-content">
+                    <div class="aside-pic-content-title">
+                        <a ui-sref="tvdetail({id : item.id})" class="ng-binding" href="#/tvdetail/20059">面试步步惊心？ 巧混职场，职场达人离你不远！</a>
+                    </div>
+                    <div class="aside-pic-content-time">
+                        <span class="time-pic"><img src="images/timepic.png" alt=""></span>
+                        <span class="aside-pic-content-time-text ng-binding">2016-01-18 14:00:00</span>
+                    </div>
+                </div>
+            </div><!-- end ngRepeat: item in video --><div class="aside-list ng-scope" ng-repeat="item in video">
+                <div class="float-left aside-pic">
+                    <img src="http://cdn.neonan.com/nil_class/ca6c37e1-e664-4ad0-a947-29e901c263be.jpg" alt="">
+                </div>
+                <div class="aside-pic-content">
+                    <div class="aside-pic-content-title">
+                        <a ui-sref="tvdetail({id : item.id})" class="ng-binding" href="#/tvdetail/20238">女生私密小物品の初体验完整版</a>
+                    </div>
+                    <div class="aside-pic-content-time">
+                        <span class="time-pic"><img src="images/timepic.png" alt=""></span>
+                        <span class="aside-pic-content-time-text ng-binding">2016-01-17 12:00:00</span>
+                    </div>
+                </div>
+            </div><!-- end ngRepeat: item in video --><div class="aside-list ng-scope" ng-repeat="item in video">
+                <div class="float-left aside-pic">
+                    <img src="http://cdn.neonan.com/nil_class/f4e55828-6221-43ae-9ebf-27fd637a7594.jpg" alt="">
+                </div>
+                <div class="aside-pic-content">
+                    <div class="aside-pic-content-title">
+                        <a ui-sref="tvdetail({id : item.id})" class="ng-binding" href="#/tvdetail/20233">这七类女友，你钟爱哪种？</a>
+                    </div>
+                    <div class="aside-pic-content-time">
+                        <span class="time-pic"><img src="images/timepic.png" alt=""></span>
+                        <span class="aside-pic-content-time-text ng-binding">2016-01-16 02:00:00</span>
+                    </div>
+                </div>
+            </div><!-- end ngRepeat: item in video -->
+
+            <a ui-sref="tvPage" class="aside-load-more btn btn-outlined btn-block" href="#/tvpage">LOAD VIDEOS</a>
+        </div>
+    </div>
+</div></div>
+
+        <div class="left-content-box">
+            <h2 class="content-title ng-binding">男人哪块肌肉让姑娘们情不自禁？</h2>
+            <div class="person-box clearfix">
+                <div class="left-msg float-left">
+                    <div class="img-box">
+                        <img src="images/headinfo.png" width="100%" height="100%" alt="">
+                    </div>
+                    <dl class="name-box">
+                        <dt class="nickname ng-binding">BY sss</dt>
+                        <dd class="plain ng-binding">收藏数：1035</dd>
+                    </dl>
+                </div>
+                <div class="float-right time-box">
+                    <span class="time-pic">
+                        <img src="images/timepic.png" alt="">
+                    </span>
+                    <span class="time-text ng-binding">2016-03-02</span>
+                </div>
+            </div>
+            <div class="share-box clearfix jiathis_style_32x32">
+                <a href="http://www.jiathis.com/send/?webid=qzone&amp;title=男人哪块肌肉让姑娘们情不自禁？&amp;summary=男人哪块肌肉让姑娘们情不自禁？&amp;url=http%3A%2F%2Fphptest.neonan.com%2Ffrontend%2F%23%2Findex%2Fcontentdetail%2F49389&amp;shortUrl=false&amp;uid=1508987&amp;pic={}" target="_blank"><button class="btn btn-default btn-share-qzone float-left">qzone</button></a>
+                <a href="http://www.jiathis.com/send/?webid=tsina&amp;title=男人哪块肌肉让姑娘们情不自禁？&amp;summary=男人哪块肌肉让姑娘们情不自禁？&amp;url=http%3A%2F%2Fphptest.neonan.com%2Ffrontend%2F%23%2Findex%2Fcontentdetail%2F49389&amp;shortUrl=false&amp;uid=1508987&amp;pic={}" target="_blank"><button class="btn btn-default btn-share-sea float-left">sea</button></a>
+                <button class="btn btn-default btn-collet float-right" ng-click="like(message.id)">collet</button>
+            </div>
+            <div class="con-center">
+                <!--<div class="img-content-box">-->
+                    <!--<img src="images/content-img.png" width="100%" alt=""/>-->
+                <!--</div>-->
+                <!--<dl class="first-conten">-->
+                    <!--<dd class="item-content">有这样一种说法，</dd>-->
+                    <!--<dd class="item-content">中国人能把所有的节日包括清明节都过成买买买，</dd>-->
+                    <!--<dd class="item-content">中国的情侣们能把说有的节日包括重阳节过成啪啪啪。</dd>-->
+                    <!--<dd class="item-content"> 然而，女生节过去了，女王节也过去了，</dd>-->
+                    <!--<dd class="item-content">心仪的妹子是不是仍然不愿意和你上楼喝杯茶，坐下吃个面？？</dd>-->
+                    <!--<dd class="item-content">是时候好好反省一下了！是不是你平时的穿着碰到了妹子的雷区？！</dd>-->
+                    <!--<dd class="item-content">今天牛哥就来说说女生眼中最受不了的穿搭风格！</dd>-->
+                <!--</dl>-->
+                <!--<dl class="content-block">-->
+                    <!--<dt class="title">1.格子衬衫</dt>-->
+                    <!--<dd class="txt">看到第一条可能会有人大喊不服！凭什么！格子衬衫难道不是百搭的吗？！ 是的没错，你说的格子衬衫应该是这样的粗线条，色彩简洁明</dd>-->
+                    <!--<dt class="title">2.运动套装</dt>-->
+                    <!--<dd class="txt">运动外套+运动裤，一条宽松无比还超长的运动裤，看上去既没精神又和时尚毫不-->
+                        <!--沾边。怎么说呢，穿这样如果妹纸还愿意和你走在一起可能确实是真爱了吧，但是-->
+                        <!--上楼喝个茶什么的是真真做不到啊</dd>-->
+                <!--</dl>-->
+
+                <div class="message-body">
+                    <div ng-bind-html="htmlText()" class="ng-binding"><p>许多朋友健身都是为了让自己变得更迷人，那你是否知道在姑娘们眼中男人身上哪个部位的肌肉最性感、最迷人吗？</p><p><span style="color: rgb(255, 104, 39);"><strong>No.1 腹肌</strong></span></p><p><span style="color: rgb(61, 170, 214);">「</span><strong>&nbsp;男人的腹肌像春药，让人看了就想要&nbsp;</strong><span style="color: rgb(61, 170, 214);">」</span></p><p>在姑娘们眼中当然是腹肌最迷人！</p><p>腹肌怎么练？<strong><span style="color: rgb(255, 104, 39);">卷腹</span></strong>！</p><p><img src="http://mmbiz.qpic.cn/mmbiz/EfZ5MjZ7Z208psArcLA6bic7j8NUWjtNKoIuuvz6L76D8KIshaEJPbzicibTLfs6mJmtTBXxrnsz5tJRsRaYzDCLw/0?wx_fmt=jpeg" width="500" height="432.6599326599327"><br></p><p>☞&nbsp;“卷腹”动作要领：起身时不仅要向上卷缩，还要在卷腹的同时身体向两侧扭转，使深层的腹肌以及腹斜肌得到深度刺激。做卷腹时要注意配合呼吸，起身时呼气，凡是挤压到胸腔的动作都应该是呼气，反之吸气。然后放平呼吸，躺下的时候再吸气。</p><p><span style="color: rgb(255, 104, 39);"><strong>No.2 大胸肌</strong></span></p><p><span style="color: rgb(61, 170, 214);">「</span>&nbsp;&nbsp;总是忍不住想摸上一摸&nbsp;<span style="color: rgb(61, 170, 214);">」</span></p><p>大胸肌怎么练？<strong><span style="color: rgb(255, 104, 39);">平卧推举</span></strong></p><p><img src="http://mmbiz.qpic.cn/mmbiz/EfZ5MjZ7Z208psArcLA6bic7j8NUWjtNKsHg6gaSicuibU3JzLIe7YTZkhtV2ZReUloOKS81MCgplDKhBu1zQajxg/0?wx_fmt=jpeg" width="500" height="432.6599326599327"><br></p><p>☞&nbsp;“平卧推举”动作要领：</p><p>双手以宽于肩的握距正握杠铃，拇指扣在食指上。合适的握距应该使小臂在动作最低点时基本垂直于地面。握距太窄肱三头肌会过多参与从而减弱对胸肌的刺激，握据太宽只能锻炼胸肌外侧。收缩胸肌，然后慢慢将杠铃下降至中胸处，在乳头上偏上的位置，下降的同时用鼻子吸气。杠铃在最低点不接触胸肌而是保持一个微小的距离。在下降的过程中一直保持胸肌的紧张，用胸肌控制杠铃而不是胳膊。在最低点不要停顿，直接把杠铃推起至肩部正上方，同时用嘴呼气，也可以在推起时屏住呼吸度过停滞点（推起过程中难度最大时）后再呼气。</p><p><br></p><p><span style="color: rgb(255, 104, 39);"><strong>No.3 肱二头肌</strong></span></p><p><span style="color: rgb(255, 104, 39);"><strong><br></strong></span></p><p><span style="color: rgb(61, 170, 214);">「</span><strong><span style="color: rgb(61, 170, 214);">&nbsp;</span></strong><strong>看到男生的肱二头肌，就想牵他的手&nbsp;&nbsp;</strong><span style="color: rgb(61, 170, 214);">」</span></p><p>肱二头肌怎么练？哑铃曲伸</p><p><img src="http://mmbiz.qpic.cn/mmbiz/EfZ5MjZ7Z208psArcLA6bic7j8NUWjtNKFPrp4qNxfn5fPH9SWw4xeAxFsfuQDvTUMa9FnicQJ6hsu4gib3iaicTFRQ/0?wx_fmt=jpeg" width="500" height="432.6599326599327"><br></p><p>☞&nbsp;可以借鉴史瓦辛格的方法：<strong><span style="color: rgb(255, 104, 39);">21响礼炮&nbsp;</span></strong></p><p><strong><span style="color: rgb(255, 104, 39);"><br></span></strong></p><p>做哑铃大臂曲伸的时候，可以分三步进行，第一步下方90度做7下，第二步上方90度做7下，第三步，上下180度做7下，可以根据哑铃的重量决定数量。</p><p>每次分组做到极限。不用每天都做，可隔日进行。</p><p><span style="color: rgb(255, 104, 39);"><strong>No.4背阔肌</strong></span></p><p><span style="color: rgb(61, 170, 214);">「</span><strong><span style="color: rgb(61, 170, 214);">&nbsp;</span>从背后拥抱他，手环着他窄窄的腰，脸正好贴在他丰厚发达的背阔肌上&nbsp;<span style="color: rgb(61, 170, 214);">」</span></strong></p><p><strong><br></strong></p><p><strong>背阔肌怎么练？<span style="color: rgb(255, 104, 39);"><strong>引体向上</strong></span></strong></p><p><img src="http://mmbiz.qpic.cn/mmbiz/EfZ5MjZ7Z208psArcLA6bic7j8NUWjtNKyzEiaArmZDIUvSTJgyiaygnvMrjofic842EJGCAVyHnD9OhEVBD9nrA6A/0?wx_fmt=jpeg" width="500" height="432.6599326599327"><br></p><p>☞&nbsp;“引体向上”动作要领：双手宽握单杠，两臂伸直，身体悬垂，腰背部以下放松，两小腿伸直或交叉。然后在吸气同时，用背阔肌的收缩力屈臂引体上，至下颚超过横杠或颈后贴近横杠止。稍停后，边吸气边用背阔肌的力量控制慢慢下降，直到复原。</p><p><span style="color: rgb(255, 104, 39);"><strong>No.5臀部肌</strong></span></p><p><span style="color: rgb(61, 170, 214);">「</span><strong><span style="color: rgb(61, 170, 214);">&nbsp;</span>关系到以后的 ‘ 性福 ’，怎么能不爱？</strong>&nbsp;<span style="color: rgb(61, 170, 214);">」</span></p><p><img src="http://mmbiz.qpic.cn/mmbiz/EfZ5MjZ7Z208psArcLA6bic7j8NUWjtNKHjK9nUPR9UfJfN00O23OHJickp6CvLV1291aVwHso1S77ljLOtrbYdA/0?wx_fmt=jpeg" width="500" height="432.6599326599327"><br></p><p>&nbsp;臀部肌怎么练？ <strong><span style="color: rgb(255, 104, 39);">负重深蹲</span></strong></p><p><strong><span style="color: rgb(255, 104, 39);"><br></span></strong></p><p>☞&nbsp;“负重深蹲”动作要领：分腿站立，上身保持正直，双手持重物置于颈后肩上，呼气深蹲，稍停，吸气还原。重复10～20次，完成2～3组。以上练习在负重条件下，效果更佳。</p><p>现在知道该好好练哪儿了吧！</p></div>
+                </div>
+                <!-- ngIf: pagesShow.all --><div class="row clearfix page-row ng-scope" ng-if="pagesShow.all">
+                    <div class="col-md-4 text-center">
+                        <!-- ngIf: pagesShow.prev --><a ng-if="pagesShow.prev" ui-sref="index.contentDetail({id : prevArtId})" class="btn btn-info ng-scope" href="#/index/contentdetail/49388"> &lt; 上一页 </a><!-- end ngIf: pagesShow.prev -->
+                    </div>
+                    <div class="col-md-4 text-center col-md-offset-4">
+                        <!-- ngIf: pagesShow.next --><a ng-if="pagesShow.next" ui-sref="index.contentDetail({id : nextArtId})" class="btn btn-info ng-scope" href="#/index/contentdetail/49427"> 下一页 &gt; </a><!-- end ngIf: pagesShow.next -->
+                    </div>
+                </div><!-- end ngIf: pagesShow.all -->
+                <div class="row clearfix tip-row">
+                    <div class="col-md-12">
+                        <strong>标签：</strong>
+                        <!-- ngRepeat: item in message.tags -->
+                    </div>
+                </div>
+                <div class="row clearfix share-wrap">
+                    <div class="col-md-4 text-center">
+                        <a href="http://www.jiathis.com/send/?webid=weixin&amp;title=男人哪块肌肉让姑娘们情不自禁？&amp;summary=男人哪块肌肉让姑娘们情不自禁？&amp;url=http%3A%2F%2Fphptest.neonan.com%2Ffrontend%2F%23%2Findex%2Fcontentdetail%2F49389&amp;shortUrl=false&amp;uid=1508987&amp;pic={}" target="_blank"><button class="btn btn-default btn-share-weichat">微信分享</button></a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="http://www.jiathis.com/send/?webid=tsina&amp;title=男人哪块肌肉让姑娘们情不自禁？&amp;summary=男人哪块肌肉让姑娘们情不自禁？&amp;url=http%3A%2F%2Fphptest.neonan.com%2Ffrontend%2F%23%2Findex%2Fcontentdetail%2F49389&amp;shortUrl=false&amp;uid=1508987&amp;pic={}" target="_blank"><button class="btn btn-default btn-share-sea">微博分享</button></a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="http://www.jiathis.com/send/?webid=qzone&amp;title=男人哪块肌肉让姑娘们情不自禁？&amp;summary=男人哪块肌肉让姑娘们情不自禁？&amp;url=http%3A%2F%2Fphptest.neonan.com%2Ffrontend%2F%23%2Findex%2Fcontentdetail%2F49389&amp;shortUrl=false&amp;uid=1508987&amp;pic={}" target="_blank"><button class="btn btn-default btn-share-qzone">QQ空间</button></a>
+                    </div>
+                </div>
+                <!--<div class="row comment-wrap">-->
+                    <!--<label class="col-md-12 control-label text-left">评论：</label>-->
+                    <!--<div class="col-md-12">-->
+                        <!--<textarea id="comment" ng-model="comment" class="form-control" placeholder="请输入你想评论的内容..."></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-12">-->
+                        <!--<button type="submit" id="submit-comment" ng-click="submitComment()" class="btn btn-primary">提交评论</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row new-content-box">-->
+                    <!--<div class="title-box">-->
+                        <!--<img src="images/new-content.png" alt=""/>-->
+                    <!--</div>-->
+                    <!--<div class="link-box">-->
+                        <!--<a href="">他凭一记漂亮的回旋踢，完胜撩妹达人宋仲基！</a>-->
+                    <!--</div>-->
+                    <!--<div class="link-box">-->
+                        <!--<a href="">这个黑科技玩具，每个男人都想拥有 ！！</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div></div>
+    <div class="new-hot-aside clear">
+        <!-- uiView: asideLeft --><div ui-view="asideLeft" class="ng-scope"><div class="new-hot float-left ng-scope" articles="">
+    <div class="new-hot-title">
+        <div class="new-logo">
+            <img src="./images/latest.png" alt="">
+        </div>
+        <div class="new-hot-btn">
+            <div class="new-btn change-btn active" ng-class="{'active':className}" data-type="0" ng-click="clickToggleHandler('0')">最新</div>
+            <div class="hot-btn change-btn" ng-class="{'active':!className}" data-type="1" ng-click="clickToggleHandler('1')">最热</div>
+        </div>
+    </div>
+    <div class="new-hot-content">
+        <!-- ngRepeat: item in article --><div class="new-hot-content-item ng-scope" ng-repeat="item in article">
+            <div class="float-left c-item-pic">
+                <img src="http://cdn.neonan.com/article/image_filenames/2c41a017ae8ae058034c5198a042058b02fd2a5283afc105059fa49ba533d3e9.jpeg_300" alt="">
+                <div class="msg-type body-building ng-binding">首页</div>
+            </div>
+            <div class="c-item-msg">
+                <h3 class="c-item-pic-title">
+                    <a ui-sref="index.contentDetail({id : item.id})" class="ng-binding" href="#/index/contentdetail/49427">图文测试</a>
+                </h3>
+                <div class="power-by">BY <span class="ng-binding"></span></div>
+                <div class="power-time"><span class="time-pic"><img src="./images/timepic.png" alt=""></span><span class="time-text ng-binding">2016-04-16</span></div>
+            </div>
+        </div><!-- end ngRepeat: item in article --><div class="new-hot-content-item ng-scope" ng-repeat="item in article">
+            <div class="float-left c-item-pic">
+                <img src="http://cdn.neonan.com/article/image_filenames/3323c97d7aed49a6bc29d67fcc1e4bfc.png_300" alt="">
+                <div class="msg-type body-building ng-binding">首页</div>
+            </div>
+            <div class="c-item-msg">
+                <h3 class="c-item-pic-title">
+                    <a ui-sref="index.contentDetail({id : item.id})" class="ng-binding" href="#/index/contentdetail/49426">撸铁十年，被称为史上最牛健身教练，这家伙简直要上天！</a>
+                </h3>
+                <div class="power-by">BY <span class="ng-binding">sss</span></div>
+                <div class="power-time"><span class="time-pic"><img src="./images/timepic.png" alt=""></span><span class="time-text ng-binding">2016-03-23</span></div>
+            </div>
+        </div><!-- end ngRepeat: item in article --><div class="new-hot-content-item ng-scope" ng-repeat="item in article">
+            <div class="float-left c-item-pic">
+                <img src="http://cdn.neonan.com/article/image_filenames/ec9a6b2129a04f8cbedc4c1f361ed94d.png_300" alt="">
+                <div class="msg-type body-building ng-binding">首页</div>
+            </div>
+            <div class="c-item-msg">
+                <h3 class="c-item-pic-title">
+                    <a ui-sref="index.contentDetail({id : item.id})" class="ng-binding" href="#/index/contentdetail/49425">鞋子 | 4种球鞋潮流，鞋柜里少不了的鞋款</a>
+                </h3>
+                <div class="power-by">BY <span class="ng-binding">sss</span></div>
+                <div class="power-time"><span class="time-pic"><img src="./images/timepic.png" alt=""></span><span class="time-text ng-binding">2016-03-22</span></div>
+            </div>
+        </div><!-- end ngRepeat: item in article --><div class="new-hot-content-item ng-scope" ng-repeat="item in article">
+            <div class="float-left c-item-pic">
+                <img src="http://cdn.neonan.com/article/image_filenames/d52edcaaa82a4a2a879911a21b370add.png_300" alt="">
+                <div class="msg-type body-building ng-binding">首页</div>
+            </div>
+            <div class="c-item-msg">
+                <h3 class="c-item-pic-title">
+                    <a ui-sref="index.contentDetail({id : item.id})" class="ng-binding" href="#/index/contentdetail/49424">做完这些俯卧撑，你的胸肌可还爽？？</a>
+                </h3>
+                <div class="power-by">BY <span class="ng-binding">sss</span></div>
+                <div class="power-time"><span class="time-pic"><img src="./images/timepic.png" alt=""></span><span class="time-text ng-binding">2016-03-22</span></div>
+            </div>
+        </div><!-- end ngRepeat: item in article --><div class="new-hot-content-item ng-scope" ng-repeat="item in article">
+            <div class="float-left c-item-pic">
+                <img src="http://cdn.neonan.com/article/image_filenames/dc53aadbcfa540c48b328d130df0591a.png_300" alt="">
+                <div class="msg-type body-building ng-binding">首页</div>
+            </div>
+            <div class="c-item-msg">
+                <h3 class="c-item-pic-title">
+                    <a ui-sref="index.contentDetail({id : item.id})" class="ng-binding" href="#/index/contentdetail/49423">不健身，你永远不会明白这些事儿！</a>
+                </h3>
+                <div class="power-by">BY <span class="ng-binding">sss</span></div>
+                <div class="power-time"><span class="time-pic"><img src="./images/timepic.png" alt=""></span><span class="time-text ng-binding">2016-03-22</span></div>
+            </div>
+        </div><!-- end ngRepeat: item in article -->
+        <!--<div class="new-hot-content-item">-->
+            <!--<div class="float-left c-item-pic">-->
+                <!--<img src="./images/latest-item1.png" alt="">-->
+                <!--<div class="msg-type growth">成长</div>-->
+            <!--</div>-->
+            <!--<div class="c-item-msg">-->
+                <!--<h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>-->
+                <!--<div class="power-by">BY <span>TONY小编</span></div>-->
+                <!--<div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-hot-content-added">-->
+            <!--<div class="float-left added-pic">-->
+                <!--<img src="./images/added.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="add-msg">-->
+                <!--<div class="add-msg-title"><a href="">震耳欲聋的清脆感，海底巨兽利维坦科技评测！</a></div>-->
+                <!--<div class="persend-by">PERSENDED BY <span class='persend-who'>TONY</span></div>-->
+            <!--</div>-->
+            <!--<div class="awrro">-->
+                <!--<div class="awrro-left">-->
+                    <!--<img src="./images/awrro-left.png" alt="">-->
+                <!--</div>-->
+                <!--<div class="awrro-right">-->
+                    <!--<img src="./images/awrro-right.png" alt="">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-hot-content-item">-->
+            <!--<div class="float-left c-item-pic">-->
+                <!--<img src="./images/latest-item.png" alt="">-->
+                <!--<div class="msg-type figure">形象</div>-->
+            <!--</div>-->
+            <!--<div class="c-item-msg">-->
+                <!--<h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>-->
+                <!--<div class="power-by">BY <span>TONY小编</span></div>-->
+                <!--<div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-hot-content-item">-->
+            <!--<div class="float-left c-item-pic">-->
+                <!--<img src="./images/latest-item1.png" alt="">-->
+                <!--<div class="msg-type good-play">成长</div>-->
+            <!--</div>-->
+            <!--<div class="c-item-msg">-->
+                <!--<h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>-->
+                <!--<div class="power-by">BY <span>TONY小编</span></div>-->
+                <!--<div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <button class="load-more btn btn-outlined btn-block">LOAD MORE</button>
+</div></div>
+        <!-- uiView: asideRight --><div ui-view="asideRight" class="ng-scope"></div>
+    </div>
+</div></div>
+    <!--公共尾部-->
+    <footer>
+    <div class="footer-content toCenter">
+        <div class="float-left some-links">
+            <div class="footer-logo">
+                <img src="./images/footer-neoman.png" alt="">
+            </div>
+            <div class="links">
+                <a href="http://baike.baidu.com/view/8527314.htm" target="_blank" class="link">关于我们</a>
+                <a href="http://www.baidu.com" target="_blank" class="link">广告服务</a>
+                    <!--<a ng-repeat="item in link"  href="{{item.url}}" target="_blank" class="link">{{item.title}}</a>-->
+                <a href="" class="link">友情链接</a>
+                <a href="" class="link">牛男商城</a>
+                <a href="" class="link">加入牛男</a>
+                <a href="" class="link">相关声明</a>
+                <a href="" class="link">牛男APP</a>
+                <a href="" class="link">欢迎投稿</a>
+            </div>
+        </div><a href="http://list.qq.com/cgi-bin/qf_invite?id=af51fade18dbe15a94dbc19d2a49ae31c6e686471d1e9a31" target="_blank">
+        </a><div class="float-right enter"><a href="http://list.qq.com/cgi-bin/qf_invite?id=af51fade18dbe15a94dbc19d2a49ae31c6e686471d1e9a31" target="_blank">
+            <div class="betterman">立即加入成为更好的男人</div>
+            <form action="" class="ng-pristine ng-valid">
+            
+                <div class="input-wrap clear">
+                    <div class="float-left input-text">
+                        <input type="text" placeholder="请输入您的邮箱">
+                    </div>
+                    <div class="float-left enter-btn">立即加入</div>
+                </div>
+
+            </form>
+</a>
+            <div class="shares">
+                <a href="" class="share"><img src="./images/single.png" alt=""></a>
+                <a href="http://weibo.com/neonan" target="_blank" class="share"><img src="./images/weibo.png" alt=""></a>
+                <a href="" class="share footerweixin"><img src="./images/weixin.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//pagead2.googlesyndication.com/pagead/expansion_embed.js?source=safeframe"></script>
+<script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+<script async="" src="//www.google-analytics.com/analytics.js"></script>
+<div style="display: none">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?0d5e0f28149c708e0342a0aed5ff6803";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        var cnzz_protocol=(("https:"==document.location.protocol)?" https://":" http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1000484157'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s11.cnzz.com/z_stat.php%3Fid%3D1000484157%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script><span id="cnzz_stat_icon_1000484157"><a href="http://www.cnzz.com/stat/website.php?web_id=1000484157" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/img/pic1.gif"></a></span><script src=" http://s11.cnzz.com/z_stat.php?id=1000484157&amp;show=pic1" type="text/javascript"></script><script src="http://c.cnzz.com/core.php?web_id=1000484157&amp;show=pic1&amp;t=z" charset="utf-8" type="text/javascript"></script><iframe src="http://tpc.googlesyndication.com/safeframe/1-0-2/html/container.html" style="visibility: hidden; display: none;"></iframe></div>
+    <script>
+        $(function () {
+            var asideNow = 0;
+            var ifup = 0;
+
+            $(window).scroll(function(){
+                var asideRight = $('.main').css('margin-left');
+                var scrollTop = $(this).scrollTop();
+                if(!$('.aside').length){
+                    return;
+                }
+                var asideTop = $('.aside').offset().top;
+                var footerOffset = $('.footer-content').offset().top;
+                var gap = $(window).height();
+                var fheight = scrollTop+gap;
+                if(scrollTop>ifup){
+                    if(scrollTop>asideTop){
+                        asideNow = scrollTop;
+                        $('.aside').addClass('aside-fixed').css('right',asideRight);
+                    }
+                    if(fheight>footerOffset){
+                        $('.aside').removeClass('aside-fixed');
+                    }
+                }else{
+                    if(scrollTop<asideNow){
+                        if($('.aside').hasClass('aside-fixed')){
+                            $('.aside').removeClass('aside-fixed');
+                        }
+                    }
+                }
+                ifup = scrollTop;
+            })
+        })
+    </script>
+    <!-- 微信sdk-->
+    <!--<script src=""></script>-->
+    <!--<script src="js/weixin/weixinShare.js"></script>-->
+
+<div id="ascrail2000" class="nicescroll-rails" style="width: 5px; z-index: 10000; cursor: -webkit-grab; position: fixed; top: 50px; left: -5px; height: 250px; opacity: 1; display: block;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 73px; background-color: rgba(0, 0, 0, 0); border: 0px; background-clip: padding-box; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 5px; z-index: 10000; top: 295px; left: -250px; position: fixed; opacity: 1; display: none; width: 245px;"><div style="position: relative; top: 0px; height: 5px; width: 250px; background-color: rgba(0, 0, 0, 0); border: 0px; background-clip: padding-box; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;"></div></div><script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script></body></html>
