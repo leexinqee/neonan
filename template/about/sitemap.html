@@ -1,4 +1,14 @@
-<div class="container">
+<div class="container sitemap-container about-view">
     <h1>SITEMAP /站点地图</h1>
-
+    <div class="content">
+        <div class="row" ng-repeat="item in category">
+            <dl class="item-row dl-horizontal clearfix">
+                <dt class="item-title">{{item.title}}</dt>
+                <dd class="item-link" ng-repeat="items in item.children" ng-switch="items.slug">
+                    <a ui-sref="tvPage" ng-switch-when="tv">{{items.title}}</a>
+                    <a ui-sref="index.category({slug: items.slug,cover:items.image})" ng-switch-default>{{items.title}}</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
