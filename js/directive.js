@@ -151,14 +151,9 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $findGetCode = $('.find-get-code');
             var end;
             //区分邮箱手机号注册
-            //if(scope.emailOrPhone.indexOf("@")==-1){
-            //    $('.regmobile').fadeIn();
-            //}else{
-            //    ('.regmobile').fadeOut();
-            //}
             scope.$watch('emailOrPhone',function(newVal,oldVal,scope){
                 if(newVal&&newVal.indexOf('@')!=-1){
-                    console.log(1)
+                    //console.log(1);
                     $('.getcodes').fadeOut();
                 }else{
                     $('.getcodes').fadeIn();
@@ -195,7 +190,7 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                     },function(){
                         alert('修改资料失败')
                     })
-                })
+                });
                 //alert(scope.changeName);
             };
             //找回密码验证码
@@ -253,40 +248,57 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
                 clearInterval(end);
             }
             $loginBtn.on('click',function(){
-                var this_ = $(this);
-                if(!($(ele).find('.regmobile').val()&&$(ele).find('#enter-code').val()&&$(ele).find('.regpwd').val())){
-                    $('.worn').fadeIn();
-                    return;
-                }
+                //邮箱注册
                 $(this).html("注册中...");
-                regdata = {
-                    target:$(ele).find('.regmobile').val(),
-                    captcha:$(ele).find('#enter-code').val(),
-                    password:$(ele).find('.regemail').val(),
-                    confirm_password:$(ele).find('.regpwd').val()
-                };
-                MessagesService.token().then(function(data){
-                    regdata._token = data.body;
-                    MessagesService.smsRegister(regdata).then(function(data){
-                        this_.parents(".modal").modal('hide');
-                        initDailog();
-                        this_.html("立即注册");
-                        $(ele).find('.regmobile').val('');
-                        $(ele).find('#enter-code').val('');
-                        $(ele).find('.regpwd').val('');
-                        $('#info-wrap').css('opacity',0);
-                        $('.login').fadeOut();
-                        $('.reg').fadeOut();
-                        $('#info-wrap').fadeIn();
-                        scope.user = data.body;
-                        //console.log(JSON.stringify(scope.user))
-                        setTimeout(function(){
-                            $('#info-wrap').css('opacity',1);
-                        },1000)
-                    },function(err){
-                        this_.html("立即注册");
+                if(scope.emailOrPhone.indexOf('@')!=-1){
+                    var param = {
+                        email:scope.emailOrPhone,
+                        password:scope.password
+                    };
+                    MessagesService.token().then(function(data){
+                        param._token = data.body;
+                        MessagesService.register(param).then(function(data){
+                            $(this).html("立即注册");
+                            alert(data);
+                        })
+                    })
+                }else{
+                    var this_ = $(this);
+                    if(!($(ele).find('.regmobile').val()&&$(ele).find('#enter-code').val()&&$(ele).find('.regpwd').val())){
+                        $('.worn').fadeIn();
+                        return;
+                    }
+                    regdata = {
+                        target:$(ele).find('.regmobile').val(),
+                        captcha:$(ele).find('#enter-code').val(),
+                        password:$(ele).find('.regemail').val(),
+                        confirm_password:$(ele).find('.regpwd').val()
+                    };
+                    MessagesService.token().then(function(data){
+                        regdata._token = data.body;
+                        MessagesService.smsRegister(regdata).then(function(data){
+                            this_.parents(".modal").modal('hide');
+                            initDailog();
+                            this_.html("立即注册");
+                            $(ele).find('.regmobile').val('');
+                            $(ele).find('#enter-code').val('');
+                            $(ele).find('.regpwd').val('');
+                            $('#info-wrap').css('opacity',0);
+                            $('.login').fadeOut();
+                            $('.reg').fadeOut();
+                            $('#info-wrap').fadeIn();
+                            scope.user = data.body;
+                            //console.log(JSON.stringify(scope.user))
+                            setTimeout(function(){
+                                $('#info-wrap').css('opacity',1);
+                            },1000)
+                        },function(err){
+                            this_.html("立即注册");
+                        });
                     });
-                });
+                }
+                //手机号注册
+
             });
             $getCode.on('click',function(){
                 var $this = $(this);
