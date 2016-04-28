@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>牛男</title>
+    <!--seo-->
+    <meta name="fragment" content="!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta property="qc:admins" content="1020137320453466576166375762764564" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -43,7 +45,6 @@
     <script src="js/controller.js"></script>
     <script src="js/service.js"></script>
     <script src="js/directive.js"></script>
-
 </head>
 <body ng-controller="globalCtrl" app-directive>
 <!--[if lt IE 9]>
@@ -102,9 +103,9 @@
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入手机号码" class="regmobile"/>
+                                    <input type="text" placeholder="请输入手机号码或邮箱" class="regmobile" ng-model="emailOrPhone"/>
                                 </div>
-                                <div class="input-list">
+                                <div class="input-list getcodes" style="display: block">
                                     <input id="enter-code" type="text" placeholder="请输入验证码"/>
                                     <div class="get-code">获取验证码</div>
                                 </div>
@@ -268,6 +269,7 @@
             <!--</li>-->
         <!--</ul>-->
     </div>
+<div id="login_container"></div>
     <!--内容区-->
     <div ui-view="main"></div>
     <!--公共尾部-->
@@ -324,9 +326,10 @@
             })
         })
     </script>
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
     <!-- 微信sdk-->
     <!--<script src=""></script>-->
     <!--<script src="js/weixin/weixinShare.js"></script>-->
-    <script src="js/seo.js"></script>
+    <!--<script src="seo/seo.js"></script>-->
 </body>
 </html>
