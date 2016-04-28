@@ -150,8 +150,30 @@ app.directive('loginupDirective', function(MessagesService,$timeout){
             var $refindpwd = $('.refindpwd').val();
             var $findGetCode = $('.find-get-code');
             var end;
+            //区分邮箱手机号注册
+            //if(scope.emailOrPhone.indexOf("@")==-1){
+            //    $('.regmobile').fadeIn();
+            //}else{
+            //    ('.regmobile').fadeOut();
+            //}
+            scope.$watch('emailOrPhone',function(newVal,oldVal,scope){
+                if(newVal&&newVal.indexOf('@')!=-1){
+                    console.log(1)
+                    $('.getcodes').fadeOut();
+                }else{
+                    $('.getcodes').fadeIn();
+                }
+            });
             //第三方登录
             scope.loginUseWX = function(){
+                //var obj = new WxLogin({
+                //    id:"login_container",
+                //    appid: "wx97aeb0c6bb109a5c",
+                //    scope: "snsapi_login",
+                //    redirect_uri: "http://www.neonan.com"
+                //});
+                //window.location.href = 'https://passport.yhd.com/wechat/callback.do?code=CODE';
+                window.location.href = "https://open.weixin.qq.com/connect/qrconnect?appid=wx97aeb0c6bb109a5c&redirect_uri=http://phptest.neonan.com/frontend&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect";
 
             };
             scope.loginUseWB = function(){};

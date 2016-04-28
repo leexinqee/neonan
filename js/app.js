@@ -10,6 +10,7 @@ routerApp.run(function($rootScope, $state, $stateParams) {
 
 routerApp.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
 
+
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Request-with'];
 
