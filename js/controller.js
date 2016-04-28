@@ -491,3 +491,13 @@ app.controller("tagDetailCtrl", function($scope, MessagesService, $stateParams){
         $scope.lists = data.body;
     })
 });
+
+
+// about 关于我们等控制器
+app.controller("aboutDetailCtrl", function($scope, MessagesService, $stateParams){
+
+    console.log('aboutDetailCtrl')
+});
+
+
+

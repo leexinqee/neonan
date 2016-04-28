@@ -432,7 +432,6 @@ app.directive('selfinfoDirective',function(){
                 });
                 $("#crop-box").modal("show");
                 $img.attr("src", file);
-
             })
         }
     }
