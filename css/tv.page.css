@@ -53,7 +53,15 @@
 .tv-layout .img-link {
     display: block;
     position: relative;
+    overflow: hidden;
 }
+.tv-layout .img-link img {
+    transition: all 0.4s;
+}
+.tv-layout .img-link:hover img {
+    transform: scale(1.2);
+}
+
 .tv-layout .img-link:hover .inner-link .link-title {
     /*text-decoration: underline;*/
     color: #999;
@@ -68,6 +76,7 @@
     right: 30px;
     bottom: 30px;
     left: auto;
+    position: absolute;
 }
 .tv-layout .img-link .inner-link {
     position: absolute;

@@ -103,11 +103,17 @@
 
 .won-list-picwrap {
     height: 222px;
+    overflow: hidden;
 }
 
 .won-list-picwrap img {
     width: 100%;
     height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.won-list:hover .won-list-picwrap img {
+    transform: scale(1.3);
 }
 
 .won-pic-msg {
@@ -222,15 +228,21 @@
 .aside-pic {
     width: 119px;
     height: 77px;
+    overflow: hidden;
 }
 
 .aside-pic img {
     height: 100%;
     width: 100%;
+    transition: all 0.3s;
 }
 
 .aside-list {
     padding: 8px 0;
+}
+
+.aside-list:hover .aside-pic img {
+    transform: scale(1.2);
 }
 
 .aside-pic-content {
@@ -331,6 +343,7 @@
     padding: 24px 0;
     border-bottom: 1px solid #eaeaea;
 }
+
 .new-hot-content-item:hover.added-pic img{
     transform: scale(1.2);
 }
@@ -407,11 +420,17 @@
     min-height: 168px;
     width: 260px;
     position: relative;
+    overflow: hidden;
 }
 
 .c-item-pic img {
     width: 100%;
     height: 100%;
+    transition: all .3s ease-in-out;
+}
+
+.new-hot-content-item:hover .c-item-pic img {
+    transform: scale(1.3);
 }
 
 .c-item-msg {
