@@ -44,7 +44,10 @@
     max-width: 500px;
 }
 #crop-box .img-container {
-    padding: 10px;
+
+}
+.cropper-container {
+    margin: 0 auto;
 }
 /*
     category 样式
