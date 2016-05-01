@@ -34,11 +34,12 @@ app.directive("appDirective", function($state){
                 } else {
                     $menu.toggleClass('actionIn').toggleClass('actionOut')
                 }
-                $body.css("overflow-x", "hidden");
+                $body.css("overflow-x", "hidden");$menu.css('box-shadow', '5px 0px 20px #000');
             };
             scope.hide = function(){
                 hide();
                 $menu.toggleClass('actionIn').toggleClass('actionOut')
+                $body.css("overflow-x", "auto");$menu.css('box-shadow', 'none');
             };
 
             // 回车按钮的回车事件的添加

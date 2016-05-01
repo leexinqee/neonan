@@ -3,7 +3,7 @@
     animation-fill-mode: forwards;
 }
 .actionIn {
-    animation: actionIn 0.3s ease-out -0.1s;
+    animation: actionIn 0.3s ease-out;
     animation-fill-mode: forwards;
 }
 @keyframes actionOut {
@@ -16,7 +16,7 @@
 }
 
 .slideRight {
-    animation: slideRight 0.3s ease-out;
+    animation: slideRight 0.3s ease-out 0.1s;
     animation-fill-mode: forwards;
 }
 .slideLeft {
