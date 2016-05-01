@@ -35,6 +35,13 @@ img {
     float: right;
 }
 
+.block {
+    display: block;
+}
+.none {
+    display: none;
+}
+
 .toCenter {
     width: 1040px;
     margin: 0 auto;
@@ -222,7 +229,7 @@ footer {
 /*menu*/
 .menu-content {
     position: fixed;
-    top: 50px;
+    top: 0px;
     left: -250px;
     width: 250px;
     background-color: #3f3f3f;

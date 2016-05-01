@@ -490,11 +490,7 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
 
 // 搜索控制器
 app.controller("searchCtrl", function($scope, $state){
-    $scope.content = "";
-    $scope.searchHandler = function(){
-        $state.go('search', {keyword: $scope.content});
-        $scope.content = "";
-    };
+
 });
 
 // 搜索页面控制器
@@ -552,7 +548,7 @@ app.controller("sitemapCtrl", function($scope, MessagesService){
                 }
             }
         }
-        console.log(JSON.stringify(data.body.list));
+        //console.log(JSON.stringify(data.body.list));
         $scope.category = data.body.list;
     });
 });

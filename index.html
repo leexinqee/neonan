@@ -54,10 +54,13 @@
 <![endif]-->
 <!--公共头部-->
     <div loginup-directive>
-        <header>
+        <header ng-class="{slideRight: showMenu.header, slideLeft: !showMenu.header}">
             <div class="toCenter header">
                 <div class="float-left menu-logo">
-                    <div id="menu" class="menu"><img src="./images/menu.png" alt="menu"></div>
+                    <div class="menu">
+                        <a ng-class="{block: !showMenu.header,none: showMenu.header}" ng-click="show()"><img src="./images/menu.png" alt="menu"></a>
+                        <a ng-class="{block: showMenu.header,none: !showMenu.header}" ng-click="hide()"><img src="./images/menu.png" alt="menu"></a>
+                    </div>
                     <div class="logo">
                         <a ui-sref="index({slug: '', cover: ''})" ng-click="clearTips()">
                             <img src="./images/logo.png" alt="牛男网">
@@ -244,11 +247,11 @@
     </div>
 
     <!--公共菜单部分-->
-    <div menu-container class="menu-content" id="menu-content">
+    <div menu-container class="menu-content" id="menu-content" ng-keypress="keypressHander()">
         <div class="menu-search">
             <div class="search-content" ng-controller="searchCtrl">
                 <div class="float-left search-input">
-                    <input type="text" ng-model="content" class="search-input-text" placeholder='请输入关键词...'>
+                    <input type="text" class="search-input-text" placeholder='请输入关键词...'>
                 </div>
                 <div class="search-btn" ng-click="searchHandler()"></div>
             </div>
@@ -272,9 +275,9 @@
     </div>
 <div id="login_container"></div>
     <!--内容区-->
-    <div ui-view="main"></div>
+    <div ui-view="main" ng-class="{slideRight: showMenu.main, slideLeft: !showMenu.main}"></div>
     <!--公共尾部-->
-    <appfooter></appfooter>
+    <appfooter ng-class="{slideRight: showMenu.footer, slideLeft: !showMenu.footer}"></appfooter>
 
 <script src="//pagead2.googlesyndication.com/pagead/expansion_embed.js?source=safeframe"></script>
 <script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>

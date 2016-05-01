@@ -12,47 +12,65 @@ app.directive("appDirective", function($state){
             var $body = $(ele);         // body
             var $menu = $body.find("#menu-content");        // menu-content
             var $choosetype = $("#choose-type");            // choose-type
-
-            //  header 头部菜单按钮控制
-            $body.find("#menu").on("click", function(){
-                $menu.removeClass('actionIn').removeClass('actionOut');
-                if(count % 2){
-                    $menu.addClass('actionOut');
+            scope.showMenu = {
+                header : false,
+                main : false,
+                footer : false
+            };
+            function show(){
+                scope.showMenu.header = true;
+                scope.showMenu.main = true;
+                scope.showMenu.footer = true;
+            }
+            function hide(){
+                scope.showMenu.header = false;
+                scope.showMenu.main = false;
+                scope.showMenu.footer = false;
+            }
+            scope.show = function(){
+                show();
+                if(!$menu.hasClass('actionIn') && !$menu.hasClass('actionOut')){
+                    $menu.toggleClass('actionIn')
                 } else {
-                    $menu.addClass('actionIn');
+                    $menu.toggleClass('actionIn').toggleClass('actionOut')
                 }
-                count++;
-            });
+                $body.css("overflow-x", "hidden");
+            };
+            scope.hide = function(){
+                hide();
+                $menu.toggleClass('actionIn').toggleClass('actionOut')
+            };
 
             // 回车按钮的回车事件的添加
-            $("#menu-content").keypress(function(e) {
-                if(e.which == 13) {
-                    $menu.removeClass('actionIn').removeClass('actionOut');
-                    $menu.addClass('actionOut');
+            var $searchInput = $(".search-input-text");
+            scope.keypressHander = function(e) {
+                var char = event.which || event.keyCode;
+                if(char == 13) {
+                    scope.hide();
                     $(".choose-wrap").remove();
-                    count++;
-                    var $searchInput = $(".search-input-text");
                     $state.go('search', {keyword: $searchInput.val()});
                     $searchInput.val("").blur();
                 }
-            });
+            };
+
+            scope.searchHandler = function(){
+                scope.hide();
+                $(".choose-wrap").remove();
+                $state.go('search', {keyword: $searchInput.val()});
+                $searchInput.val("").blur();
+            };
 
             // 搜索键点击搜索
-            $menu.on('click', ".search-btn", function(){
-                $menu.removeClass('actionIn').removeClass('actionOut');
-                $menu.addClass('actionOut');
-                $(".choose-wrap").remove();
-                count++;
-            });
+            //$menu.on('click', ".search-btn", function(){
+            //
+            //});
             //  菜单点击之后的控制
             $menu.on('click', ".menu-list-item", function(){
-                $menu.removeClass('actionIn').removeClass('actionOut');
+                scope.hide();
                 var $a = $(this).find("a");
                 var color = $a.attr("data-color");
                 var value = $a.attr("data-value");
                 $choosetype.css('background-color', color).html(value);
-                $menu.addClass('actionOut');
-                count++;
             })
         }
     }
@@ -409,7 +427,7 @@ app.directive('articles',function(MessagesService){
 app.directive('appfooter',function(){
     return {
         restrict:"EA",
-        replace:true,
+        replace : true,
         templateUrl:'./template/appFooter.html',
         link:function(scope,ele,attr){
             var weixin = $('.footerweixin');
