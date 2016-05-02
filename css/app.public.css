@@ -107,10 +107,10 @@ header {
 .logo {
     cursor: pointer;
     display: inline-block;
-    width: 45px;
+    margin: 0 10px;
 }
 .logo img{
-    width: 45px;
+    height: 27px;
 }
 .choose-type{
     height: 32px;
