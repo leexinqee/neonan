@@ -314,7 +314,14 @@ body ::selection {
     width: 350px;
 }
 
-
+@media screen and (max-width: 768px){
+    .search-container {
+        width: auto;
+    }
+    .search-container .result-wrap {
+        margin-right: 0px;
+    }
+}
 
 
 

@@ -20,7 +20,7 @@
     animation-fill-mode: forwards;
 }
 .slideLeft {
-    animation: slideLeft 0.3s ease-out -0.1s;
+    animation: slideLeft 0.3s ease-out -0.05s;
     animation-fill-mode: forwards;
 }
 
