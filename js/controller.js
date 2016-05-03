@@ -6,32 +6,7 @@ var app = angular.module('app.controller', ['app.service','ui.router', 'ngSaniti
 
 // 总控制器
 app.controller("globalCtrl",function($scope, MessagesService, $state,$location,$http){
-    //检测第三方登录的code;
-    //if($location.$$absUrl.indexOf('code')!=-1){
-    //    $http.get($location.$$absUrl).success(function(data){
-    //        window.location.href = 'http://phptest.neonan.com/frontend';
-    //        alert(JSON.stringify(data));
-    //    });
-    //    //var href = $location.$$absUrl;
-    //    //var i = href.indexOf('code')+5;
-    //    //var code = href.substr(i,32);
-    //    ////function callBack(data){
-    //    ////    alert(data)
-    //    ////}
-    //    ////window.location.href = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://phptest.neonan.com/frontend&client_id=100297082&client_secret=c5df159fdcd3f2608b970e31847df63b"
-    //    //$http.jsonp("https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://phptest.neonan.com/frontend&client_id=100297082&client_secret=c5df159fdcd3f2608b970e31847df63b&callback=JSON_CALLBACK").success(function(data) {
-    //    //    alert(1)
-    //    //    alert(JSON.stringify(data));
-    //    //}).error(function(data){
-    //    //    alert(data);
-    //    //});
-    //    //var script = document.createElement('script');
-    //    //script.src = 'https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&code="+code+"&redirect_uri=http://phptest.neonan.com/frontend&client_id=100297082&client_secret=c5df159fdcd3f2608b970e31847df63b&callback=callBack';
-    //    //document.body.appendChild(script);
-    //    //script.onload = function(){
-    //    //    alert('success')
-    //    //}
-    ////}
+    
     //得到banner相关数据
     MessagesService.links().then(function(data){
         $scope.link = data.body[0].friendly_links;
