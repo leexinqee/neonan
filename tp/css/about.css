@@ -1,0 +1,53 @@
+.about-container {
+    margin-top: 80px;
+    min-height: 399px;
+}
+
+
+
+.sitemap-container {
+
+}
+.sitemap-container .item-row {
+    margin: 15px 0;
+}
+.sitemap-container .item-title {
+    font-size: 23px;
+    background: #0077ee;
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    line-height: 46px;
+}
+.sitemap-container .item-link {
+    line-height: 50px;
+    float: left;
+    margin-left: 0;
+    font-size: 20px;
+    padding: 0 20px;
+    height: 100%;
+}
+.sitemap-container .item-link a {
+
+}
+.about-view {
+    padding: 15px 0 30px 30px;
+}
+.links-container .link-item {
+    margin: 5px 0 10px 0;
+}
+.links-container .list a {
+    padding: 0 10px;
+}
+.links-container .span textarea {
+    width: 100%;resize: vertical;min-height: 50px;max-height: 100px;
+}
+
+
+#ad-iframe {
+    width: 100%;
+    height: 800px;
+    min-height: 800px;
+}
+
+

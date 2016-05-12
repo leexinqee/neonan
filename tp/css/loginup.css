@@ -1,0 +1,297 @@
+/*account*/
+.account{
+    position: absolute;
+    background-color: #ffffff;
+    z-index: 1000001;
+    box-sizing: border-box;
+}
+.dialog-login,.dialog-reg,.dialog-find-pwd,.change-info{
+    width: 416px;
+    padding: 16px 16px 0 16px;
+    position: relative;
+}
+.account-title{
+    margin-top: 32px;
+    margin-left: 24px;
+}
+.account-title img{
+height: 50px;    
+}
+.user-input{
+    margin-top: 36px;
+}
+.input-list{
+    position: relative;
+    border: 1px solid #8e8e8e;
+    height: 43px;
+    width: 370px;
+    margin: 0 auto 20px;
+}
+.input-list input{
+    padding: 11px 15px 10px 20px;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    color: #8e8e8e;
+    font-family: "΢���ź�";
+    width: 100%;
+}
+#enter-code {
+    width: 230px;
+}
+.headPic-wrap{
+    position: relative;
+}
+.get-code,.get-codes{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 41px;
+    color: #fff;
+    font-size: 14px;
+    height: 41px;
+    width: 140px;
+    background-color: #8e8e8e;
+}
+.btn.dialog-submit{
+    margin-top: 16px;
+    border: 2px solid #8e8e8e;
+    width: 166px;
+    color: #333;
+    border-radius: 0;
+}
+.btn.return-login{
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    font-size: 14px;
+    color: #8e8e8e;
+}
+.close-dialog{
+    cursor: pointer;
+    right: 16px;
+    top: 16px;
+    width: 17px;
+    height: 17px;
+    background: url("../images/close-dialog.png") no-repeat 0 0;
+    position: absolute;
+}
+.rememberMe{
+    margin-left: 10px;
+}
+.dialog-submit-wrap{
+    position: relative;
+    width: 368px;
+    height: 45px;
+    margin: 0 auto 47px;
+}
+.other-login{
+    border-top:1px solid #eaeaea;
+    margin-bottom: 20px;
+}
+.other-login-list{
+    font-size: 33px;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.other-login-list button{
+    float: left;
+    width: 29%;
+    height: 36px;
+    border-radius: 0;
+    display: inline-block;
+    border: none;
+    margin-left: 3%;
+}
+.other-login-list .weixin{
+
+    background-color: #06c011;
+}
+.other-login-list .qq{
+
+    background-color: #2ea9e9;
+}
+.other-login-list .weibo{
+
+    background-color: #e22d2d;
+}
+
+.other-login-text{
+    background-color: #ffffff;
+    width: 100px;
+    margin: 10px auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #b2b2b2;
+}
+/*.weixin-ligin,.weibo-login,.qq-login{
+    float: left;
+    width: 115px;
+    height: 36px;
+    border-radius: 0;
+    display: inline-block;
+    border: none;
+    margin-left: 19px;
+}*/
+.weixin-ligin {
+    margin: 0;
+}
+.no-account{
+    margin-left: -16px;
+    margin-right: -16px;
+    height: 76px;
+    background-color: #333333;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.no-account-left{
+    line-height: 76px;
+    padding-left: 42px;
+}
+.btn.no-account-right{
+    width: 111px;
+    height: 36px;
+    border: 2px solid #fff;
+    margin-right: 40px;
+    margin-top: 17px;
+}
+.media-login{
+    background-size: 92px;
+    padding: 3px 17px;
+    background-image: url("../images/login-icon.png");
+}
+.weixin-ligin{
+    background-position: 35px;
+}
+.weibo-login{
+    background-position: 66px;
+}
+.qq-login{
+    background-position: 4px;
+    background-color: #2ea9e9;
+}
+.rememberMe input,.rememberMe label{
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+}
+.rememberMe label {
+    padding-top: 9px;
+}
+/*account end*/
+
+/*other*/
+.toTop{
+    transition: all 0.3s ease;
+    -webkit-transform: translateY(-940px);
+    transform: translateY(-940px);
+}
+.mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100000;
+}
+/*.modal.in .modal-dialog {
+    width: 416px;
+}
+.modal.out .modal-dialog {
+    width: 416px;
+}*/
+.modal-dialog.modal-lg {
+    width: 416px;
+}
+.worn{
+    padding-left: 10px;
+    height: 20px;
+    line-height: 20px;
+    color: red;display: none;
+}
+.welcome{
+    height: 50px;
+    font-size: 14px!important;
+    line-height: 50px;
+    display: none;
+}
+
+
+.info-wrap {
+    width: 134px;
+    display: none;
+}
+.info-wrap:hover .info-enter {
+    display: block;
+}
+.info-wrap .head-img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.info-wrap .info-enter {
+    font-size: 14px;
+    display: none;
+    width: 100%;
+    text-align: center;
+    background-color: #202020;
+}
+.info-wrap .info-enter p:nth-child(1) {
+    border-bottom: 1px solid #fff;
+}
+.info-wrap .info-enter p {
+    margin-bottom: 0;
+}
+.info-wrap .info-enter p a {
+    display: block;
+    width: 100%;
+    padding: 6px 0px;
+    line-height: 30px;
+    color: #fff;
+}
+.head-img-wrap {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px){
+    .input-list{
+        width: auto;
+    }
+    .modal-dialog.modal-lg {
+    width: 90vw;
+}
+.dialog-login, .dialog-reg, .dialog-find-pwd, .change-info {
+    width: 90vw;
+}
+.modal-dialog {
+    margin: 5vw;
+}
+.dialog-submit-wrap {
+    width: 75vw;
+}
+.no-account-left {
+    padding-left: 12px;
+}
+.btn.no-account-right {
+    width: 94px;
+    height: 30px;
+    border: 2px solid #fff;
+    margin-right: 10px;
+    margin-top: 23px;
+    line-height: 15px;
+}
+.input-wrap {
+    margin: 10px auto;
+    width: 280px;
+}
+}
