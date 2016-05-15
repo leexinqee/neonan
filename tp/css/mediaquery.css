@@ -8,6 +8,9 @@
 .con-center .message-body p{
 	font-size: 18px;
 }
+.aside-wrap{
+	display: none;
+}
  .toCenter{
       width: 100%
     } 
@@ -160,7 +163,7 @@
     text-align: center;
     height: 48px;
 	}
-	/*ÎÄÕÂÏêÇéÏìÓ¦Ê½*/
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦Ê½*/
 	.contentRightAds{
 		display: none;
 	}
@@ -194,7 +197,7 @@
 	.tv-page-container{
 		overflow-x: hidden;
 	}
-	/*ÊÓÆµÏêÇéÒ³*/
+	/*ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Ò³*/
 	.movie-container{
 		width: 100%;
 		overflow-x: hidden;

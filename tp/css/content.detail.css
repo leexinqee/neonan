@@ -21,11 +21,10 @@ body ::selection {
     position: relative;
     width: 100%;
     height: 90px;
-    margin: 50px 0 30px 0;
+    margin: 0 0 30px 0;
 }
 .ad-wrap .ad-bar {
     height: 100%;
-    width: 900px;
     background: #ccc;
     border-radius: 5px;
     text-align: center;
@@ -43,7 +42,12 @@ body ::selection {
     padding-top: 30px;
 }
 .left-content-box {
-    margin-right: 350px;
+    overflow: hidden;
+    /*margin-right: 350px;*/
+}
+.aside-wrap{
+    float: right;
+    width: 350px;
 }
 
 .left-content-box .content-title {
@@ -90,7 +94,7 @@ body ::selection {
     padding: 0;
     text-indent: -1254px;
     overflow: hidden;
-    width: 100px;
+    width: 92px;
     border: 0;
 }
 .left-content-box .share-box .btn-share-qzone {
@@ -178,7 +182,7 @@ body ::selection {
         margin: 0;
     }
     .left-content-box .con-center .share-wrap .btn {
-    text-indent: -27px;
+    text-indent: -52px;
 }
     .share-wrap .col-md-4{
         display: inline-block;
@@ -194,15 +198,15 @@ body ::selection {
     }
     .left-content-box .con-center .btn-share-weichat {
     background: #19CB23 url("../images/weixin.png") no-repeat 4px center;
-    background-size: 38px;
+    background-size: 24px;
 }
 .left-content-box .con-center .btn-share-sea {
     background: #F04242 url("../images/weibo.png") no-repeat 4px center;
-    background-size: 38px;
+    background-size: 24px;
 }
 .left-content-box .con-center .btn-share-qzone {
     background: #EFBA00 url("../images/icon_qzone.png") no-repeat -23px center;
-    background-size: 92px;
+    background-size: 75px;
 }
 }
 .left-content-box .con-center .new-content-box .title-box {
