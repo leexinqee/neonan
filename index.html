@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="neomanApp">
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>牛男</title>
@@ -8,51 +9,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta property="qc:admins" content="1020137320453466576166375762764564" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="favicon.ico"/>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/swiper.min.css"/>
-
-    <link rel="stylesheet" href="css/app.public.css"/>
-    <link rel="stylesheet" href="css/animation.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
-
-    <link rel="stylesheet" href="css/loginup.css"/>
-    <link rel="stylesheet" href="css/self.info.css"/>
-    <link rel="stylesheet" href="css/mediaquery.css"/>
-    <link rel="stylesheet" href="css/content.detail.css"/>
-    <link rel="stylesheet" href="css/tv.page.css"/>
-    <link rel="stylesheet" href="css/about.css"/>
-
-    <link rel="stylesheet" href="css/cropper.css"/>
-
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/app.public.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/loginup.css" />
+    <link rel="stylesheet" href="css/self.info.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <link rel="stylesheet" href="css/content.detail.css" />
+    <link rel="stylesheet" href="css/tv.page.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/cropper.css" />
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/ui-router/angular-ui-router.js"></script>
     <script src="bower_components/angular/angular-animate.js"></script>
     <script src="bower_components/restangular/dist/restangular.min.js"></script>
     <script src="bower_components/angular/angular-sanitize.min.js"></script>
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
-
     <script src="bower_components/swiper/swiper.min.js"></script>
     <script src="bower_components/jquery.nicescroll/jquery.nicescroll.js"></script>
-
     <script src="bower_components/dealimg/cropper.js"></script>
-
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/service.js"></script>
     <script src="js/directive.js"></script>
 </head>
+
 <body ng-controller="globalCtrl" app-directive>
-<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
-<!--公共头部-->
+    <!--公共头部-->
     <div loginup-directive>
         <header ng-class="{slideRight: showMenu.header, slideLeft: !showMenu.header}">
             <div class="toCenter header">
@@ -75,7 +68,7 @@
                     <a href="" class="reg" data-toggle="modal" data-target=".modal-logup">注册</a>
                     <div class="info-wrap" id="info-wrap" style="display: none;float: left">
                         <div class="head-img-wrap">
-                            <img class="head-img" src="{{user.avatar}}" alt=""/>
+                            <img class="head-img" src="{{user.avatar}}" alt="" />
                         </div>
                         <div class="info-enter">
                             <p><a data-id="{{user.id}}" ng-href="#/index/selfinfo?uid={{user.id}}" class="userCenter">个人中心</a></p>
@@ -83,16 +76,14 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </header>
         <div class="account" id="account">
             <!-- 微信二维码-->
-            <div class="modal fade" id="Weixin" tabindex="-1" role="dialog"
-                 aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="Weixin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content" style="text-align: center">
-                        <img src="http://open.weixin.qq.com/qr/code/?username=neonan01" alt=""/>
+                        <img src="http://open.weixin.qq.com/qr/code/?username=neonan01" alt="" />
                     </div>
                 </div>
             </div>
@@ -100,24 +91,23 @@
             <div class="modal fade bs-example-modal-lg modal-logup regdailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-
                         <div class="dialog-reg">
                             <div class="account-title">
-                                <img src="./images/res.png" alt=""/>
+                                <img src="./images/res.png" alt="" />
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入手机号码或邮箱" class="regmobile" ng-model="emailOrPhone"/>
+                                    <input type="text" placeholder="请输入手机号码或邮箱" class="regmobile" ng-model="emailOrPhone" />
                                 </div>
                                 <div class="input-list getcodes" style="display: block">
-                                    <input id="enter-code" type="text" placeholder="请输入验证码"/>
+                                    <input id="enter-code" type="text" placeholder="请输入验证码" />
                                     <div class="get-code">获取验证码</div>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="请输入密码" class="regemail" ng-model="password"/>
+                                    <input type="password" placeholder="请输入密码" class="regemail" ng-model="password" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="确认密码" class="regpwd" ng-model="repassword"/>
+                                    <input type="password" placeholder="确认密码" class="regpwd" ng-model="repassword" />
                                 </div>
                                 <div class="worn">注册请完善所有信息！</div>
                                 <div class="dialog-submit-wrap">
@@ -130,25 +120,24 @@
                     </div>
                 </div>
             </div>
-
             <!-- login 用户登录-->
             <div class="modal fade bs-example-modal-lg modal-login loginDailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="dialog-login">
                             <div class="account-title">
-                                <img src="./images/betterman.png" alt=""/>
+                                <img src="./images/betterman.png" alt="" />
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin"/>
+                                    <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="请输入密码" class="smspwd"/>
+                                    <input type="password" placeholder="请输入密码" class="smspwd" />
                                 </div>
                                 <div class="worn">请完善登录信息</div>
                                 <div class="rememberMe">
-                                    <input type="checkbox" name="pwd" id="pwd"/>
+                                    <input type="checkbox" name="pwd" id="pwd" />
                                     <label for="pwd">记住我</label>
                                 </div>
                                 <div class="dialog-submit-wrap">
@@ -173,28 +162,27 @@
                     </div>
                 </div>
             </div>
-
             <!-- find password 查找密码-->
             <div class="modal fade bs-example-modal-lg findpassword" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="dialog-find-pwd">
                             <div class="account-title">
-                                <img src="./images/findpwd.png" alt=""/>
+                                <img src="./images/findpwd.png" alt="" />
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入手机号码" class="findmobile"/>
+                                    <input type="text" placeholder="请输入手机号码" class="findmobile" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="text" placeholder="请输入验证码" class="findcode"/>
+                                    <input type="text" placeholder="请输入验证码" class="findcode" />
                                     <div class="get-codes find-get-code">获取验证码</div>
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="请输入新密码" class="findpwd"/>
+                                    <input type="password" placeholder="请输入新密码" class="findpwd" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="password" placeholder="确认密码" class="refindpwd"/>
+                                    <input type="password" placeholder="确认密码" class="refindpwd" />
                                 </div>
                                 <div class="worn">请完善找回密码相关资料</div>
                                 <div class="dialog-submit-wrap">
@@ -207,31 +195,30 @@
                     </div>
                 </div>
             </div>
-
             <!-- 用户修改信息-->
             <div class="modal fade bs-example-modal-lg changeInfoPanel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="change-info">
                             <div class="account-title">
-                                <img src="./images/change-info.png" alt=""/>
+                                <img src="./images/change-info.png" alt="" />
                             </div>
                             <div class="user-input">
                                 <div class="input-list">
-                                    <input type="tel" ng-model="changePhone" placeholder="请输入手机号码"/>
+                                    <input type="tel" ng-model="changePhone" placeholder="请输入手机号码" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="email" ng-model="changeEmail" placeholder="请输入邮箱"/>
+                                    <input type="email" ng-model="changeEmail" placeholder="请输入邮箱" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="text" ng-model="changeName" placeholder="姓名"/>
+                                    <input type="text" ng-model="changeName" placeholder="姓名" />
                                 </div>
                                 <div class="input-list">
-                                    <input type="text" ng-model="changeBio" placeholder="个人简介"/>
+                                    <input type="text" ng-model="changeBio" placeholder="个人简介" />
                                 </div>
                                 <!--<div class="rememberMe">-->
-                                    <!--<input type="checkbox" name="pwd" id="password"/>-->
-                                    <!--<label for="password">记住我</label>-->
+                                <!--<input type="checkbox" name="pwd" id="password"/>-->
+                                <!--<label for="password">记住我</label>-->
                                 <!--</div>-->
                                 <div class="dialog-submit-wrap">
                                     <button type="button" class="btn btn-default dialog-submit" ng-click="update()">保存修改</button>
@@ -245,7 +232,6 @@
             </div>
         </div>
     </div>
-
     <!--公共菜单部分-->
     <div menu-container class="menu-content" id="menu-content" ng-keypress="keypressHander()">
         <div class="menu-search">
@@ -256,7 +242,6 @@
                 <div class="search-btn" ng-click="searchHandler()"></div>
             </div>
         </div>
-
         <div ng-repeat="item in category">
             <div class="kinds">{{item.title}}</div>
             <ul class="menu-list" ng-if="item.children">
@@ -268,22 +253,21 @@
         </div>
         <!--<div class="kinds">ALBUMS 专辑</div>-->
         <!--<ul class="menu-list">-->
-            <!--<li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">-->
-                <!--<a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>-->
-            <!--</li>-->
+        <!--<li class="menu-list-item style{{($index+1) % 14}}" ng-repeat="item in album">-->
+        <!--<a ui-sref="index.category({slug: items.slug})" data-color='{{styles[$index]}}' data-value="{{item.title}}">{{item.title}}</a>-->
+        <!--</li>-->
         <!--</ul>-->
     </div>
-<div id="login_container"></div>
+    <div id="login_container"></div>
     <!--内容区-->
     <div ui-view="main" ng-class="{slideRight: showMenu.main, slideLeft: !showMenu.main}"></div>
     <!--公共尾部-->
     <appfooter ng-class="{slideRight: showMenu.footer, slideLeft: !showMenu.footer}"></appfooter>
-
-<script src="//pagead2.googlesyndication.com/pagead/expansion_embed.js?source=safeframe"></script>
-<script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
-<script async="" src="//www.google-analytics.com/analytics.js"></script>
-<div style="display: none">
-    <script>
+    <script src="//pagead2.googlesyndication.com/pagead/expansion_embed.js?source=safeframe"></script>
+    <script async="" type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <div style="display: none">
+        <script>
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
@@ -291,49 +275,51 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-    </script>
+        </script>
+        <script>
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1000484157'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1000484157%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
     <script>
-        var cnzz_protocol=(("https:"==document.location.protocol)?" https://":" http://");
-        document.write(unescape("%3Cspan id='cnzz_stat_icon_1000484157'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s11.cnzz.com/z_stat.php%3Fid%3D1000484157%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-    </script></div>
-    <script>
-        $(function () {
-            var asideNow = 0;
-            var ifup = 0;
+    $(function() {
+        var asideNow = 0;
+        var ifup = 0;
 
-            $(window).scroll(function(){
-                var asideRight = $('.main').css('margin-left');
-                var scrollTop = $(this).scrollTop();
-                if(!$('.aside').length){
-                    return;
+        $(window).scroll(function() {
+            var asideRight = $('.main').css('margin-left');
+            var scrollTop = $(this).scrollTop();
+            if (!$('.aside').length) {
+                return;
+            }
+            var asideTop = $('.aside').offset().top;
+            var footerOffset = $('.footer-content').offset().top;
+            var gap = $(window).height();
+            var fheight = scrollTop + gap;
+            if (scrollTop > ifup) {
+                if (scrollTop > asideTop) {
+                    asideNow = scrollTop;
+                    $('.aside').addClass('aside-fixed').css('right', asideRight);
                 }
-                var asideTop = $('.aside').offset().top;
-                var footerOffset = $('.footer-content').offset().top;
-                var gap = $(window).height();
-                var fheight = scrollTop+gap;
-                if(scrollTop>ifup){
-                    if(scrollTop>asideTop){
-                        asideNow = scrollTop;
-                        $('.aside').addClass('aside-fixed').css('right',asideRight);
-                    }
-                    if(fheight>footerOffset){
+                if (fheight > footerOffset) {
+                    $('.aside').removeClass('aside-fixed');
+                }
+            } else {
+                if (scrollTop < asideNow) {
+                    if ($('.aside').hasClass('aside-fixed')) {
                         $('.aside').removeClass('aside-fixed');
                     }
-                }else{
-                    if(scrollTop<asideNow){
-                        if($('.aside').hasClass('aside-fixed')){
-                            $('.aside').removeClass('aside-fixed');
-                        }
-                    }
                 }
-                ifup = scrollTop;
-            })
+            }
+            ifup = scrollTop;
         })
+    })
     </script>
-<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
     <!-- 微信sdk-->
     <!--<script src=""></script>-->
     <!--<script src="js/weixin/weixinShare.js"></script>-->
     <!--<script src="seo/seo.js"></script>-->
 </body>
+
 </html>

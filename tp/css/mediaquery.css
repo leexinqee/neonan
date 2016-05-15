@@ -1,0 +1,215 @@
+@media screen and (max-width: 768px){
+	html,body,header{
+		width: 100%
+	}
+.con-center .message-body img{
+	width: 100%;
+}
+.con-center .message-body p{
+	font-size: 18px;
+}
+ .toCenter{
+      width: 100%
+    } 
+   
+	header{
+       padding-left: 5px;
+    padding-right: 5px;
+	} /*
+	.menu-content{
+		top: 100px;	
+	}
+	.header{
+		height: 100px;
+	}
+    
+    .logo{
+    	width: 45px;
+    	margin:13px 0 13px 114px
+    }
+    .login, .reg{
+    	line-height: 100px;
+    	height: 100px
+    }*/
+    .swiper-pagination{
+    	display: none;
+    }
+    .c-item-pic{
+    	min-height: 200px;
+    }
+    .slider-msg{
+    	width: 90%;
+    	bottom: 20px;
+    	top: auto;
+    	left: 5%;
+    	right: 5%;
+    	padding:0;
+    }
+    .swiper-button-prev,.swiper-button-next{
+    	display: none;
+    }
+    /*.menu{
+    	margin-top: 37px
+    }*/
+    .main{
+		padding-top: 0;
+    }
+    .swiper{
+    	height: 250px;
+    }
+    .wonderful,.new-hot-aside{
+    	padding: 0 10px;
+    }
+   .wonderful .won-list{
+   	margin-bottom: 20px;
+    	width: 100%;
+    	display: block;
+    }
+    .selected{
+		display: none;
+    }
+    .choose-wrap{
+    	display: none;
+    }
+
+    .new-hot-aside .aside{
+    	display: none;
+    }
+    .new-hot-aside .new-hot{
+    	width: 100%;
+    	float: none;
+    }
+    .new-btn, .hot-btn{
+    	height: 26px;
+    	line-height: 26px;
+    	width: 65px;
+    }
+    .new-hot-btn{
+    	width: 133px;
+    }
+    .new-logo img {
+    height: 25px;
+    width: 133px;
+	}
+	.new-hot-content-item{
+		height: auto;
+	}
+	.c-item-pic-title{
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.new-hot-content-item .c-item-pic{
+		width: 100%;
+		float: none;
+	}
+	.c-item-msg{
+		padding-left: 0;
+	}
+	.new-hot-content-added{
+		display: none;
+	}
+	.load-more{
+		width: 100%!important;
+	}
+	.footer-logo{
+		width: 130px;
+		margin: 30px auto 20px;
+	}
+	.some-links{
+		padding-top: 15px;
+	    float: inherit;
+	    margin: auto;
+	}
+	.links{
+		font-size: 0;
+	}
+	.links a{
+		text-align: center;
+		font-size: 14px;
+		width: 25%;
+		margin: 0;
+		display: inline-block;
+	}
+	.enter{
+		float: inherit;
+	}
+	.betterman{
+		height: 68px;
+		text-align: center;
+		margin-top: 20px;
+		padding: 20px 0;
+		border-top:1px solid #3a3a3a; 
+	}
+	footer{
+    width: 100vw;
+    min-width: 0px;
+	}
+	footer,.footer-content{
+		height: auto;
+	}
+	.input-text{
+		width: auto;
+	}
+	.enter-btn{
+		width: auto;
+		float: none;
+		overflow: hidden;
+	}
+	.shares{
+    padding-bottom: 10px;
+    text-align: center;
+    height: 48px;
+	}
+	/*文章详情响应式*/
+	.contentRightAds{
+		display: none;
+	}
+	.left-content-box{
+		margin-right: 0!important;
+		padding: 0 10px;
+	}
+	.content-wrap{
+		overflow-x:hidden;
+	}
+	.time-box{
+		overflow: hidden;
+	}
+	.col-md-4{
+
+		display: inline;
+	}
+	.new-content-box{
+		display: none;
+	}
+	.msg-type{
+		overflow: hidden;
+	}
+	.c-item-pic-title{
+		margin-top: 10px;
+	}
+	/*tv*/
+	.tv-page-container.container{
+		padding: 0!important;
+	}
+	.tv-page-container{
+		overflow-x: hidden;
+	}
+	/*视频详情页*/
+	.movie-container{
+		width: 100%;
+		overflow-x: hidden;
+	}
+	.head-img-container{
+		height: 80px;
+		width: 80px;
+	}
+	.self-info{
+		margin: 2px 0px 20px 88px;
+	}
+	.page-row .col-md-4{
+		width: 50%;
+	}
+	.message{
+		font-size: 14px;
+	}
+}
