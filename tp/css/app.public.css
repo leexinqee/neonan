@@ -114,10 +114,15 @@ header {
     z-index: 4;
     -webkit-transform: translateZ(0);
 }
-
+.login-rigester{
+    /*display: none;*/
+}
 .header {
     height: 50px;
     position: relative;
+}
+.user-head-pic{
+    display: none;
 }
 .user-info-enter{
     display: none;
@@ -474,4 +479,10 @@ footer {
 .tp-content{
     min-height: 500px;
     padding-top: 50px;
+}
+/*登陆注册提示*/
+.somewrong{
+    padding-left: 10px;
+    color: red;
+    display: none;
 }
