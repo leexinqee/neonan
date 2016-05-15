@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/app.public.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/loginup.css" />
+    <link rel="stylesheet" href="css/self.info.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <link rel="stylesheet" href="css/content.detail.css" />
+    <link rel="stylesheet" href="css/tv.page.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/cropper.css" /><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/app.public.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/loginup.css" />
+    <link rel="stylesheet" href="css/self.info.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <link rel="stylesheet" href="css/content.detail.css" />
+    <link rel="stylesheet" href="css/tv.page.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/cropper.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <title>牛男网-个人中心</title>
+</head>
+
+<body>
+    <!-- 所以弹框 -->
+    <!-- logup 用户注册-->
+    <div class="modal fade regdailog s-example-modal-lg modal-logup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="rigester">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="dialog-reg">
+                    <div class="account-title">
+                        <img src="./images/res.png" alt="" />
+                    </div>
+                    <div class="user-input">
+                        <div class="input-list">
+                            <input type="text" placeholder="请输入手机号码或邮箱" class="regmobile" ng-model="emailOrPhone" />
+                        </div>
+                        <div class="input-list getcodes" style="display: block">
+                            <input id="enter-code" type="text" placeholder="请输入验证码" />
+                            <div class="get-code">获取验证码</div>
+                        </div>
+                        <div class="input-list">
+                            <input type="password" placeholder="请输入密码" class="regemail" ng-model="password" />
+                        </div>
+                        <div class="input-list">
+                            <input type="password" placeholder="确认密码" class="regpwd" ng-model="repassword" />
+                        </div>
+                        <div class="worn">注册请完善所有信息！</div>
+                        <div class="dialog-submit-wrap">
+                            <button type="button" class="btn btn-default dialog-submit" id="reg">立即注册</button>
+                            <button type="button" class="btn btn-link return-login" id="return" data-dismiss="modal" data-toggle="modal" data-target="#login">返回登录</button>
+                        </div>
+                    </div>
+                    <div class="close-dialog" data-dismiss="modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login 用户登录-->
+    <div class="modal fade bs-example-modal-lg modal-login loginDailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="login">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="dialog-login">
+                    <div class="account-title">
+                        <img src="./images/betterman.png" alt="" />
+                    </div>
+                    <div class="user-input">
+                        <div class="input-list">
+                            <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin" />
+                        </div>
+                        <div class="input-list">
+                            <input type="password" placeholder="请输入密码" class="smspwd" />
+                        </div>
+                        <div class="somewrong">
+                            您输入的账号或密码有误，请检查重新登录
+                        </div>
+                        <div class="rememberMe">
+                            <input type="checkbox" name="pwd" id="pwd" />
+                            <label for="pwd">记住我</label>
+                        </div>
+                        <div class="dialog-submit-wrap">
+                            <button type="button" class="btn btn-default dialog-submit loginnow">立即登录</button>
+                            <button type="button" class="btn btn-link return-login forgetpwd" data-dismiss="modal" data-toggle="modal" data-target="#findpassword">忘记密码？</button>
+                        </div>
+                        <div class="other-login">
+                            <div class="other-login-text">第三方登录</div>
+                            <div class="other-login-list">
+                                <button type="button" class="btn btn-default weixin" data-dismiss="modal"><span class="media-login weixin-ligin"></span></button>
+                                <button type="button" class="btn btn-default weibo" data-dismiss="modal"><span class="media-login weibo-login"></span></button>
+                                <button type="button" class="btn btn-default qq" data-dismiss="modal"><span class="media-login qq-login"></span></button>
+                            </div>
+                        </div>
+                        <div class="no-account">
+                            <div class="float-left no-account-left">还没有牛男账号？ 立即加入！</div>
+                            <button type="button" class="btn btn-default dialog-submit float-right no-account-right" data-dismiss="modal" data-toggle="modal" data-target="#rigester">立即注册</button>
+                        </div>
+                    </div>
+                    <div class="close-dialog" data-dismiss="modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- find password 查找密码-->
+    <div class="modal fade bs-example-modal-lg findpassword" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="findpassword">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="dialog-find-pwd">
+                    <div class="account-title">
+                        <img src="./images/findpwd.png" alt="" />
+                    </div>
+                    <div class="user-input">
+                        <div class="input-list">
+                            <input type="text" placeholder="请输入手机号码" class="findmobile" />
+                        </div>
+                        <div class="input-list">
+                            <input type="text" placeholder="请输入验证码" class="findcode" />
+                            <div class="get-codes find-get-code">获取验证码</div>
+                        </div>
+                        <div class="input-list">
+                            <input type="password" placeholder="请输入新密码" class="findpwd" />
+                        </div>
+                        <div class="input-list">
+                            <input type="password" placeholder="确认密码" class="refindpwd" />
+                        </div>
+                        <div class="worn">请完善找回密码相关资料</div>
+                        <div class="dialog-submit-wrap">
+                            <button type="button" class="btn btn-default dialog-submit findsure" data-dismiss="modal">确定</button>
+                            <button type="button" class="btn btn-link return-login" data-dismiss="modal" data-toggle="modal" data-target="#login">返回登录</button>
+                        </div>
+                    </div>
+                    <div class="close-dialog" data-dismiss="modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 菜单区域 -->
+    <div class="menu-content">
+        <div class="menu-search">
+            <div class="search-content">
+                <div class="float-left search-input">
+                    <input type="text" class="search-input-text" placeholder='search'>
+                </div>
+                <div class="search-btn"></div>
+            </div>
+        </div>
+        <div class="kinds">CHANNELS 频道</div>
+        <ul class="menu-list">
+            <li class="menu-list-item car"><a href="" class="car" data-color='#b9b9b9'>汽车 CAR</a></li>
+            <li class="menu-list-item fitness"><a href="" class="fitness" data-color='#d93347'>健身 FITNESS</a></li>
+            <li class="menu-list-item style"><a href="" class="style" data-color='#7e2dc2'>形象 STYLE</a></li>
+            <li class="menu-list-item entertanment"><a href="" class="entertanment" data-color='#cb07ad'>娱乐 entertainment</a></li>
+            <li class="menu-list-item deit"><a href="" class="deit" data-color='#00b451'>饮食 diet</a></li>
+            <li class="menu-list-item fun"><a href="" class="fun" data-color='#eb9318'>好玩 FUN</a></li>
+            <li class="menu-list-item love"><a href="" class="love" data-color='#ee246e'>情感 love</a></li>
+            <li class="menu-list-item successful"><a href="" class="successful" data-color='#29658a'>成长 successful</a></li>
+            <li class="menu-list-item health"><a href="" class="health" data-color='#76c422'>健康 health</a></li>
+            <li class="menu-list-item motivation"><a href="" class="motivation" data-color='#ff6600'>约会 motivational</a></li>
+        </ul>
+        <div class="kinds">ALBUMS 专辑</div>
+        <ul class="menu-list">
+            <li class="menu-list-item day30"><a href="" class="day30" data-color='#9cc422'>三十天健身计划</a></li>
+            <li class="menu-list-item neoman-music"><a href="" class="neoman-music" data-color='#267ad8'>每天一首牛男音乐</a></li>
+            <li class="menu-list-item find-girl"><a href="" class="find-girl" data-color='#22b6db'>牛男泡妞秘籍</a></li>
+        </ul>
+    </div>
+    <div class="main-wrap">
+        <div class="tp-mask"></div>
+        <header>
+            <div class="toCenter header">
+                <div class="float-left menu-logo">
+                    <div class="menu"><img src="./images/menu.png" alt="menu"></div>
+                    <div class="logo"><img src="./images/logo.png" alt="牛男网"></div>
+                </div>
+                <div class="float-left choose-wrap"></div>
+                <div class="float-right login-reg">
+                    <!-- 登录注册 登陆注册后移除 -->
+                    <span class="login-rigester">
+                        <a href="##" class="login" data-toggle="modal" data-target="#login">登录</a>
+                        <a href="##" class="reg" data-toggle="modal" data-target="#rigester">注册</a>
+                    </span>
+                    <!-- 登陆注册成功后显示 -->
+                    <div class="user-head-pic">
+                        <img src="images/defaultHeadPic.png" alt="" id="headpic">
+                        <div class="user-center">
+                            <ul class="list-ul">
+                                <li class="user-func-list addbor"><a href="">个人中心</a></li>
+                                <li class="user-func-list"><a href="">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="tp-content">
+            <div class="main toCenter">
+                <!-- 内容区域在这里 -->
+                <div class="self-info-container">
+                    <div class="info-bar" selfinfo-directive>
+                        <div class="head-img-container float-left">
+                            <img src="./images/defaultHeadPic.png" alt="" accept="image/png,image/jpeg" id="head-img"/>
+                            <input type="file" id="upload-img"/>
+                        </div>
+                        <div class="self-info">
+                            <div class="nickname-row">
+                                <div class="icon-box float-left">
+                                    <img src="images/head-icon.png" alt=""/>
+                                </div>
+                                <h3 class="message">何星辰</h3>
+                            </div>
+                            <div class="tel-row">
+                                <div class="icon-box float-left">
+                                    <img src="images/tel-icon.png" alt=""/>
+                                </div>
+                                <h4 class="message">18996471007</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">修改个人资料</button>
+
+                    <div class="modal fade bs-example-modal-lg" id="crop-box" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="gridSystemModalLabel">图片裁剪</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="img-container">
+                                        <img src="images/swiper1.png">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="button" id="submit-crop" class="btn btn-primary">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-hot-aside clear">
+                    <div class="new-hot float-left">
+                        <div class="new-hot-title">
+                            <div class="new-logo">
+                                <img src="./images/collect.png" alt="">
+                            </div>
+                        </div>
+                        <div class="new-hot-content">
+                            <div class="new-hot-content-item">
+                                <div class="float-left c-item-pic">
+                                    <img src="./images/latest-item.png" alt="">
+                                    <div class="msg-type body-building">健身</div>
+                                </div>
+                                <div class="c-item-msg">
+                                    <h3 class="c-item-pic-title"><a href="">C罗用过来经历告诉你，身体在球场上有多重要！！</a></h3>
+                                    <div class="power-by">BY <span>TONY小编</span></div>
+                                    <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>15分钟前</span></div>
+                                </div>
+                            </div>
+                            <div class="new-hot-content-item">
+                                <div class="float-left c-item-pic">
+                                    <img src="./images/latest-item1.png" alt="">
+                                    <div class="msg-type growth">成长</div>
+                                </div>
+                                <div class="c-item-msg">
+                                    <h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>
+                                    <div class="power-by">BY <span>TONY小编</span></div>
+                                    <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>
+                                </div>
+                            </div>
+                            <div class="new-hot-content-item">
+                                <div class="float-left c-item-pic">
+                                    <img src="./images/latest-item.png" alt="">
+                                    <div class="msg-type figure">形象</div>
+                                </div>
+                                <div class="c-item-msg">
+                                    <h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>
+                                    <div class="power-by">BY <span>TONY小编</span></div>
+                                    <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>
+                                </div>
+                            </div>
+                            <div class="new-hot-content-item">
+                                <div class="float-left c-item-pic">
+                                    <img src="./images/latest-item1.png" alt="">
+                                    <div class="msg-type good-play">成长</div>
+                                </div>
+                                <div class="c-item-msg">
+                                    <h3 class="c-item-pic-title"><a href="">最牛室内腹肌训练教程，你值得拥有！</a></h3>
+                                    <div class="power-by">BY <span>TONY小编</span></div>
+                                    <div class="power-time"><span class='time-pic'><img src="./images/timepic.png" alt=""></span><span class='time-text'>50分钟前</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="load-more">LOAD MORE</div>
+                    </div>
+                    <div class="aside">
+                        <div class="aside-title"><img src="./images/self-like.png" alt=""></div>
+                        <div class="aside-content">
+                            <div class="aside-list">
+                                <div class="float-left aside-pic">
+                                    <img src="./images/aside-pic1.png" alt="">
+                                </div>
+                                <div class="aside-pic-content">
+                                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
+                                    <div class="aside-pic-content-time">
+                                        <span class='time-pic'><img src="./images/timepic.png" alt=""></span>
+                                        <span class='aside-pic-content-time-text'>15分钟前</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aside-list">
+                                <div class="float-left aside-pic">
+                                    <img src="./images/aside-pic1.png" alt="">
+                                </div>
+                                <div class="aside-pic-content">
+                                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
+                                    <div class="aside-pic-content-time">
+                                        <span class='time-pic'><img src="./images/timepic.png" alt=""></span>
+                                        <span class='aside-pic-content-time-text'>15分钟前</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aside-list">
+                                <div class="float-left aside-pic">
+                                    <img src="./images/aside-pic1.png" alt="">
+                                </div>
+                                <div class="aside-pic-content">
+                                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
+                                    <div class="aside-pic-content-time">
+                                        <span class='time-pic'><img src="./images/timepic.png" alt=""></span>
+                                        <span class='aside-pic-content-time-text'>15分钟前</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aside-list">
+                                <div class="float-left aside-pic">
+                                    <img src="./images/aside-pic1.png" alt="">
+                                </div>
+                                <div class="aside-pic-content">
+                                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
+                                    <div class="aside-pic-content-time">
+                                        <span class='time-pic'><img src="./images/timepic.png" alt=""></span>
+                                        <span class='aside-pic-content-time-text'>15分钟前</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aside-list">
+                                <div class="float-left aside-pic">
+                                    <img src="./images/aside-pic1.png" alt="">
+                                </div>
+                                <div class="aside-pic-content">
+                                    <div class="aside-pic-content-title"><a href="">这样穿鞋？难怪你现在还是单身！!</a></div>
+                                    <div class="aside-pic-content-time">
+                                        <span class='time-pic'><img src="./images/timepic.png" alt=""></span>
+                                        <span class='aside-pic-content-time-text'>15分钟前</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="aside-load-more">LOAD VIDEOS</div>
+                        <div class="for-adds">
+                            AD 300*250px
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer>
+            <div class="footer-content toCenter">
+                <div class="float-left some-links">
+                    <div class="footer-logo">
+                        <img src="./images/footer-neoman.png" alt="">
+                    </div>
+                    <div class="links">
+                        <a href="" class="link">关于我们</a>
+                        <a href="" class="link">广告服务</a>
+                        <a href="" class="link">友情链接</a>
+                        <a href="" class="link">牛男商城</a>
+                        <a href="" class="link">加入牛男</a>
+                        <a href="" class="link">相关声明</a>
+                        <a href="" class="link">牛男APP</a>
+                        <a href="" class="link">欢迎投稿</a>
+                    </div>
+                </div>
+                <div class="float-right enter">
+                    <div class="betterman">立即加入成为更好的男人</div>
+                    <form action="">
+                        <div class="input-wrap clear">
+                            <div class="float-left input-text">
+                                <input type="text" placeholder='请输入您的邮箱'>
+                            </div>
+                            <div class="float-left enter-btn">立即加入</div>
+                        </div>
+                    </form>
+                    <div class="shares">
+                        <a href="" class="share"><img src="./images/single.png" alt=""></a>
+                        <a href="" class="share"><img src="./images/weibo.png" alt=""></a>
+                        <a href="" class="share"><img src="./images/weixin.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/swiper/swiper.min.js"></script>
+    <script src="bower_components/jquery.nicescroll/jquery.nicescroll.js"></script>
+    <script src="bower_components/dealimg/cropper.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/userhandle.js"></script>
+</body>
+
+</html>
