@@ -103,6 +103,7 @@
 	}
 	.new-hot-content-item .c-item-pic{
 		width: 100%;
+		min-height: 168px;
 		float: none;
 	}
 	.c-item-msg{

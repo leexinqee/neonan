@@ -49,6 +49,11 @@
 .cropper-container {
     margin: 0 auto;
 }
+.user-collect-wrap{
+    margin: 0 10px;
+    width: 100%;
+    overflow-x: hidden;
+}
 /*
     category 样式
 */
