@@ -14,7 +14,7 @@
         if(data.body){
             var host = window.location.host;
             var head = host+data.body.avatar;
-            $('#headpic').attr('src',head);
+            $('#headpic').attr('src',"http://"+head);
             $('.login-rigester').css('display','none');
             $('.user-head-pic').css('display','block');
         }
@@ -47,7 +47,7 @@
                 return;
             }
             if (!pass) {
-                alert('密码不能为空！')
+                alert('密码不能为空！');
                 return;
             }
             var param = {
