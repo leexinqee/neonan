@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/app.public.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/loginup.css" />
+    <link rel="stylesheet" href="css/self.info.css" />
+    <link rel="stylesheet" href="css/mediaquery.css" />
+    <link rel="stylesheet" href="css/content.detail.css" />
+    <link rel="stylesheet" href="css/tv.page.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/cropper.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <title>牛男网-主页</title>
+</head>
+
+<body>
+<!-- 所以弹框 -->
+<!-- logup 用户注册-->
+<div class="modal fade regdailog s-example-modal-lg modal-logup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="rigester">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="dialog-reg">
+                <div class="account-title">
+                    <img src="./images/res.png" alt="" />
+                </div>
+                <div class="user-input">
+                    <div class="input-list">
+                        <input type="text" placeholder="请输入手机号码或邮箱" class="regmobile" ng-model="emailOrPhone" />
+                    </div>
+                    <div class="input-list getcodes" style="display: block">
+                        <input id="enter-code" type="text" placeholder="请输入验证码" />
+                        <div class="get-code">获取验证码</div>
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="请输入密码" class="regemail" ng-model="password" />
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="确认密码" class="regpwd" ng-model="repassword" />
+                    </div>
+                    <div class="worn">注册请完善所有信息！</div>
+                    <div class="dialog-submit-wrap">
+                        <button type="button" class="btn btn-default dialog-submit" id="reg">立即注册</button>
+                        <button type="button" class="btn btn-link return-login" id="return" data-dismiss="modal" data-toggle="modal" data-target="#login">返回登录</button>
+                    </div>
+                </div>
+                <div class="close-dialog" data-dismiss="modal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- login 用户登录-->
+<div class="modal fade bs-example-modal-lg modal-login loginDailog" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="login">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="dialog-login">
+                <div class="account-title">
+                    <img src="./images/betterman.png" alt="" />
+                </div>
+                <div class="user-input">
+                    <div class="input-list">
+                        <input type="text" placeholder="请输入牛男账号(手机号/邮箱)" class="smslogin" />
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="请输入密码" class="smspwd" />
+                    </div>
+                    <div class="somewrong">
+                        您输入的账号或密码有误，请检查重新登录
+                    </div>
+                    <div class="rememberMe">
+                        <input type="checkbox" name="pwd" id="pwd" />
+                        <label for="pwd">记住我</label>
+                    </div>
+                    <div class="dialog-submit-wrap">
+                        <button type="button" class="btn btn-default dialog-submit loginnow">立即登录</button>
+                        <button type="button" class="btn btn-link return-login forgetpwd" data-dismiss="modal" data-toggle="modal" data-target="#findpassword">忘记密码？</button>
+                    </div>
+                    <div class="other-login">
+                        <div class="other-login-text">第三方登录</div>
+                        <div class="other-login-list">
+                            <button type="button" class="btn btn-default weixin" data-dismiss="modal"><span class="media-login weixin-ligin"></span></button>
+                            <button type="button" class="btn btn-default weibo" data-dismiss="modal"><span class="media-login weibo-login"></span></button>
+                            <button type="button" class="btn btn-default qq" data-dismiss="modal"><span class="media-login qq-login"></span></button>
+                        </div>
+                    </div>
+                    <div class="no-account">
+                        <div class="float-left no-account-left">还没有牛男账号？ 立即加入！</div>
+                        <button type="button" class="btn btn-default dialog-submit float-right no-account-right" data-dismiss="modal" data-toggle="modal" data-target="#rigester">立即注册</button>
+                    </div>
+                </div>
+                <div class="close-dialog" data-dismiss="modal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- find password 查找密码-->
+<div class="modal fade bs-example-modal-lg findpassword" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="findpassword">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="dialog-find-pwd">
+                <div class="account-title">
+                    <img src="./images/findpwd.png" alt="" />
+                </div>
+                <div class="user-input">
+                    <div class="input-list">
+                        <input type="text" placeholder="请输入手机号码" class="findmobile" />
+                    </div>
+                    <div class="input-list">
+                        <input type="text" placeholder="请输入验证码" class="findcode" />
+                        <div class="get-codes find-get-code">获取验证码</div>
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="请输入新密码" class="findpwd" />
+                    </div>
+                    <div class="input-list">
+                        <input type="password" placeholder="确认密码" class="refindpwd" />
+                    </div>
+                    <div class="worn">请完善找回密码相关资料</div>
+                    <div class="dialog-submit-wrap">
+                        <button type="button" class="btn btn-default dialog-submit findsure" data-dismiss="modal">确定</button>
+                        <button type="button" class="btn btn-link return-login" data-dismiss="modal" data-toggle="modal" data-target="#login">返回登录</button>
+                    </div>
+                </div>
+                <div class="close-dialog" data-dismiss="modal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 菜单区域 -->
+<div class="menu-content">
+    <div class="menu-search">
+        <div class="search-content">
+            <div class="float-left search-input">
+                <input type="text" class="search-input-text" placeholder='search'>
+            </div>
+            <div class="search-btn"></div>
+        </div>
+    </div>
+    <div class="kinds">CHANNELS 频道</div>
+    <ul class="menu-list">
+        <li class="menu-list-item car"><a href="" class="car" data-color='#b9b9b9'>汽车 CAR</a></li>
+        <li class="menu-list-item fitness"><a href="" class="fitness" data-color='#d93347'>健身 FITNESS</a></li>
+        <li class="menu-list-item style"><a href="" class="style" data-color='#7e2dc2'>形象 STYLE</a></li>
+        <li class="menu-list-item entertanment"><a href="" class="entertanment" data-color='#cb07ad'>娱乐 entertainment</a></li>
+        <li class="menu-list-item deit"><a href="" class="deit" data-color='#00b451'>饮食 diet</a></li>
+        <li class="menu-list-item fun"><a href="" class="fun" data-color='#eb9318'>好玩 FUN</a></li>
+        <li class="menu-list-item love"><a href="" class="love" data-color='#ee246e'>情感 love</a></li>
+        <li class="menu-list-item successful"><a href="" class="successful" data-color='#29658a'>成长 successful</a></li>
+        <li class="menu-list-item health"><a href="" class="health" data-color='#76c422'>健康 health</a></li>
+        <li class="menu-list-item motivation"><a href="" class="motivation" data-color='#ff6600'>约会 motivational</a></li>
+    </ul>
+    <div class="kinds">ALBUMS 专辑</div>
+    <ul class="menu-list">
+        <li class="menu-list-item day30"><a href="" class="day30" data-color='#9cc422'>三十天健身计划</a></li>
+        <li class="menu-list-item neoman-music"><a href="" class="neoman-music" data-color='#267ad8'>每天一首牛男音乐</a></li>
+        <li class="menu-list-item find-girl"><a href="" class="find-girl" data-color='#22b6db'>牛男泡妞秘籍</a></li>
+    </ul>
+</div>
+<div class="main-wrap">
+    <div class="tp-mask"></div>
+    <header>
+        <div class="toCenter header">
+            <div class="float-left menu-logo">
+                <div class="menu"><img src="./images/menu.png" alt="menu"></div>
+                <div class="logo"><img src="./images/logo.png" alt="牛男网"></div>
+            </div>
+            <div class="float-left choose-wrap"></div>
+            <div class="float-right login-reg">
+                <!-- 登录注册 登陆注册后移除 -->
+                    <span class="login-rigester">
+                        <a href="##" class="login" data-toggle="modal" data-target="#login">登录</a>
+                        <a href="##" class="reg" data-toggle="modal" data-target="#rigester">注册</a>
+                    </span>
+                <!-- 登陆注册成功后显示 -->
+                <div class="user-head-pic">
+                    <img src="images/defaultHeadPic.png" alt="" id="headpic">
+                    <div class="user-center">
+                        <ul class="list-ul">
+                            <li class="user-func-list addbor"><a href="">个人中心</a></li>
+                            <li class="user-func-list"><a href="">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="tp-content">
+        <div class="main toCenter">
+
+            <div class="about-container">
+                <div class="row">
+                    <div about-nav>
+                        <ul class="nav nav-tabs" role="tablist" id="tab-nav">
+                            <li><a href="about.html">关于我们</a></li>
+                            <li><a href="http://mp.weixin.qq.com/s?__biz=MjM5ODA1MzMwMA==&mid=205205726&idx=1&sn=bddc21041db47029ad1bf6d2ac37056a#rd">联系我们</a></li>
+                            <li><a href="sitemap.html">站点地图</a></li>
+                            <li class="active"><a href="privacy.html">隐私条款</a></li>
+                            <li><a href="disclaimer.html">免费申明</a></li>
+                            <li><a href="copyright.html">版权申明</a></li>
+                            <li><a href="links.html">友情链接</a></li>
+                            <li><a href="ad.html">广告服务</a></li>
+                            <li><a href="careers.html">加入牛男</a></li>
+                            <li><a href="contributors.html">欢迎投稿</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active">
+                                <div class="about-view">
+                                    <h1>PRIVACY /隐私声明</h1>
+                                    <div>
+                                        <p>
+                                            <a href="index.html">牛男网</a> 将采取适当的措施保护您的隐私。
+                                            牛男网将采取合理的步骤保护您提供给我们的敏感信息，
+                                            我们也将采取合理的安全手段保护已存储的个人信息。
+                                            除非根据法律或政府的强制性规定，在未得到您的许可之前，
+                                            我们不会把您的任何个人信息提供给无关的第三方（包括公司或个人）。
+                                            但是，如果您在注册时选择或同意，
+                                            或用户与牛男网及合作单位之间就用户信息资源公开或使用另有约定或您要求我们提供特定客户支援服务或把一些物品送交给您，
+                                            我们则需要把您的姓名和地址提供给第三者如运输公司。
+                                            我们的网站将会提供第三者网站的链接，
+                                            由于我们不能控制这些网站，
+                                            所以我们建议您细阅这些第三者网站的个人信息保密制度。
+                                        </p>
+                                        <dl>
+                                            <dt>一、一般而言，牛男基于下列原因需要使用到用户的信息资源：</dt>
+                                            <dd>执行信息验证服务。</dd>
+                                            <dd>提供升级服务。</dd>
+                                            <dd>提高您的使用安全性并提供客户支持。</dd>
+                                            <dd>因用户使用牛男网特定功能或因用户要求牛男网或合作单位提供特定服务时，牛男网或合作单位则需要把用户的信息提供给与此相关联的第三方。</dd>
+                                            <dd>其他有利于用户和牛男网利益的。</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>二、您同意牛男网将会尽其合理努力以保护您的计算机资源及计算机通讯的隐私性和完整性，但是， 您承认和同意牛男网不能就此事提供任何保证。"您承认和同意"的方式有：</dt>
+                                            <dd>接受本协议及牛男网发布的服务条款。</dd>
+                                            <dd>用户通过电子邮件、电话、传真、即时通信等方式所作的口头或书面表示。</dd>
+                                            <dd>协议或服务声明中有"默认同意"条款，用户对此无异议的。</dd>
+                                            <dd>其他牛男牛男网与用户均认可的方式。</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>三、牛男网也许会因法律要求披露个人资料，或者因善意确信这样的作法对于下列各项有其必要性，在此情况下之任何披露，本网站均不承担任何责任。</dt>
+                                            <dd>符合法律公告或遵守适用于牛男网站点的合法程序。</dd>
+                                            <dd>保护牛男网的用户之权利或财产。</dd>
+                                            <dd>在紧急的情况下，为了保护牛男网及其用户之个人或公众安全。</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>四、Cookies</dt>
+                                            <dd>Cookies 是指一种技术，当使用者访问设有 Cookies 装置的本网站时，本网站之服务器可能会自动发送 Cookies 至阁下浏览器内，并储存到您的电脑硬盘内，此 Cookies 便负责记录日后您到访本网站的种种活动、个人资料、浏览习惯、消费习惯甚至信用记录。</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>五、免责</dt>
+                                            <dd>除上述第三条规定属免责外，下列情况时牛男网亦毋需承担任何责任：</dd>
+                                            <dd>由于您将用户密码告知他人或与他人共享注册帐户，由此导致的任何个人资料泄露。</dd>
+                                            <dd>任何由于黑客政击、计算机病毒侵入或发作、因政府管制而造成的暂时性关闭等影响网络正常经营之不可抗力而造成的个人资料泄露、丢失、被盗用或被篡改等。</dd>
+                                            <dd>由于与本网站链接的其它网站所造成之个人资料泄露及由此而导致的任何法律争议和后果。</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content toCenter">
+            <div class="float-left some-links">
+                <div class="footer-logo">
+                    <img src="./images/footer-neoman.png" alt="">
+                </div>
+                <div class="links">
+                    <a href="" class="link">关于我们</a>
+                    <a href="" class="link">广告服务</a>
+                    <a href="" class="link">友情链接</a>
+                    <a href="" class="link">牛男商城</a>
+                    <a href="" class="link">加入牛男</a>
+                    <a href="" class="link">相关声明</a>
+                    <a href="" class="link">牛男APP</a>
+                    <a href="" class="link">欢迎投稿</a>
+                </div>
+            </div>
+            <div class="float-right enter">
+                <div class="betterman">立即加入成为更好的男人</div>
+                <form action="">
+                    <div class="input-wrap clear">
+                        <div class="float-left input-text">
+                            <input type="text" placeholder='请输入您的邮箱'>
+                        </div>
+                        <div class="float-left enter-btn">立即加入</div>
+                    </div>
+                </form>
+                <div class="shares">
+                    <a href="" class="share"><img src="./images/single.png" alt=""></a>
+                    <a href="" class="share"><img src="./images/weibo.png" alt=""></a>
+                    <a href="" class="share"><img src="./images/weixin.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/swiper/swiper.min.js"></script>
+<script src="bower_components/jquery.nicescroll/jquery.nicescroll.js"></script>
+<script src="bower_components/dealimg/cropper.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/userhandle.js"></script>
+</body>
+
+</html>
