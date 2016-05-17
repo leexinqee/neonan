@@ -1,4 +1,4 @@
-(function() {
+(function(window) {
     var BASEURL = 'http://phptest.neonan.com/';
     var menuIcon = document.querySelector('.menu'),
         menuContent = document.querySelector('.menu-content'),
@@ -250,4 +250,8 @@
     window.onresize = function() {
         menuContent.style.height = window.innerHeight + "px";
     }
-})()
+
+    window.public = {
+        BASEURL : BASEURL
+    }
+})(window);

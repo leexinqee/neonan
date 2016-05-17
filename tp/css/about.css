@@ -45,7 +45,8 @@
 
 
 #ad-iframe {
-    width: 100%;
+    width: 1070px;
+    max-width: 1070px;
     height: 800px;
     min-height: 800px;
 }
@@ -62,6 +63,9 @@
     }
     .nav>li>a {
         padding: 5px 10px;
+    }
+    .about-container .row {
+        overflow: auto;
     }
 }
 

@@ -218,17 +218,29 @@
                             <div role="tabpanel" class="tab-pane fade in active">
                                 <div class="sitemap-container about-view">
                                     <h1>SITEMAP /站点地图</h1>
-                                    <div class="content">
-                                        <div class="row">
-                                            <dl class="item-row dl-horizontal clearfix">
-                                                <dt class="item-title">{{item.title}}</dt>
-                                                <dd class="item-link">
-                                                    <a href="" ng-switch-when="tv">{{items.title}}</a>
-                                                    <a href="" ng-switch-default>{{items.title}}</a>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
+                                    <div class="content" id="links-container">
+
+                                        <script type="text/html" id="links-template">
+                                            {{each list}}
+                                                <div class="row">
+                                                    <dl class="item-row dl-horizontal clearfix">
+                                                        <dt class="item-title">{{$value.title}}</dt>
+                                                        {{if $value.children}}
+                                                            {{each $value.children}}
+                                                                <dd class="item-link">
+                                                                    <a href="{{baseUrl + $value.slug}}">{{$value.title}}</a>
+                                                                </dd>
+                                                            {{/each}}
+                                                        {{ else }}
+                                                            <dd class="item-link">
+                                                                <a href="{{baseUrl + $value.slug}}">{{$value.title}}</a>
+                                                            </dd>
+                                                        {{/if}}
+                                                    </dl>
+                                                </div>
+                                            {{/each}}
+                                        </script>
+
                                 </div>
                             </div>
                         </div>
@@ -275,12 +287,18 @@
     </footer>
 </div>
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/template/template.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/swiper/swiper.min.js"></script>
 <script src="bower_components/jquery.nicescroll/jquery.nicescroll.js"></script>
 <script src="bower_components/dealimg/cropper.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/userhandle.js"></script>
+<script>
+    $.get(public.BASEURL + "category", function(data){
+        data.body.baseUrl = public.BASEURL;
+        $("#links-container").html(template("links-template", data.body))
+    })
+</script>
 </body>
-
 </html>
