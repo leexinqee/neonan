@@ -246,6 +246,27 @@
             type: "click"
         })
     }
+
+    // 菜单搜索
+    var $searchInput = $(".search-input-text");
+    var $searchBtn = $(".search-btn");
+    $searchBtn.on("click", function(){
+        var val = $searchInput.val();
+        window.location.href = BASEURL + 'search?q='+ val;
+        $('.main-wrap').toggleClass('open');
+        $searchInput.val("")
+    });
+    $searchInput.on("keypress", function(e) {
+        var char = event.which || event.keyCode;
+        if(char == 13) {
+            var val = $searchInput.val();
+            window.location.href = BASEURL + 'search?q='+ val;
+            $('.main-wrap').toggleClass('open');
+            $searchInput.val("")
+        }
+    });
+
+
     //window size change then change menu
     window.onresize = function() {
         menuContent.style.height = window.innerHeight + "px";

@@ -19,27 +19,6 @@
     <link rel="stylesheet" href="css/content.detail.css" />
     <link rel="stylesheet" href="css/tv.page.css" />
     <link rel="stylesheet" href="css/about.css" />
-    <link rel="stylesheet" href="css/cropper.css" /><!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="fragment" content="!">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/swiper.min.css" />
-    <link rel="stylesheet" href="css/app.public.css" />
-    <link rel="stylesheet" href="css/animation.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/loginup.css" />
-    <link rel="stylesheet" href="css/self.info.css" />
-    <link rel="stylesheet" href="css/mediaquery.css" />
-    <link rel="stylesheet" href="css/content.detail.css" />
-    <link rel="stylesheet" href="css/tv.page.css" />
-    <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/cropper.css" />
     <link rel="stylesheet" href="css/index.css">
     <title>牛男网-个人中心</title>
@@ -157,6 +136,24 @@
             </div>
         </div>
     </div>
+
+    <!--
+
+        -----  添加
+
+
+    -->
+
+
+
+    <!--
+
+        -----  添加结束
+
+
+    -->
+
+
     <!-- 菜单区域 -->
     <div class="menu-content">
         <div class="menu-search">
@@ -215,6 +212,7 @@
                 </div>
             </div>
         </header>
+
         <div class="tp-content">
             <div class="main toCenter">
                 <!-- 内容区域在这里 -->
@@ -239,8 +237,19 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary">修改个人资料</button>
+                    <!--
 
+                        -----  修改
+
+
+                    -->
+                    <button class="btn btn-primary" id="modified-info">修改个人资料</button>
+                    <!--
+
+                        -----  修改结束
+
+
+                    -->
                     <div class="modal fade bs-example-modal-lg" id="crop-box" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -425,6 +434,9 @@
             </div>
         </footer>
     </div>
+
+
+
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/swiper/swiper.min.js"></script>
@@ -432,6 +444,19 @@
     <script src="bower_components/dealimg/cropper.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/userhandle.js"></script>
-</body>
 
+    <!--
+
+        -----  添加
+
+
+    -->
+    <script src="js/selfinfo.js"></script>
+    <!--
+
+        -----  添加结束
+
+
+    -->
+</body>
 </html>

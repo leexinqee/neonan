@@ -424,7 +424,6 @@ app.controller("tvDetailCtrl", function($scope, MessagesService, $stateParams, $
             html = '<video width="100%" controls><source src="'+ data.body.url +'"  type="video/mp4"></video>';
         } else {
             html = '<iframe class="video_area" src="'+ data.body.url +'" frameborder="0" width="100%" height="400"></iframe>'
-
         }
         $("#movie").html(html);
 

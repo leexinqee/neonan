@@ -1,0 +1,51 @@
+<!-- 选择文件 -->
+<div class="modal fade bs-example-modal-lg" id="crop-box" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">图片裁剪</h4>
+            </div>
+            <div class="modal-body">
+                <div class="img-container">
+                    <img src="images/swiper1.png">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" id="submit-crop" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 用户修改信息-->
+<div class="modal fade bs-example-modal-lg changeInfoPanel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="change-info">
+                <div class="account-title">
+                    <img src="./images/change-info.png" alt="" />
+                </div>
+                <div class="user-input">
+                    <div class="input-list">
+                        <input type="tel" ng-model="changePhone" placeholder="请输入手机号码" />
+                    </div>
+                    <div class="input-list">
+                        <input type="email" ng-model="changeEmail" placeholder="请输入邮箱" />
+                    </div>
+                    <div class="input-list">
+                        <input type="text" ng-model="changeName" placeholder="姓名" />
+                    </div>
+                    <div class="input-list">
+                        <input type="text" ng-model="changeBio" placeholder="个人简介" />
+                    </div>
+                    <div class="dialog-submit-wrap">
+                        <button type="button" class="btn btn-default dialog-submit">保存修改</button>
+                    </div>
+                </div>
+                <div class="close-dialog"></div>
+            </div>
+        </div>
+    </div>
+</div>
