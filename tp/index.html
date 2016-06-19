@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/cropper.css" />
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/neonan-icon.css">
     <title>牛男网-主页</title>
 </head>
 
@@ -191,6 +192,48 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            <style type="text/css">
+                .head-search{
+                    height: 50px;
+                }
+                .h-search{
+                    width: 120px;
+                    height: 30px;
+                    background-color: #818181;
+                    border:0;
+                    outline: none;
+                    transition: width .3s,background-color .3s;
+                    border-radius: 3px;
+                    padding-left: 10px;
+                }
+                .h-search:focus{
+                    width: 200px;
+                    background-color: #bebebe;
+                }
+                .input-wrap{
+                    margin-right: 50px;
+                    position: relative;
+                    height: 30px;
+                    margin-top: 10px;
+                    float:right;
+                }
+                .h-search-btn{
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                    line-height: 30px;
+                    cursor: pointer;
+                }
+            </style>
+            <div class="head-search float-right">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="input-wrap">
+                    <input type="" name="" class="h-search" placeholder="搜索">
+                    <i class="icon-search neonan-icon h-search-btn"></i>
+                </span>
             </div>
         </div>
     </header>
@@ -462,6 +505,33 @@
 <script src="js/utils.js"></script>
 <script src="js/userhandle.js"></script>
 <script src="js/index.js"></script>
+<script type="text/javascript">
+    var count = 0
+    $(window).on('scroll',function(){
+        var t = $('.load-more').offset().top;
+        var wh = $(window).height();
+        var c = $('.new-hot-content').html();
+        var flag = true;
+        var st = $(this).scrollTop();
+        if(st>t-wh){
+            console.log(count)
+            if(count<4){
+                var o = $('.new-hot-content').html();
+                if(flag){
+                    flag = false;
+                    $('.load-more').html('加载中')
+                    timer = setTimeout(function(){
+                        $('.new-hot-content').html(o+c);
+                        t = $('.load-more').offset().top;
+                        count++;
+                        $('.load-more').html('加载更多');
+                        flag = true;
+                    },1000)
+                }
+            }
+        }
+    })
+</script>
 </body>
 
 </html>
